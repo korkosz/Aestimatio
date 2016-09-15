@@ -1,0 +1,1 @@
+console.log('Udalo sie zalogowac glowny plik js');
