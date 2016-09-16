@@ -1,5 +1,16 @@
 module.exports = function (grunt) {
     grunt.initConfig({
+        run: {
+            integration_server: {
+                options: {
+                    wait: false
+                },
+                // cmd: "node", // but that's the default 
+                args: [
+                    'server'
+                ]
+            }
+        },
         sass: {
             options: {
                 sourceMap: true
@@ -12,17 +23,31 @@ module.exports = function (grunt) {
         },
         watch: {
             css: {
-                files: '**/*.scss',
+                files: ['client/**/*.scss'],
                 tasks: ['sass'],
                 options: {
                     livereload: true
                 },
             },
+            js: {
+                files: ['client/**/*.js'],
+                tasks: ['run'],
+                options: {
+                    livereload: true
+                }
+            },
+            html: {
+                files: ['client/**/*.html'],
+                options: {
+                    livereload: true
+                }
+            }
         },
     });
 
+    grunt.loadNpmTasks('grunt-run');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['run', 'watch']);
 }
