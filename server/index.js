@@ -25,8 +25,9 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-app.use(express.static('client'));
 
+app.use(express.static('client'));
+app.use('/bower_components', express.static('bower_components'));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,9 +50,9 @@ app.use(passport.session());
 app.get('/', function (req, res) {
     res.sendFile(path.resolve('client/index.html'));
 });
-// app.get('/login', function (req, res) {
-//     res.sendFile(path.resolve('client/app/account/login.html'));
-// });
+app.get('/login', function (req, res) {
+    res.sendFile(path.resolve('client/app/account/login.html'));
+});
 // app.get('/register', function (req, res) {
 //     res.sendFile(path.resolve('client/app/account/register.html'));
 // });
@@ -68,7 +69,7 @@ app.get('/', function (req, res) {
 //     });
 // });
 // app.post('/login', passport.authenticate('local'), function (req, res) {
-    
+
 //     res.redirect('/');
 // });
 // app.get('/logout', function (req, res) {
