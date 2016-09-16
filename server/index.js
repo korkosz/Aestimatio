@@ -77,5 +77,5 @@ app.get('/logout', function (req, res) {
     res.redirect('/');
 });
 app.listen(3000, function () {
-    console.log("Server started at port 3003");
+    console.log("Server started at port 3000");
 });
