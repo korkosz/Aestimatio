@@ -1,0 +1,18 @@
+{
+  "name": "aestimation",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "chmieltrybulec@gmail.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/korkosz/Aestimatio",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

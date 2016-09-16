@@ -25,8 +25,9 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-app.use(express.static('client'));
 
+app.use(express.static('client'));
+app.use('/bower_components', express.static('bower_components'));
 
 app.use(passport.initialize());
 app.use(passport.session());
