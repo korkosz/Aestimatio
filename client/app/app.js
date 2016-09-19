@@ -1,6 +1,10 @@
 'use strict';
 
-angular.module('aestimatio', ['aestimatio.account']);
+var angular = require('angular');
+
+angular.module('aestimatio', [
+    require('./account').name
+]);
 
 angular.element(document)
     .ready(() => {

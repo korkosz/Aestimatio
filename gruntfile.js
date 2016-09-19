@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
     grunt.initConfig({
+        clean: 'client/dist/app',
         babel: {
             options: {
                 sourceMap: true
@@ -9,10 +10,17 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'client/',
-                        src: ['**/*.js'],
+                        src: ['app/**/*.js'],
                         dest: 'client/dist/'
                     }
                 ]
+            }
+        },
+        browserify: {
+            dist: {
+                files: {
+                    'client/dist/bundle.js': 'client/dist/app/index.js'
+                }
             }
         },
         sass: {
@@ -27,20 +35,21 @@ module.exports = function (grunt) {
         },
         watch: {
             css: {
-                files: ['client/**/*.scss'],
+                files: ['client/app/**/*.scss'],
                 tasks: ['sass'],
                 options: {
                     livereload: true
                 },
             },
             js: {
-                files: ['client/**/*.js'],
+                files: ['client/app/**/*.js'],
+                tasks: ['babel', 'browserify', 'clean'],
                 options: {
                     livereload: true
                 }
             },
             html: {
-                files: ['client/**/*.html'],
+                files: ['client/app/**/*.html'],
                 options: {
                     livereload: true
                 }
@@ -48,9 +57,11 @@ module.exports = function (grunt) {
         },
     });
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['babel', 'watch']);
+    grunt.registerTask('default', ['babel', 'browserify', 'clean', 'watch']);
 };
