@@ -1,16 +1,20 @@
 module.exports = function (grunt) {
     grunt.initConfig({
-        // run: {
-        //     integration_server: {
-        //         options: {
-        //             wait: false
-        //         },
-        //         // cmd: "node", // but that's the default 
-        //         args: [
-        //             'server'
-        //         ]
-        //     }
-        // },
+        babel: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'client/',
+                        src: ['**/*.js'],
+                        dest: 'client/dist/'
+                    }
+                ]
+            }
+        },
         sass: {
             options: {
                 sourceMap: true
@@ -44,9 +48,9 @@ module.exports = function (grunt) {
         },
     });
 
-    grunt.loadNpmTasks('grunt-run');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['watch']);
-}
+    grunt.registerTask('default', ['babel', 'watch']);
+};
