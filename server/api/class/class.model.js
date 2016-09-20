@@ -1,16 +1,18 @@
-var mongoose = require('mongoose').Schema;
+var mongoose = require('mongoose');
 
-var ClassSchema = new Schema({
+var day = {
+    day: Number,
+    subjects: [String]
+};
+
+var ClassSchema = new mongoose.Schema({
     // name: String,
     // grade: {
     //     startDate: Number,
     //     endDate: Number
     // },
     subjects: [String],
-    timetable: [{
-        day: Number,
-        subjects: [String]
-    }],
+    timetable: [day],
     testTypes: [{
         _id: Number,
         name: String,

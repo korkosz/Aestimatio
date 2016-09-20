@@ -2,8 +2,9 @@
 	"version": 3,
 	"file": "app.css",
 	"sources": [
-		"../app/app.scss"
+		"../app/app.scss",
+		"../app/user/grades/grades.scss"
 	],
-	"mappings": "AAAA,AAAA,SAAS,CAAC;EACR,gBAAgB,EAAE,IAAK,GACxB;;AAED,mCAAmC",
+	"mappings": "ACAA,AAAA,IAAI,CAAA;EACA,UAAU,EAAE,cAAe,GAC9B;;ADAD,AAAA,SAAS,CAAC;EACR,gBAAgB,EAAE,IAAK,GACxB;;AAED,mCAAmC",
 	"names": []
 }
