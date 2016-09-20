@@ -29,7 +29,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'client/dist/app.css': 'client/app/app.scss'
+                    'client/dist/app.css': 'client/app/**/*.scss'
                 }
             }
         },
