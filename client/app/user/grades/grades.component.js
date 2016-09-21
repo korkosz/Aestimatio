@@ -4,5 +4,5 @@ class ctrl {
 
 module.exports = {
     controller: ctrl,
-    templateUrl: '/static/app/user/grades/grades.html'
+    templateUrl: '/static/app/user/grades/grades.template.html'
 };

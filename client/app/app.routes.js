@@ -6,5 +6,5 @@ module.exports = ['$routeProvider', '$locationProvider',
             .when('/login', {
                 template: '<login></login>'
             });
-        $locationProvider.html5Mode(true).hashPrefix('*');
+        $locationProvider.html5Mode(true);
     }];
