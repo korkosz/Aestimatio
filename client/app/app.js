@@ -2,9 +2,13 @@
 
 var angular = require('angular');
 
-angular.module('aestimatio', [
-    require('./account').name
-]);
+angular
+    .module('aestimatio', [
+        require('angular-route'),
+        require('./account').name,
+        require('./user').name
+    ])
+    .config(require('./app.routes'));
 
 angular.element(document)
     .ready(() => {

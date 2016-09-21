@@ -1,11 +1,11 @@
 class ctrl {
     constructor() {
-        alert('login component loaded');
+       
     }
 }
 
 var component = {
-    templateUrl: './login.template.html',
+    templateUrl: '/static/app/account/login/login.template.html',
     controller: ctrl
 };
 

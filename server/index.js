@@ -23,7 +23,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use(express.static('client'));
+app.use('/static', express.static('client'));
 app.use('/bower_components', express.static('bower_components'));
 
 //config and setup passport
@@ -33,6 +33,7 @@ app.use(passport.session());
 
 //configure routes
 require('./routes')(app);
+// All other routes should redirect to the index.html
 
 app.listen(3000, function () {
     console.log("Server started at port 3000"); //eslint-disable-line
