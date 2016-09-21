@@ -7,7 +7,7 @@ module.exports = function (app) {
     //     res.sendFile(path.resolve('client/index.html'));
     // });
 
-    app.use(auth);
+    app.use('/auth', auth);
     app.use('/api/class', _class);
     app.get('/*', (req, res) => {
         res.sendFile(path.resolve('client/index.html'));
