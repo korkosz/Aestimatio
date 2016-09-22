@@ -1,9 +1,13 @@
 /*BASE***/
 @import "./base/normalize.scss";
 @import "./base/variables.scss";
+@import "./base/fonts.scss";
 
 /*LAYOUT***/
 @import "./layout/menu.scss";
 @import "./layout/footer.scss";
+@import "./layout/subheader.scss";
+@import "./layout/container.scss";
+@import "./layout/buttons.scss";
 
 @import './user/grades/grades.scss';
