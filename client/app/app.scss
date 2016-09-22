@@ -1,7 +1,9 @@
+/*BASE***/
+@import "./base/normalize.scss";
+@import "./base/variables.scss";
+
+/*LAYOUT***/
+@import "./layout/menu.scss";
+@import "./layout/footer.scss";
+
 @import './user/grades/grades.scss';
-
-.cls-body {
- /* background-color: blue;*/
-}
-
-/*# sourceMappingURL=app.css.map */
