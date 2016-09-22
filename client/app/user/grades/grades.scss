@@ -1,0 +1,31 @@
+.m-grades{
+    margin-top: 50px;
+}
+
+.m-grades__variables{
+    margin-bottom: 1em;
+}
+
+.m-grades__grade{
+    color: $main-color--darker2;
+    font-size: 19px;
+    margin: 0 0.07em;
+}
+
+.m-grades__average-grade{
+    font-size: 13px;
+}
+
+.m-grades__box{
+    background: #f2f0ff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 5px;
+    h3{
+        margin: 0;
+        color: $main-color;
+        font-size: 20px;
+        margin-bottom: 0.5em;
+    }
+}

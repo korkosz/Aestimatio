@@ -11,3 +11,13 @@
 @import "./layout/buttons.scss";
 
 @import './user/grades/grades.scss';
+
+
+.no-padding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+/*BOOTSTRAP***/
+@import "./base/bootstrap/css/bootstrap-grid.scss";
+@import "./base/bootstrap/css/bootstrap-flex.scss";

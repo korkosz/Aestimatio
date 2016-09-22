@@ -1,4 +1,5 @@
 .l-btn-add{
+    display: inline-block;
     width: 1.3em;
     height: 1.3em;
     background: $cta-color;
@@ -7,4 +8,8 @@
     text-align: center;
     font-size: 24px;
     color: #fff;
+}
+
+.l-btn-add--small{
+    font-size: 20px;
 }
