@@ -1,7 +1,15 @@
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 
-div, section, article, aside{
+*{
     box-sizing: border-box;
+    position: relative;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 /**

@@ -1,9 +1,30 @@
 .m-grades{
     margin-top: 50px;
+
+    &::after{
+        content: "";
+        background: transparent;
+        transition: 0.5s;
+    }
+    &.is-open::after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.64);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+    }
 }
 
-.m-grades__variables{
-    margin-bottom: 1em;
+#modal-mask{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
 }
 
 .m-grades__grade{
@@ -22,10 +43,39 @@
     text-align: center;
     border-radius: 15px;
     margin: 5px;
+    margin-left: calc(-1rem + 5px);
+    margin-right: calc(-1rem + 5px);
+    height: calc(100% - 10px);
     h3{
         margin: 0;
         color: $main-color;
         font-size: 20px;
         margin-bottom: 0.5em;
+    }
+}
+
+.m-grades__add-modal{
+    display: none;
+    position: absolute;
+    background: $main-color;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 40px rgba(4, 4, 4, 0.44);
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+    width: 16rem;
+    @media only screen and (max-width: 48em) {
+        max-width: 120%;
+    }
+
+    &.is-open{
+        display: block;
+        animation: modal-open 0.3s both;
+    }
+    &.is-close{
+        display: block;
+        animation: modal-close 0.15s both;
     }
 }

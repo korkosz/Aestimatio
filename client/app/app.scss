@@ -2,6 +2,7 @@
 @import "./base/normalize.scss";
 @import "./base/variables.scss";
 @import "./base/fonts.scss";
+@import "./base/flexbox-grid/flexboxgrid.scss";
 
 /*LAYOUT***/
 @import "./layout/menu.scss";
@@ -9,15 +10,11 @@
 @import "./layout/subheader.scss";
 @import "./layout/container.scss";
 @import "./layout/buttons.scss";
+@import "./layout/inputs.scss";
+
+/*MODULES***/
+
+/*STATE***/
+@import "./state/animations.scss";
 
 @import './user/grades/grades.scss';
-
-
-.no-padding {
-   padding: 0 !important;
-   margin: 0 !important;
-}
-
-/*BOOTSTRAP***/
-@import "./base/bootstrap/css/bootstrap-grid.scss";
-@import "./base/bootstrap/css/bootstrap-flex.scss";
