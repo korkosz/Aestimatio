@@ -1,0 +1,25 @@
+.m-average-grade{
+    font-size: 1rem;
+    text-align: center;
+    padding: 5em 0;
+    h5{
+        text-align: center;
+        font-size: 1em;
+        letter-spacing: 1px;
+        color: $main-color;
+    }
+}
+
+.m-average-grade__value{
+    font-size: 2em;
+    background: lighten($cta-color, 3%);
+    display: inline-block;
+    border-radius: 50%;
+    color: darken($cta-color, 20%);
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 2.5em;
+    text-align: center;
+    box-sizing: content-box;
+    animation: bounce-border 1.5s both linear infinite alternate;
+}
