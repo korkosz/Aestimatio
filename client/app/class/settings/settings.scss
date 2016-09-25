@@ -1,5 +1,33 @@
-.m-settings__subjects{
+.m-settings__subjects,
+.m-settings__grade-types{
     background: $main-color--lighter2;
     padding: 2rem;
     border-radius: 1rem;
+    margin-top: 5rem;
+    padding-bottom: 3rem;
+    @media only screen and (max-width: 48rem) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    h3{
+        text-align: center;
+        color: $main-color;
+        font-size: 2rem;
+        margin: auto;
+        margin-top: 0;
+        margin-bottom: 1em;
+    }
+
+    .l-btn__close{
+        position: absolute;
+        right: 1.2em;
+        top: 0.6em;
+    }
+
+    .l-btn__add{
+        margin: auto;
+        font-size: 2rem;
+        margin-top: 1em;
+    }
 }

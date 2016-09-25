@@ -2,7 +2,7 @@
     <h2>My grades</h2>
 </header>
 
-<section class="m-grades l-container">
+<section class="m-grades m-modals__mask l-container">
     <div class="m-grades__container row">
         <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
             <div class="m-grades__box">
@@ -19,10 +19,7 @@
                 <div class="l-btn__wrapper">
                     <button class="l-btn__add l-btn__default l-btn__add--small">+</button>
                     <!-- Modal -->
-                    <div class="m-grades-modal-mask">
-
-                    </div>
-                    <div class="m-grades__add-modal">
+                    <div class="m-modals__add-modal">
                         <input class="l-inputs__text-type" placeholder="Grade...">
                         <div class="l-inputs__dropdown-btn">
                             Grade type
@@ -34,8 +31,6 @@
             </div>
         </div>
 
-
-        <!-- TEST TEST TEST TEST TEST TEST TEST -->
         <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
             <div class="m-grades__box">
                 <h3>Math</h3>
@@ -54,7 +49,7 @@
                 <div class="l-btn__wrapper">
                     <button class="l-btn__add l-btn__default l-btn__add--small">+</button>
                     <!-- Modal -->
-                    <div class="m-grades__add-modal">
+                    <div class="m-modals__add-modal">
                         <input class="l-inputs__text-type" placeholder="Grade...">
                         <div class="l-inputs__dropdown-btn">
                             Grade type
@@ -134,36 +129,57 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
+            <div class="m-grades__box">
+                <h3>Biology</h3>
+                <div class="m-grades__variables">
+                    <span class="m-grades__grade">5</span>
+                    <span class="m-grades__grade">4</span>
+                    <span class="m-grades__grade">3</span>
+                    <span class="m-grades__grade">5</span>
+                    <span class="m-grades__grade">5</span>
+                    <!-- srednia z ocen -->
+                    <span class="m-grades__average-grade">(4.4)</span>
+                </div>
+                <div class="l-btn__wrapper">
+                    <button class="l-btn__add l-btn__default l-btn__add--small">+</button>
+                    <!-- Modal -->
+                    <div class="m-modals__add-modal">
+                        <input class="l-inputs__text-type" placeholder="Grade...">
+                        <div class="l-inputs__dropdown-btn">
+                            Grade type
+                        </div>
+                        <button class="l-btn__default l-btn__primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- END-TEST END-TEST END-TEST END-TEST END-TEST -->
 </section>
 
 <!-- ziomek to daje tu tylko bo nie mam gdzie narazie-->
 <user-average-grade></user-average-grade>
 
 <script type="text/javascript">
-    var btn = $(".l-btn__add");
-        grades = $('.m-grades');
 
-    btn.click(function(){
-        //Open modal
-        $(this).siblings('.m-grades__add-modal').removeClass('is-close').addClass('is-open');
-        grades.addClass('is-open');
-        //Add modal mask
-        grades.prepend('<div id="modal-mask"></div>');
+var btn = $(".l-btn__add");
+    mask = $('.m-modals__mask');
 
-    $('#modal-mask').click(function(){
-        //Close modal
-        grades.removeClass('is-open');
-        $('.m-grades__add-modal.is-open').removeClass('is-open').addClass('is-close');
-        //Remove modal mask
-        $(this).remove();
+btn.click(function(){
+    //Open modal
+    $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
+    $(this).parents('.m-modals__mask').addClass('is-open');
+    //Add modal mask
+    $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
 
-    })
-    })
+$('#m-modals-mask').click(function(){
+    //Close modal
+    mask.removeClass('is-open');
+    $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
+    //Remove modal mask
+    $(this).remove();
 
-
-
-
-
+})
+})
 </script>

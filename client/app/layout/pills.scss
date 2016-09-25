@@ -1,6 +1,24 @@
+.l-pill__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
 .l-pill__default{
     display: inline-block;
-    background: red;
+    font-size: 1rem;
     padding: 0.7em 4em;
+    padding-right: 4.5em;
     border-radius: 3em;
+    margin: 0.25em 0.2em;
+    background: transparentize($main-color--darker2, 0.9);
+    color: $main-color;
+
+    @media only screen and (max-width: 48rem) {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
 }

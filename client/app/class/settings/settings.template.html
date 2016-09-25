@@ -3,32 +3,105 @@
 </header>
 <div class="m-settings__content-container  l-container">
     <!-- Subjects -->
-    <section class="m-settings__subjects">
-        <div class="l-pill__default">
-            Math
+    <section class="m-settings__subjects m-modals__mask row">
+        <h3>Subjects</h3>
+        <div class="l-pill__wrapper">
+            <h4 class="l-pill__default">
+                Math
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
+            <h4 class="l-pill__default">
+                History
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
+            <h4 class="l-pill__default">
+                Bilogy
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
+            <h4 class="l-pill__default">
+                Kurwcosdlugiego
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
+            <h4 class="l-pill__default">
+                Kurwcosdlugiegodededdcscscsc
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
+            <h4 class="l-pill__default">
+                Kurwcosdlugiego
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
         </div>
-        <div class="l-pill__default">
-            History
-        </div>
-        <div class="l-pill__default">
-            Bilogy
-        </div>
-        <div class="l-pill__default">
-            Kurwcosdlugiego
-        </div>
-        <div class="l-pill__default">
-            Kurwcosdlugiego
-        </div>
-        <div class="l-pill__default">
-            Kurwcosdlugiego
+        <!-- Add new subject -->
+        <div class="l-btn__wrapper">
+            <button class="l-btn__default l-btn__add">+</button>
+            <div class="m-modals__add-modal">
+                <input class="l-inputs__text-type" placeholder="Grade...">
+                <div class="l-inputs__dropdown-btn">
+                    Grade type
+                </div>
+                <div class="l-btn__wrapper">
+                    <button class="l-btn__default l-btn__primary">Add</button>
+                </div>
+            </div>
         </div>
     </section>
     <!-- Grade types -->
-    <section class="m-settings__grade-types">
-
+    <section class="m-settings__grade-types m-modals__mask row">
+        <h3>Grade types</h3>
+        <div class="l-pill__wrapper">
+            <h4 class="l-pill__default">
+                Exam
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
+            <h4 class="l-pill__default">
+                Test
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
+            <h4 class="l-pill__default">
+                Big test
+                <button class="l-btn__default l-btn__close">x</button>
+            </h4>
+        </div>
+        <!-- Add new subject -->
+        <div class="l-btn__wrapper">
+            <button class="l-btn__default l-btn__add">+</button>
+            <div class="m-modals__add-modal">
+                <input class="l-inputs__text-type" placeholder="Grade...">
+                <div class="l-inputs__dropdown-btn">
+                    Grade types
+                </div>
+                <div class="l-btn__wrapper">
+                    <button class="l-btn__default l-btn__primary">Add</button>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 
+<script type="text/javascript">
+
+
+    var btn = $(".l-btn__add");
+        mask = $('.m-modals__mask');
+
+    btn.click(function(){
+        //Open modal
+        $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
+        $(this).parents('.m-modals__mask').addClass('is-open');
+        //Add modal mask
+        $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
+
+    $('#m-modals-mask').click(function(){
+        //Close modal
+        mask.removeClass('is-open');
+        $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
+        //Remove modal mask
+        $(this).remove();
+
+    })
+    })
+
+</script>
 
 
 Next Step:

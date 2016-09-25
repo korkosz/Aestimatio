@@ -1,6 +1,11 @@
+.l-btn__wrapper{
+    margin: auto;
+    text-align: center;
+}
+
 .l-btn__default{
     display: inline-block;
-    color: darken($cta-color, 20%);
+    color: darken($cta-color, 35%);
     background: $cta-color;
     border-radius: 3em;
     text-align: center;
@@ -15,11 +20,12 @@
 }
 
 .l-btn__add{
+    font-size: 1.5rem;
     width: 1.3em;
     height: 1.3em;
     line-height: 1.3em;
-    font-size: 24px;
     margin-top: 0.7em;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .l-btn__add--small{
@@ -29,6 +35,15 @@
     }
 }
 
+.l-btn__close{
+    font-size: 0.65rem;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8em;
+    margin-top: 0.7em;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+}
 
 .l-btn__primary {
     font-size: 0.8rem;
