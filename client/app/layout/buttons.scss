@@ -1,6 +1,7 @@
 .l-btn__wrapper{
     margin: auto;
     text-align: center;
+    width: 100%;
 }
 
 .l-btn__default{
@@ -33,6 +34,11 @@
     @media only screen and (max-width: 62em) {
         font-size: 1.7rem;
     }
+}
+
+.l-btn__add--big{
+    font-size: 2rem;
+    margin: 0;
 }
 
 .l-btn__close{

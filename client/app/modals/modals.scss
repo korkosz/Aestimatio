@@ -35,6 +35,13 @@
         box-shadow: 2px 2px 10px transparentize($main-color--darker2, 0.6);
     }
 
+    h5{
+        font-size: 1.2em;
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 1.3em;
+    }
+
     &.is-open{
         display: block;
         animation: modal-open 0.3s both;
