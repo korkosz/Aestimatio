@@ -22,8 +22,24 @@
                     <div class="m-modals__add-modal">
                         <h5>New grade</h5>
                         <input class="l-inputs__text-type" placeholder="Grade...">
-                        <div class="l-inputs__dropdown-btn">
-                            Grade type
+                        <div class="l-dropdown-wrapper">
+                            <div class="l-dropdown__btn">
+                                Grade type
+                            </div>
+                            <ul class="l-dropdown__menu">
+                                <li class="l-dropdown__menu-item">
+                                    Exam
+                                    <span class="m-settings__grade-rate">[ rate: 2 ]</span>
+                                </li>
+                                <li class="l-dropdown__menu-item">
+                                    Test
+                                    <span class="m-settings__grade-rate">[ rate: 3 ]</span>
+                                </li>
+                                <li class="l-dropdown__menu-item">
+                                    Big test
+                                    <span class="m-settings__grade-rate">[ rate: 4 ]</span>
+                                </li>
+                            </ul>
                         </div>
                         <button class="l-btn__default l-btn__primary">Add</button>
                     </div>
@@ -53,7 +69,7 @@
                     <div class="m-modals__add-modal">
                         <h5>New grade</h5>
                         <input class="l-inputs__text-type" placeholder="Grade...">
-                        <div class="l-inputs__dropdown-btn">
+                        <div class="l-dropdown__btn">
                             Grade type
                         </div>
                         <button class="l-btn__default l-btn__primary">Add</button>
@@ -149,7 +165,7 @@
                     <!-- Modal -->
                     <div class="m-modals__add-modal">
                         <input class="l-inputs__text-type" placeholder="Grade...">
-                        <div class="l-inputs__dropdown-btn">
+                        <div class="l-dropdown__btn">
                             Grade type
                         </div>
                         <button class="l-btn__default l-btn__primary">Add</button>
@@ -165,23 +181,34 @@
 
 <script type="text/javascript">
 
-var btn = $(".l-btn__add");
-    mask = $('.m-modals__mask');
+modal = function(){
+    var btn = $(".l-btn__add");
+        mask = $('.m-modals__mask');
 
-btn.click(function(){
-    //Open modal
-    $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
-    $(this).parents('.m-modals__mask').addClass('is-open');
-    //Add modal mask
-    $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
+    btn.click(function(){
+        //Open modal
+        $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
+        $(this).parents('.m-modals__mask').addClass('is-open');
+        //Add modal mask
+        $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
 
-    $('#m-modals-mask').click(function(){
-        //Close modal
-        mask.removeClass('is-open');
-        $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
-        //Remove modal mask
-        $(this).remove();
+        $('#m-modals-mask').click(function(){
+            //Close modal
+            mask.removeClass('is-open');
+            $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
+            //Remove modal mask
+            $(this).remove();
 
+        });
+    });
+}();
+
+dropdown = function(){
+    var btn = $('.l-dropdown__btn');
+
+    btn.click(function(){
+        $(this).parent('.l-dropdown-wrapper').toggleClass('is-open');
     })
-})
+}();
+
 </script>

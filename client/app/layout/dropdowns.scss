@@ -1,0 +1,66 @@
+.l-dropdown__btn {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    min-height: 2rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    &:after{
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        position: absolute;
+        right: 1em;
+        top: 0.95em;
+        border: 0.25rem solid transparent;
+        border-top: 0.40rem solid #fff;
+        transform-origin: center 0.166rem;
+    }
+}
+
+.l-dropdown__menu{
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    top: 1.5rem;
+    background: $main-color;
+    border-radius: 1rem;
+    color: rgba(255, 255, 255, 1);
+    list-style: none;
+    padding: 1rem 0.6rem;
+    box-shadow: 0.3em 0.5em 1rem transparentize($main-color, 0.7);
+    transform-origin: top;
+}
+
+.l-dropdown__menu-item {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2rem;
+    padding: 0.5em;
+    margin-bottom: 0.3em;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:last-child{
+        margin-bottom: 0;
+    }
+
+    &:hover{
+        opacity: 0.7;
+    }
+}
+
+.l-dropdown-wrapper.is-open > .l-dropdown__btn{
+    animation: dropdown-btn--opacity 0.5s both;
+}
+
+.l-dropdown-wrapper.is-open > .l-dropdown__btn:after{
+    animation: arrow-rotate 0.5s both;
+}
+
+.l-dropdown-wrapper.is-open > .l-dropdown__menu{
+    display: block;
+    animation: dropdown-menu--slide-down 0.3s both;
+}
