@@ -9,7 +9,15 @@ angular
         require('./user').name,
         require('./class').name
     ])
-    .config(require('./app.routes'));
+    .config(require('./app.routes'))
+    .controller('globalCtrl', ['auth', function (auth) {
+        var vm = this;
+
+        auth.setUser().then(() => {
+
+            vm.user = auth.getUser();
+        });
+    }]);
 
 angular
     .element(document)

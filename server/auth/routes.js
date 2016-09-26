@@ -23,4 +23,12 @@ module.exports = function (router) {
         req.logout();
         res.redirect('/');
     });
+
+    router.get('/user', function (req, res) {
+        var user = req.user;
+        if (user && user._doc)
+            res.send(user._doc.username);
+        else
+            res.json(null);
+    });
 };
