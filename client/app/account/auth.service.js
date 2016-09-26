@@ -1,6 +1,6 @@
 module.exports = ['$http', '$q', function ($http, $q) {
     var user = null;
-    var defer = $q.defer;
+    var defer = $q.defer();
     var promise = defer.promise;
     return {
         setUser() {
