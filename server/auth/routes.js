@@ -3,9 +3,10 @@ var path = require('path');
 var Account = require('./account/account.model');
 
 module.exports = function (router) {
-    router.post('/login', passport.authenticate('local'), function (req, res) {
-        res.redirect('/');
-    });
+    router.post('/login', passport.authenticate('local', {
+        successRedirect: '/user/grades',
+        failureRedirect: '/login'
+    }));
     router.post('/register', function (req, res) {
         Account.register(new Account({ username: req.body.username }), req.body.password, function (err, _account) { //eslint-disable-line
             if (err) {
