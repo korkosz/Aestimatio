@@ -18,7 +18,7 @@
         <section class="l-menu__navbar">
             <div ng-switch="!!globalCtrl.user">
                 <div ng-switch-when="true" style="color: white;">
-                    {{globalCtrl.user}}
+                    {{globalCtrl.user.username}}
                 </div>
                 <div ng-switch-when="false">
                     <a href="/login">Login</a>

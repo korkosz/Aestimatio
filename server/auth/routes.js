@@ -1,6 +1,7 @@
 var passport = require('passport');
 var path = require('path');
 var Account = require('./account/account.model');
+var User = require('../api/user/user.model');
 
 module.exports = function (router) {
     router.post('/login', passport.authenticate('local', {
@@ -32,9 +33,18 @@ module.exports = function (router) {
     });
 
     router.get('/user', function (req, res) {
-        var user = req.user;
-        if (user && user._doc)
-            res.send(user._doc.username);
+        var account = req.user;
+        if (account && account._doc)
+            User.findOne({ account: account._doc._id }).then(function (_user) {
+                _user._doc.userId = _user._doc._id;
+
+                var mutual = Object.assign({}, _user._doc, account._doc);
+
+                delete mutual._id;
+
+                debugger;
+                res.json(mutual);
+            });
         else
             res.json(null);
     });

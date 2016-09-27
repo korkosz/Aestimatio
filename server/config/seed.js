@@ -18,7 +18,11 @@ Account.find({}).remove()
                         School.create({ name: 'II B', city: city._doc._id })
                             .then(function (school) {
                                 Class.find({}).remove().then(function () {
-                                    Class.create({ city: city._doc._id, school: school._doc._id }).then(function (_class) {
+                                    Class.create({
+                                        city: city._doc._id,
+                                        school: school._doc._id,
+                                        subjects: ['History', 'Math', 'Biology']
+                                    }).then(function (_class) {
                                         User.find({}).remove().then(function () {
                                             User.create({
                                                 class: _class._doc._id,
