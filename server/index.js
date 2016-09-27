@@ -14,6 +14,8 @@ var session = require('express-session');
 
 var app = express();
 
+require('./config/seed');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());

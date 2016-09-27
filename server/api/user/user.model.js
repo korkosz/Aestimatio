@@ -6,7 +6,8 @@ var UserSchema = new mongoose.Schema({
         value: Number,
         testType: Number
     }],
-    class: String
+    class: { type: mongoose.Schema.Types.ObjectId, ref: 'Class' },
+    account: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' }
 });
 
 module.exports = mongoose.model('User', UserSchema);
