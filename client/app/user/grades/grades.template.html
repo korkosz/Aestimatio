@@ -30,17 +30,10 @@
                                 Grade type
                             </div>
                             <ul class="l-dropdown__menu">
-                                <li class="l-dropdown__menu-item">
+                                <li ng-repeat="type in "
+                                    class="l-dropdown__menu-item">
                                     Exam
                                     <span class="m-settings__grade-rate">[ rate: 2 ]</span>
-                                </li>
-                                <li class="l-dropdown__menu-item">
-                                    Test
-                                    <span class="m-settings__grade-rate">[ rate: 3 ]</span>
-                                </li>
-                                <li class="l-dropdown__menu-item">
-                                    Big test
-                                    <span class="m-settings__grade-rate">[ rate: 4 ]</span>
                                 </li>
                             </ul>
                         </div>
@@ -57,35 +50,37 @@
 <user-average-grade></user-average-grade>
 
 <script type="text/javascript">
+setTimeout(function() {
+    modal = function(){
+        var btn = $(".l-btn__add");
+        var mask = $('.m-modals__mask');
+    
+        btn.click(function(){
+            //Open modal
+            $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
+            $(this).parents('.m-modals__mask').addClass('is-open');
+            //Add modal mask
+            $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
 
-modal = function(){
-    var btn = $(".l-btn__add");
-    var mask = $('.m-modals__mask');
-   
-    btn.click(function(){
-        //Open modal
-        $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
-        $(this).parents('.m-modals__mask').addClass('is-open');
-        //Add modal mask
-        $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
+            $('#m-modals-mask').click(function(){
+                //Close modal
+                mask.removeClass('is-open');
+                $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
+                //Remove modal mask
+                $(this).remove();
 
-        $('#m-modals-mask').click(function(){
-            //Close modal
-            mask.removeClass('is-open');
-            $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
-            //Remove modal mask
-            $(this).remove();
-
+            });
         });
-    });
-}();
+    }();
 
-dropdown = function(){
-    var btn = $('.l-dropdown__btn');
+    dropdown = function(){
+        var btn = $('.l-dropdown__btn');
 
-    btn.click(function(){
-        $(this).parent('.l-dropdown-wrapper').toggleClass("is-open is-close");
-    })
-}();
+        btn.click(function(){
+            $(this).parent('.l-dropdown-wrapper').toggleClass("is-open is-close");
+        })
+    }();
+}, 1000)
+
 
 </script>
