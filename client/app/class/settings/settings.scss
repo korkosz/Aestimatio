@@ -1,8 +1,7 @@
 .m-settings__subjects,
 .m-settings__grade-types{
-    background: $main-color--lighter2;
-    padding: 2rem;
-    border-radius: 1rem;
+    max-width: 850px;
+    margin: auto;
     margin-top: 5rem;
     padding-bottom: 3rem;
     @media only screen and (max-width: 48rem) {

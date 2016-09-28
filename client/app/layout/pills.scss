@@ -14,11 +14,17 @@
     margin: 0.25em 0.2em;
     background: transparentize($main-color--darker2, 0.95);
     color: $main-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 
     @media only screen and (max-width: 48rem) {
         width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: center;
     }
+}
+
+.l-pill--block{
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
 }

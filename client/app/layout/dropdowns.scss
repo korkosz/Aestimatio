@@ -1,11 +1,4 @@
 .l-dropdown__btn {
-    border-radius: 1rem;
-    padding: 0.5rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    min-height: 2rem;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     transition: 0.5s;
     -webkit-user-select: none;
@@ -31,7 +24,6 @@
     position: absolute;
     width: 100%;
     z-index: 9999;
-    top: 1.5rem;
     background: $main-color;
     border-radius: 1rem;
     color: rgba(255, 255, 255, 1);

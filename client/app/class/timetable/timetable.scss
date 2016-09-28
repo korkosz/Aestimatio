@@ -1,0 +1,52 @@
+.m-timetable__container{
+    display: flex;
+}
+
+.m-timetable__day-box{
+    flex: 1 1 auto;
+    min-width: 0;
+
+    h3{
+        text-align: center;
+        font-size: 1.3rem;
+    }
+}
+
+.m-timetable__subjects-wrapper{
+    padding: 0 0.4rem;
+}
+
+.m-timetable__subject{
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Paytone One', sans-serif;
+    counter-increment: my-counter;
+
+    &:before{
+        content: counter(my-counter);
+        position: absolute;
+        left: 0.8rem;
+        font-size: 0.8em;
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        background: #fff;
+        border-radius: 50%;
+        font-family: 'ubuntu', sans-serif;
+    }
+
+    &:after{
+        top: 1.2em;
+        border-top-color:  $cta-color;
+    }
+
+    .l-btn__close{
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+    }
+}
