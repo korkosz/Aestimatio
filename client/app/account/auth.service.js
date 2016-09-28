@@ -18,6 +18,9 @@ module.exports = ['$http', '$q', function ($http, $q) {
         },
         isLogginIn() {
             return !!user;
+        },
+        waitForUser() {
+            return promise;
         }
     };
 }];

@@ -41,8 +41,6 @@ module.exports = function (router) {
                 var mutual = Object.assign({}, _user._doc, account._doc);
 
                 delete mutual._id;
-
-                debugger;
                 res.json(mutual);
             });
         else

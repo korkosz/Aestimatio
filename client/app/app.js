@@ -11,17 +11,18 @@ angular
         require('./class').name
     ])
     .config(require('./app.routes'))
-    .run(['$http', $http => {
+    .run(['$http', 'auth', ($http, auth) => {
         $http.post('/auth/login', {
             username: 'korkosz',
             password: 'korkosz91'
+        }).then(() => {
+            auth.setUser();
         });
     }])
     .controller('globalCtrl', ['auth', function (auth) {
         var vm = this;
 
-        auth.setUser().then(() => {
-
+        auth.waitForUser().then(() => {
             vm.user = auth.getUser();
         });
     }]);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "grunt": "grunt",
-    "server": "nodemon server",
+    "server": "nodemon --watch server server",
     "start": "run-p grunt server"
   },
   "author": "",
