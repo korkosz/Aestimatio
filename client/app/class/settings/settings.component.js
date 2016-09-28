@@ -11,6 +11,10 @@ class ctrl {
     add(_sub) {
         this.userClass.subjects.push(_sub);
         this.userClass.$save();
+
+        $('.m-modals__mask').removeClass('is-open');
+        $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
+        $('#m-modals-mask').remove();
     }
 }
 

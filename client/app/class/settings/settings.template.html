@@ -21,7 +21,7 @@
                 <input ng-model="newSubject"
                        class="l-inputs__text-type" placeholder="Subject name...">
                 <div class="l-btn__wrapper">
-                    <button ng-click="$ctrl.add(newSubject)"
+                    <button ng-click="$ctrl.add(newSubject); newSubject='';"
                             class="l-btn__default l-btn__primary">Add</button>
                 </div>
             </div>
