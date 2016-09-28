@@ -1,7 +1,7 @@
 class ctrl {
     constructor(auth, userService) {
         this.user = auth.getUser();
-        this.user.formattedGrades =
+        this.formattedGrades =
             userService.usersGrades(this.user.grades);
     }
 }
