@@ -15,9 +15,10 @@ module.exports = ['$resource', 'classService', function ($resource, classService
      * }]
      */
     var usersGrades = function (unformattedGrades) {
+        var formattedGrades = [];
+
         classService.UserClass.$promise.then((uClass) => {
             var subjects = uClass.subjects;
-            var formattedGrades = [];
 
             for (let i = 0, len = subjects.length; i < len; i++) {
                 let subject = subjects[i];
@@ -37,9 +38,9 @@ module.exports = ['$resource', 'classService', function ($resource, classService
                     subject,
                     grades
                 });
-            }
-            debugger
+            }            
         });
+        return formattedGrades;
     };
 
     return {

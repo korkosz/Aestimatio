@@ -4,18 +4,21 @@
 
 <section class="m-grades m-modals__mask l-container">
     <div class="m-grades__container row">
-        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
+        <div ng-repeat="gradesPerSubject in $ctrl.formattedGrades"
+             class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
             <div class="m-grades__box">
-                <h3>Biology</h3>
+                <!-- subject name -->
+                <h3>{{gradesPerSubject.subject}}</h3>
+                
                 <div class="m-grades__variables">
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">4</span>
-                    <span class="m-grades__grade">3</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
+                    <!-- lista ocen -->
+                    <span ng-repeat="grade in gradesPerSubject.grades"
+                          class="m-grades__grade">{{grade.grade}}</span>
+                    
                     <!-- srednia z ocen -->
                     <span class="m-grades__average-grade">(4.4)</span>
                 </div>
+                
                 <div class="l-btn__wrapper">
                     <button class="l-btn__add l-btn__default l-btn__add--small">+</button>
                     <!-- Modal -->
@@ -27,17 +30,10 @@
                                 Grade type
                             </div>
                             <ul class="l-dropdown__menu">
-                                <li class="l-dropdown__menu-item">
+                                <li ng-repeat="type in "
+                                    class="l-dropdown__menu-item">
                                     Exam
                                     <span class="m-settings__grade-rate">[ rate: 2 ]</span>
-                                </li>
-                                <li class="l-dropdown__menu-item">
-                                    Test
-                                    <span class="m-settings__grade-rate">[ rate: 3 ]</span>
-                                </li>
-                                <li class="l-dropdown__menu-item">
-                                    Big test
-                                    <span class="m-settings__grade-rate">[ rate: 4 ]</span>
                                 </li>
                             </ul>
                         </div>
@@ -47,132 +43,6 @@
 
             </div>
         </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
-            <div class="m-grades__box">
-                <h3>Math</h3>
-                <div class="m-grades__variables">
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <!-- srednia z ocen -->
-                    <span class="m-grades__average-grade">(5.0)</span>
-                </div>
-                <div class="l-btn__wrapper">
-                    <button class="l-btn__add l-btn__default l-btn__add--small">+</button>
-                    <!-- Modal -->
-                    <div class="m-modals__add-modal">
-                        <h5>New grade</h5>
-                        <input class="l-inputs__text-type" placeholder="Grade...">
-                        <div class="l-dropdown__btn">
-                            Grade type
-                        </div>
-                        <button class="l-btn__default l-btn__primary">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
-            <div class="m-grades__box">
-                <h3>History</h3>
-                <div class="m-grades__variables">
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <!-- srednia z ocen -->
-                    <span class="m-grades__average-grade">(5.0)</span>
-                </div>
-                <div class="l-btn__default l-btn__add l-btn__add--small">
-                    +
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
-            <div class="m-grades__box">
-                <h3>Geography</h3>
-                <div class="m-grades__variables">
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">4</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <!-- srednia z ocen -->
-                    <span class="m-grades__average-grade">(4.9)</span>
-                </div>
-                <div class="l-btn__default l-btn__add  l-btn__add--small">
-                    +
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="m-grades__container row">
-        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
-            <div class="m-grades__box">
-                <h3>Biology</h3>
-                <div class="m-grades__variables">
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">4</span>
-                    <span class="m-grades__grade">3</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <!-- srednia z ocen -->
-                    <span class="m-grades__average-grade">(4.9)</span>
-                </div>
-                <div class="l-btn__add l-btn__default l-btn__add--small">
-                    +
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
-            <div class="m-grades__box">
-                <h3>Biology</h3>
-                <div class="m-grades__variables">
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">4</span>
-                    <span class="m-grades__grade">3</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <!-- srednia z ocen -->
-                    <span class="m-grades__average-grade">(4.9)</span>
-                </div>
-                <div class="l-btn__add l-btn__default l-btn__add--small">
-                    +
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
-            <div class="m-grades__box">
-                <h3>Biology</h3>
-                <div class="m-grades__variables">
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">4</span>
-                    <span class="m-grades__grade">3</span>
-                    <span class="m-grades__grade">5</span>
-                    <span class="m-grades__grade">5</span>
-                    <!-- srednia z ocen -->
-                    <span class="m-grades__average-grade">(4.4)</span>
-                </div>
-                <div class="l-btn__wrapper">
-                    <button class="l-btn__add l-btn__default l-btn__add--small">+</button>
-                    <!-- Modal -->
-                    <div class="m-modals__add-modal">
-                        <input class="l-inputs__text-type" placeholder="Grade...">
-                        <div class="l-dropdown__btn">
-                            Grade type
-                        </div>
-                        <button class="l-btn__default l-btn__primary">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -180,35 +50,37 @@
 <user-average-grade></user-average-grade>
 
 <script type="text/javascript">
+setTimeout(function() {
+    modal = function(){
+        var btn = $(".l-btn__add");
+        var mask = $('.m-modals__mask');
+    
+        btn.click(function(){
+            //Open modal
+            $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
+            $(this).parents('.m-modals__mask').addClass('is-open');
+            //Add modal mask
+            $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
 
-modal = function(){
-    var btn = $(".l-btn__add");
-        mask = $('.m-modals__mask');
+            $('#m-modals-mask').click(function(){
+                //Close modal
+                mask.removeClass('is-open');
+                $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
+                //Remove modal mask
+                $(this).remove();
 
-    btn.click(function(){
-        //Open modal
-        $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
-        $(this).parents('.m-modals__mask').addClass('is-open');
-        //Add modal mask
-        $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
-
-        $('#m-modals-mask').click(function(){
-            //Close modal
-            mask.removeClass('is-open');
-            $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
-            //Remove modal mask
-            $(this).remove();
-
+            });
         });
-    });
-}();
+    }();
 
-dropdown = function(){
-    var btn = $('.l-dropdown__btn');
+    dropdown = function(){
+        var btn = $('.l-dropdown__btn');
 
-    btn.click(function(){
-        $(this).parent('.l-dropdown-wrapper').toggleClass("is-open is-close");
-    })
-}();
+        btn.click(function(){
+            $(this).parent('.l-dropdown-wrapper').toggleClass("is-open is-close");
+        })
+    }();
+}, 1000)
+
 
 </script>

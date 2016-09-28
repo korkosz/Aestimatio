@@ -1,7 +1,10 @@
 class ctrl {
     constructor(auth, userService) {
         this.user = auth.getUser();
-        this.user.formattedGrades =
+        //moze zamienic na resolve - wyrzucimy $promise
+        //z serwisu - bedziemy go przekazywac w parametrze
+        //nawet nie caly klass tylko subjects
+        this.formattedGrades =
             userService.usersGrades(this.user.grades);
     }
 }
