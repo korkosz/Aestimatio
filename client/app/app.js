@@ -31,6 +31,6 @@ angular
     .element(document)
     .ready(() => {
         angular.bootstrap(document, ['aestimatio'], {
-            strictDi: true
+           // strictDi: false
         });
     });

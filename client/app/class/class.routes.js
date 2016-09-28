@@ -4,14 +4,16 @@ module.exports = ['$routeProvider', function ($routeProvider) {
             template: '<class-search></class-search>'
         })
         .when('/class/settings', {
-            template: '<class-settings></class-settings>',
+            template: `<class-settings user-class="$resolve.userClass">
+                        </class-settings>`,
             resolve: {
-                class: ['classService', 'auth', function (classService, auth) {
-                    auth.waitForUser().then(() => {
+                userClass: function (classService, auth) {
+                    return auth.waitForUser().then(() => {
                         var user = auth.getUser();
-                        return classService.get({ classId: user.class });
+                        return classService
+                            .get({ classId: user.class }).$promise;
                     });
-                }]
+                }
             }
         })
         .when('/class/timetable', {

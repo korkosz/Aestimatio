@@ -12,5 +12,17 @@ router.get('/:id', function (req, res, next) {
             next(err.message);
         });
 });
+/**
+ * Te metode zamienic na patch 
+ */
+router.post('/:id', function (req, res, next) {
+    Class.findByIdAndUpdate(req.params.id, req.body,
+        function (err) {
+            if (err) {
+                return next(err);
+            }
+            return res.status(200).end();
+        });
+});
 
 module.exports = router;

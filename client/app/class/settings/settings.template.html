@@ -6,29 +6,11 @@
     <section class="m-settings__subjects m-modals__mask row">
         <h3>Subjects</h3>
         <div class="l-pill__wrapper">
-            <h4 class="l-pill__default">
-                Math
-                <button class="l-btn__default l-btn__close">x</button>
-            </h4>
-            <h4 class="l-pill__default">
-                History
-                <button class="l-btn__default l-btn__close">x</button>
-            </h4>
-            <h4 class="l-pill__default">
-                Biology
-                <button class="l-btn__default l-btn__close">x</button>
-            </h4>
-            <h4 class="l-pill__default">
-                Korek
-                <button class="l-btn__default l-btn__close">x</button>
-            </h4>
-            <h4 class="l-pill__default">
-                Kurwa
-                <button class="l-btn__default l-btn__close">x</button>
-            </h4>
-            <h4 class="l-pill__default">
-                Mac
-                <button class="l-btn__default l-btn__close">x</button>
+            <h4 ng-repeat="subject in $ctrl.userClass.subjects"
+                class="l-pill__default" >
+                {{subject}}
+                <button ng-click="$ctrl.remove(subject)"
+                        class="l-btn__default l-btn__close">x</button>
             </h4>
         </div>
         <!-- Add new subject -->
@@ -36,9 +18,11 @@
             <button class="l-btn__default l-btn__add">+</button>
             <div class="m-modals__add-modal">
                 <h5>New subject</h5>
-                <input class="l-inputs__text-type" placeholder="Subject name...">
+                <input ng-model="newSubject"
+                       class="l-inputs__text-type" placeholder="Subject name...">
                 <div class="l-btn__wrapper">
-                    <button class="l-btn__default l-btn__primary">Add</button>
+                    <button ng-click="$ctrl.add(newSubject)"
+                            class="l-btn__default l-btn__primary">Add</button>
                 </div>
             </div>
         </div>
