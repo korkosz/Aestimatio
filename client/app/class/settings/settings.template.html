@@ -9,7 +9,7 @@
             <h4 ng-repeat="subject in $ctrl.userClass.subjects"
                 class="l-pill__default" >
                 {{subject}}
-                <button ng-click="$ctrl.remove(subject)"
+                <button ng-click="$ctrl.removeSubject(subject)"
                         class="l-btn__default l-btn__close">x</button>
             </h4>
         </div>
@@ -21,7 +21,7 @@
                 <input ng-model="newSubject"
                        class="l-inputs__text-type" placeholder="Subject name...">
                 <div class="l-btn__wrapper">
-                    <button ng-click="$ctrl.add(newSubject); newSubject='';"
+                    <button ng-click="$ctrl.addSubject(newSubject); newSubject='';"
                             class="l-btn__default l-btn__primary">Add</button>
                 </div>
             </div>
@@ -31,20 +31,12 @@
     <section class="m-settings__grade-types m-modals__mask row">
         <h3>Grade types</h3>
         <div class="l-pill__wrapper">
-            <h4 class="l-pill__default">
-                Exam
-                <span class="m-settings__grade-rate">[ rate: 2 ]</span>
-                <button class="l-btn__default l-btn__close">x</button>
-            </h4>
-            <h4 class="l-pill__default">
-                Test
-                <span class="m-settings__grade-rate">[ rate: 3 ]</span>
-                <button class="l-btn__default l-btn__close">x</button>
-            </h4>
-            <h4 class="l-pill__default">
-                Big test
-                <span class="m-settings__grade-rate">[ rate: 4 ]</span>
-                <button class="l-btn__default l-btn__close">x</button>
+            <h4 ng-repeat="type in $ctrl.userClass.gradeTypes"
+                class="l-pill__default">
+                {{type.name}}
+                <span class="m-settings__grade-rate">[ rate: {{type.rate}} ]</span>
+                <button ng-click="$ctrl.removeGradeType(type)"
+                        class="l-btn__default l-btn__close">x</button>
             </h4>
         </div>
         <!-- Add new grade type-->
@@ -52,13 +44,18 @@
             <button class="l-btn__default l-btn__add">+</button>
             <div class="m-modals__add-modal">
                 <h5>New grade type</h5>
-                <input class="l-inputs__text-type" placeholder="Grade type...">
-                <input class="l-inputs__text-type" placeholder="Grade rate...">
+                <input ng-model="type.name"
+                       class="l-inputs__text-type" 
+                       placeholder="Grade type...">
+                <input ng-model="type.rate"
+                       class="l-inputs__text-type" 
+                       placeholder="Grade rate...">
                 <p class="m-modals__info-desc">
                     *default value of grade rate is 1
                 </p>
                 <div class="l-btn__wrapper">
-                    <button class="l-btn__default l-btn__primary">Add</button>
+                    <button ng-click="$ctrl.addGradeType(type); type=null"
+                            class="l-btn__default l-btn__primary">Add</button>
                 </div>
             </div>
         </div>
