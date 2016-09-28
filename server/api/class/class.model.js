@@ -5,26 +5,23 @@ var day = {
     subjects: [String]
 };
 
+var gradeTypeSchema = new mongoose.Schema({
+    name: String,
+    rate: Number
+}, { _id: false });
+
 var ClassSchema = new mongoose.Schema({
-    // name: String,
-    // grade: {
-    //     startDate: Number,
-    //     endDate: Number
-    // },
-    school: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'School' 
+    school: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'School'
     },
-    city: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'City' 
+    city: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'City'
     },
     subjects: [String],
     timetable: [day],
-    gradeTypes: [{
-        name: String,
-        rate: Number
-    }],
+    gradeTypes: [gradeTypeSchema],
     tests: [{
         subject: String,
         date: Number,

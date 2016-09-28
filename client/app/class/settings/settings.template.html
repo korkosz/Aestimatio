@@ -2,6 +2,7 @@
     <h2>Settings</h2>
 </header>
 <div class="m-settings__content-container  l-container">
+
     <!-- Subjects -->
     <section class="m-settings__subjects m-modals__mask row">
         <h3>Subjects</h3>
@@ -11,8 +12,9 @@
                 {{subject}}
                 <button ng-click="$ctrl.removeSubject(subject)"
                         class="l-btn__default l-btn__close">x</button>
-            </h4>
+            </h4>            
         </div>
+
         <!-- Add new subject -->
         <div class="l-btn__wrapper">
             <button class="l-btn__default l-btn__add">+</button>
@@ -27,8 +29,10 @@
             </div>
         </div>
     </section>
+
     <!-- Grade types -->
     <section class="m-settings__grade-types m-modals__mask row">
+
         <h3>Grade types</h3>
         <div class="l-pill__wrapper">
             <h4 ng-repeat="type in $ctrl.userClass.gradeTypes"
@@ -39,6 +43,7 @@
                         class="l-btn__default l-btn__close">x</button>
             </h4>
         </div>
+        
         <!-- Add new grade type-->
         <div class="l-btn__wrapper">
             <button class="l-btn__default l-btn__add">+</button>
@@ -89,4 +94,4 @@
 
 
 Next Step:
-<a href="">Plan zour school week</a>
+<a href="/class/timetable">Plan your school week</a>

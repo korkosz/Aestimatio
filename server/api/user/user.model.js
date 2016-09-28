@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new mongoose.Schema({
-    marks: [{
+    grades: [{
         subject: String,
         value: Number,
-        testType: Number
+        gradeType: String
     }],
     class: { type: mongoose.Schema.Types.ObjectId, ref: 'Class' },
     account: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' }

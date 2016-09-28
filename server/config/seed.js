@@ -38,19 +38,19 @@ Account.find({}).remove()
                                             User.create({
                                                 class: _class._doc._id,
                                                 account: acc._doc._id,
-                                                marks: [
+                                                grades: [
                                                     {
                                                         subject: 'Math',
                                                         value: 4,
-                                                        testType: 3
+                                                        gradeType: 'Big test'
                                                     }, {
                                                         subject: 'Math',
                                                         value: 2,
-                                                        testType: 1
+                                                        gradeType: 'Test'
                                                     }, {
-                                                        subject: 'Math',
+                                                        subject: 'Biology',
                                                         value: 2,
-                                                        testType: 1
+                                                        gradeType: 'Exam'
                                                     },
                                                 ]
                                             });

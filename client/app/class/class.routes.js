@@ -7,12 +7,8 @@ module.exports = ['$routeProvider', function ($routeProvider) {
             template: `<class-settings user-class="$resolve.userClass">
                         </class-settings>`,
             resolve: {
-                userClass: function (classService, auth) {
-                    return auth.waitForUser().then(() => {
-                        var user = auth.getUser();
-                        return classService
-                            .get({ classId: user.class }).$promise;
-                    });
+                userClass: function (classService) {
+                    return classService.UserClass.$promise;                   
                 }
             }
         })
