@@ -18,29 +18,8 @@
                     <!-- srednia z ocen -->
                     <span class="m-grades__average-grade">(4.4)</span>
                 </div>
-                
-                <div class="l-btn__wrapper">
-                    <button class="l-btn__add l-btn__default l-btn__add--small">+</button>
-                    <!-- Modal -->
-                    <div class="m-modals__add-modal">
-                        <h5>New grade</h5>
-                        <input class="l-inputs__text-type" placeholder="Grade...">
-                        <div class="l-dropdown-wrapper is-close">
-                            <div class="l-dropdown__btn">
-                                Grade type
-                            </div>
-                            <ul class="l-dropdown__menu">
-                                <li ng-repeat="type in "
-                                    class="l-dropdown__menu-item">
-                                    Exam
-                                    <span class="m-settings__grade-rate">[ rate: 2 ]</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="l-btn__default l-btn__primary">Add</button>
-                    </div>
-                </div>
-
+                <!-- Modal -->
+                <grade-modal grade-types="$ctrl.userClass.gradeTypes"></grade-modal>
             </div>
         </div>
     </div>
@@ -49,38 +28,33 @@
 <!-- ziomek to daje tu tylko bo nie mam gdzie narazie-->
 <user-average-grade></user-average-grade>
 
-<script type="text/javascript">
-setTimeout(function() {
-    modal = function(){
-        var btn = $(".l-btn__add");
-        var mask = $('.m-modals__mask');
-    
-        btn.click(function(){
-            //Open modal
-            $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
-            $(this).parents('.m-modals__mask').addClass('is-open');
-            //Add modal mask
-            $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
-
-            $('#m-modals-mask').click(function(){
-                //Close modal
-                mask.removeClass('is-open');
-                $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
-                //Remove modal mask
-                $(this).remove();
-
-            });
-        });
-    }();
-
-    dropdown = function(){
-        var btn = $('.l-dropdown__btn');
-
-        btn.click(function(){
-            $(this).parent('.l-dropdown-wrapper').toggleClass("is-open is-close");
-        })
-    }();
-}, 1000)
-
-
+<!-- Docelowo zostanie stad wyjebane -->
+<script type="text/ng-template" id="modalDirective.html">
+    <div class="l-btn__wrapper">
+        <button class="l-btn__add l-btn__default l-btn__add--small">+</button>       
+         
+        <div class="m-modals__add-modal">
+            <h5>New grade</h5>
+            <input ng-model="modalVm.grade.grade" 
+                    class="l-inputs__text-type" placeholder="Grade...">
+            <div class="l-dropdown-wrapper is-close">
+                <div class="l-dropdown__btn">
+                    {{!modalVm.grade.type ? 'Grade type': 
+                        modalVm.gradeTypeLabel(modalVm.grade.type)}}
+                </div>
+                <ul class="l-dropdown__menu">
+                    <li ng-repeat="type in modalVm.gradeTypes"
+                        ng-click="modalVm.pickType(type)"
+                        class="l-dropdown__menu-item">
+                        {{type.name}}
+                        <span class="m-settings__grade-rate">
+                            [ rate: {{type.rate}} ]
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <button ng-click="modalVm.addGrade()"
+                    class="l-btn__default l-btn__primary">Add</button>
+        </div>
+    </div>
 </script>

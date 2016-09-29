@@ -14,32 +14,29 @@ module.exports = ['$resource', 'classService', function ($resource, classService
      *    ]
      * }]
      */
-    var usersGrades = function (unformattedGrades) {
+    var usersGrades = function (subjects, unformattedGrades) {
         var formattedGrades = [];
 
-        classService.UserClass.$promise.then((uClass) => {
-            var subjects = uClass.subjects;
+        for (let i = 0, len = subjects.length; i < len; i++) {
+            let subject = subjects[i];
+            let grades = [];
 
-            for (let i = 0, len = subjects.length; i < len; i++) {
-                let subject = subjects[i];
-                let grades = [];
+            unformattedGrades.forEach(ufGrade => {
+                if (ufGrade.subject === subject) {
+                    grades.push({
+                        grade: ufGrade.value,
+                        ratio: classService.getGradeRatio(ufGrade.gradeType),
+                        type: ufGrade.gradeType
+                    });
+                }
+            });
 
-                unformattedGrades.forEach(ufGrade => {
-                    if (ufGrade.subject === subject) {
-                        grades.push({
-                            grade: ufGrade.value,
-                            ratio: classService.getGradeRatio(ufGrade.gradeType),
-                            type: ufGrade.gradeType
-                        });
-                    }
-                });
+            formattedGrades.push({
+                subject,
+                grades
+            });
+        }
 
-                formattedGrades.push({
-                    subject,
-                    grades
-                });
-            }            
-        });
         return formattedGrades;
     };
 

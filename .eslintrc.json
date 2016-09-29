@@ -6,7 +6,8 @@
         "node": true
     },
     "globals": {
-        "angular": true
+        "angular": true,
+        "$": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
