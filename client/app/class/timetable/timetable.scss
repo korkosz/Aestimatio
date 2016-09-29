@@ -24,6 +24,27 @@
     .l-btn__close{
         display: none;
     }
+
+    > li{
+        counter-increment: my-counter;
+
+        &:before{
+            content: counter(my-counter);
+            position: absolute;
+            left: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            width: 1.5rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            background: $main-color--darker;
+            color: #fff;
+            text-align: center;
+            border-radius: 50%;
+            z-index: 2;
+        }
+    }
 }
 
 .m-timetable__subject{
@@ -31,21 +52,6 @@
     margin: 0 0 0.4rem auto;
     padding-left: 10px;
     padding-right: 10px;
-    counter-increment: my-counter;
-
-    &:before{
-        content: counter(my-counter);
-        position: absolute;
-        left: 0.6rem;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 0.8em;
-        width: 1.5rem;
-        height: 1.5rem;
-        line-height: 1.5rem;
-        background: $main-color--darker;
-        border-radius: 50%;
-    }
 
     &:after{
         top: 1.2em;
@@ -56,7 +62,7 @@
     .l-btn__close{
         position: absolute;
         display: block;
-        z-index: 1;
+        z-index: 3;
         left: 0.6rem;
         top: 50%;
         transform: translateY(-50%);
