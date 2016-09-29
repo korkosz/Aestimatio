@@ -3,6 +3,7 @@
             content: "";
             background: transparent;
             transition: 0.5s;
+            z-index: 999;
         }
         &.is-open::after{
             content: "";
