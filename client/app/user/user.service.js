@@ -1,8 +1,30 @@
-module.exports = ['$resource', 'classService', function ($resource, classService) {
+var jsonpatch = require('fast-json-patch');
+
+module.exports = ['$resource', 'classService', 'auth', function ($resource, classService, auth) {
     /**
-     * Resource
+    * Resource
+    */
+    var UserRes = $resource('/api/user/:id', { id: '@_id' },
+        {
+            'update': {
+                method: 'PATCH',
+                transformRequest: function (body) {
+                    console.log(body);
+                }
+            }
+        });
+
+    /**
+     * Instance for the logged user
      */
-    var User = $resource('/api/user/:id', { id: '@_id' });
+    var User = UserRes.get({ id: auth.getUser().userId });
+
+    /**
+     * Refresh resource from db
+     */
+    var refreshUser = function () {
+        User = UserRes.get({ id: auth.getUser().userId });
+    };
 
     /**
      * Get formatted user's grades. We get output like:
@@ -14,7 +36,9 @@ module.exports = ['$resource', 'classService', function ($resource, classService
      *    ]
      * }]
      */
-    var usersGrades = function (subjects, unformattedGrades) {
+    var getLoggedUserGrades = function () {
+        var subjects = classService.UserClass.subjects;
+        var unformattedGrades = User.grades;
         var formattedGrades = [];
 
         for (let i = 0, len = subjects.length; i < len; i++) {
@@ -42,6 +66,7 @@ module.exports = ['$resource', 'classService', function ($resource, classService
 
     return {
         User,
-        usersGrades
+        refreshUser,
+        getLoggedUserGrades
     };
 }];
