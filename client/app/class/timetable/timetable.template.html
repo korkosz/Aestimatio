@@ -1,5 +1,5 @@
 <header class="l-subheader">
-   <h2>My grades</h2>
+   <h2>Timetable</h2>
 </header>
 
 <!-- Timetable -->
@@ -10,11 +10,11 @@
             <h3>Monday</h3>
             <ol class="m-timetable__subjects-wrapper">
 
-                <div class="l-dropdown-wrapper">
-                    <li class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
+                <li class="l-dropdown-wrapper is-close">
+                    <span class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
                         Math
                         <button class="l-btn__default l-btn__close">x</button>
-                    </li>
+                    </span>
                     <ul class="l-dropdown__menu">
                         <li class="l-dropdown__menu-item">
                             Math
@@ -26,23 +26,30 @@
                             Biology
                         </li>
                     </ul>
-                </div>
+                    <button class="l-btn__close l-btn__default">x</button>
+                </li>
 
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Biology
-                    <button class="l-btn__default l-btn__close">x</button>
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Physics
-                    <button class="l-btn__default l-btn__close">x</button>
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Chemistry
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     English
-                    <button class="l-btn__default l-btn__close">x</button>
+
+                </li>
+                <li class="m-timetable__subject l-pill__default l-pill--block">
+                    English
+
+                </li>
+                <li class="m-timetable__subject l-pill__default l-pill--block">
+                    English
+
                 </li>
             </ol>
             <div class="l-btn__wrapper">
@@ -50,8 +57,8 @@
                 <!-- Modal -->
                 <div class="m-modals__add-modal">
                     <h5>Add subject</h5>
-                    <div class="l-dropdown-wrapper">
-                        <div class="l-dropdown__btn">
+                    <div class="l-dropdown-wrapper is-close">
+                        <div class="l-inputs__text-type l-dropdown__btn">
                             Subject
                         </div>
                         <ul class="l-dropdown__menu">
@@ -78,51 +85,19 @@
             <ol class="m-timetable__subjects-wrapper">
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Math
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Biology
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Physics
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Chemistry
-                    <button class="l-btn__default l-btn__close">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    English
-                    <button class="l-btn__default l-btn__close">x</button>
-                </li>
-            </ol>
-            <div class="l-btn__wrapper">
-                <button class="l-btn__add l-btn__default">+</button>
-            </div>
-        </div><!-- School day -->
-        <div class="m-timetable__day-box">
-            <h3>Monday</h3>
-            <ol class="m-timetable__subjects-wrapper">
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Math
-                    <button class="l-btn__default l-btn__close">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Biology
-                    <button class="l-btn__default l-btn__close">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Physics
-                    <button class="l-btn__default l-btn__close">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Chemistry
-                    <button class="l-btn__default l-btn__close">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    English
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
             </ol>
             <div class="l-btn__wrapper">
@@ -135,23 +110,52 @@
             <ol class="m-timetable__subjects-wrapper">
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Math
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Biology
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Physics
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Chemistry
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     English
-                    <button class="l-btn__default l-btn__close">x</button>
+
+                </li>
+            </ol>
+            <div class="l-btn__wrapper">
+                <button class="l-btn__add l-btn__default">+</button>
+            </div>
+        </div>
+        <!-- School day -->
+        <div class="m-timetable__day-box">
+            <h3>Monday</h3>
+            <ol class="m-timetable__subjects-wrapper">
+                <li class="m-timetable__subject l-pill__default l-pill--block">
+                    Math
+
+                </li>
+                <li class="m-timetable__subject l-pill__default l-pill--block">
+                    Biology
+
+                </li>
+                <li class="m-timetable__subject l-pill__default l-pill--block">
+                    Physics
+
+                </li>
+                <li class="m-timetable__subject l-pill__default l-pill--block">
+                    Chemistry
+
+                </li>
+                <li class="m-timetable__subject l-pill__default l-pill--block">
+                    English
+
                 </li>
             </ol>
             <div class="l-btn__wrapper">
@@ -163,23 +167,27 @@
             <ol class="m-timetable__subjects-wrapper">
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Math
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Biology
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Physics
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     Chemistry
-                    <button class="l-btn__default l-btn__close">x</button>
+
                 </li>
                 <li class="m-timetable__subject l-pill__default l-pill--block">
                     English
-                    <button class="l-btn__default l-btn__close">x</button>
+
+                </li>
+                <li class="m-timetable__subject l-pill__default l-pill--block">
+                    Chemistry
+
                 </li>
             </ol>
             <div class="l-btn__wrapper">

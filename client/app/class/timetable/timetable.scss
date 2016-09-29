@@ -14,39 +14,49 @@
 
 .m-timetable__subjects-wrapper{
     padding: 0 0.4rem;
+    .l-btn__close{
+        display: none;
+    }
 }
 
 .m-timetable__subject{
     text-align: center;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0 0 0.4rem auto;
     padding-left: 10px;
     padding-right: 10px;
-    font-family: 'Paytone One', sans-serif;
     counter-increment: my-counter;
 
     &:before{
         content: counter(my-counter);
         position: absolute;
-        left: 0.8rem;
+        left: 0.6rem;
+        top: 50%;
+        transform: translateY(-50%);
         font-size: 0.8em;
         width: 1.5rem;
         height: 1.5rem;
         line-height: 1.5rem;
-        background: #fff;
+        background: $main-color--darker;
         border-radius: 50%;
-        font-family: 'ubuntu', sans-serif;
     }
 
     &:after{
         top: 1.2em;
-        border-top-color:  $cta-color;
     }
+}
 
+.m-timetable__subjects-wrapper .l-dropdown-wrapper.is-open{
     .l-btn__close{
         position: absolute;
-        right: 0;
-        top: 0;
-        display: none;
+        display: block;
+        z-index: 1;
+        left: 0.6rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.8em;
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        margin: 0;
     }
 }

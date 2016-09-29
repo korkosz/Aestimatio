@@ -15,6 +15,11 @@
     }
 }
 
+.l-inputs__text-type.l-dropdown-wrapper{
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .l-inputs__text-type.error{
     border-color: $error-color;
     background: transparentize($error-color, 0.9);

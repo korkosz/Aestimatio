@@ -29,11 +29,12 @@
     color: rgba(255, 255, 255, 1);
     list-style: none;
     padding: 1rem 0.6rem;
-    box-shadow: 0.3em 0.5em 1rem transparentize($main-color, 0.7);
+    box-shadow: 0.3em 0.5em 1rem transparentize($main-color--darker2, 0.6);
     transform-origin: top;
     transition: 0.3s;
     transform: scaleY(0);
     opacity: 0;
+    margin: 0;
 }
 
 .l-dropdown__menu-item {
@@ -43,6 +44,7 @@
     margin-bottom: 0.3em;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
 
     &:last-child{
         margin-bottom: 0;
@@ -55,7 +57,7 @@
 
 // Open state
 .l-dropdown-wrapper.is-open > .l-dropdown__btn{
-    color: rgba(255,255,255,0.50);
+    opacity: 1;
 }
 
 .l-dropdown-wrapper.is-open > .l-dropdown__btn:after{
