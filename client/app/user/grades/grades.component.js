@@ -1,8 +1,8 @@
 class ctrl {
-    constructor(auth, userService) {
-        this.user = auth.getUser();
+    constructor(userService) {
         this.formattedGrades = userService
-            .usersGrades(this.userClass.subjects, this.user.grades);
+            .getLoggedUserGrades();
+
     }
 }
 
@@ -22,8 +22,10 @@ module.exports.modal = function () {
         },
         bindToController: true,
         controllerAs: 'modalVm',
-        controller($scope) {
+        controller($scope, userService) {
             var vm = this;
+
+            vm.userData = userService.User;
 
             vm.grade = {};
 
@@ -37,7 +39,7 @@ module.exports.modal = function () {
                 return `${vm.grade.type.name} [ rate: ${vm.grade.type.rate} ]`;
             };
 
-            vm.addGrade = function() {
+            vm.addGrade = function () {
 
                 //hide modal 
                 $('#m-modals-mask').click();
@@ -45,7 +47,9 @@ module.exports.modal = function () {
 
             $scope.$on('modalClosed', () => {
                 vm.grade.name = '';
-                vm.grade.type = null;
+                vm.grade.type = null; 
+
+                $scope.$apply();
             });
         },
         link(scope, el) {
