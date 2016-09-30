@@ -21,7 +21,7 @@ Account.find({}).remove()
                                     Class.create({
                                         city: city._doc._id,
                                         school: school._doc._id,
-                                        subjects: ['History', 'Math', 'Biology'],
+                                        subjects: ['History', 'Math', 'Biology','Physics', 'Chemistry', 'English'],
                                         gradeTypes: [
                                             {
                                                 name: 'Exam',
@@ -32,7 +32,11 @@ Account.find({}).remove()
                                             }, {
                                                 name: 'Big test',
                                                 rate: 4
-                                            }]
+                                            }],
+                                        timetable: [{
+                                            day: 'Monday',
+                                            subjects: ['Math', 'Biology', 'Physics', 'Chemistry', 'English']
+                                        }]
                                     }).then(function (_class) {
                                         User.find({}).remove().then(function () {
                                             User.create({

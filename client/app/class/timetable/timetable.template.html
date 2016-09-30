@@ -6,56 +6,23 @@
 <section class="m-timetable l-container">
     <div class="m-timetable__container  m-modals__mask">
         <!-- School day -->
-        <div class="m-timetable__day-box unhover">
-            <h3>Monday</h3>
+        <div ng-repeat="day in $ctrl.userClass.timetable"
+             class="m-timetable__day-box unhover">
+            <h3>{{day.day}}</h3>
             <ol class="m-timetable__subjects-wrapper">
-
-                <!-- Kazdy item powinien byc taka rozwijana lista zeby mozna bylo latwo
-                zmienic przedmiot -->
-                <li class="l-dropdown-wrapper is-close">
+                <li ng-repeat="subject in day.subjects"
+                    class="l-dropdown-wrapper is-close">
                     <span class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
-                        Math
+                        {{subject}}
                         <button class="l-btn__default l-btn__close">x</button>
                     </span>
                     <ul class="l-dropdown__menu">
-                        <li class="l-dropdown__menu-item">
-                            Math
-                        </li>
-                        <li class="l-dropdown__menu-item">
-                            English
-                        </li>
-                        <li class="l-dropdown__menu-item">
-                            Biology
+                        <li ng-repeat="sub in $ctrl.userClass.subjects"
+                            class="l-dropdown__menu-item">
+                            {{sub}}
                         </li>
                     </ul>
                     <button class="l-btn__close l-btn__default">x</button>
-                </li>
-
-
-                <!-- Te sa do wyjebania -->
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Biology
-                    <button class="l-btn__close l-btn__default">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Physics
-                    <button class="l-btn__close l-btn__default">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Chemistry
-                    <button class="l-btn__close l-btn__default">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    English
-                    <button class="l-btn__close l-btn__default">x</button>
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    English
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    English
-
                 </li>
             </ol>
             <div class="l-btn__wrapper">
@@ -68,136 +35,14 @@
                             Subject
                         </div>
                         <ul class="l-dropdown__menu">
-                            <li class="l-dropdown__menu-item">
-                                Math
-                            </li>
-                            <li class="l-dropdown__menu-item">
-                                English
-                            </li>
-                            <li class="l-dropdown__menu-item">
-                                Biology
+                            <li ng-repeat="sub in $ctrl.userClass.subjects" 
+                                class="l-dropdown__menu-item">
+                                {{sub}}
                             </li>
                         </ul>
                     </div>
                     <button class="l-btn__default l-btn__primary">Add</button>
                 </div>
-            </div>
-        </div>
-
-
-        <!-- School day -->
-        <div class="m-timetable__day-box unhover">
-            <h3>Monday</h3>
-            <ol class="m-timetable__subjects-wrapper">
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Math
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Biology
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Physics
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Chemistry
-
-                </li>
-            </ol>
-            <div class="l-btn__wrapper">
-                <button class="l-btn__add l-btn__default">+</button>
-            </div>
-        </div>
-        <!-- School day -->
-        <div class="m-timetable__day-box unhover">
-            <h3>Monday</h3>
-            <ol class="m-timetable__subjects-wrapper">
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Math
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Biology
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Physics
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Chemistry
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    English
-
-                </li>
-            </ol>
-            <div class="l-btn__wrapper">
-                <button class="l-btn__add l-btn__default">+</button>
-            </div>
-        </div>
-        <!-- School day -->
-        <div class="m-timetable__day-box unhover">
-            <h3>Monday</h3>
-            <ol class="m-timetable__subjects-wrapper">
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Math
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Biology
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Physics
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Chemistry
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    English
-
-                </li>
-            </ol>
-            <div class="l-btn__wrapper">
-                <button class="l-btn__add l-btn__default">+</button>
-            </div>
-        </div><!-- School day -->
-        <div class="m-timetable__day-box unhover">
-            <h3>Monday</h3>
-            <ol class="m-timetable__subjects-wrapper">
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Math
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Biology
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Physics
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Chemistry
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    English
-
-                </li>
-                <li class="m-timetable__subject l-pill__default l-pill--block">
-                    Chemistry
-
-                </li>
-            </ol>
-            <div class="l-btn__wrapper">
-                <button class="l-btn__add l-btn__default">+</button>
             </div>
         </div>
     </div>
@@ -207,35 +52,36 @@
 
 
 <script type="text/javascript">
+    setTimeout(function() {
+        modal = function(){   
+            var btn = $(".l-btn__add");
+                mask = $('.m-modals__mask');
 
-modal = function(){
-    var btn = $(".l-btn__add");
-        mask = $('.m-modals__mask');
+            btn.click(function(){
 
-    btn.click(function(){
-        //Open modal
-        $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
-        $(this).parents('.m-modals__mask').addClass('is-open');
-        //Add modal mask
-        $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
+                //Open modal
+                $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
+                $(this).parents('.m-modals__mask').addClass('is-open');
+                //Add modal mask
+                $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
 
-        $('#m-modals-mask').click(function(){
-            //Close modal
-            mask.removeClass('is-open');
-            $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
-            //Remove modal mask
-            $(this).remove();
+                $('#m-modals-mask').click(function(){
+                    //Close modal
+                    mask.removeClass('is-open');
+                    $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
+                    //Remove modal mask
+                    $(this).remove();
 
-        });
-    });
-}();
+                });
+            });
+        }();
 
-dropdown = function(){
-    var btn = $('.l-dropdown__btn');
+        dropdown = function(){
+            var btn = $('.l-dropdown__btn');
 
-    btn.click(function(){
-        $(this).parent('.l-dropdown-wrapper').toggleClass("is-open is-close");
-    })
-}();
-
+            btn.click(function(){
+                $(this).parent('.l-dropdown-wrapper').toggleClass("is-open is-close");
+            })
+        }();
+    }, 1000)
 </script>

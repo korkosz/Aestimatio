@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var day = {
-    day: Number,
+    day: String,
     subjects: [String]
 };
 

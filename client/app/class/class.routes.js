@@ -8,11 +8,16 @@ module.exports = ['$routeProvider', function ($routeProvider) {
                         </class-settings>`,
             resolve: {
                 userClass: function (classService) {
-                    return classService.UserClass.$promise;                   
+                    return classService.UserClass.$promise;
                 }
             }
         })
         .when('/class/timetable', {
-            template: '<class-timetable></class-timetable>'
+            template: '<class-timetable user-class="$resolve.userClass"></class-timetable>',
+            resolve: {
+                userClass: function (classService) {
+                    return classService.UserClass.$promise;
+                }
+            }
         });
 }];
