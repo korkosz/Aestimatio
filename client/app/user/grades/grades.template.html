@@ -16,7 +16,9 @@
                           class="m-grades__grade">{{grade.grade}}</span>
                     
                     <!-- srednia z ocen -->
-                    <span class="m-grades__average-grade">(4.4)</span>
+                    <span class="m-grades__average-grade">
+                        {{$ctrl.averageLabel(gradesPerSubject.grades)}}
+                    </span>
                 </div>
                 <!-- Modal -->
                 <grade-modal grade-types="$ctrl.userClass.gradeTypes"

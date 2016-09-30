@@ -1,6 +1,9 @@
 class ctrl {
-    constructor($scope, userService) {
+    constructor($scope, userService, averageGradesService) {
         var vm = this;
+
+        this.averageGradesService = averageGradesService;
+
         vm.formattedGrades = userService
             .getLoggedUserGrades();
 
@@ -12,6 +15,10 @@ class ctrl {
                 vm.formattedGrades = userService
                     .getLoggedUserGrades();
             });
+    }
+
+    averageLabel(grades) {
+        return '(' + this.averageGradesService.averageLabel(grades) + ')';
     }
 }
 
@@ -60,7 +67,7 @@ module.exports.modal = function () {
 
                 userService.UserRes.update({
                     id: vm.userData._id
-                }, userDataCopy, () => {/*success*/ 
+                }, userDataCopy, () => {/*success*/
                     vm.userData.grades.push({
                         subject: vm.subject,
                         value: grade,
