@@ -19,7 +19,8 @@
                     <span class="m-grades__average-grade">(4.4)</span>
                 </div>
                 <!-- Modal -->
-                <grade-modal grade-types="$ctrl.userClass.gradeTypes"></grade-modal>
+                <grade-modal grade-types="$ctrl.userClass.gradeTypes"
+                             subject="{{gradesPerSubject.subject}}"></grade-modal>
             </div>
         </div>
     </div>
@@ -53,7 +54,8 @@
                     </li>
                 </ul>
             </div>
-            <button ng-click="modalVm.addGrade()"
+            <button ng-click="modalVm.addGrade(
+                                modalVm.grade.grade, modalVm.grade.type.name)"
                     class="l-btn__default l-btn__primary">Add</button>
         </div>
     </div>

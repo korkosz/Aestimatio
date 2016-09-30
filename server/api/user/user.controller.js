@@ -31,10 +31,15 @@ module.exports.post = function (req, res) {
 
 module.exports.patch = function (req, res) {
     User.findById(req.params.userId, function (err, user) {
-        if (err) {
-            return res.status(500).send(err);
-        }
         var patches = req.body;
         jsonpatch.apply(user, patches);
-    });
+        user.save();
+        res.end();
+    }).catch(errorHandler(res));
 };
+
+function errorHandler(res) {
+    return function(err) {
+        res.status(500).send(err);
+    };    
+}

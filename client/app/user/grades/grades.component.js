@@ -1,7 +1,17 @@
 class ctrl {
-    constructor(userService) {
-        this.formattedGrades = userService
+    constructor($scope, userService) {
+        var vm = this;
+        vm.formattedGrades = userService
             .getLoggedUserGrades();
+
+        $scope.$watch(
+            () => {
+                return userService.User.grades.length;
+            },
+            () => {
+                vm.formattedGrades = userService
+                    .getLoggedUserGrades();
+            });
     }
 }
 
@@ -17,7 +27,8 @@ module.exports.modal = function () {
     return {
         templateUrl: 'modalDirective.html',
         scope: {
-            gradeTypes: '<'
+            gradeTypes: '<',
+            subject: '@'
         },
         bindToController: true,
         controllerAs: 'modalVm',
@@ -38,9 +49,24 @@ module.exports.modal = function () {
                 return `${vm.grade.type.name} [ rate: ${vm.grade.type.rate} ]`;
             };
 
-            vm.addGrade = function () {
+            vm.addGrade = function (grade, gradeType) {
                 var userDataCopy = angular.copy(vm.userData);
-                userService.UserRes.update({ id: vm.userData._id }, userDataCopy);
+
+                userDataCopy.grades.push({
+                    subject: vm.subject,
+                    value: grade,
+                    gradeType: gradeType
+                });
+
+                userService.UserRes.update({
+                    id: vm.userData._id
+                }, userDataCopy, () => {/*success*/ 
+                    vm.userData.grades.push({
+                        subject: vm.subject,
+                        value: grade,
+                        gradeType: gradeType
+                    });
+                });
                 //hide modal 
                 $('#m-modals-mask').click();
             };
@@ -54,10 +80,10 @@ module.exports.modal = function () {
                  * already in $apply phase and manual call to $scope.$apply would
                  * blow an error. $timeout is async and its will be called after first
                  * $apply phase and $timeout will call its own $apply at the end
-                 */               
-                $timeout(()=> {
+                 */
+                $timeout(() => {
                     clearModalData();
-                }, 0);                
+                }, 0);
             });
 
             function clearModalData() {

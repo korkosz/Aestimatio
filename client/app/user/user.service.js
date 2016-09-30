@@ -8,8 +8,18 @@ module.exports = ['$resource', 'classService', 'auth', function ($resource, clas
         {
             'update': {
                 method: 'PATCH',
-                transformRequest: function (body) {
-                    console.log(body);
+                transformRequest: function (updatedUser) {
+
+                    /**
+                     * We have to remove $promise object because of 
+                     * stack overlow during jsonpatch.compare
+                     */
+                    var UserCopy = angular.copy(User);
+                    delete UserCopy.$promise;
+                    delete updatedUser.$promise;
+
+                    var comp = jsonpatch.compare(UserCopy, updatedUser);
+                    return angular.toJson(comp);
                 }
             }
         });
