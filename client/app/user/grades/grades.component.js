@@ -2,7 +2,6 @@ class ctrl {
     constructor(userService) {
         this.formattedGrades = userService
             .getLoggedUserGrades();
-
     }
 }
 
@@ -40,17 +39,22 @@ module.exports.modal = function () {
             };
 
             vm.addGrade = function () {
-
+                var userDataCopy = angular.copy(vm.userData);
+                userService.UserRes.update({ id: vm.userData._id }, userDataCopy);
                 //hide modal 
                 $('#m-modals-mask').click();
+                clearModalData();
             };
 
             $scope.$on('modalClosed', () => {
-                vm.grade.name = '';
-                vm.grade.type = null; 
-
+                clearModalData();
                 $scope.$apply();
             });
+
+            function clearModalData() {
+                vm.grade.name = '';
+                vm.grade.type = null;
+            }
         },
         link(scope, el) {
             var openModalBtn = el.find('.l-btn__add');
@@ -78,6 +82,11 @@ module.exports.modal = function () {
                     mask.removeClass('is-open');
                     $(this).remove();
 
+                    //hide dropdown
+                    el.find('.l-dropdown-wrapper')
+                        .addClass('is-close')
+                        .removeClass('is-open');
+
                     scope.$emit('modalClosed');
                 });
             });
@@ -86,7 +95,7 @@ module.exports.modal = function () {
             /**
              * dropdown
              */
-            var dropdownBtn = $('.l-dropdown__btn');
+            var dropdownBtn = el.find('.l-dropdown__btn');
 
             dropdownBtn.click(function () {
                 $(this).parent('.l-dropdown-wrapper')

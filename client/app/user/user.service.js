@@ -66,6 +66,7 @@ module.exports = ['$resource', 'classService', 'auth', function ($resource, clas
 
     return {
         User,
+        UserRes,
         refreshUser,
         getLoggedUserGrades
     };
