@@ -21,7 +21,7 @@ module.exports.modal = function () {
         },
         bindToController: true,
         controllerAs: 'modalVm',
-        controller($scope, userService) {
+        controller($scope, $timeout, userService) {
             var vm = this;
 
             vm.userData = userService.User;
@@ -43,16 +43,25 @@ module.exports.modal = function () {
                 userService.UserRes.update({ id: vm.userData._id }, userDataCopy);
                 //hide modal 
                 $('#m-modals-mask').click();
-                clearModalData();
             };
 
             $scope.$on('modalClosed', () => {
-                clearModalData();
-                $scope.$apply();
+                /**
+                 * double $apply problem
+                 * if it would be "$scope.$apply" then it would work for button click
+                 * but it would fail for manual invoke of the button click from 
+                 * angular function (addGrade in this case) - because this code is
+                 * already in $apply phase and manual call to $scope.$apply would
+                 * blow an error. $timeout is async and its will be called after first
+                 * $apply phase and $timeout will call its own $apply at the end
+                 */               
+                $timeout(()=> {
+                    clearModalData();
+                }, 0);                
             });
 
             function clearModalData() {
-                vm.grade.name = '';
+                vm.grade.grade = '';
                 vm.grade.type = null;
             }
         },
