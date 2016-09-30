@@ -1,14 +1,24 @@
 class ctrl {
-    constructor(averageGradesService, userService) {
-        this.averageGradesService = averageGradesService;
+    constructor($scope, averageGradesService, userService) {
+        var vm = this;
+        
+        vm.averageGradesService = averageGradesService;
 
-        this.formattedGrades = userService
+        vm.formattedGrades = userService
             .getLoggedUserGrades();
+
+        $scope.$watch(
+            () => {
+                return userService.User.grades.length;
+            },
+            () => {
+                vm.formattedGrades = userService
+                    .getLoggedUserGrades();
+            });
     }
 
     averageLabel(grades) {
         var gradesSum = [];
-
         grades.forEach((gradesContainer) => {
             gradesSum = gradesSum.concat(gradesContainer.grades);
         });
