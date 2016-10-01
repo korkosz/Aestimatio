@@ -18,12 +18,6 @@
         margin-bottom: 1em;
     }
 
-    .l-btn__close{
-        position: absolute;
-        right: 0.7rem;
-        top: 0.6rem;
-    }
-
     .l-btn__add{
         margin: auto;
         margin-top: 1rem;
@@ -34,4 +28,11 @@
     font-size: 0.8em;
     font-family: 'ubuntu', sans-serif;
     margin-left: 0.2em;
+}
+
+new-subject-modal,
+new-grade-type-modal{
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
 }
