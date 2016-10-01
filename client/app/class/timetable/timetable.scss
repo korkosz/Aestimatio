@@ -8,12 +8,12 @@
     }
 }
 
-@media (min-width:1000px) {
-    .m-timetable__container:hover .m-timetable__day-box{
-        opacity: 0.85;
-        transform: scale(0.9);
-    }
-}
+// @media (min-width:1000px) {
+//     .m-timetable__container:hover .m-timetable__day-box{
+//         opacity: 0.85;
+//         transform: scale(0.9);
+//     }
+// }
 
 .m-timetable__day-box{
     flex: 1 1 auto;
@@ -22,12 +22,12 @@
     transform-origin: center 5rem;
     transition: 0.3s;
 
-    @media (min-width:1000px){
-        &:hover{
-            opacity: 1 !important;
-            transform: scale(1.1) !important;
-        }
-    }
+    // @media (min-width:1000px){
+    //     &:hover{
+    //         opacity: 1 !important;
+    //         transform: scale(1.1) !important;
+    //     }
+    // }
 
     h3{
         text-align: center;
