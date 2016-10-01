@@ -6,12 +6,14 @@
 <section class="m-timetable l-container">
     <div class="m-timetable__container  m-modals__mask">
         <!-- School day -->
-        <div ng-repeat="day in $ctrl.userClass.timetable"
+        <div ng-repeat="day in $ctrl.userClass.timetable track by $index"
+             ng-init="dayIdx = $index"
              class="m-timetable__day-box unhover">
             <h3>{{day.day}}</h3>
             <ol class="m-timetable__subjects-wrapper">
                 <!-- Single Subject -->
-                <li ng-repeat="subject in day.subjects" dropdown
+                <li ng-repeat="subject in day.subjects track by $index" dropdown
+                    ng-init="subjIdx = $index"
                     class="l-dropdown-wrapper is-close">
                     <span class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
                         {{subject}}
@@ -20,7 +22,8 @@
                         </button>
                     </span>
                     <ul class="l-dropdown__menu">
-                        <li ng-repeat="sub in $ctrl.userClass.subjects"
+                        <li ng-repeat="sub in $ctrl.userClass.subjects track by $index"
+                            ng-click="$ctrl.replaceSubject(dayIdx, subjIdx, sub)"
                             class="l-dropdown__menu-item">
                             {{::sub}}
                         </li>
@@ -42,7 +45,7 @@
                             Subject
                         </div>
                         <ul class="l-dropdown__menu">
-                            <li ng-repeat="sub in $ctrl.userClass.subjects"
+                            <li ng-repeat="sub in $ctrl.userClass.subjects track by $index"
                                 class="l-dropdown__menu-item">
                                 {{::sub}}
                             </li>
