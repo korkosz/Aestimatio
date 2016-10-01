@@ -15,7 +15,9 @@
                     class="l-dropdown-wrapper is-close">
                     <span class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
                         {{subject}}
-                        <button class="l-btn__default l-btn__close">x</button>
+                        <button class="l-btn__default l-btn__close">
+                            <span class="l-btn__close-icon"></span>
+                        </button>
                     </span>
                     <ul class="l-dropdown__menu">
                         <li ng-repeat="sub in $ctrl.userClass.subjects"
@@ -23,11 +25,15 @@
                             {{::sub}}
                         </li>
                     </ul>
-                    <button class="l-btn__close l-btn__default">x</button>
+                    <button class="l-btn__close l-btn__default">
+                        <span class="l-btn__close-icon"></span>
+                    </button>
                 </li>
             </ol>
             <div class="l-btn__wrapper">
-                <button class="l-btn__add l-btn__default l-btn__add">+</button>
+                <button class="l-btn__add l-btn__default l-btn__add--big">
+                    <span class="l-btn__add-icon"></span>
+                </button>
                 <!-- Modal -->
                 <div class="m-modals__add-modal">
                     <h5>Add subject</h5>
@@ -36,7 +42,7 @@
                             Subject
                         </div>
                         <ul class="l-dropdown__menu">
-                            <li ng-repeat="sub in $ctrl.userClass.subjects" 
+                            <li ng-repeat="sub in $ctrl.userClass.subjects"
                                 class="l-dropdown__menu-item">
                                 {{::sub}}
                             </li>
@@ -51,7 +57,7 @@
 
 <script type="text/javascript">
     setTimeout(function() {
-        modal = function(){   
+        modal = function(){
             var btn = $(".l-btn__add");
                 mask = $('.m-modals__mask');
 

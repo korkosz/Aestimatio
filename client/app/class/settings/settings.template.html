@@ -11,13 +11,17 @@
                 class="l-pill__default" >
                 {{subject}}
                 <button ng-click="$ctrl.removeSubject(subject)"
-                        class="l-btn__default l-btn__close">x</button>
+                        class="l-btn__default l-btn__close">
+                    <span class="l-btn__close-icon"></span>
+                </button>
             </h4>
         </div>
 
         <!-- Add new subject -->
         <div class="l-btn__wrapper">
-            <button class="l-btn__default l-btn__add">+</button>
+            <button class="l-btn__default l-btn__add">
+                <span class="l-btn__add-icon"></span>
+            </button>
             <div class="m-modals__add-modal">
                 <h5>New subject</h5>
                 <input ng-model="newSubject"
@@ -40,13 +44,15 @@
                 {{type.name}}
                 <span class="m-settings__grade-rate">[ rate: {{type.rate}} ]</span>
                 <button ng-click="$ctrl.removeGradeType(type)"
-                        class="l-btn__default l-btn__close">x</button>
+                        class="l-btn__default l-btn__close"><span class="l-btn__close-icon"></span></button>
             </h4>
         </div>
 
         <!-- Add new grade type-->
         <div class="l-btn__wrapper">
-            <button class="l-btn__default l-btn__add">+</button>
+            <button class="l-btn__default l-btn__add">
+                <span class="l-btn__add-icon"></span>
+            </button>
             <div class="m-modals__add-modal">
                 <h5>New grade type</h5>
                 <form novalidate>
