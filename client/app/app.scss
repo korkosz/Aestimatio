@@ -1,18 +1,18 @@
 /*BASE***/
-@import "./assets/css/base/normalize.scss";
-@import "./assets/css/base/variables.scss";
-@import "./assets/css/base/fonts.scss";
-@import "./assets/css/base/flexbox-grid/flexboxgrid.scss";
+@import "../assets/css/base/normalize.scss";
+@import "../assets/css/base/variables.scss";
+@import "../assets/css/base/fonts.scss";
+@import "../assets/css/base/flexbox-grid/flexboxgrid.scss";
 
 /*LAYOUT***/
-@import "./assets/css/layout/menu.scss";
-@import "./assets/css/layout/footer.scss";
-@import "./assets/css/layout/subheader.scss";
-@import "./assets/css/layout/container.scss";
-@import "./assets/css/layout/buttons.scss";
-@import "./assets/css/layout/inputs.scss";
-@import "./assets/css/layout/pills.scss";
-@import "./assets/css/layout/dropdowns.scss";
+@import "../assets/css/layout/menu.scss";
+@import "../assets/css/layout/footer.scss";
+@import "../assets/css/layout/subheader.scss";
+@import "../assets/css/layout/container.scss";
+@import "../assets/css/layout/buttons.scss";
+@import "../assets/css/layout/inputs.scss";
+@import "../assets/css/layout/pills.scss";
+@import "../assets/css/layout/dropdowns.scss";
 
 /*MODULES***/
 @import './user/grades/grades.scss';
@@ -22,7 +22,7 @@
 @import '../components/modal/modals.scss';
 
 /*STATE***/
-@import "./assets/css/state/animations.scss";
+@import "../assets/css/state/animations.scss";
 
 body{
     padding-bottom: 5rem;
