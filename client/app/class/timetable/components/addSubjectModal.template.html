@@ -1,0 +1,25 @@
+<div class="l-btn__wrapper" modal>
+    <button class="l-btn__add l-btn__default l-btn__add--big">
+        <span class="l-btn__add-icon"></span>
+    </button>
+    <!-- Modal -->
+    <div class="m-modals__add-modal">
+        <h5>Add subject</h5>
+        <div class="l-dropdown-wrapper is-close" dropdown>
+            <div class="l-inputs__text-type l-dropdown__btn">
+                {{$ctrl.selectedSubject ? $ctrl.selectedSubject : 'Subject'}}
+            </div>
+            <ul class="l-dropdown__menu">
+                <li ng-repeat="sub in $ctrl.userClass.subjects track by $index" 
+                    ng-click="$ctrl.pickSubject(sub);"
+                    class="l-dropdown__menu-item">
+                    {{::sub}}
+                </li>
+            </ul>
+        </div>
+        <button ng-click="$ctrl.addSubject($ctrl.selectedSubject)"
+                class="l-btn__default l-btn__primary">
+            Add
+        </button>
+    </div>
+</div>
