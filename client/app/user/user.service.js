@@ -2,16 +2,14 @@ var jsonpatch = require('fast-json-patch');
 
 module.exports = ['$resource', 'classService', 'auth', '$rootScope',
     function ($resource, classService, auth) {
-        var factory = {
+        var UserRes,
             User,
-            UserRes,
-            getLoggedUserGrades
-        };
+            getLoggedUserGrades;
 
        /**
         * Resource
         */
-        var UserRes = $resource('/api/user/:id', { id: '@_id' },
+        UserRes = $resource('/api/user/:id', { id: '@_id' },
             {
                 'update': {
                     method: 'PATCH',
@@ -34,7 +32,7 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
         /**
          * Instance for the logged user
          */
-        var User = UserRes.get({ id: auth.getUser().userId });
+        User = UserRes.get({ id: auth.getUser().userId });
 
         /**
          * Get formatted user's grades. We get output like:
@@ -46,7 +44,7 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
          *    ]
          * }]
          */
-        var getLoggedUserGrades = function () {
+        getLoggedUserGrades = function () {
             const subjects = classService.UserClass.subjects;
             const unformattedGrades = User.grades;
             var formattedGrades = [];
@@ -74,5 +72,9 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
             return formattedGrades;
         };
 
-        return factory;
+        return {
+            User,
+            UserRes,
+            getLoggedUserGrades
+        };
     }];
