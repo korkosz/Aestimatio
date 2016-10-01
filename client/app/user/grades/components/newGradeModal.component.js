@@ -20,7 +20,7 @@ function controller($scope, $timeout, userService) {
             /**
              * double $apply problem
              * if it would be "$scope.$apply" then it would work for button click
-             * but it would fail for manual invoke of the button click from 
+             * but it would fail for manual invoke of the button click from
              * angular function (addGrade in this case) - because this code is
              * already in $apply phase and manual call to $scope.$apply would
              * blow an error. $timeout is async and its will be called after first
@@ -60,7 +60,7 @@ function controller($scope, $timeout, userService) {
                 gradeType: gradeType
             });
         });
-        //hide modal 
+        //hide modal
         $('#m-modals-mask').click();
     };
 
