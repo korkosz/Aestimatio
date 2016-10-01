@@ -8,9 +8,11 @@ angular
         require('angular-resource'),
         require('./account').name,
         require('./user').name,
-        require('./class').name
+        require('./class').name,
+        require('../../components/dropdown/dropdown').name,
+        require('../../components/modal/modal').name  
     ])
-    .config(require('./app.routes'))
+    .config(require('./app.routes')) 
     .run(['$http', 'auth', ($http, auth) => {
         $http.post('/auth/login', {
             username: 'korkosz',

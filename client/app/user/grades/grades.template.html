@@ -22,7 +22,8 @@
                 </div>
                 <!-- Modal -->
                 <grade-modal grade-types="$ctrl.userClass.gradeTypes"
-                             subject="{{gradesPerSubject.subject}}"></grade-modal>
+                             subject="{{gradesPerSubject.subject}}">
+                </grade-modal>
             </div>
         </div>
     </div>
@@ -30,37 +31,3 @@
 
 <!-- ziomek to daje tu tylko bo nie mam gdzie narazie-->
 <user-average-grade></user-average-grade>
-
-<!-- Docelowo zostanie stad wyjebane -->
-<script type="text/ng-template" id="modalDirective.html">
-    <div class="l-btn__wrapper">
-        <button class="l-btn__add l-btn__default l-btn__add--small">
-            <span class="l-btn__add-icon"></span>
-        </button>       
-
-        <div class="m-modals__add-modal">
-            <h5>New grade</h5>
-            <input ng-model="modalVm.grade.grade"
-                    class="l-inputs__text-type" placeholder="Grade...">
-            <div class="l-dropdown-wrapper is-close">
-                <div class="l-dropdown__btn">
-                    {{!modalVm.grade.type ? 'Grade type':
-                        modalVm.gradeTypeLabel(modalVm.grade.type)}}
-                </div>
-                <ul class="l-dropdown__menu">
-                    <li ng-repeat="type in modalVm.gradeTypes"
-                        ng-click="modalVm.pickType(type)"
-                        class="l-dropdown__menu-item">
-                        {{type.name}}
-                        <span class="m-settings__grade-rate">
-                            [ rate: {{type.rate}} ]
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            <button ng-click="modalVm.addGrade(
-                                modalVm.grade.grade, modalVm.grade.type.name)"
-                    class="l-btn__default l-btn__primary">Add</button>
-        </div>
-    </div>
-</script>

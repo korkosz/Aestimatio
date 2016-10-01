@@ -11,7 +11,7 @@
             <h3>{{day.day}}</h3>
             <ol class="m-timetable__subjects-wrapper">
                 <!-- Single Subject -->
-                <li ng-repeat="subject in day.subjects"
+                <li ng-repeat="subject in day.subjects" dropdown
                     class="l-dropdown-wrapper is-close">
                     <span class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
                         {{subject}}
@@ -64,7 +64,8 @@
             btn.click(function(){
 
                 //Open modal
-                $(this).siblings('.m-modals__add-modal').removeClass('is-close').addClass('is-open');
+                $(this).siblings('.m-modals__add-modal')
+                    .removeClass('is-close').addClass('is-open');
                 $(this).parents('.m-modals__mask').addClass('is-open');
                 //Add modal mask
                 $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
@@ -78,14 +79,6 @@
 
                 });
             });
-        }();
-
-        dropdown = function(){
-            var btn = $('.l-dropdown__btn');
-
-            btn.click(function(){
-                $(this).parent('.l-dropdown-wrapper').toggleClass("is-open is-close");
-            })
-        }();
+        }(); 
     }, 1000)
 </script>
