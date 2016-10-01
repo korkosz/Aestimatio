@@ -33,12 +33,12 @@
                     </button>
                 </li>
             </ol>
-            <div class="l-btn__wrapper">
+            <div class="l-btn__wrapper" modal>
                 <button class="l-btn__add l-btn__default l-btn__add--big">
                     <span class="l-btn__add-icon"></span>
                 </button>
                 <!-- Modal -->
-                <div class="m-modals__add-modal">
+                <div class="m-modals__add-modal" >
                     <h5>Add subject</h5>
                     <div class="l-dropdown-wrapper is-close">
                         <div class="l-inputs__text-type l-dropdown__btn">
@@ -57,31 +57,3 @@
         </div>
     </div>
 </section>
-
-<script type="text/javascript">
-    setTimeout(function() {
-        modal = function(){
-            var btn = $(".l-btn__add");
-                mask = $('.m-modals__mask');
-
-            btn.click(function(){
-
-                //Open modal
-                $(this).siblings('.m-modals__add-modal')
-                    .removeClass('is-close').addClass('is-open');
-                $(this).parents('.m-modals__mask').addClass('is-open');
-                //Add modal mask
-                $(this).parents('.m-modals__mask').prepend('<div id="m-modals-mask"></div>');
-
-                $('#m-modals-mask').click(function(){
-                    //Close modal
-                    mask.removeClass('is-open');
-                    $('.m-modals__add-modal.is-open').removeClass('is-open').addClass('is-close');
-                    //Remove modal mask
-                    $(this).remove();
-
-                });
-            });
-        }(); 
-    }, 1000)
-</script>
