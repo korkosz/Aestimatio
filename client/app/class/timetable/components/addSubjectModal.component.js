@@ -20,10 +20,6 @@ function controller($scope, $timeout) {
         });
     };
 
-    vm.removeSubject = function () {
-        alert();
-    };
-
     vm.pickSubject = function (subject) {
         vm.selectedSubject = subject;
 
