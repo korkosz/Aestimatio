@@ -7,7 +7,8 @@
         <h3>Subjects</h3>
         <div class="l-pill__wrapper">
             <pill ng-repeat="subject in $ctrl.userClass.subjects"
-                  delete="$ctrl.removeSubject(subject)">
+                  delete="$ctrl.removeSubject(subject)"
+                  class="l-pill__default">
                 {{subject}}
             </pill>
         </div>
@@ -21,7 +22,8 @@
         <h3>Grade types</h3>
         <div class="l-pill__wrapper">
             <pill ng-repeat="type in $ctrl.userClass.gradeTypes"
-                  delete="$ctrl.removeGradeType(type)">
+                  delete="$ctrl.removeGradeType(type)"
+                  class="l-pill__default">
                 {{type.name}}
                 <span class="m-settings__grade-rate">
                     [ rate: {{type.rate}} ]

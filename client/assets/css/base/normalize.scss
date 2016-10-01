@@ -12,6 +12,11 @@ button {
     cursor: pointer;
 }
 
+body{
+    font-size: 16px;
+    padding-bottom: 5rem;
+}
+
 /**
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
