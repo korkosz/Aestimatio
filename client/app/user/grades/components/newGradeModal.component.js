@@ -1,6 +1,6 @@
 
 var component = {
-    templateUrl: '/static/app/user/grades/components/gradeModal.template.html',
+    templateUrl: '/static/app/user/grades/components/newGradeModal.template.html',
     bindings: {
         gradeTypes: '<',
         subject: '@'

@@ -4,13 +4,14 @@ var angular = require('angular');
 
 angular
     .module('aestimatio', [
-        require('angular-route'),
+        require('angular-route'), 
         require('angular-resource'),
-        require('./account').name,
+        require('./account').name, 
         require('./user').name,
-        require('./class').name,
+        require('./class').name, 
         require('../../components/dropdown/dropdown').name,
-        require('../../components/modal/modal').name  
+        require('../../components/modal/modal').name,  
+        require('../../components/pill/pill').name   
     ])
     .config(require('./app.routes')) 
     .run(['$http', 'auth', ($http, auth) => {

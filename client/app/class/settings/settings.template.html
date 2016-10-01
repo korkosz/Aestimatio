@@ -2,88 +2,35 @@
     <h2>Settings</h2>
 </header>
 <div class="m-settings__content-container  l-container">
-
     <!-- Subjects -->
     <section class="m-settings__subjects m-modals__mask row">
         <h3>Subjects</h3>
         <div class="l-pill__wrapper">
-            <h4 ng-repeat="subject in $ctrl.userClass.subjects"
-                class="l-pill__default" >
+            <pill ng-repeat="subject in $ctrl.userClass.subjects"
+                  delete="$ctrl.removeSubject(subject)">
                 {{subject}}
-                <button ng-click="$ctrl.removeSubject(subject)"
-                        class="l-btn__default l-btn__close">
-                    <span class="l-btn__close-icon"></span>
-                </button>
-            </h4>
+            </pill>
         </div>
 
-        <!-- Add new subject -->
-        <div modal
-             class="l-btn__wrapper">
-            <button class="l-btn__default l-btn__add">
-                <span class="l-btn__add-icon"></span>
-            </button>
-            <div class="m-modals__add-modal">
-                <h5>New subject</h5>
-                <input ng-model="newSubject"
-                       class="l-inputs__text-type" placeholder="Subject name...">
-                <div class="l-btn__wrapper">
-                    <button ng-click="$ctrl.addSubject(newSubject); newSubject='';"
-                            class="l-btn__default l-btn__primary">Add</button>
-                </div>
-            </div>
-        </div>
+        <!-- Add new subject - modal -->
+        <new-subject-modal user-class="$ctrl.userClass"></new-subject-modal>
     </section>
 
     <!-- Grade types -->
     <section class="m-settings__grade-types m-modals__mask row">
-
         <h3>Grade types</h3>
         <div class="l-pill__wrapper">
-            <h4 ng-repeat="type in $ctrl.userClass.gradeTypes"
-                class="l-pill__default">
+            <pill ng-repeat="type in $ctrl.userClass.gradeTypes"
+                  delete="$ctrl.removeGradeType(type)">
                 {{type.name}}
-                <span class="m-settings__grade-rate">[ rate: {{type.rate}} ]</span>
-                <button ng-click="$ctrl.removeGradeType(type)"
-                        class="l-btn__default l-btn__close"><span class="l-btn__close-icon"></span></button>
-            </h4>
+                <span class="m-settings__grade-rate">
+                    [ rate: {{type.rate}} ]
+                </span>
+            </pill>
         </div>
 
-        <!-- Add new grade type-->
-        <div modal
-             class="l-btn__wrapper">
-            <button class="l-btn__default l-btn__add">
-                <span class="l-btn__add-icon"></span>
-            </button>
-            <div class="m-modals__add-modal">
-                <h5>New grade type</h5>
-                <form novalidate>
-                    <input ng-model="type.name"
-                           class="l-inputs__text-type  error"
-                           placeholder="Grade type...">
-                    <input ng-model="type.rate"
-                           class="l-inputs__text-type success"
-                           placeholder="Grade rate...">
-               </form novalidate>
-                <p class="m-modals__info-desc">
-                    *default value of grade rate is 1
-                </p>
-                <div class="l-btn__wrapper">
-                    <button ng-click="$ctrl.addGradeType(type); type=null"
-                            class="l-btn__default l-btn__primary">Add</button>
-                </div>
-                <!-- To bedzie takie pudelko na powiadomienia dla usera.
-                Moze byc ich nawet 10 i nic sie nie rozejdzie jak pizda tirowki -->
-                <div class="l-inputs__global-error-box">
-                    <p class="l-inputs__global-error">
-                        *It must be a text
-                    </p>
-                    <p class="l-inputs__global-error">
-                        *It must be a text
-                    </p>
-                </div>
-            </div>
-        </div>
+        <!-- Add new grade type - modal -->
+        <new-grade-type-modal user-class="$ctrl.userClass"></new-grade-type-modal>
     </section>
 </div>
 

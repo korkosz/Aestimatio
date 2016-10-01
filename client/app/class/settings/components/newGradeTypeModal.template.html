@@ -1,0 +1,34 @@
+<div modal
+     class="l-btn__wrapper">
+    <button class="l-btn__default l-btn__add">
+        <span class="l-btn__add-icon"></span>
+    </button>
+    <div class="m-modals__add-modal">
+        <h5>New grade type</h5>
+        <form novalidate>
+            <input ng-model="type.name"
+                    class="l-inputs__text-type  error"
+                    placeholder="Grade type...">
+            <input ng-model="type.rate"
+                    class="l-inputs__text-type success"
+                    placeholder="Grade rate...">
+        </form novalidate>
+        <p class="m-modals__info-desc">
+            *default value of grade rate is 1
+        </p>
+        <div class="l-btn__wrapper">
+            <button ng-click="$ctrl.addGradeType(type); type=null"
+                    class="l-btn__default l-btn__primary">Add</button>
+        </div>
+        <!-- To bedzie takie pudelko na powiadomienia dla usera.
+        Moze byc ich nawet 10 i nic sie nie rozejdzie jak pizda tirowki -->
+        <div class="l-inputs__global-error-box">
+            <p class="l-inputs__global-error">
+                *It must be a text
+            </p>
+            <p class="l-inputs__global-error">
+                *It must be a text
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,15 @@
-class ctrl {
-    constructor($scope, userService, averageGradesService) {
-        var vm = this;
+var component = {
+    controller,
+    templateUrl: '/static/app/user/grades/grades.template.html',
+    bindings: {
+        userClass: '='
+    }
+};
 
-        this.averageGradesService = averageGradesService;
+function controller($scope, userService, averageGradesService) {
+    var vm = this;
 
+    vm.$onInit = function () {
         vm.formattedGrades = userService
             .getLoggedUserGrades();
 
@@ -15,17 +21,11 @@ class ctrl {
                 vm.formattedGrades = userService
                     .getLoggedUserGrades();
             });
-    }
+    };
 
-    averageLabel(grades) {
-        return '(' + this.averageGradesService.averageLabel(grades) + ')';
-    }
+    vm.averageLabel = function (grades) {
+        return '(' + averageGradesService.averageLabel(grades) + ')';
+    };
 }
 
-module.exports = {
-    controller: ctrl,
-    templateUrl: '/static/app/user/grades/grades.template.html',
-    bindings: {
-        userClass: '='
-    }
-};
+module.exports = component;
