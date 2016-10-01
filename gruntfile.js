@@ -10,7 +10,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'client/',
-                        src: ['app/**/*.js'],
+                        src: ['app/**/*.js', 'components/**/*.js'],
                         dest: 'client/dist/'
                     }
                 ]
@@ -29,27 +29,27 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'client/dist/app.css': 'client/app/**/*.scss'
+                    'client/dist/app.css': ['client/app/**/*.scss', 'client/components/**/*.scss', 'client/assets/**/*.scss']
                 }
             }
         },
         watch: {
             css: {
-                files: ['client/app/**/*.scss'],
+                files: ['client/app/**/*.scss', 'client/components/**/*.scss', 'client/assets/**/*.scss'],
                 tasks: ['sass'],
                 options: {
                     livereload: true
                 },
             },
             js: {
-                files: ['client/app/**/*.js'],
+                files: ['client/app/**/*.js', 'client/components/**/*.js', 'client/assets/**/*.js'],
                 tasks: ['babel', 'browserify', 'clean'],
                 options: {
                     livereload: true
                 }
             },
             html: {
-                files: ['client/app/**/*.html'],
+                files: ['client/app/**/*.html', 'client/components/**/*.html', 'client/assets/**/*.html'],
                 options: {
                     livereload: true
                 }
