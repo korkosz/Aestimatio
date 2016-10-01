@@ -1,8 +1,14 @@
 var jsonpatch = require('fast-json-patch');
 
 module.exports = ['$resource', 'classService', 'auth', '$rootScope',
-    function ($resource, classService, auth, $rootScope) {
-        /**
+    function ($resource, classService, auth) {
+        var factory = {
+            User,
+            UserRes,
+            getLoggedUserGrades
+        };
+
+       /**
         * Resource
         */
         var UserRes = $resource('/api/user/:id', { id: '@_id' },
@@ -31,15 +37,6 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
         var User = UserRes.get({ id: auth.getUser().userId });
 
         /**
-         * Refresh resource from db
-         */
-        // var refreshUser = function () {
-        //     $rootScope.$apply(() => {
-        //         User = UserRes.get({ id: auth.getUser().userId });
-        //     });
-        // };
-
-        /**
          * Get formatted user's grades. We get output like:
          * [{
          *    subject: 'Math',
@@ -50,8 +47,8 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
          * }]
          */
         var getLoggedUserGrades = function () {
-            var subjects = classService.UserClass.subjects;
-            var unformattedGrades = User.grades;
+            const subjects = classService.UserClass.subjects;
+            const unformattedGrades = User.grades;
             var formattedGrades = [];
 
             for (let i = 0, len = subjects.length; i < len; i++) {
@@ -77,10 +74,5 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
             return formattedGrades;
         };
 
-        return {
-            User,
-            UserRes,
-            //refreshUser,
-            getLoggedUserGrades
-        };
+        return factory;
     }];
