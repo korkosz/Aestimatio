@@ -17,7 +17,8 @@
                     class="l-dropdown-wrapper is-close">
                     <span class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
                         {{subject}}
-                        <button class="l-btn__default l-btn__close">
+                        <button ng-click="$ctrl.removeSubject()"
+                                class="l-btn__default l-btn__close">
                             <span class="l-btn__close-icon"></span>
                         </button>
                     </span>
@@ -28,7 +29,8 @@
                             {{::sub}}
                         </li>
                     </ul>
-                    <button class="l-btn__close l-btn__default">
+                    <button ng-click="$ctrl.removeSubject()"
+                            class="l-btn__close l-btn__default">
                         <span class="l-btn__close-icon"></span>
                     </button>
                 </li>
