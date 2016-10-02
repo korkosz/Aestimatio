@@ -9,7 +9,10 @@ var component = {
 function controller() {
     var vm = this;
 
-    vm.removeSubject = function (dayIdx, subjIdx) {
+    vm.removeSubject = function (e, dayIdx, subjIdx) {
+        e.preventDefault();
+        e.stopPropagation(); //stop dropdown
+
         var userClassCopy = angular.copy(vm.userClass);
 
         userClassCopy.timetable[dayIdx].subjects
