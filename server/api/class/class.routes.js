@@ -1,4 +1,6 @@
 var express = require('express');
+var jsonpatch = require('fast-json-patch');
+
 var router = express.Router();
 
 var Class = require('./class.model');
@@ -24,5 +26,14 @@ router.post('/:id', function (req, res, next) {
             return res.status(200).end();
         });
 });
-
+router.patch('/:id', function (req, res) {
+    Class.findById(req.params.id, function (err, _class) {
+        var patches = req.body;
+        jsonpatch.apply(_class, patches);
+        _class.save();
+        res.end();
+    }).catch(function (err) {
+        return res.status(500).send(err);
+    });
+});
 module.exports = router;
