@@ -18,6 +18,7 @@
             </ul>
         </div>
         <button ng-click="$ctrl.addSubject($ctrl.selectedSubject)"
+                ng-disabled="!$ctrl.selectedSubject"
                 class="l-btn__default l-btn__primary">
             Add
         </button>

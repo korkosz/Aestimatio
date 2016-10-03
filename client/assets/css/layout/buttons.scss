@@ -18,6 +18,9 @@
         transform: translate(1px, 1px);
         box-shadow: none;
     }
+    &:disabled{
+       color: grey;
+    }
 }
 
 .l-btn__add{
