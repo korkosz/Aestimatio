@@ -21,8 +21,9 @@
 
     .l-btn__close{
         position: absolute;
-        right: 0.7rem;
-        top: 0.6rem;
+        right: 0.8rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     @media only screen and (max-width: 48rem) {
