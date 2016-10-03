@@ -1,0 +1,18 @@
+.m-home__header{
+    background: $main-color;
+    padding: 2rem 0;
+}
+
+.m-home__info{
+    background: $success-color;
+    height: 300px;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.m-home__timetable{
+    background: $main-color--darker;
+    border-radius: 1rem;
+    min-height: 300px;
+    margin-left: -1rem;
+}
