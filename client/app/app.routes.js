@@ -3,6 +3,9 @@
 module.exports = ['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {       
         $routeProvider
+            .when('/', {
+                template: '<home></home>'
+            })
             .when('/login', {
                 template: '<login></login>'
             })

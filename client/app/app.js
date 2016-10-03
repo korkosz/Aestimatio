@@ -9,6 +9,7 @@ angular
         require('./account').name, 
         require('./user').name,
         require('./class').name, 
+        require('./home').name, 
         require('../../components/dropdown/dropdown').name,
         require('../../components/modal/modal').name,  
         require('../../components/pill/pill').name   
