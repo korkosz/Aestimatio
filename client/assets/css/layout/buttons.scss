@@ -28,7 +28,7 @@
 .l-btn__add{
     margin: 0.7rem;
     line-height: 0;
-    
+
     svg{
         fill: darken($cta-color, 35%);
         padding: 0.5rem;
@@ -81,4 +81,23 @@
     padding: 0.7em 2.5em;
     margin-top: 0.7rem;
     font-family: 'Paytone One', sans-serif;
+}
+
+.l-btn__prev,
+.l-btn__next{
+    a{
+        display: block;
+        padding: 0.5rem;
+    }
+
+    svg{
+        width: 0.7rem;
+        fill: $cta-color;
+    }
+}
+
+.l-btn__prev{
+    svg{
+        transform: rotate(180deg);
+    }
 }
