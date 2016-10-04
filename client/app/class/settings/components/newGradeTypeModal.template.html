@@ -16,7 +16,7 @@
             <input ng-model="type.name"
                     class="l-inputs__text-type  error"
                     placeholder="Grade type...">
-            <input ng-model="type.rate"
+            <input ng-model="type.rate" type="number"
                     class="l-inputs__text-type success"
                     placeholder="Grade rate...">
         </form novalidate>
@@ -24,7 +24,8 @@
             *default value of grade rate is 1
         </p>
         <div class="l-btn__wrapper">
-            <button ng-click="$ctrl.addGradeType(type); type=null"
+            <button ng-click="$ctrl.addGradeType(type);"
+                    ng-disabled="!type.name || !type.rate"
                     class="l-btn__default l-btn__primary">Add</button>
         </div>
         <!-- To bedzie takie pudelko na powiadomienia dla usera.

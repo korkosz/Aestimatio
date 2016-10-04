@@ -1,0 +1,57 @@
+<div class="l-btn__wrapper" modal>
+    <button class="l-btn__add l-btn__add--big">
+        <svg version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	    viewBox="0 0 20 20"
+              xml:space="preserve" >
+              <rect id="XMLID_1_" y="8" width="20" height="4"/>
+              <rect id="XMLID_3_" x="8" y="0" width="4" height="20"/>
+        </svg>
+    </button>
+    <!-- Modal Body -->
+    <div class="m-modals__add-modal">
+        <h5>Add Exam</h5>
+        <h5>{{$ctrl.activeDay.format('ddd')}}</h5>
+        <h5>{{$ctrl.activeDay.format('DD')}}</h5>
+
+        <!--subject dropdown-->
+        <div class="l-dropdown-wrapper is-close" dropdown>
+            <div class="l-inputs__text-type l-dropdown__btn">
+                {{$ctrl.data.selectedSubject ? 
+                    $ctrl.data.selectedSubject : 'Pick Subject...'}}
+            </div>
+            <ul class="l-dropdown__menu">
+                <li ng-repeat="sub in $ctrl.userClass.subjects track by $index"
+                    ng-click="$ctrl.pickSubject(sub);"
+                    class="l-dropdown__menu-item">
+                    {{::sub}}
+                </li>
+            </ul>
+        </div>
+        <!--exam type dropdown-->
+        <div class="l-dropdown-wrapper is-close" dropdown>
+            <div class="l-inputs__text-type l-dropdown__btn">
+                {{$ctrl.data.selectedType ? 
+                    $ctrl.data.selectedType.name : 'Pick Exam Type...'}}
+            </div>
+            <ul class="l-dropdown__menu">
+                <li ng-repeat="type in $ctrl.userClass.gradeTypes track by $index"
+                    ng-click="$ctrl.pickExamType(type);"
+                    class="l-dropdown__menu-item">
+                    {{::type.name}}
+                </li>
+            </ul>
+        </div>        
+        <!--description-->
+        <textarea ng-model="$ctrl.data.description"
+                  cols="20" rows="10"
+                  placeholder="Description..."></textarea>
+
+        <button ng-click="$ctrl.addExam($ctrl.data)"
+                ng-disabled="!$ctrl.data.selectedSubject || !$ctrl.data.selectedType"
+                class="l-btn__default l-btn__primary">
+            Add
+        </button>
+    </div>
+</div>

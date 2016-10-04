@@ -1,7 +1,13 @@
 module.exports = ['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/class/search', {
-            template: '<class-search></class-search>'
+            template: `<class-search user-class="$resolve.userClass">
+                       </class-search>`,
+            resolve: {
+                userClass: function (classService) {
+                    return classService.UserClass.$promise;
+                }
+            }
         })
         .when('/class/settings', {
             template: `<class-settings user-class="$resolve.userClass">

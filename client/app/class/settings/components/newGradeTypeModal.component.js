@@ -6,10 +6,18 @@ var component = {
     controller
 };
 
-function controller() {
+function controller($scope, $timeout) {
     var vm = this;
 
-    vm.addGradeType = function(_type) {
+    vm.$onInit = function () {
+        $scope.$on('modalClosed', () => {
+            $timeout(() => {
+                $scope.type = null;
+            }, 0);
+        });
+    };
+
+    vm.addGradeType = function (_type) {
         vm.userClass.gradeTypes.push(_type);
         vm.userClass.$save();
 

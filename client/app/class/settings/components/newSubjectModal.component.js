@@ -6,8 +6,16 @@ var component = {
     controller
 };
 
-function controller() {
+function controller($scope, $timeout) {
     var vm = this;
+
+    vm.$onInit = function () {
+        $scope.$on('modalClosed', () => {
+            $timeout(() => {
+                $scope.newSubject = '';
+            }, 0);
+        });
+    };
 
     vm.addSubject = function (_sub) {
         vm.userClass.subjects.push(_sub);
