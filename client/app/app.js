@@ -12,7 +12,8 @@ angular
         require('./home').name, 
         require('../../components/dropdown/dropdown').name,
         require('../../components/modal/modal').name,  
-        require('../../components/pill/pill').name   
+        require('../../components/pill/pill').name,
+        require('../../components/calendar/calendar').name      
     ])
     .config(require('./app.routes')) 
     .run(['$http', 'auth', ($http, auth) => {

@@ -1,0 +1,34 @@
+<div class="month">
+    <ul>
+        <li ng-click="$ctrl.prevMonth()"
+            class="prev">
+            &#10094;
+        </li>
+        <li ng-click="$ctrl.nextMonth()"
+            class="next">
+            &#10095;
+        </li>
+        <li>
+            {{$ctrl.getActiveMonthName()}}<br>
+            <span style="font-size:18px">
+                {{$ctrl.getActiveYear()}}
+            </span>
+        </li>
+    </ul>
+</div> 
+<ul class="days">
+    <li ng-repeat="day in $ctrl.daysArray track by $index"
+        ng-click="$ctrl.pickDay(day.day)">
+        <!-- to 'active' to klasa ktora bedzie ustawiona jesli to po prawo da TRUE
+                zmien nazwe etc na jaka chcesz -->
+        <span ng-class="{'active': $ctrl.isDayActive(day.day)}">
+            {{day.day}}
+        </span>
+        
+        <!-- To bedzie wstawione tylko jesli sa jakies egzamy -->
+        <span ng-if="day.exams"
+              style="color:red">
+            *
+        </span>
+    </li>
+</ul>
