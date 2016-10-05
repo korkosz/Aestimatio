@@ -1,7 +1,7 @@
 var moment = require('moment');
 
 var component = {
-    templateUrl: '/static/app/class/search/components/addExamModal.template.html',
+    templateUrl: '/static/app/home/components/addExamModal.template.html',
     bindings: {
         userClass: '<',
         selectedDay: '<'
@@ -29,9 +29,12 @@ function controller($scope, $timeout) {
     };
 
     vm.$onChanges = function (changeObj) {
-        if (changeObj.selectedDay)
-            vm.displayDate = moment(
-                changeObj.selectedDay.currentValue);
+        if (changeObj.selectedDay) {
+            $timeout(() => {
+                vm.displayDate = moment(
+                    changeObj.selectedDay.currentValue);
+            }, 0);
+        }
     };
 
     vm.pickSubject = function (subject) {
