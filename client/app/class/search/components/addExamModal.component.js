@@ -1,8 +1,10 @@
+var moment = require('moment');
+
 var component = {
     templateUrl: '/static/app/class/search/components/addExamModal.template.html',
     bindings: {
         userClass: '<',
-        activeDay: '<'
+        selectedDay: '<'
     },
     controller
 };
@@ -17,11 +19,19 @@ function controller($scope, $timeout) {
             description: ''
         };
 
+        vm.displayDate = null;
+
         $scope.$on('modalClosed', () => {
             $timeout(() => {
                 vm.data = {};
             }, 0);
         });
+    };
+
+    vm.$onChanges = function (changeObj) {
+        if (changeObj.selectedDay)
+            vm.displayDate = moment(
+                changeObj.selectedDay.currentValue);
     };
 
     vm.pickSubject = function (subject) {
@@ -46,14 +56,14 @@ function controller($scope, $timeout) {
         userClassCopy
             .tests.push({
                 subject: data.selectedSubject,
-                date: vm.activeDay.valueOf(),
+                date: vm.selectedDay,
                 type: data.selectedType.name,
                 description: data.description
             });
         userClassCopy.$update(() => {
             vm.userClass.tests.push({
                 subject: data.selectedSubject,
-                date: vm.activeDay.valueOf(),
+                date: vm.selectedDay,
                 type: data.selectedType.name,
                 description: data.description
             });

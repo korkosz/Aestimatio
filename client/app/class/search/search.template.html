@@ -1,45 +1,12 @@
 <div class="col-md-6 m-modals__mask">
-    <div class="month">
-        <ul>
-            <li ng-click="$ctrl.prevMonth()"
-                class="prev">
-                &#10094;
-            </li>
-            <li ng-click="$ctrl.nextMonth()"
-                class="next">
-                &#10095;
-            </li>
-            <li>
-                {{$ctrl.getActiveMonthName()}}<br>
-                <span style="font-size:18px">{{$ctrl.getActiveYear()}}</span>
-            </li>
-        </ul>
-    </div>
 
-    <ul class="weekdays">
-        <li ng-repeat="day in $ctrl.weekDays">
-            {{::day}}
-        </li>
-    </ul> 
- 
-    <ul class="days">
-        <li ng-repeat="day in $ctrl.daysArray track by $index"
-            ng-click="$ctrl.pickDay(day.day)">
-            <span ng-class="{'active': $ctrl.isDayActive(day.day)}">
-                {{day.day}}
-            </span>
-            <span ng-if="day.exams"
-                  style="color:red">
-                *
-            </span>
-        </li>
-    </ul>
+    <calendar ng-model="$ctrl.huj">
+    </calendar>
 
     <!--modal-->
     <add-exam-modal user-class="$ctrl.userClass"
-                    active-day="$ctrl.activeDay">
-    </add-exam-modal>
-    
+                    selected-day="$ctrl.huj">
+    </add-exam-modal>    
 </div>
 
 <style>
@@ -53,7 +20,6 @@
     /* Month header */
     
     .month {
-        padding: 70px 25px;
         width: 100%;
         background: #1abc9c;
     }
