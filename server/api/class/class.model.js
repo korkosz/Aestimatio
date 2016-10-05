@@ -10,6 +10,13 @@ var gradeTypeSchema = new mongoose.Schema({
     rate: Number
 }, { _id: false });
 
+var testSchema = new mongoose.Schema({
+    subject: String,
+    date: Number,
+    type: String,
+    description: String
+});
+
 var ClassSchema = new mongoose.Schema({
     school: {
         type: mongoose.Schema.Types.ObjectId,
@@ -22,12 +29,7 @@ var ClassSchema = new mongoose.Schema({
     subjects: [String],
     timetable: [day],
     gradeTypes: [gradeTypeSchema],
-    tests: [{
-        subject: String,
-        date: Number,
-        type: String,
-        description: String
-    }]
+    tests: [testSchema]
 });
 
 module.exports = mongoose.model('Class', ClassSchema);

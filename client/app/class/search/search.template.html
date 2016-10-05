@@ -24,9 +24,13 @@
  
     <ul class="days">
         <li ng-repeat="day in $ctrl.daysArray track by $index"
-            ng-click="$ctrl.pickDay(day)">
-            <span ng-class="{'active': $ctrl.isDayActive(day)}">
-                {{day}}
+            ng-click="$ctrl.pickDay(day.day)">
+            <span ng-class="{'active': $ctrl.isDayActive(day.day)}">
+                {{day.day}}
+            </span>
+            <span ng-if="day.exams"
+                  style="color:red">
+                *
             </span>
         </li>
     </ul>

@@ -1,14 +1,21 @@
 var moment = require('moment');
 
-function controller() {
+function controller($scope) {
     var vm = this;
 
     vm.$onInit = function () {
         vm.activeDay = moment();
         vm.activeMonth = moment();
+        vm.exams = vm.userClass.tests;
         vm.weekDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
         vm.daysArray = [];
-        generateDaysArray(); 
+        generateDaysArray();
+
+        $scope.$watch(() => {
+            return vm.userClass.tests.length;
+        }, () => {
+            generateDaysArray();
+        });
     };
 
     vm.pickDay = function (day) {
@@ -43,6 +50,16 @@ function controller() {
         return vm.activeMonth.format('YYYY');
     };
 
+    function getExamsForCurMonth() {
+        var monthStart = vm.activeMonth.startOf('month').valueOf();
+        var monthEnd = vm.activeMonth.endOf('month').valueOf();
+
+        return vm.exams.filter(ex => {
+            return ex.date <= monthEnd &&
+                ex.date >= monthStart;
+        });
+    }
+
     function monthChanged() {
         generateDaysArray();
     }
@@ -54,19 +71,33 @@ function controller() {
         var nbOfDaysToPrepend = 0;
         var nbOfDaysToAppend = 0;
 
+        var examsForCurrMonth = getExamsForCurMonth();
+
         //1 clear
         vm.daysArray.length = 0;
 
         //2 prepend
         nbOfDaysToPrepend = calcNbOfDaysToPrepend();
-        
+
         while (nbOfDaysToPrepend--) {
             vm.daysArray.push(null);
-        } 
+        }
 
         //3 generate
         for (let i = firstDay; i <= lastDay; i++) {
-            vm.daysArray.push(i);
+            let examsForCurrDay = [];
+            examsForCurrMonth.forEach((ex, idx) => {
+                let day = moment(ex.date).date();
+
+                if (day === i) {
+                    examsForCurrDay.push(examsForCurrMonth.splice(idx, 1));
+                }
+            });
+
+            vm.daysArray.push({
+                day: i,
+                exams: examsForCurrDay.length > 0 ? examsForCurrDay : null
+            });
         }
 
         //4 append

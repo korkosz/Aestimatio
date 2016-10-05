@@ -22,7 +22,7 @@ function controller($scope, $timeout) {
                 vm.data = {};
             }, 0);
         });
-    }; 
+    };
 
     vm.pickSubject = function (subject) {
         vm.data.selectedSubject = subject;
@@ -41,12 +41,26 @@ function controller($scope, $timeout) {
     };
 
     vm.addExam = function (data) {
-        // vm.userClass
-        //     .timetable[vm.dayIndex].subjects.push(subject);
-        // vm.userClass.$save();
+        var userClassCopy = angular.copy(vm.userClass);
+
+        userClassCopy
+            .tests.push({
+                subject: data.selectedSubject,
+                date: vm.activeDay.valueOf(),
+                type: data.selectedType.name,
+                description: data.description
+            });
+        userClassCopy.$update(() => {
+            vm.userClass.tests.push({
+                subject: data.selectedSubject,
+                date: vm.activeDay.valueOf(),
+                type: data.selectedType.name,
+                description: data.description
+            });
+        });
 
         //hide modal 
-        $('#m-modals-mask').click(); 
+        $('#m-modals-mask').click();
     };
 }
 

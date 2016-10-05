@@ -22,6 +22,7 @@ Account.find({}).remove()
                                         city: city._doc._id,
                                         school: school._doc._id,
                                         subjects: ['History', 'Math', 'Biology','Physics', 'Chemistry', 'English'],
+                                        tests: [],
                                         gradeTypes: [
                                             {
                                                 name: 'Exam',
