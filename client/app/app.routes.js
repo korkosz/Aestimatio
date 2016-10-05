@@ -3,8 +3,13 @@
 module.exports = ['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {       
         $routeProvider
-            .when('/', {
-                template: '<home></home>'
+            .when('/home', {
+                template: '<home user-class="$resolve.userClass"></home>',
+                resolve: {
+                    userClass(classService) {
+                        return classService.UserClass.$promise;
+                    }
+                }
             })
             .when('/login', {
                 template: '<login></login>'

@@ -4,6 +4,7 @@ var app = angular.module('ct.calendar', []);
 
 app.directive('calendar', function (classService) {
     return {
+        restrict: 'E',
         templateUrl: '/static/components/calendar/calendar.html',
         link,
         require: 'ngModel'
