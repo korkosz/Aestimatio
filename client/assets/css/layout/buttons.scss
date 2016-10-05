@@ -20,7 +20,20 @@
         box-shadow: none;
     }
     &:disabled{
-       color: grey;
+        color: rgba(96, 11, 37, 0.45);
+
+        &::after{
+            content: "";
+            background: url(../assets/images/icon-disabled.svg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 4em;
+            height: 4em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 }
 
