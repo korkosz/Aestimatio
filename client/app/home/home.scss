@@ -1,6 +1,10 @@
 .m-home__header{
     background: $main-color;
-    padding: 2rem 0;
+    padding: 2rem 0 1rem 0;
+}
+
+.m-home__footer{
+    padding: 1rem 0;
 }
 
 // INFO *************************
@@ -157,4 +161,11 @@
         transform: translate(0.5rem, -50%);
         border-radius: 50%;
     }
+}
+
+// CALENDAR *************************************
+.m-home__calendar{
+    min-height: 400px;
+    border-radius: 1rem;
+    background: $main-color--lighter2;
 }
