@@ -1,5 +1,5 @@
 <div class="m-modals__mask">
-    <section class="m-home__header">
+    <section class="m-header">
         <div class="l-container">
             <div class="row">
                 <!-- Info************************************* -->
@@ -11,28 +11,28 @@
                 <!-- Timetable*********************************************** -->
                 <div class="col-md-9
                             col-xs-12">
-                    <div class="m-home__timetable">
+                    <div class="m-timetable-home">
                         <horizontal-calendar selected-day="$ctrl.huj">
                         </horizontal-calendar>
 
-                        <div class="m-home__timetable-schedule-wrapper
+                        <div class="m-timetable-home__schedule-wrapper
                                     row">
 
                             <div class="col-sm-4
                                         col-sm-hide">
-                                <ol class="m-home__timetable-schedule
-                                            m-home__timetable-schedule--prev">
-                                    <li class="m-home__timetable-subject">
+                                <ol class="m-timetable-home__schedule
+                                            m-timetable-home__schedule--prev">
+                                    <li class="m-timetable-home__subject">
                                         <span>Math</span>
                                     </li>
-                                    <li class="m-home__timetable-subject
-                                                m-home__timetable-subject--event">
+                                    <li class="m-timetable-home__subject
+                                                m-timetable-home__subject--event">
                                         <span>Chemistry</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>Biologia</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>English</span>
                                     </li>
                                 </ol>
@@ -40,21 +40,21 @@
 
                             <div class="col-sm-4
                                         col-xs-12">
-                                <ol class="m-home__timetable-schedule">
-                                    <li class="m-home__timetable-subject">
+                                <ol class="m-timetable-home__schedule">
+                                    <li class="m-timetable-home__subject">
                                         <span>Math</span>
                                     </li>
-                                    <li class="m-home__timetable-subject
-                                                m-home__timetable-subject--event">
+                                    <li class="m-timetable-home__subject
+                                                m-timetable-home__subject--event">
                                         <span>Chemistry</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>Biologia</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>English</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>Physics</span>
                                     </li>
                                 </ol>
@@ -62,25 +62,25 @@
 
                             <div class="col-sm-4
                                         col-sm-hide">
-                                <ol class="m-home__timetable-schedule
-                                            m-home__timetable-schedule--next">
-                                    <li class="m-home__timetable-subject">
+                                <ol class="m-timetable-home__schedule
+                                            m-timetable-home__schedule--next">
+                                    <li class="m-timetable-home__subject">
                                         <span>Math</span>
                                     </li>
-                                    <li class="m-home__timetable-subject
-                                                m-home__timetable-subject--event">
+                                    <li class="m-timetable-home__subject
+                                                m-timetable-home__subject--event">
                                         <span>Chemistry</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>Biologia</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>English</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>Physics</span>
                                     </li>
-                                    <li class="m-home__timetable-subject">
+                                    <li class="m-timetable-home__subject">
                                         <span>Physics</span>
                                     </li>
                                 </ol>
@@ -94,30 +94,30 @@
         </div>
     </section>
 
-    <section class="m-home__footer">
+    <section class="m-footer">
         <div class="l-container">
             <div class="row">
                 <!-- Calendar -->
                 <div class="col-md-9
                             col-xs-12">
-                    <div class="m-home__calendar">
+                    <div class="m-calendar">
                         <!-- Tu bedzie kalendarz -->
-                        <div class="m-home__calendar-body">
+                        <div class="m-calendar-body">
                             <calendar ng-model="$ctrl.selectedDay"
                                       calendar-exam data="{{$ctrl.userClass.tests}}">
                             </calendar>
                         </div>
 
                         <!-- Tu beda eventy -->
-                        <div class="m-home__calendar-event">
+                        <div class="m-calendar-event">
                             <h3>Events</h3>
-                            <div class="m-home__calendar-ev-info">
+                            <div class="m-calendar-ev-info">
                                 <h4 ng-repeat-start="exam in $ctrl.selectedDay.data"
-                                    class="m-home__calendar-ev-name">
+                                    class="m-calendar-ev-name">
                                     {{exam.subject}} - {{exam.type}}
                                 </h4>
                                 <p ng-repeat-end
-                                   class="m-home__calendar-ev-desc">
+                                   class="m-calendar-ev-desc">
                                     {{exam.description}}
                                 </p>
                             </div>
@@ -130,7 +130,7 @@
                 <!-- Stats -->
                 <div class="col-md-3
                             col-xs-12">
-                    <div class="m-home__stats">
+                    <div class="m-stats">
 
                     </div>
                 </div>

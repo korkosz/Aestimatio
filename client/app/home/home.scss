@@ -1,14 +1,14 @@
-.m-home__header{
+.m-header{
     background: $main-color;
     padding: 2rem 0 1rem 0;
 }
 
-.m-home__footer{
+.m-footer{
     padding: 1rem 0;
 }
 
 // INFO *************************
-.m-home__info{
+.m-info{
     border-radius: 1rem;
     padding: 3rem 1rem;
     text-align: center;
@@ -21,30 +21,30 @@
     }
 }
 
-.m-home__info--free{
+.m-info--free{
     background: $success-color;
     display: none;
 }
 
-.m-home__info--busy{
+.m-info--busy{
     background: $warning-color;
     // display: none;
 }
 
-.m-home__info-day{
+.m-info__day{
     margin: 0;
     margin-top: 0.7rem;
     margin-bottom: 0.3rem;
 }
 
-.m-home__info-event{
+.m-info__event{
     margin: 0;
     margin-bottom: 1rem;
 }
 
 
 // TIMETABLE ********************************
-.m-home__timetable{
+.m-timetable-home{
     background: $main-color--darker;
     border-radius: 1rem;
     min-height: 400px;
@@ -53,7 +53,7 @@
     text-align: center;
 }
 
-.m-home__timetable-nav{
+.m-timetable-home__nav{
     list-style: none;
     padding: 0;
     margin: 0;
@@ -73,7 +73,7 @@
     }
 }
 
-.m-home__timetable-day {
+.m-timetable-home__day {
     display: inline-block;
     color: #fff;
     padding: 0.4em;
@@ -81,7 +81,7 @@
     z-index: 2;
 }
 
-.m-home__timetable-day--current{
+.m-timetable-home__day--current{
     margin: 0 0.5rem;
     font-size: 1.5rem;
 
@@ -108,7 +108,7 @@
     }
 }
 
-.m-home__timetable-day--weekend{
+.m-timetable-home__day--weekend{
     color: $main-color--darker2;
 
     &::after{
@@ -125,12 +125,12 @@
     }
 }
 
-.m-home__timetable-schedule{
+.m-timetable-home__schedule{
     list-style: none;
     padding: 0;
 }
 
-.m-home__timetable-subject{
+.m-timetable-home__subject{
     counter-increment: my-counter;
     margin: 1rem 0;
 
@@ -149,7 +149,7 @@
     }
 }
 
-.m-home__timetable-subject--event{
+.m-timetable-home__subject--event{
     span::after{
         content: "";
         width: 0.6rem;
@@ -163,20 +163,20 @@
     }
 }
 
-.m-home__timetable-schedule-wrapper{
+.m-timetable-home__schedule-wrapper{
     max-width: 33rem;
     margin: auto;
 }
 
-.m-home__timetable-schedule--prev,
-.m-home__timetable-schedule--next{
+.m-timetable-home__schedule--prev,
+.m-timetable-home__schedule--next{
     opacity: 0.3;
     transform: scale(0.75);
     transform-origin: top;
 }
 
 // CALENDAR *************************************
-.m-home__calendar{
+.m-calendar{
     min-height: 400px;
     border-radius: 1rem;
     background: $main-color--lighter2;
