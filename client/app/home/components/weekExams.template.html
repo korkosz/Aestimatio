@@ -1,5 +1,7 @@
 <!-- Wyswietla sie gdy nie ma zadnych wydarzen w tygodniu -->
-<div class="m-info
+<div ng-if="$ctrl.exams.length === 0" 
+     style="display: block"
+     class="m-info
             m-info--free">
     <h3>
         This Week
@@ -10,23 +12,23 @@
 </div>
 
 <!-- Wyswietla sie gdy sa jakies wydarzenie w tygodniu -->
-<div class="m-info
+<div ng-if="$ctrl.exams.length > 0"
+     class="m-info
             m-info--busy">
     <h3>
         This Week
     </h3>
     <div class="m-info-desc">
-        <h5 class="m-info__day">
-            Monday
-        </h5>
-        <p class="m-info__event">
-            Math - exam
-        </p>
-        <h5 class="m-info__day">
-            Friday
-        </h5>
-        <p class="m-info__event">
-            Biology - exam
-        </p>
+        <span ng-repeat="day in $ctrl.weekDays"
+              ng-if="day.exams.length > 0">
+            <h5 class="m-info__day">
+                {{day.name}}
+            </h5>
+            <p ng-repeat="ex in day.exams"
+               class="m-info__event">
+                {{ex.subject}} - {{ex.type}}
+            </p>
+        </span>
+        
     </div>
 </div>
