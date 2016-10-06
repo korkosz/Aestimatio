@@ -180,7 +180,7 @@
     min-height: 400px;
     border-radius: 1rem;
     background: $main-color--lighter2;
-    padding: 3rem 1rem;
+    padding: 3rem 4rem;
     min-height: 31rem;
 }
 
@@ -249,9 +249,24 @@
 }
 
 .m-calendar__event{
+    text-align: center;
+
     h3{
         font-size: 1.4rem;
         margin-top: 0;
         margin-bottom: 1.5em;
     }
+}
+
+.m-calendar__event-name{
+    color: $main-color;
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+
+.m-calendar__event-desc{
+    font-size: 0.8rem;
+    line-height: 1.4em;
+    margin: 0;
+    margin-bottom: 1.8em;
 }
