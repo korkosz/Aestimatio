@@ -147,28 +147,26 @@
                     <div class="m-home__calendar">
                         <!-- Tu bedzie kalendarz -->
                         <div class="m-home__calendar-body">
-                            <calendar ng-model="$ctrl.selectedDay"></calendar>
+                            <calendar ng-model="$ctrl.selectedDay"
+                                      calendar-exam data="{{$ctrl.userClass.tests}}">
+                            </calendar>
                         </div>
 
                         <!-- Tu beda eventy -->
-                        <div class="m-home__calendar-event">
-                            <h3>Events</h3>
+                        <div class="m-home__calendar-event"> 
+                            <h3>Events</h3> 
                             <div class="m-home__calendar-ev-info">
-                                <h4 class="m-home__calendar-ev-name">
-                                    Historia - exam
+                                <h4 ng-repeat-start="exam in $ctrl.selectedDay.data"
+                                    class="m-home__calendar-ev-name">       
+                                    {{exam.subject}} - {{exam.type}}
                                 </h4>
-                                <p class="m-home__calendar-ev-desc">
-                                    Egzamin z dzialu: Geneza i skutki lenistwa Korkosza
-                                </p>
-                                <h4 class="m-home__calendar-ev-name">
-                                    Fizyka - exam
-                                </h4>
-                                <p class="m-home__calendar-ev-desc">
-                                    Egzamin z dzialu: 1 zasada zachownia korkosza
+                                <p ng-repeat-end
+                                   class="m-home__calendar-ev-desc">
+                                    {{exam.description}}
                                 </p>
                             </div>
                             <add-exam-modal user-class="$ctrl.userClass"
-                                            selected-day="$ctrl.selectedDay">
+                                            selected-day="$ctrl.selectedDay.valueOf()">
                             </add-exam-modal>    
                         </div>
                     </div>

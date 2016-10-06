@@ -2,30 +2,107 @@ var moment = require('moment');
 
 var app = angular.module('ct.calendar', []);
 
-app.directive('calendar', function (classService) {
+app.directive('calendar', function () {
     return {
+        require: 'ngModel',
         restrict: 'E',
-        templateUrl: '/static/components/calendar/calendar.html',
+        controller,
+        controllerAs: 'calendarCtrl',
         link,
-        require: 'ngModel'
+        templateUrl: '/static/components/calendar/calendar.html'
     };
 
-    function link(scope, el, attrs, ngModelCtrl) {
-        var vm = scope.$ctrl;
+    function controller() {//PUBLIC API  
+        var vm = this;
 
-        /// INIT ///
-        vm.exams = classService.UserClass.tests;
+        vm.$onInit = function () {
+            vm.activeMonth = moment();
+            vm.activeDay = moment();
+        };
+
+        //override this method to attach data
+        vm.getDataForCurMonth = function () {
+            return [/**{
+                        date: 23423234443,
+                        (...)
+                       }*/
+            ];
+        };
+
+        /**
+         * Use this method when your data source changes.
+         * Internally used when month or ng-model(externally) changes.
+         */
+        vm.generateDaysArray = function () {
+            const firstDay = 1;
+            const lastDay = vm.activeMonth.endOf('month').date();
+
+            var nbOfDaysToPrepend = 0;
+            var nbOfDaysToAppend = 0;
+
+            var dataForCurrMonth = vm.getDataForCurMonth();
+
+            //1 clear
+            vm.daysArray.length = 0;
+
+            //2 prepend
+            nbOfDaysToPrepend = calcNbOfDaysToPrepend();
+
+            while (nbOfDaysToPrepend--) {
+                vm.daysArray.push(null);
+            }
+
+            //3 generate
+            for (let i = firstDay; i <= lastDay; i++) {
+                let dataForCurrDay = dataForCurrMonth
+                    .filter((_data) => {
+                        let day = moment(_data.date).date();
+                        return day === i;
+                    });
+
+                vm.daysArray.push({
+                    day: i,
+                    data: dataForCurrDay.length > 0 ? dataForCurrDay : null
+                });
+            }
+
+            //4 append
+            nbOfDaysToAppend = calcNbOfDaysToAppend();
+            while (nbOfDaysToAppend--) {
+                vm.daysArray.push(null);
+            }
+        };
+
+        function calcNbOfDaysToPrepend() {
+            var weekDay = vm.activeMonth.startOf('month').day();
+
+            return weekDay === 0 ? 6 : weekDay - 1;
+        }
+
+        function calcNbOfDaysToAppend() {
+            var weekDay = vm.activeMonth.endOf('month').day();
+
+            return weekDay === 0 ? 0 : 7 - weekDay;
+        }
+
+        function refreshActiveDayData() {
+
+        }
+    }
+
+    function link(scope, el, attrs, ngModelCtrl) {
+        var vm = scope.calendarCtrl;
+
+        /*** INIT ***/
         vm.daysArray = [];
 
-        scope.$watch(() => {
-            return classService.UserClass.tests.length;
-        }, () => {
-            generateDaysArray();
+        attrs.$observe('data', (val) => {
+            console.log(val);
         });
-        /// INIT END ///
+        /// INIT ///
 
 
-        /// ngModelCtrl pipeline ///
+        /*** ngModelCtrl pipeline ***/
         ngModelCtrl.$formatters.push($modelValue => {
             vm.activeMonth = angular.copy($modelValue);
             return $modelValue;
@@ -43,27 +120,28 @@ app.directive('calendar', function (classService) {
         });
 
         ngModelCtrl.$render = function () {
-            generateDaysArray();
+            vm.generateDaysArray();
         };
 
         ngModelCtrl.$parsers.push($viewValue => {
-            return $viewValue.valueOf();
+            return $viewValue;
         });
 
         vm.setViewValue = function (val) {
             ngModelCtrl.$setViewValue(val);
         };
-        /// ngModelCtrl pipeline END ///
+        /// ngModelCtrl pipeline /// 
 
 
-        /// CONTROLLER ///
+        /*** Private API ***/
         vm.pickDay = function (day) {
             const activeMonth = vm.activeMonth.month();
             const activeYear = vm.activeMonth.year();
 
             vm.activeDay.year(activeYear)
                 .month(activeMonth)
-                .date(day);
+                .date(day.day);
+            vm.activeDay.data = day.data;
 
             vm.setViewValue(vm.activeDay);
         };
@@ -97,74 +175,8 @@ app.directive('calendar', function (classService) {
             return vm.activeMonth.format('YYYY');
         };
 
-        function generateDaysArray() {
-            const firstDay = 1;
-            const lastDay = vm.activeMonth.endOf('month').date();
-
-            var nbOfDaysToPrepend = 0;
-            var nbOfDaysToAppend = 0;
-
-            var examsForCurrMonth = getExamsForCurMonth();
-
-            //1 clear
-            vm.daysArray.length = 0;
-
-            //2 prepend
-            nbOfDaysToPrepend = calcNbOfDaysToPrepend();
-
-            while (nbOfDaysToPrepend--) {
-                vm.daysArray.push(null);
-            }
-
-            //3 generate
-            for (let i = firstDay; i <= lastDay; i++) {
-                let examsForCurrDay = [];
-                examsForCurrMonth.forEach((ex, idx) => {
-                    let day = moment(ex.date).date();
-
-                    if (day === i) {
-                        examsForCurrDay.push(examsForCurrMonth.splice(idx, 1));
-                    }
-                });
-
-                vm.daysArray.push({
-                    day: i,
-                    exams: examsForCurrDay.length > 0 ? examsForCurrDay : null
-                });
-            }
-
-            //4 append
-            nbOfDaysToAppend = calcNbOfDaysToAppend();
-            while (nbOfDaysToAppend--) {
-                vm.daysArray.push(null);
-            }
-        }
-
-        // to by pasowalo wyjebac do osobnej dyrektywy
-        function getExamsForCurMonth() {
-            var monthStart = vm.activeMonth.startOf('month').valueOf();
-            var monthEnd = vm.activeMonth.endOf('month').valueOf();
-
-            return vm.exams.filter(ex => {
-                return ex.date <= monthEnd &&
-                    ex.date >= monthStart;
-            });
-        }
-
         function monthChanged() {
-            generateDaysArray();
-        }
-
-        function calcNbOfDaysToPrepend() {
-            var weekDay = vm.activeMonth.startOf('month').day();
-
-            return weekDay === 0 ? 6 : weekDay - 1;
-        }
-
-        function calcNbOfDaysToAppend() {
-            var weekDay = vm.activeMonth.endOf('month').day();
-
-            return weekDay === 0 ? 0 : 7 - weekDay;
+            vm.generateDaysArray();
         }
     }
 });

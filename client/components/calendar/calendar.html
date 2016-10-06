@@ -1,33 +1,33 @@
 <div class="month">
     <ul>
-        <li ng-click="$ctrl.prevMonth()"
+        <li ng-click="calendarCtrl.prevMonth()"
             class="prev">
             &#10094;
         </li>
-        <li ng-click="$ctrl.nextMonth()"
+        <li ng-click="calendarCtrl.nextMonth()"
             class="next">
             &#10095;
         </li>
         <li>
-            {{$ctrl.getActiveMonthName()}}<br>
+            {{calendarCtrl.getActiveMonthName()}}<br>
             <span style="font-size:18px">
-                {{$ctrl.getActiveYear()}}
+                {{calendarCtrl.getActiveYear()}}
             </span>
         </li>
     </ul>
 </div> 
 <ul class="days">
-    <li ng-repeat="day in $ctrl.daysArray track by $index"
-        ng-click="$ctrl.pickDay(day.day)">
-        <!-- to 'active' to klasa ktora bedzie ustawiona jesli to po prawo da TRUE
+    <li ng-repeat="day in calendarCtrl.daysArray track by $index"
+        ng-click="calendarCtrl.pickDay(day)">
+        <!-- to 'active'/'weekend' to klasa ktora bedzie ustawiona jesli to po prawo da TRUE
                 zmien nazwe etc na jaka chcesz -->
-        <span ng-class="{'active': $ctrl.isDayActive(day.day), 
-                         'weekend' : $ctrl.isWeekend(day.day)}">
+        <span ng-class="{'active': calendarCtrl.isDayActive(day.day), 
+                         'weekend': calendarCtrl.isWeekend(day.day)}">
             {{day.day}}
         </span>
         
         <!-- To bedzie wstawione tylko jesli sa jakies egzamy -->
-        <span ng-if="day.exams"
+        <span ng-if="day.data"
               style="color:red">
             *
         </span>

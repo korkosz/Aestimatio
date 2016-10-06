@@ -10,6 +10,7 @@ angular
         require('../../components/modal/modal').name,  
         require('../../components/pill/pill').name,
         require('../../components/calendar/calendar').name,    
+        require('../../components/calendar/extensions').name,  
         require('./account').name, 
         require('./user').name,
         require('./class').name, 
