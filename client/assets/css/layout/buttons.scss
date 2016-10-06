@@ -96,21 +96,38 @@
     font-family: 'Paytone One', sans-serif;
 }
 
-.l-btn__prev,
-.l-btn__next{
-    a{
+.l-btn__arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    button{
+        content: "";
         display: block;
-        padding: 0.5rem;
+        background: url(../assets/images/arrow-next.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 1em;
+        height: 1em;
     }
 
-    svg{
-        width: 0.7rem;
-        fill: $cta-color;
+}
+
+.l-btn__arrow--next{
+    left: calc(100% + 0.5em);
+}
+
+.l-btn__arrow--prev{
+    right: calc(100% + 0.5em);
+
+    button{
+        transform: rotate(180deg);
     }
 }
 
-.l-btn__prev{
-    svg{
-        transform: rotate(180deg);
+.l-btn__arrow--small{
+    button{
+        width: 0.7em;
+        height: 0.7em;
     }
 }

@@ -1,17 +1,8 @@
 <ul class="m-timetable-home__nav">
 
-    <li class="l-btn__prev">
-        <button ng-click="$ctrl.previousDay()">
-            <?xml version="1.0" encoding="utf-8"?>
-            <svg version="1.1" id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px" y="0px"
-                viewBox="0 0 43.3 50"
-                xml:space="preserve">
-                <polygon id="XMLID_1_" points="43.3,25 21.7,37.5 0,50 0,25 0,0 21.7,12.5 "/>
-            </svg>
-        </button>
+    <li class="l-btn__arrow
+                l-btn__arrow--prev">
+        <button ng-click="$ctrl.previousDay()"></button>
     </li>
 
     <li ng-repeat="day in $ctrl.beforeDays"
@@ -34,17 +25,8 @@
         {{day.day}}
     </li>
 
-    <li class="l-btn__next">
-        <button ng-click="$ctrl.nextDay()">
-            <?xml version="1.0" encoding="utf-8"?>
-            <svg version="1.1" id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px" y="0px"
-                viewBox="0 0 43.3 50"
-                xml:space="preserve">
-                <polygon id="XMLID_1_" points="43.3,25 21.7,37.5 0,50 0,25 0,0 21.7,12.5 "/>
-            </svg>
-        </button>
+    <li class="l-btn__arrow
+                l-btn__arrow--next">
+        <button ng-click="$ctrl.nextDay()"></button>
     </li>
 </ul>

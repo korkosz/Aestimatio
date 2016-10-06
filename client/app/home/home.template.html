@@ -101,30 +101,39 @@
                 <div class="col-md-9
                             col-xs-12">
                     <div class="m-calendar">
-                        <!-- Tu bedzie kalendarz -->
-                        <div class="m-calendar-body">
-                            <calendar ng-model="$ctrl.selectedDay"
-                                      calendar-exam data="{{$ctrl.userClass.tests}}">
-                            </calendar>
+                        <div class="row">
+                            <div class="col-md-9
+                                        col-xs-12">
+                                <!-- Tu bedzie kalendarz -->
+                                <div class="m-calendar-body">
+                                    <calendar ng-model="$ctrl.selectedDay"
+                                              calendar-exam data="{{$ctrl.userClass.tests}}">
+                                    </calendar>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3
+                                        col-xs-12">
+                                <!-- Tu beda eventy -->
+                                <div class="m-calendar__event">
+                                    <h3>Events</h3>
+                                    <div class="m-calendar__event-info">
+                                        <h4 ng-repeat-start="exam in $ctrl.selectedDay.data"
+                                            class="m-calendar__event-name">
+                                            {{exam.subject}} - {{exam.type}}
+                                        </h4>
+                                        <p ng-repeat-end
+                                           class="m-calendar__event-desc">
+                                            {{exam.description}}
+                                        </p>
+                                    </div>
+                                    <add-exam-modal user-class="$ctrl.userClass"
+                                                    selected-day="$ctrl.selectedDay.valueOf()">
+                                    </add-exam-modal>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Tu beda eventy -->
-                        <div class="m-calendar-event">
-                            <h3>Events</h3>
-                            <div class="m-calendar-ev-info">
-                                <h4 ng-repeat-start="exam in $ctrl.selectedDay.data"
-                                    class="m-calendar-ev-name">
-                                    {{exam.subject}} - {{exam.type}}
-                                </h4>
-                                <p ng-repeat-end
-                                   class="m-calendar-ev-desc">
-                                    {{exam.description}}
-                                </p>
-                            </div>
-                            <add-exam-modal user-class="$ctrl.userClass"
-                                            selected-day="$ctrl.selectedDay.valueOf()">
-                            </add-exam-modal>
-                        </div>
                     </div>
                 </div>
                 <!-- Stats -->

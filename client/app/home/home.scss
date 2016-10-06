@@ -180,4 +180,78 @@
     min-height: 400px;
     border-radius: 1rem;
     background: $main-color--lighter2;
+    padding: 3rem 1rem;
+    min-height: 31rem;
+}
+
+.m-calendar__month{
+    text-align: center;
+}
+
+.m-calendar__month-name{
+    display: inline-block;
+    padding: 0 0.5rem;
+    min-width: 9em;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.m-calendar__body{
+    padding: 0;
+    max-width: 27rem;
+    margin: auto;
+}
+
+.m-calendar__day-box{
+    list-style-type: none;
+    cursor: pointer;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 0.7em;
+    font-size: 1.2rem;
+}
+
+.m-calendar__day{
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    background: transparentize($main-color, 0.95);
+}
+
+.m-calendar__day--active{
+    background: $main-color;
+    color: #fff;
+}
+
+.m-calendar__day--weekend{
+    background: transparentize($main-color, 0.85);
+}
+
+.m-calendar__day--event{
+    position: absolute;
+    width: 0.2em;
+    height: 0.2em;
+    background: red;
+    border-radius: 50%;
+}
+
+.m-calendar__day--event{
+    width: 0.5em;
+    height: 0.5em;
+    background: #ffb048;
+    border-radius: 50%;
+    right: 0.2em;
+    top: -0.1em;
+}
+
+.m-calendar__event{
+    h3{
+        font-size: 1.4rem;
+        margin-top: 0;
+        margin-bottom: 1.5em;
+    }
 }

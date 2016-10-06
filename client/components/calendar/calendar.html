@@ -1,49 +1,66 @@
-<div class="month">
-    <ul>
-        <li ng-click="calendarCtrl.prevMonth()"
-            class="prev">
-            &#10094;
-        </li>
-        <li ng-click="calendarCtrl.nextMonth()"
-            class="next">
-            &#10095;
-        </li>
-        <li>
-            {{calendarCtrl.getActiveMonthName()}}<br>
-            <span style="font-size:18px">
-                {{calendarCtrl.getActiveYear()}}
-            </span>
-        </li>
-    </ul>
-</div> 
-<ul class="days">
+<div class="m-calendar__month">
+    <h3 class="m-calendar__month-name">
+        <span class="l-btn__arrow
+                    l-btn__arrow--small
+                    l-btn__arrow--prev">
+            <button ng-click="calendarCtrl.prevMonth()"></button>
+        </span>
+        {{calendarCtrl.getActiveMonthName()}} {{calendarCtrl.getActiveYear()}}
+        <span class="l-btn__arrow
+                    l-btn__arrow--small
+                    l-btn__arrow--next">
+            <button ng-click="calendarCtrl.nextMonth()"></button>
+        </span>
+    </h3>
+</div>
+
+<ul class="m-calendar__body">
+    <li ng-repeat="day in calendarCtrl.daysArray track by $index"
+        ng-click="calendarCtrl.pickDay(day)"
+        class="m-calendar__day-box">
+
+        <span ng-class="{'m-calendar__day--active': calendarCtrl.isDayActive(day.day),
+                         'm-calendar__day--weekend': calendarCtrl.isWeekend(day.day)}"
+                class="m-calendar__day">
+            {{day.day}}
+        </span>
+
+        <span ng-if="day.data"
+              class="m-calendar__day--event">
+        </span>
+    </li>
+</ul>
+
+<!-- <ul class="days">
     <li ng-repeat="day in calendarCtrl.daysArray track by $index"
         ng-click="calendarCtrl.pickDay(day)">
-        <!-- to 'active'/'weekend' to klasa ktora bedzie ustawiona jesli to po prawo da TRUE
-                zmien nazwe etc na jaka chcesz -->
-        <span ng-class="{'active': calendarCtrl.isDayActive(day.day), 
+        <!- to 'active'/'weekend' to klasa ktora bedzie ustawiona jesli to po prawo da TRUE
+                zmien nazwe etc na jaka chcesz ->
+        <span ng-class="{'active': calendarCtrl.isDayActive(day.day),
                          'weekend': calendarCtrl.isWeekend(day.day)}">
             {{day.day}}
         </span>
-        
-        <!-- To bedzie wstawione tylko jesli sa jakies egzamy -->
+
+        <!- To bedzie wstawione tylko jesli sa jakies egzamy ->
         <span ng-if="day.data"
               style="color:red">
             *
         </span>
     </li>
-</ul>
+</ul> -->
+
+
 
 <style>
-    ul { 
+    ul {
         list-style-type: none;
     }
-    
+
     body {
         font-family: Verdana, sans-serif;
     }
     /* Month header */
-    
+
     .weekend {
         background: #97ff9b;
     }
@@ -53,21 +70,21 @@
         background: #1abc9c;
     }
     /* Month list */
-    
+
     .month ul {
         margin: 0;
         padding: 0;
     }
-    
+
     .month ul li {
         text-align: center;
         color: white;
         font-size: 20px;
-        text-transform: uppercase; 
+        text-transform: uppercase;
         letter-spacing: 3px;
     }
     /* Previous button inside month header */
-    
+
     .month .prev {
         float: left;
         padding-top: 10px;
@@ -75,7 +92,7 @@
         z-index: 3000;
     }
     /* Next button */
-    
+
     .month .next {
         float: right;
         padding-top: 10px;
@@ -83,13 +100,13 @@
         z-index: 3000;
     }
     /* Weekdays (Mon-Sun) */
-    
+
     .weekdays {
         margin: 0;
         padding: 10px 0;
         background-color: #ddd;
     }
-    
+
     .weekdays li {
         display: inline-block;
         width: 13.6%;
@@ -97,13 +114,13 @@
         text-align: center;
     }
     /* Days (1-31) */
-    
+
     .days {
         padding: 10px 0;
         background: #eee;
         margin: 0;
     }
-    
+
     .days li {
         list-style-type: none;
         cursor: pointer;
@@ -115,7 +132,7 @@
         color: #777;
     }
     /* Highlight the "current" day */
-    
+
     .days li .active {
         padding: 5px;
         background: #1abc9c;
