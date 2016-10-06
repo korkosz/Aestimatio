@@ -5,13 +5,13 @@ module.exports = angular.module('ct.horizontalCalendar', [])
         templateUrl: '/static/components/horizontal_calendar/horizontalCalendar.html',
         bindings: {
             number: '<',
-            selectedDay: '='
+            selectedDay: '=?'
         },
         controller() {
             var vm = this;
 
             vm.$onInit = function () {
-                vm.selectedDay = moment();
+                vm._selectedDay = moment();
                 vm.beforeDays = [];
                 vm.afterDays = [];
 
@@ -21,17 +21,17 @@ module.exports = angular.module('ct.horizontalCalendar', [])
             };
 
             vm.nextDay = function () {
-                vm.selectedDay.add(1, 'd');
+                vm._selectedDay.add(1, 'd');
                 setUpDays();
             };
 
             vm.previousDay = function () {
-                vm.selectedDay.subtract(1, 'd');
+                vm._selectedDay.subtract(1, 'd');
                 setUpDays();
             };
 
             function setUpDays() {
-                vm.day = vm.selectedDay.valueOf();
+                vm.selectedDay = vm._selectedDay.valueOf();
                 prependDays();
                 appendDays();
             }
@@ -39,7 +39,7 @@ module.exports = angular.module('ct.horizontalCalendar', [])
             function prependDays() {
                 vm.beforeDays.length = 0;
                 for (let i = vm.number; i > 0; i--) {
-                    let selectedDayCopy = moment(vm.selectedDay).subtract(i, 'd');
+                    let selectedDayCopy = moment(vm._selectedDay).subtract(i, 'd');
                     vm.beforeDays.push({
                         day: selectedDayCopy.date(),
                         weekend: selectedDayCopy.day() === 0 ||
@@ -51,7 +51,7 @@ module.exports = angular.module('ct.horizontalCalendar', [])
             function appendDays() {
                 vm.afterDays.length = 0;
                 for (let i = 1; i <= vm.number; i++) {
-                    let selectedDayCopy = moment(vm.selectedDay).add(i, 'd');
+                    let selectedDayCopy = moment(vm._selectedDay).add(i, 'd');
                     vm.afterDays.push({
                         day: selectedDayCopy.date(),
                         weekend: selectedDayCopy.day() === 0 ||

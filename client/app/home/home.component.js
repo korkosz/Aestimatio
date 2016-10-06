@@ -7,11 +7,12 @@ app.component('home', {
     }, 
     controller() {
         var vm = this;
-
         vm.selectedDay = (new Date()).getTime();
     }
 });
 app.component('addExamModal', 
     require('./components/addExamModal.component.js'));
+app.component('weekExams', 
+    require('./components/weekExams.component.js'));
 
 module.exports = app;
