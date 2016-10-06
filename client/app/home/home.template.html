@@ -12,27 +12,82 @@
                 <div class="col-md-9
                             col-xs-12">
                     <div class="m-home__timetable">
-                        <horizontal-calendar selected-day="$ctrl.huj">                        
+                        <horizontal-calendar selected-day="$ctrl.huj">
                         </horizontal-calendar>
 
-                        <ol class="m-home__timetable-schedule">
-                            <li class="m-home__timetable-subject">
-                                <span>Math</span>
-                            </li>
-                            <li class="m-home__timetable-subject
-                                        m-home__timetable-subject--event">
-                                <span>Chemistry</span>
-                            </li>
-                            <li class="m-home__timetable-subject">
-                                <span>Biologia</span>
-                            </li>
-                            <li class="m-home__timetable-subject">
-                                <span>English</span>
-                            </li>
-                            <li class="m-home__timetable-subject">
-                                <span>Physics</span>
-                            </li>
-                        </ol>
+                        <div class="m-home__timetable-schedule-wrapper
+                                    row">
+
+                            <div class="col-sm-4
+                                        col-sm-hide">
+                                <ol class="m-home__timetable-schedule
+                                            m-home__timetable-schedule--prev">
+                                    <li class="m-home__timetable-subject">
+                                        <span>Math</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject
+                                                m-home__timetable-subject--event">
+                                        <span>Chemistry</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>Biologia</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>English</span>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="col-sm-4
+                                        col-xs-12">
+                                <ol class="m-home__timetable-schedule">
+                                    <li class="m-home__timetable-subject">
+                                        <span>Math</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject
+                                                m-home__timetable-subject--event">
+                                        <span>Chemistry</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>Biologia</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>English</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>Physics</span>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="col-sm-4
+                                        col-sm-hide">
+                                <ol class="m-home__timetable-schedule
+                                            m-home__timetable-schedule--next">
+                                    <li class="m-home__timetable-subject">
+                                        <span>Math</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject
+                                                m-home__timetable-subject--event">
+                                        <span>Chemistry</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>Biologia</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>English</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>Physics</span>
+                                    </li>
+                                    <li class="m-home__timetable-subject">
+                                        <span>Physics</span>
+                                    </li>
+                                </ol>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -42,7 +97,7 @@
     <section class="m-home__footer">
         <div class="l-container">
             <div class="row">
-                <!-- Calendar --> 
+                <!-- Calendar -->
                 <div class="col-md-9
                             col-xs-12">
                     <div class="m-home__calendar">
@@ -54,11 +109,11 @@
                         </div>
 
                         <!-- Tu beda eventy -->
-                        <div class="m-home__calendar-event"> 
-                            <h3>Events</h3> 
+                        <div class="m-home__calendar-event">
+                            <h3>Events</h3>
                             <div class="m-home__calendar-ev-info">
                                 <h4 ng-repeat-start="exam in $ctrl.selectedDay.data"
-                                    class="m-home__calendar-ev-name">       
+                                    class="m-home__calendar-ev-name">
                                     {{exam.subject}} - {{exam.type}}
                                 </h4>
                                 <p ng-repeat-end
@@ -68,7 +123,7 @@
                             </div>
                             <add-exam-modal user-class="$ctrl.userClass"
                                             selected-day="$ctrl.selectedDay.valueOf()">
-                            </add-exam-modal>    
+                            </add-exam-modal>
                         </div>
                     </div>
                 </div>
@@ -82,4 +137,4 @@
             </div>
         </div>
     </section>
-</div>   
+</div>

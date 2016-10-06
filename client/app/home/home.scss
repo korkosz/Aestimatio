@@ -163,6 +163,18 @@
     }
 }
 
+.m-home__timetable-schedule-wrapper{
+    max-width: 33rem;
+    margin: auto;
+}
+
+.m-home__timetable-schedule--prev,
+.m-home__timetable-schedule--next{
+    opacity: 0.3;
+    transform: scale(0.75);
+    transform-origin: top;
+}
+
 // CALENDAR *************************************
 .m-home__calendar{
     min-height: 400px;

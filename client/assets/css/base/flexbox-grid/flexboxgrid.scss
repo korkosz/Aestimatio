@@ -892,3 +892,12 @@
     order: 1;
   }
 }
+
+// Hide
+@media only screen and (max-width: 48em) {
+
+    .col-sm-hide {
+        display: none;
+    }
+
+  }
