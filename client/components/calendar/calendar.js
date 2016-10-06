@@ -6,98 +6,24 @@ app.directive('calendar', function () {
     return {
         require: 'ngModel',
         restrict: 'E',
-        controller,
+        controller() { },
         controllerAs: 'calendarCtrl',
         link,
         templateUrl: '/static/components/calendar/calendar.html'
     };
 
-    function controller() {//PUBLIC API  
-        var vm = this;
-
-        vm.$onInit = function () {
-            vm.activeMonth = moment();
-            vm.activeDay = moment();
-        };
-
-        //override this method to attach data
-        vm.getDataForCurMonth = function () {
-            return [/**{
-                        date: 23423234443,
-                        (...)
-                       }*/
-            ];
-        };
-
-        /**
-         * Use this method when your data source changes.
-         * Internally used when month or ng-model(externally) changes.
-         */
-        vm.generateDaysArray = function () {
-            const firstDay = 1;
-            const lastDay = vm.activeMonth.endOf('month').date();
-
-            var nbOfDaysToPrepend = 0;
-            var nbOfDaysToAppend = 0;
-
-            var dataForCurrMonth = vm.getDataForCurMonth();
-
-            //1 clear
-            vm.daysArray.length = 0;
-
-            //2 prepend
-            nbOfDaysToPrepend = calcNbOfDaysToPrepend();
-
-            while (nbOfDaysToPrepend--) {
-                vm.daysArray.push(null);
-            }
-
-            //3 generate
-            for (let i = firstDay; i <= lastDay; i++) {
-                let dataForCurrDay = dataForCurrMonth
-                    .filter((_data) => {
-                        let day = moment(_data.date).date();
-                        return day === i;
-                    });
-
-                vm.daysArray.push({
-                    day: i,
-                    data: dataForCurrDay.length > 0 ? dataForCurrDay : null
-                });
-            }
-
-            //4 append
-            nbOfDaysToAppend = calcNbOfDaysToAppend();
-            while (nbOfDaysToAppend--) {
-                vm.daysArray.push(null);
-            }
-        };
-
-        function calcNbOfDaysToPrepend() {
-            var weekDay = vm.activeMonth.startOf('month').day();
-
-            return weekDay === 0 ? 6 : weekDay - 1;
-        }
-
-        function calcNbOfDaysToAppend() {
-            var weekDay = vm.activeMonth.endOf('month').day();
-
-            return weekDay === 0 ? 0 : 7 - weekDay;
-        }
-
-        function refreshActiveDayData() {
-
-        }
-    }
 
     function link(scope, el, attrs, ngModelCtrl) {
         var vm = scope.calendarCtrl;
 
         /*** INIT ***/
         vm.daysArray = [];
+        vm.calendarData = [];
 
         attrs.$observe('data', (val) => {
-            console.log(val);
+            vm.calendarData = scope.$eval(val) || [];
+            generateDaysArray();
+            refreshActiveDayData();
         });
         /// INIT ///
 
@@ -120,7 +46,7 @@ app.directive('calendar', function () {
         });
 
         ngModelCtrl.$render = function () {
-            vm.generateDaysArray();
+            generateDaysArray();
         };
 
         ngModelCtrl.$parsers.push($viewValue => {
@@ -175,8 +101,81 @@ app.directive('calendar', function () {
             return vm.activeMonth.format('YYYY');
         };
 
+        /**
+         * Use this method when your data source,
+         * month or ng-model(externally) changes.
+         */
+        function generateDaysArray() {
+            const firstDay = 1;
+            const lastDay = vm.activeMonth.endOf('month').date();
+
+            var nbOfDaysToPrepend = 0;
+            var nbOfDaysToAppend = 0;
+
+            var dataForCurrMonth = getDataForCurrMonth();
+
+            //1 clear
+            vm.daysArray.length = 0;
+
+            //2 prepend
+            nbOfDaysToPrepend = calcNbOfDaysToPrepend();
+
+            while (nbOfDaysToPrepend--) {
+                vm.daysArray.push(null);
+            }
+
+            //3 generate
+            for (let i = firstDay; i <= lastDay; i++) {
+                let dataForCurrDay = dataForCurrMonth
+                    .filter((_data) => {
+                        let day = moment(_data.date).date();
+                        return day === i;
+                    });
+
+                vm.daysArray.push({
+                    day: i,
+                    data: dataForCurrDay.length > 0 ? dataForCurrDay : null
+                });
+            }
+
+            //4 append
+            nbOfDaysToAppend = calcNbOfDaysToAppend();
+            while (nbOfDaysToAppend--) {
+                vm.daysArray.push(null);
+            }
+        }
+
+        function getDataForCurrMonth() {
+            var monthStart = vm.activeMonth
+                .startOf('month').valueOf();
+            var monthEnd = vm.activeMonth
+                .endOf('month').valueOf();
+
+            return vm.calendarData.filter(_data => {
+                return _data.date <= monthEnd &&
+                    _data.date >= monthStart;
+            });
+        }
+
+        function refreshActiveDayData() {
+            vm.activeDay.data = vm.calendarData.filter((_data) => {
+                return moment(_data.date).diff(vm.activeDay, 'days') === 0;
+            });
+        }
+
+        function calcNbOfDaysToPrepend() {
+            var weekDay = vm.activeMonth.startOf('month').day();
+
+            return weekDay === 0 ? 6 : weekDay - 1;
+        }
+
+        function calcNbOfDaysToAppend() {
+            var weekDay = vm.activeMonth.endOf('month').day();
+
+            return weekDay === 0 ? 0 : 7 - weekDay;
+        }
         function monthChanged() {
-            vm.generateDaysArray();
+            generateDaysArray();
         }
     }
 });
