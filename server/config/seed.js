@@ -21,7 +21,7 @@ Account.find({}).remove()
                                     Class.create({
                                         city: city._doc._id,
                                         school: school._doc._id,
-                                        subjects: ['History', 'Math', 'Biology','Physics', 'Chemistry', 'English'],
+                                        subjects: ['History', 'Math', 'Biology', 'Physics', 'Chemistry', 'English'],
                                         tests: [],
                                         gradeTypes: [
                                             {
@@ -37,6 +37,18 @@ Account.find({}).remove()
                                         timetable: [{
                                             day: 'Monday',
                                             subjects: ['Math', 'Biology', 'Physics', 'Chemistry', 'English']
+                                        }, {
+                                            day: 'Tuesday',
+                                            subjects: ['Physics', 'Physics', 'Chemistry', 'Math', 'English']
+                                        },{
+                                            day: 'Wednesday',
+                                            subjects: ['History', 'History', 'English', 'Math']
+                                        },{
+                                            day: 'Thursday',
+                                            subjects: ['Math', 'Math', 'Physics']
+                                        },{
+                                            day: 'Friday',
+                                            subjects: ['Physics', 'Biology', 'Biology', 'Physics']
                                         }]
                                     }).then(function (_class) {
                                         User.find({}).remove().then(function () {
