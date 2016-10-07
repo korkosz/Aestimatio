@@ -6,6 +6,9 @@
             <li ng-repeat="subject in $ctrl.previousDayTT.subjects track by $index"
                 class="m-timetable-home__subject">
                 <span>{{subject}}</span>
+                <span ng-if="$ctrl.anyExamsForSubject($ctrl.previousDay, subject)">
+                    *
+                </span>
             </li>
         </ol>
     </div>
@@ -16,6 +19,9 @@
             <li ng-repeat="subject in $ctrl.currentDayTT.subjects track by $index"
                 class="m-timetable-home__subject">
                 <span>{{subject}}</span>
+                <span ng-if="$ctrl.anyExamsForSubject($ctrl.currentDay, subject)">
+                    *
+                </span>
             </li>
         </ol>
     </div>
@@ -27,6 +33,9 @@
             <li ng-repeat="subject in $ctrl.nextDayTT.subjects track by $index"
                 class="m-timetable-home__subject">
                 <span>{{subject}}</span>
+                <span ng-if="$ctrl.anyExamsForSubject($ctrl.nextDay, subject)">
+                    *
+                </span>
             </li>
         </ol>
     </div>
