@@ -11,14 +11,14 @@
     </button>
     <!-- Modal Body -->
     <div class="m-modals__add-modal">
-        <h5>Add Exam</h5>
-        <h5>{{$ctrl.displayDate.format('ddd')}}</h5>
-        <h5>{{$ctrl.displayDate.format('DD')}}</h5>
+        <h5>New event</h5>
+        <!-- <h5>{{$ctrl.displayDate.format('ddd')}}</h5>
+        <h5>{{$ctrl.displayDate.format('DD')}}</h5> -->
 
         <!--subject dropdown-->
         <div class="l-dropdown-wrapper is-close" dropdown>
             <div class="l-inputs__text-type l-dropdown__btn">
-                {{$ctrl.data.selectedSubject ? 
+                {{$ctrl.data.selectedSubject ?
                     $ctrl.data.selectedSubject : 'Pick Subject...'}}
             </div>
             <ul class="l-dropdown__menu">
@@ -32,7 +32,7 @@
         <!--exam type dropdown-->
         <div class="l-dropdown-wrapper is-close" dropdown>
             <div class="l-inputs__text-type l-dropdown__btn">
-                {{$ctrl.data.selectedType ? 
+                {{$ctrl.data.selectedType ?
                     $ctrl.data.selectedType.name : 'Pick Exam Type...'}}
             </div>
             <ul class="l-dropdown__menu">
@@ -42,7 +42,7 @@
                     {{::type.name}}
                 </li>
             </ul>
-        </div>        
+        </div>
         <!--description-->
         <textarea ng-model="$ctrl.data.description"
                   cols="20" rows="10"
