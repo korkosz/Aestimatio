@@ -48,6 +48,7 @@
     background: $main-color--darker;
     border-radius: 1rem;
     min-height: 400px;
+    height: 100%;
     padding: 3rem 1rem;
     margin-left: -1rem;
     text-align: center;
@@ -180,7 +181,7 @@
     border-radius: 1rem;
     background: $main-color--lighter2;
     padding: 3rem 4rem;
-    min-height: 31rem;
+    min-height: 33rem;
 }
 
 .m-calendar__month{
@@ -267,8 +268,8 @@
 // STATS*********************************************
 .m-stats{
     border-radius: 1rem;
-    background: rgb(238, 234, 255);;
+    background: $cta-color;
     height: 100%;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.5rem;
     margin-top: 1rem;
 }

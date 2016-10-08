@@ -7,18 +7,20 @@
         letter-spacing: 1px;
         margin: auto;
         margin-bottom: 1.5rem;
+        margin-top: 0.5rem;
+        color: #fff;
     }
 }
 
 .m-average-grade__value{
-    font-size: 1.5rem;
-    background: $main-color;
+    font-size: 1.7rem;
+    background: #fff;
     display: inline-block;
     border-radius: 50%;
-    color: #fff;
-    width: 3.5em;
-    height: 3.5em;
-    line-height: 3.5em;
+    color: $cta-color;
+    width: 3.1em;
+    height: 3.1em;
+    line-height: 3.1em;
     text-align: center;
     box-sizing: content-box;
     font-family: 'Paytone One', sans-serif;
