@@ -46,3 +46,17 @@ input[type=number] {
     margin: 0.5em 0;
     font-size: 0.8rem;
 }
+
+.l-inputs__textarea{
+    outline: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0px 0px 8px;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background: rgb(89, 59, 255);
+    border: 2px solid transparent;
+    resize: vertical;
+    height: 100px;
+}

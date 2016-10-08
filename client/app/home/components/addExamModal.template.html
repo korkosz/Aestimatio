@@ -46,7 +46,8 @@
         <!--description-->
         <textarea ng-model="$ctrl.data.description"
                   cols="20" rows="10"
-                  placeholder="Description..."></textarea>
+                  placeholder="Description..."
+                  class="l-inputs__textarea"></textarea>
 
         <button ng-click="$ctrl.addExam($ctrl.data)"
                 ng-disabled="!$ctrl.data.selectedSubject || !$ctrl.data.selectedType"
