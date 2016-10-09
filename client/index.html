@@ -26,16 +26,30 @@
                 </div>
             </div>
 
-            <a href="/home">Home</a>
 
-            <a href="/user/grades">Moje oceny</a>
-            <a href="/class/search">class - search</a>
-            <a href="/class/settings">class - settings</a>
-            <a href="/class/timetable">class - timetable</a>
         </section>
 
+        <nav class="l-primary-nav">
+            <h3 class="l-primary-nav__item">
+                <a href="/home">Home</a>
+            </h3>
+            <h3 class="l-primary-nav__item">
+                <a href="/user/grades">My grades</a>
+            </h3>
+            <h3 class="l-primary-nav__item">
+                <a href="/class/settings">Settings</a>
+            </h3>
+            <h3 class="l-primary-nav__item">
+                <a href="/class/timetable">Timetable</a>
+            </h3>
+            <h3 class="l-primary-nav__item">
+                <a href="/class/search">class - search</a>
+            </h3>
+        </nav>
 
-        <div ng-view></div>
+        <div ng-view
+            class="l-main-container
+                    is-open"></div>
     </div>
 
     <script src="//localhost:35729/livereload.js"></script>

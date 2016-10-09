@@ -1,83 +1,74 @@
-<div>
-    <section class="m-header">
-        <div class="l-container">
-            <div class="row">
-                <!-- Info************************************* -->
-                <div class="col-md-3
-                            col-xs-12">
-                    <week-exams selected-day="$ctrl.huj"></week-exams>
+<div class="l-container">
+    <div class="row">
+        <!-- Info************************************* -->
+        <div class="col-md-3
+                    col-xs-12">
+            <week-exams selected-day="$ctrl.huj"></week-exams>
+        </div>
+
+        <!-- Timetable*********************************************** -->
+        <div class="col-md-9
+                    col-xs-12">
+            <div class="m-timetable-home">
+                <horizontal-calendar selected-day="$ctrl.huj">
+                </horizontal-calendar>
+
+                <div class="m-timetable-home__schedule-wrapper">
+                    <timetables selected-day="$ctrl.huj"></timetables>
                 </div>
 
-                <!-- Timetable*********************************************** -->
-                <div class="col-md-9
-                            col-xs-12">
-                    <div class="m-timetable-home">
-                        <horizontal-calendar selected-day="$ctrl.huj">
-                        </horizontal-calendar>
-
-                        <div class="m-timetable-home__schedule-wrapper">
-                            <timetables selected-day="$ctrl.huj"></timetables>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Calendar -->
+        <div class="col-xs-12">
+            <div class="m-calendar m-modals__mask">
+                <div class="m-calendar__wrapper">
+                    <div class="row">
+                        <div class="col-md-8
+                                    col-xs-12">
+                            <!-- Tu bedzie kalendarz -->
+                            <div class="m-calendar-body">
+                                <calendar ng-model="$ctrl.selectedDay"
+                                          calendar-exam data="{{$ctrl.userClass.tests}}">
+                                </calendar>
+                            </div>
                         </div>
 
+                        <div class="col-md-4
+                                    col-xs-12">
+                            <!-- Tu beda eventy -->
+                            <div class="m-calendar__event">
+                                <h3>Events</h3>
+                                <div class="m-calendar__event-info">
+                                    <h4 ng-repeat-start="exam in $ctrl.selectedDay.data"
+                                        class="m-calendar__event-name">
+                                        {{exam.subject}} - {{exam.type}}
+                                    </h4>
+                                    <p ng-repeat-end
+                                       class="m-calendar__event-desc">
+                                        {{exam.description}}
+                                    </p>
+                                </div>
+                                <add-exam-modal user-class="$ctrl.userClass"
+                                                selected-day="$ctrl.selectedDay.valueOf()">
+                                </add-exam-modal>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="m-footer">
-        <div class="l-container">
-            <div class="row">
-                <!-- Calendar -->
-                <div class="col-xs-12">
-                    <div class="m-calendar m-modals__mask">
-                        <div class="row">
-                            <div class="col-md-8
-                                        col-xs-12">
-                                <!-- Tu bedzie kalendarz -->
-                                <div class="m-calendar-body">
-                                    <calendar ng-model="$ctrl.selectedDay"
-                                              calendar-exam data="{{$ctrl.userClass.tests}}">
-                                    </calendar>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4
-                                        col-xs-12">
-                                <!-- Tu beda eventy -->
-                                <div class="m-calendar__event">
-                                    <h3>Events</h3>
-                                    <div class="m-calendar__event-info">
-                                        <h4 ng-repeat-start="exam in $ctrl.selectedDay.data"
-                                            class="m-calendar__event-name">
-                                            {{exam.subject}} - {{exam.type}}
-                                        </h4>
-                                        <p ng-repeat-end
-                                           class="m-calendar__event-desc">
-                                            {{exam.description}}
-                                        </p>
-                                    </div>
-                                    <add-exam-modal user-class="$ctrl.userClass"
-                                                    selected-day="$ctrl.selectedDay.valueOf()">
-                                    </add-exam-modal>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Stats -->
-                <div class="col-xs-12">
-                    <div class="m-stats">
-                        <user-average-grade></user-average-grade>
-                    </div>
-                </div>
-            </div>
-
+    <div class="row">
+        <!-- Stats -->
+        <div class="col-xs-12">
+            <div class="m-stats">
+                <user-average-grade></user-average-grade>
             </div>
         </div>
-    </section>
+    </div>
+
 </div>
