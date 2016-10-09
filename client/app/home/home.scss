@@ -1,7 +1,7 @@
 // INFO *************************
 .m-info{
     border-radius: 1rem;
-    padding: 6rem 1.5rem;
+    padding: 4rem 1.5rem 6rem 1.5rem;
     text-align: center;
     height: 100%;
 
@@ -47,7 +47,7 @@
     border-radius: 1rem;
     min-height: 400px;
     height: 100%;
-    padding: 6rem 1rem;
+    padding: 4rem 1rem 6rem 1rem;
     margin-left: -1rem;
     text-align: center;
 
@@ -97,7 +97,7 @@
     display: inline-block;
     color: #fff;
     padding: 0.4em;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     z-index: 2;
 
     @media only screen and (max-width: 32em) {
@@ -138,8 +138,8 @@
 
     &::after{
         content: "";
-        width: 2.3rem;
-        height: 2.3rem;
+        width: 1.9rem;
+        height: 1.9rem;
         background: $success-color;
         position: absolute;
         top: 50%;
@@ -162,14 +162,17 @@
 
 .m-timetable-home__subject{
     counter-increment: my-counter;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 
 }
 
 .m-timetable-home__subject-name{
     display: inline-block;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    background: $main-color--darker;
+    padding: 0.5em 1em 0.5em 1.5em;
+    border-radius: 3rem;
 
     &::before{
     content: counter(my-counter) ".";
@@ -333,7 +336,6 @@
 // STATS*********************************************
 .m-stats{
     border-radius: 1rem;
-    background: $cta-color;
     height: 100%;
     padding: 2rem 1.5rem;
     margin-top: 1rem;

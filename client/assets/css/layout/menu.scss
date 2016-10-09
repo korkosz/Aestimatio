@@ -1,8 +1,45 @@
 .l-menu__navbar{
     background: $main-color--darker2;
-    padding: 20px;
+    height: 6rem;
     a{
         color: rgba(255, 255, 255, 0.8);
         padding: 0 5px;
     }
+}
+
+.l-menu__hamburger{
+    width: 50px;
+    position: fixed;
+    right: 3rem;
+    top: 16px;
+    z-index: 10001;
+
+    img{
+        display: block;
+        margin: 0.5rem 0;
+        transition: 0.3s;
+
+        &:first-child{
+            transform: rotate(0) scaleX(1);
+            transform-origin: 17px 35px;
+        }
+
+        &:last-child{
+            transform: rotate(0) scaleX(1);
+            transform-origin: 18px -28px;
+        }
+    }
+}
+
+
+.l-menu__hamburger.is-open{
+
+    img:first-child{
+        transform: rotate(33deg) scaleX(0.5);
+    }
+
+    img:last-child{
+        transform: rotate(-33deg) scaleX(0.5);
+    }
+
 }

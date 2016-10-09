@@ -25,7 +25,11 @@
                     <a href="/register">Register</a>
                 </div>
             </div>
-
+            <button class="l-menu__hamburger">
+                <img src="static/assets/images/icon-hamburger.svg" alt="" />
+                <img src="static/assets/images/icon-hamburger.svg" alt="" />
+                <img src="static/assets/images/icon-hamburger.svg" alt="" />
+            </button>
 
         </section>
 
@@ -56,6 +60,13 @@
     <script src="static/dist/bundle.js"></script>
     <script src="static/app/bootstrap/js/bootstrap.js"></script>
     <script src="static/app/modals/modals.js"></script>
+
+    <script type="text/javascript">
+        $('.l-menu__hamburger').click(function (){
+            $(this).toggleClass('is-open');
+            $('.l-primary-nav').toggleClass('is-open');
+        });
+    </script>
 </body>
 
 </html>
