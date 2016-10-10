@@ -72,6 +72,8 @@
 }
 
 .l-dropdown-wrapper:not(.is-drag) .m-timetable__subject:hover{
+    cursor: -webkit-grab;
+
     .l-btn__close{
         opacity: 1;
         transform: translateY(-50%) scale(1);

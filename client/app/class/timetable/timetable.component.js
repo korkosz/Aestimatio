@@ -41,7 +41,7 @@ function controller() {
         e.preventDefault();
 
         var that = this;
- 
+
         var eventData = e.dataTransfer.getData('text/plain').split(' ');
         var dropDayIdx = that.dataset.dayIndex;
         var sourceDayIdx = eventData[1];
