@@ -19,9 +19,10 @@
         ng-click="calendarCtrl.pickDay(day)"
         class="m-calendar__day-box">
 
-        <span ng-class="{'m-calendar__day--active': calendarCtrl.isDayActive(day.day),
+        <span ng-if="day"
+              ng-class="{'m-calendar__day--active': calendarCtrl.isDayActive(day.day),
                          'm-calendar__day--weekend': calendarCtrl.isWeekend(day.day)}"
-                class="m-calendar__day">
+              class="m-calendar__day">
             {{day.day}}
         </span>
 
