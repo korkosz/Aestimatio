@@ -41,11 +41,16 @@ function controller() {
         e.preventDefault();
 
         var that = this;
+ 
         var eventData = e.dataTransfer.getData('text/plain').split(' ');
         var dropDayIdx = that.dataset.dayIndex;
         var sourceDayIdx = eventData[1];
         var sourceSubjectIdx = eventData[0];
         var dropdown = document.querySelector('.l-dropdown-wrapper.is-drag');
+
+        e.dataTransfer.dropEffect = 'move';
+        that.classList.remove('is-drag-over');
+        dropdown.classList.remove('is-drag');
 
         if (sourceDayIdx !== dropDayIdx) return;
 
@@ -64,9 +69,6 @@ function controller() {
             vm.userClass.timetable[sourceDayIdx].subjects
                 .splice(that.dataset.subjectIndex, 0, draggedSubj);
         });
-        e.dataTransfer.dropEffect = 'move';
-        that.classList.remove('is-drag-over');
-        dropdown.classList.remove('is-drag');
     }
 
     //
