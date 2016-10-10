@@ -8,6 +8,9 @@
     <li ng-repeat="day in $ctrl.beforeDays"
         ng-class="{'m-timetable-home__day--weekend':
                     day.weekend}"
+        ng-init="reversedIdx = $ctrl.beforeDays.length - $index"
+        ng-click="$ctrl.removeDays(reversedIdx)"
+        style="cursor: pointer"
         class="m-timetable-home__day">
         {{day.day}}
     </li>
@@ -21,6 +24,8 @@
     <li ng-repeat="day in $ctrl.afterDays"
         ng-class="{'m-timetable-home__day--weekend':
                     day.weekend}"
+        ng-click="$ctrl.addDays($index + 1)"
+        style="cursor: pointer"
         class="m-timetable-home__day">
         {{day.day}}
     </li>

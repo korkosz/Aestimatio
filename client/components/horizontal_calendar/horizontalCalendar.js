@@ -30,6 +30,16 @@ module.exports = angular.module('ct.horizontalCalendar', [])
                 setUpDays();
             };
 
+            vm.addDays = function (number) {
+                vm._selectedDay.add(number, 'd');
+                setUpDays();
+            };
+
+            vm.removeDays = function (number) {
+                vm._selectedDay.subtract(number, 'd');
+                setUpDays();
+            };
+
             function setUpDays() {
                 vm.selectedDay = vm._selectedDay.valueOf();
                 prependDays();
