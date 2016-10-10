@@ -1,4 +1,66 @@
-<div class="col-md-6 m-modals__mask">
-    {{$ctrl.huj}}
-    <horizontal-calendar day="$ctrl.huj"></horizontal-calendar>
+<div style="color:white;">
+    <form name="searchForm">
+        <datalist id="countries">
+            <option value="HTML">
+        </datalist>
+    
+        country <input ng-model="$ctrl.countrySearch"
+                    ng-model-options="{ updateOn: 'default blur', 
+                                        debounce: { 'default': 500, 'blur': 0 } }"
+                    ng-minlength="4"
+                    ng-change="$ctrl.handleCountrySearch(searchForm.country.$valid)"
+                    name="country"
+                    type="text" list="countries">
+        <br>
+        <datalist id="cities">
+        <option value="HTML">
+        <option value="CSS">
+        <option value="JavaScript">
+        <option value="Java">
+        <option value="Ruby">
+        <option value="PHP">
+        <option value="Go">
+        <option value="Erlang">
+        <option value="Python">
+        <option value="C">
+        <option value="C#">
+        <option value="C++">
+        </datalist>
+
+        city <input type="text" list="cities">
+        <br>
+        <datalist id="schools">
+        <option value="HTML">
+        <option value="CSS">
+        <option value="JavaScript">
+        <option value="Java">
+        <option value="Ruby">
+        <option value="PHP">
+        <option value="Go">
+        <option value="Erlang">
+        <option value="Python">
+        <option value="C">
+        <option value="C#">
+        <option value="C++">
+        </datalist>
+
+        school <input type="text" list="schools">
+        <br>
+        <datalist id="classes">
+        <option value="HTML">
+        <option value="CSS">
+        <option value="JavaScript">
+        <option value="Java">
+        <option value="Ruby">
+        <option value="PHP">
+        <option value="Go">
+        <option value="Erlang">
+        <option value="Python">
+        <option value="C">
+        <option value="C#">
+        <option value="C++">
+        </datalist>
+
+        class <input type="text" list="classes">
+    </form>
 </div>
