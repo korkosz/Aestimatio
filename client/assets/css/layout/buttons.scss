@@ -82,7 +82,7 @@
         border-radius: 50%;
         cursor: pointer;
         transition: 0.2s;
-        box-shadow: 0.125em 0.125em 0.6em transparentize($cta-color, 0.7);
+        box-shadow: 0.125em 0.125em 0.6em rgba(0, 0, 0, 0.3);
         &:active{
             transform: translate(1px, 1px);
             box-shadow: none;
