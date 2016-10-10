@@ -8,26 +8,12 @@
     }
 }
 
-// @media (min-width:1000px) {
-//     .m-timetable__container:hover .m-timetable__day-box{
-//         opacity: 0.85;
-//         transform: scale(0.9);
-//     }
-// }
-
 .m-timetable__day-box{
     flex: 1 1 auto;
     min-width: 0;
     padding-bottom: 50px;
     transform-origin: center 5rem;
     transition: 0.3s;
-
-    // @media (min-width:1000px){
-    //     &:hover{
-    //         opacity: 1 !important;
-    //         transform: scale(1.1) !important;
-    //     }
-    // }
 
     h3{
         text-align: center;
@@ -45,6 +31,7 @@
         top: 50%;
         transform: translateY(-50%) scale(0);
         transition: 0.3s;
+        transition-delay: 0.2s;
         z-index: 3;
 
         svg{
@@ -60,12 +47,7 @@
         }
     }
 
-    .m-timetable__subject:hover{
-        .l-btn__close{
-            opacity: 1;
-            transform: translateY(-50%) scale(1);
-        }
-    }
+
 
     > li{
         counter-increment: my-counter;
@@ -86,6 +68,16 @@
             border-radius: 50%;
             z-index: 2;
         }
+    }
+}
+
+.l-dropdown-wrapper:not(.is-drag) .m-timetable__subject:hover{
+    cursor: -webkit-grab;
+
+    .l-btn__close{
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+        transition-delay: 0.6s;
     }
 }
 
