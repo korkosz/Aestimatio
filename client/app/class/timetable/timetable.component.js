@@ -22,19 +22,19 @@ function controller() {
     }, 1000);
 
     function handleDragLeave() {
-        this.style.background = 'rgb(89, 59, 255)';
+        this.classList.remove('is-drag-over');
     }
 
     function handleDragStart(e) {
-        this.style.background = 'red';
         e.dataTransfer.setData('text/plain', this.dataset.subjectIndex + ' ' + this.dataset.dayIndex);
+        this.classList.add('is-drag');
     }
 
     function handleDragOver(e) {
         e.preventDefault();
         // Set the dropEffect to move
         e.dataTransfer.dropEffect = 'move';
-        this.style.background = 'yellow';
+        this.classList.add('is-drag-over');
     }
 
     function drop_handler(e) {
@@ -45,6 +45,7 @@ function controller() {
         var dropDayIdx = that.dataset.dayIndex;
         var sourceDayIdx = eventData[1];
         var sourceSubjectIdx = eventData[0];
+        var dropdown = document.querySelector('.l-dropdown-wrapper.is-drag');
 
         if (sourceDayIdx !== dropDayIdx) return;
 
@@ -64,7 +65,8 @@ function controller() {
                 .splice(that.dataset.subjectIndex, 0, draggedSubj);
         });
         e.dataTransfer.dropEffect = 'move';
-        that.style.background = 'rgb(89, 59, 255)';
+        that.classList.remove('is-drag-over');
+        dropdown.classList.remove('is-drag');
     }
 
     //

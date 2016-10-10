@@ -56,16 +56,33 @@
     }
 }
 
-// Open state
-.l-dropdown-wrapper.is-open > .l-dropdown__btn{
-    opacity: 1;
-}
 
-.l-dropdown-wrapper.is-open > .l-dropdown__btn:after{
-    transform: rotate(180deg);
-}
+.l-dropdown-wrapper{
+    transition: 0.5s;
 
-.l-dropdown-wrapper.is-open > .l-dropdown__menu{
-    transform: scaleY(1);
-    opacity: 1;
+    // Drag and drop
+    &.is-drag-over{
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+
+    &.is-drag{
+        opacity: 0.5;
+    }
+
+    // Open state    
+    &.is-open{
+        > .l-dropdown__btn{
+        opacity: 1;
+        }
+
+        > .l-dropdown__btn:after{
+        transform: rotate(180deg);
+        }
+
+        > .l-dropdown__menu{
+            transform: scaleY(1);
+            opacity: 1;
+        }
+    }
 }
