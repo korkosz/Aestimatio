@@ -11,6 +11,10 @@
     text-align: right;
     transform: translateX(100%);
     transition: 0.5s;
+    @media (max-width: 1700px){
+        background: $main-color;
+        box-shadow: -12px 0 52px rgba(0, 0, 0, 0.26);
+    }
 }
 
 .l-primary-nav.is-open{

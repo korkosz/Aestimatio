@@ -60,10 +60,26 @@
     <script src="static/dist/bundle.js"></script>
 
     <script type="text/javascript">
-        $('.l-menu__hamburger').click(function (){
+
+        var windowWidth = window.innerWidth;
+        var hamburger = $('.l-menu__hamburger');
+        var navItem = $('.l-primary-nav__item a');
+
+        // open and close promary menu
+        hamburger.click(function (){
             $(this).toggleClass('is-open');
             $('.l-primary-nav').toggleClass('is-open');
         });
+
+
+        if ( windowWidth < 700 ) {
+            navItem.click(function (){
+                hamburger.toggleClass('is-open');
+                $('.l-primary-nav').toggleClass('is-open');
+            });
+        }
+
+
     </script>
 </body>
 
