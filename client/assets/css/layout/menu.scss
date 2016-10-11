@@ -13,21 +13,17 @@
     right: 3rem;
     top: 16px;
     z-index: 10001;
+    @media only screen and (max-width: 62em) {
+        right: 1rem;
+        transform: scale(0.7);
+    }
 
     img{
         display: block;
         margin: 0.5rem 0;
         transition: 0.3s;
-
-        &:first-child{
-            transform: rotate(0) scaleX(1);
-            transform-origin: 17px 35px;
-        }
-
-        &:last-child{
-            transform: rotate(0) scaleX(1);
-            transform-origin: 18px -28px;
-        }
+        transform: translate(0) rotate(0) scaleX(1);
+        transform-origin: center;
     }
 }
 
@@ -35,11 +31,11 @@
 .l-menu__hamburger.is-open{
 
     img:first-child{
-        transform: rotate(33deg) scaleX(0.5);
+        transform: translate(25%, 0.5rem) rotate(33deg) scaleX(0.5);
     }
 
     img:last-child{
-        transform: rotate(-33deg) scaleX(0.5);
+        transform: translate(25%, -0.5rem) rotate(-33deg) scaleX(0.5);
     }
 
 }

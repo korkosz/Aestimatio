@@ -115,11 +115,11 @@
 }
 
 .l-btn__arrow--next{
-    left: calc(100% + 0.5em);
+    left: calc(100% + 1em);
 }
 
 .l-btn__arrow--prev{
-    right: calc(100% + 0.5em);
+    right: calc(100% + 1em);
 
     button{
         transform: rotate(180deg);
