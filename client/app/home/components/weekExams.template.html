@@ -1,5 +1,5 @@
 <!-- Wyswietla sie gdy nie ma zadnych wydarzen w tygodniu -->
-<div ng-if="$ctrl.exams.length === 0" 
+<div ng-if="$ctrl.exams.length === 0"
      style="display: block"
      class="m-info
             m-info--free">
@@ -26,9 +26,11 @@
             </h5>
             <p ng-repeat="ex in day.exams"
                class="m-info__event">
-                {{ex.subject}} - {{ex.type}}
+                <span>
+                    {{ex.subject}} - {{ex.type}}
+                </span>
             </p>
         </span>
-        
+
     </div>
 </div>

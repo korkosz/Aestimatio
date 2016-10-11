@@ -41,7 +41,7 @@
                             <!-- Tu beda eventy -->
                             <div class="m-calendar__event">
                                 <h3>Events</h3>
-                                <div ng-if="$ctrl.selectedDay.data" 
+                                <div ng-if="$ctrl.selectedDay.data"
                                      class="m-calendar__event-info">
                                     <h4 ng-repeat-start="exam in $ctrl.selectedDay.data"
                                         class="m-calendar__event-name">
@@ -54,7 +54,10 @@
                                 </div>
                                 <div ng-if="!$ctrl.selectedDay.data"
                                      class="m-calendar__event-info">
-                                    No Events 
+                                    <p class="m-calendar__event-name
+                                                m-calendar__event-name--empty">
+                                        No Events
+                                    </p>
                                 </div>
                                 <add-exam-modal user-class="$ctrl.userClass"
                                                 selected-day="$ctrl.selectedDay.valueOf()">

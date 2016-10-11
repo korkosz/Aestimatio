@@ -1,60 +1,69 @@
 <div class="row">
     <div class="col-sm-4
                 col-sm-hide">
-        <ol ng-if="$ctrl.previousDayTT.subjects"
-            class="m-timetable-home__schedule
-                   m-timetable-home__schedule--prev">
-            <li ng-repeat="subject in $ctrl.previousDayTT.subjects track by $index"\
-                class="m-timetable-home__subject">
-                <span class="m-timetable-home__subject-name">
-                    {{subject}}
-                    <span ng-if="$ctrl.anyExamsForSubject($ctrl.previousDay, subject)"
-                            class="m-timetable-home__subject-name--event">
+        <div class="m-timetable-home__schedule-box
+                    m-timetable-home__schedule-box--prev">
+            <ol ng-if="$ctrl.previousDayTT.subjects"
+                class="m-timetable-home__schedule">
+                <li ng-repeat="subject in $ctrl.previousDayTT.subjects track by $index"\
+                    class="m-timetable-home__subject">
+                    <span class="m-timetable-home__subject-name">
+                        {{subject}}
+                        <span ng-if="$ctrl.anyExamsForSubject($ctrl.previousDay, subject)"
+                                class="m-timetable-home__subject-name--event">
+                        </span>
                     </span>
-                </span>                
-            </li>
-        </ol>     
-        <p ng-if="!$ctrl.previousDayTT.subjects">
-            FREE
-        </p>       
+                </li>
+            </ol>
+            <p ng-if="!$ctrl.previousDayTT.subjects"
+                class="m-timetable-home__subject-name--free">
+                FREE
+            </p>
+        </div>
     </div>
 
     <div class="col-sm-4
                 col-xs-12">
-        <ol ng-if="$ctrl.currentDayTT.subjects" 
-            class="m-timetable-home__schedule">
-            <li ng-repeat="subject in $ctrl.currentDayTT.subjects track by $index"
-                class="m-timetable-home__subject">
-                <span class="m-timetable-home__subject-name">
-                    {{subject}}
-                    <span ng-if="$ctrl.anyExamsForSubject($ctrl.currentDay, subject)"
-                            class="m-timetable-home__subject-name--event">
+        <div class="m-timetable-home__schedule-box">
+            <ol ng-if="$ctrl.currentDayTT.subjects"
+                class="m-timetable-home__schedule">
+                <li ng-repeat="subject in $ctrl.currentDayTT.subjects track by $index"
+                    class="m-timetable-home__subject">
+                    <span class="m-timetable-home__subject-name">
+                        {{subject}}
+                        <span ng-if="$ctrl.anyExamsForSubject($ctrl.currentDay, subject)"
+                                class="m-timetable-home__subject-name--event">
+                        </span>
                     </span>
-                </span>
-            </li>
-        </ol>
-        <p ng-if="!$ctrl.currentDayTT.subjects">
-            FREE
-        </p>     
+                </li>
+            </ol>
+            <p ng-if="!$ctrl.currentDayTT.subjects"
+                class="m-timetable-home__subject-name--free">
+                FREE
+            </p>
+        </div>
     </div>
 
     <div class="col-sm-4
                 col-sm-hide">
-        <ol ng-if="$ctrl.nextDayTT.subjects" 
-            class="m-timetable-home__schedule
-                    m-timetable-home__schedule--next">
-            <li ng-repeat="subject in $ctrl.nextDayTT.subjects track by $index"
-                class="m-timetable-home__subject">
-                <span class="m-timetable-home__subject-name">
-                    {{subject}}
-                    <span ng-if="$ctrl.anyExamsForSubject($ctrl.nextDay, subject)"
-                            class="m-timetable-home__subject-name--event">
+        <div class="m-timetable-home__schedule-box
+                    m-timetable-home__schedule-box--next">
+            <ol ng-if="$ctrl.nextDayTT.subjects"
+                class="m-timetable-home__schedule">
+                <li ng-repeat="subject in $ctrl.nextDayTT.subjects track by $index"
+                    class="m-timetable-home__subject">
+                    <span class="m-timetable-home__subject-name">
+                        {{subject}}
+                        <span ng-if="$ctrl.anyExamsForSubject($ctrl.nextDay, subject)"
+                                class="m-timetable-home__subject-name--event">
+                        </span>
                     </span>
-                </span>
-            </li>
-        </ol>
-        <p ng-if="!$ctrl.nextDayTT.subjects">
-            FREE
-        </p> 
+                </li>
+            </ol>
+            <p ng-if="!$ctrl.nextDayTT.subjects"
+                class="m-timetable-home__subject-name--free">
+                FREE
+            </p>
+        </div>
     </div>
 </div>
