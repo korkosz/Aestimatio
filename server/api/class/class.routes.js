@@ -5,6 +5,18 @@ var router = express.Router();
 
 var Class = require('./class.model');
 
+router.get('/', function (req, res, next) {
+    var query = req.query.school ? { school: req.query.school } : {};
+
+    return Class.find(query).exec()
+        .then(function (entities) {
+            res.json(entities);
+        })
+        .catch(function (err) {
+            next(err.message);
+        });
+});
+
 router.get('/:id', function (req, res, next) {
     return Class.findById(req.params.id).exec()
         .then(function (entity) {

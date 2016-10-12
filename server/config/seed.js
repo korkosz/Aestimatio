@@ -13,10 +13,11 @@ Account.find({}).remove()
             }
 
             School.find({}).remove().then(function () {
-                School.create({ name: 'II B', city: 'WAWA' })
+                School.create({ name: 'Konarskiego', city: 'Warszawa' })
                     .then(function (school) {
                         Class.find({}).remove().then(function () {
                             Class.create({
+                                name: 'II B',
                                 school: school._doc._id,
                                 subjects: ['History', 'Math', 'Biology', 'Physics', 'Chemistry', 'English'],
                                 tests: [],
@@ -72,6 +73,10 @@ Account.find({}).remove()
                             });
                         });
                     });
+                School.create({ name: 'Liceum Profilowane', city: 'Warszawa' });
+                School.create({ name: 'Zawodowka', city: 'Warszawa' });
+                School.create({ name: 'Szkola Korkosza', city: 'Warszawa' });
+                School.create({ name: 'Technikum nr. 2', city: 'Warszawa' });
             });
         });
     });

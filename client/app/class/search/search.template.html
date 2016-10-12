@@ -1,7 +1,12 @@
 <div style="color:white;">
     <form name="searchForm">
-
-
+        <pre>
+            Pizdi testuj na takim zestawieniu:
+            Poland
+            Warszawa <-- bo tylko tu dodane jakies szkoly
+            Konarskiego <-- tylko jedna dodana klasa
+        </pre>
+        
         <!-- COUNTRY -->
         <datalist id="countries">
             <option ng-repeat="country in $ctrl.countries track by $index" value="{{country}}">
@@ -17,7 +22,7 @@
         <!-- COUNTRY END-->
 
 
-        <br>
+        <br><br><br>
 
 
         <!-- CITY -->
@@ -28,7 +33,7 @@
         city <input ng-model="$ctrl.citySearch"
                     ng-model-options="{ updateOn: 'default blur', 
                                         debounce: { 'default': 500, 'blur': 0 } }"
-                    ng-minlength="3"
+                    ng-minlength="3" ng-disabled="!$ctrl.countryValid"
                     ng-change="$ctrl.handleCitySearch(searchForm.city.$valid)"
                     name="city"
                     type="text" list="cities">
@@ -36,42 +41,38 @@
         
 
 
-        <br>
+        <br><br><br>
 
 
-        
+        <!-- SCHOOL -->
         <datalist id="schools">
-        <option value="HTML">
-        <option value="CSS">
-        <option value="JavaScript">
-        <option value="Java">
-        <option value="Ruby">
-        <option value="PHP">
-        <option value="Go">
-        <option value="Erlang">
-        <option value="Python">
-        <option value="C">
-        <option value="C#">
-        <option value="C++">
+            <option ng-repeat="school in $ctrl.schools track by $index" value="{{school.name}}">
         </datalist>
 
-        school <input type="text" list="schools">
-        <br>
+        school <input ng-model="$ctrl.schoolSearch"
+                    ng-model-options="{ updateOn: 'default blur', 
+                                        debounce: { 'default': 500, 'blur': 0 } }"
+                    ng-minlength="3" ng-disabled="!$ctrl.cityValid"
+                    ng-change="$ctrl.handleSchoolSearch(searchForm.school.$valid)"
+                    name="school"
+                    type="text" list="schools">
+        <!-- SCHOOL END -->
+
+        <br><br><br>
+
+
+        <!-- CLASS -->
         <datalist id="classes">
-        <option value="HTML">
-        <option value="CSS">
-        <option value="JavaScript">
-        <option value="Java">
-        <option value="Ruby">
-        <option value="PHP">
-        <option value="Go">
-        <option value="Erlang">
-        <option value="Python">
-        <option value="C">
-        <option value="C#">
-        <option value="C++">
+            <option ng-repeat="class in $ctrl.classes track by $index" value="{{class.name}}">
         </datalist>
 
-        class <input type="text" list="classes">
+        class <input ng-model="$ctrl.classSearch"
+                    ng-model-options="{ updateOn: 'default blur', 
+                                        debounce: { 'default': 500, 'blur': 0 } }"
+                    ng-minlength="3" ng-disabled="!$ctrl.cityValid"
+                    ng-change="$ctrl.handleClassSearch(searchForm.class.$valid)"
+                    name="class"
+                    type="text" list="classes">
+        <!-- CLASS END -->
     </form>
 </div>

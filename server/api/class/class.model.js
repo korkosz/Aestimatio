@@ -18,6 +18,7 @@ var testSchema = new mongoose.Schema({
 });
 
 var ClassSchema = new mongoose.Schema({
+    name: String,
     school: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'School'
