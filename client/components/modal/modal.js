@@ -8,34 +8,29 @@ app.directive('modal', function () {
             var mask = openModalBtn.closest('.m-modals__mask');
             var modalBody = openModalBtn.siblings('.m-modals__add-modal');
 
-            openModalBtn.on('click', () => {
+            openModalBtn.on('click', (event) => {
+                event.stopPropagation();
+
                 //show modal body
                 modalBody.removeClass('is-close')
                     .addClass('is-open');
 
                 //add modal mask
                 mask.addClass('is-open');
-                mask.prepend('<div id="m-modals-mask"></div>');
 
                 /**
                  * click outside of the modal hides it
                  */
-                $('#m-modals-mask').click(function () {
-                    //hide modal body
-                    modalBody.removeClass('is-open')
-                        .addClass('is-close');
-
-                    //remove modal mask
-                    mask.removeClass('is-open');
-                    $(this).remove();
-
-                    //hide dropdown
-                    el.find('.l-dropdown-wrapper')
-                        .addClass('is-close')
-                        .removeClass('is-open');
-
-                    scope.$emit('modalClosed');
-                });
+                 // close dropdown
+                 $(window).click( function (e) {
+                     if ( !modalBody.is(e.target)
+                          && modalBody.has(e.target).length === 0 ) {
+                             modalBody.removeClass('is-open')
+                                    .addClass('is-close');
+                            mask.removeClass('is-open');
+                     }
+                     scope.$emit('modalClosed');
+                 });
             });
         }
     };
