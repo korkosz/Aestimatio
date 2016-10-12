@@ -4,6 +4,7 @@
     margin: auto;
     padding-bottom: 3rem;
     margin-bottom: 3rem;
+
     @media only screen and (max-width: 48rem) {
         padding-left: 0;
         padding-right: 0;
@@ -23,6 +24,15 @@
         margin-top: 0.3rem;
     }
 }
+
+.m-settings__subjects{
+    @include fade(0.1s);
+}
+
+.m-settings__grade-types{
+    @include fade(0.2s);    
+}
+
 
 .m-settings__grade-rate {
     font-size: 0.8em;

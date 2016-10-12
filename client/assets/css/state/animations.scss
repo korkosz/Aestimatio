@@ -1,4 +1,4 @@
-/*Modals****/
+/*Modals**********************************/
 // Modal open animation
 @keyframes modal-open {
     0% {
@@ -26,12 +26,17 @@
     }
 }
 
-/*Average grade****/
-@keyframes bounce-border {
+
+/*Fade******************************/
+
+@keyframes fade {
     0% {
-        border: 0.2em solid rgba(255, 255, 255, 0.9);
+        transform: scale(0.95);
+        opacity: 0;
     }
     100% {
-        border: 0.2em solid rgba(255, 255, 255, 0.78);
+        transform: scale(1);
+        opacity: 1;
     }
+
 }
