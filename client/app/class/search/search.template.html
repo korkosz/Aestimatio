@@ -1,34 +1,45 @@
 <div style="color:white;">
     <form name="searchForm">
+
+
+        <!-- COUNTRY -->
         <datalist id="countries">
-            <option value="HTML">
+            <option ng-repeat="country in $ctrl.countries track by $index" value="{{country}}">
         </datalist>
     
         country <input ng-model="$ctrl.countrySearch"
                     ng-model-options="{ updateOn: 'default blur', 
                                         debounce: { 'default': 500, 'blur': 0 } }"
-                    ng-minlength="4"
+                    ng-minlength="2"
                     ng-change="$ctrl.handleCountrySearch(searchForm.country.$valid)"
                     name="country"
                     type="text" list="countries">
+        <!-- COUNTRY END-->
+
+
         <br>
+
+
+        <!-- CITY -->
         <datalist id="cities">
-        <option value="HTML">
-        <option value="CSS">
-        <option value="JavaScript">
-        <option value="Java">
-        <option value="Ruby">
-        <option value="PHP">
-        <option value="Go">
-        <option value="Erlang">
-        <option value="Python">
-        <option value="C">
-        <option value="C#">
-        <option value="C++">
+            <option ng-repeat="city in $ctrl.cities track by $index" value="{{city}}">
         </datalist>
 
-        city <input type="text" list="cities">
+        city <input ng-model="$ctrl.citySearch"
+                    ng-model-options="{ updateOn: 'default blur', 
+                                        debounce: { 'default': 500, 'blur': 0 } }"
+                    ng-minlength="3"
+                    ng-change="$ctrl.handleCitySearch(searchForm.city.$valid)"
+                    name="city"
+                    type="text" list="cities">
+        <!-- CITY END -->
+        
+
+
         <br>
+
+
+        
         <datalist id="schools">
         <option value="HTML">
         <option value="CSS">

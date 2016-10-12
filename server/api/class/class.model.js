@@ -22,10 +22,6 @@ var ClassSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'School'
     },
-    city: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'City'
-    },
     subjects: [String],
     timetable: [day],
     gradeTypes: [gradeTypeSchema],

@@ -1,5 +1,6 @@
+var countries = require('country-list')().getNames();
 
-function controller($scope) {
+function controller($filter, $http) {
     var vm = this;
 
     vm.$onInit = function () {
@@ -20,7 +21,22 @@ function controller($scope) {
     };
 
     vm.handleCountrySearch = function (valid) {
-        console.log(valid);
+        vm.countries = [];
+
+        if (!valid) return;
+
+        vm.countries = $filter('filter')(countries, vm.countrySearch);
+    };
+
+    vm.handleCitySearch = function (valid) {
+        vm.cities = [];
+
+        if (!valid) return;
+
+        $http.get('http://localhost:3000/api/city/wars/pl').then((res) => {
+            vm.cities = res.data;
+        });
+        //vm.cities = $filter('filter')(cities, vm.citySearch);
     };
 }
 
