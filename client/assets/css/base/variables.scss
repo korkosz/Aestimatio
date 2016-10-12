@@ -18,3 +18,11 @@ $warning-color: #ffb048; //orange
 
 //Success color
 $error-color: red; //red
+
+
+/*MIXINS***/
+
+// Fade
+@mixin fade($delay){
+    animation: fade 0.4s $delay both;
+}

@@ -1,12 +1,15 @@
 .m-timetable__container{
     display: flex;
-
     @media (max-width: 1100px){
         flex-direction: column;
         max-width: 500px;
         margin: 0 auto;
     }
+
+    @include fade(0.1s);
 }
+
+
 
 .m-timetable__day-box{
     flex: 1 1 auto;

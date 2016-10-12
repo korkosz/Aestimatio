@@ -5,6 +5,10 @@
     color: #fff;
 }
 
+.m-grades__container{
+    @include fade(0.1s);
+}
+
 .m-grades__average-grade{
     font-size: 0.8em;
     color: #fff;
@@ -15,7 +19,7 @@
 }
 
 .m-grades__box{
-    background: $main-color;
+    background: rgba(0, 0, 0, 0.2);
     padding: 2rem;
     text-align: center;
     border-radius: 1rem;
@@ -23,6 +27,7 @@
     margin-left: calc(-1rem + 5px);
     margin-right: calc(-1rem + 5px);
     height: calc(100% - 10px);
+
     h3{
         margin: 0;
         color: #fff;

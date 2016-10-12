@@ -19,13 +19,15 @@
 .m-info--free{
     background: $success-color;
     display: none;
+    @include fade(0s);
 }
 
 .m-info--busy{
-    background: transparentize($main-color, 0.45);
+    background: rgba(0, 0, 0, 0.30);
+    @include fade(0s);
 
     h3{
-        color: rgba(255, 255, 255, 0.93);
+        color: #fff;
     }
 
 }
@@ -33,26 +35,32 @@
 .m-info__day{
     margin: 0;
     margin-top: 1.3rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.9rem;
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .m-info__event{
-    margin: 0.5em 0;
+    margin-bottom: 1.6em;
     font-size: 0.8em;
-    color: #beb3ff;
+    color: #fff;
 
-    span:after{
-        content: "";
-        width: 0.4rem;
-        height: 0.4rem;
-        background: $warning-color;
-        position: absolute;
-        right: 100%;
-        top: 50%;
-        transform: translate(-0.3rem, -50%);
-        border-radius: 50%;
+    span{
+        background: $main-color--darker;
+        padding: 0.5em 1.5em;
+        border-radius: 30px;
+
+        &:after{
+            content: "";
+            width: 0.4rem;
+            height: 0.4rem;
+            background: $warning-color;
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translate(-0.3rem, -50%);
+            border-radius: 50%;
+        }
     }
 }
 
@@ -66,6 +74,7 @@
     padding: 4rem 1rem 6rem 1rem;
     margin-left: -1rem;
     text-align: center;
+    @include fade(0.1s);
 
     @media only screen and (max-width: 62em) {
         margin-left: 0;
@@ -174,12 +183,12 @@
 .m-timetable-home__schedule{
     list-style: none;
     padding: 0;
+    @include fade(0s);
 }
 
 .m-timetable-home__subject{
     counter-increment: my-counter;
     margin: 0.65rem 0;
-
 }
 
 .m-timetable-home__subject-name{
@@ -237,6 +246,7 @@
     min-height: 33rem;
     margin-top: 1rem;
     background: transparentize($main-color, 0.85);
+    @include fade(0.2s);
 
     @media only screen and (max-width: 62em) {
         padding: 3rem 1rem;
@@ -336,13 +346,14 @@
     border-radius: 1rem;
     padding: 2rem 1rem;
     margin-bottom: 1rem;
+    @include fade(0s);
 }
 
 .m-calendar__event-name{
     margin: 0;
     margin-bottom: 0.5em;
     letter-spacing: 1px;
-    color: $warning-color;
+    color: #fff;
 
     &--empty{
         color: #fff;

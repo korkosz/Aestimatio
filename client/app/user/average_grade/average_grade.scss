@@ -1,6 +1,8 @@
 .m-average-grade{
     font-size: 1rem;
     text-align: center;
+    @include fade(0.2s);
+
     h5{
         text-align: center;
         font-size: 1.3em;
