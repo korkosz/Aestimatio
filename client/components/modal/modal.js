@@ -25,11 +25,13 @@ app.directive('modal', function () {
                  $(window).click( function (e) {
                      if ( !modalBody.is(e.target)
                           && modalBody.has(e.target).length === 0 ) {
-                             modalBody.removeClass('is-open')
-                                    .addClass('is-close');
-                            mask.removeClass('is-open');
+                        modalBody.removeClass('is-open')
+                                .addClass('is-close');
+                        mask.removeClass('is-open');
+
+                        scope.$emit('modalClosed');
                      }
-                     scope.$emit('modalClosed');
+
                  });
             });
         }

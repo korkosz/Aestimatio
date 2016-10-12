@@ -1,19 +1,22 @@
 .m-modals__mask{
-        &::after{
-            content: "";
-            background: transparent;
-            transition: 0.5s;
-            z-index: 999;
-        }
-        &.is-open::after{
-            content: "";
-            width: 100%;
-            height: 100%;
-            background: transparentize($main-color--darker2, 0.2);
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+    z-index: 1;
+
+    &::after{
+        content: "";
+        background: transparent;
+        transition: 0.5s;
+        z-index: 999;
+    }
+    
+    &.is-open::after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: transparentize($main-color--darker2, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
 
 .m-modals__add-modal{
@@ -51,15 +54,6 @@
         display: block;
         animation: modal-close 0.15s both;
     }
-}
-
-#m-modals-mask{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
 }
 
 .m-modals__info-desc{
