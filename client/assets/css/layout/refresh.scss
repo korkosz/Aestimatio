@@ -1,0 +1,15 @@
+.l-refresh__button{
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    transform: rotate(0);
+    transition: 0.3s;
+
+    &:hover{
+        transform: rotate(50deg);
+    }
+
+    img{
+        width: 2rem;
+    }
+}

@@ -15,6 +15,9 @@
         background: $main-color;
         box-shadow: -12px 0 52px rgba(0, 0, 0, 0.26);
     }
+    @media only screen and (max-width: 62em) {
+        padding-right: 1.5rem;
+    }
 }
 
 .l-primary-nav.is-open{

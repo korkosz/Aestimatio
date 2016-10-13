@@ -18,24 +18,28 @@
         transform: scale(0.7);
     }
 
-    img{
-        display: block;
-        margin: 0.5rem 0;
-        transition: 0.3s;
-        transform: translate(0) rotate(0) scaleX(1);
-        transform-origin: center;
+    &.is-open{
+
+        .l-menu__hamburger-icon{
+        &:first-child{
+            transform: translate(25%, 0.5rem) rotate(33deg) scaleX(0.5);
+        }
+        &:last-child{
+            transform: translate(25%, -0.5rem) rotate(-33deg) scaleX(0.5);
+        }
+        }
+
     }
 }
 
-
-.l-menu__hamburger.is-open{
-
-    img:first-child{
-        transform: translate(25%, 0.5rem) rotate(33deg) scaleX(0.5);
-    }
-
-    img:last-child{
-        transform: translate(25%, -0.5rem) rotate(-33deg) scaleX(0.5);
-    }
-
+.l-menu__hamburger-icon {
+    height: 6px;
+    width: 100%;
+    background: white;
+    display: block;
+    border-radius: 2rem;
+    margin: 0.5rem 0;
+    transition: 0.2s;
+    transform: translate(0) rotate(0) scaleX(1);
+    transform-origin: center;
 }

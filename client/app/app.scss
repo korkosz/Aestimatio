@@ -14,6 +14,8 @@
 @import "../assets/css/layout/buttons.scss";
 @import "../assets/css/layout/inputs.scss";
 @import "../assets/css/layout/pills.scss";
+@import "../assets/css/layout/intro-box.scss";
+@import "../assets/css/layout/refresh.scss";
 @import "../components/dropdown/dropdowns.scss";
 
 /*MODULES***/
@@ -22,6 +24,7 @@
 @import './user/average_grade/average_grade.scss';
 @import './class/settings/settings.scss';
 @import './class/timetable/timetable.scss';
+@import './class/search/search.scss';
 @import '../components/modal/modals.scss';
 
 /*STATE***/

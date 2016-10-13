@@ -1,3 +1,20 @@
+.l-dropdown__input-wrapper{
+    margin-bottom: 0.5rem;
+
+    .l-inputs__text-type{
+        margin-bottom: 0;
+    }
+
+    .l-dropdown__btn{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 2.5rem;
+        border-radius: 0 2rem 2rem 0;
+    }
+}
+
 .l-dropdown__btn {
     cursor: pointer;
     transition: 0.5s;
@@ -36,6 +53,8 @@
     transform: scaleY(0);
     opacity: 0;
     margin: 0;
+    margin-top: 0.5rem;
+    top: 100%;
 }
 
 .l-dropdown__menu-item {

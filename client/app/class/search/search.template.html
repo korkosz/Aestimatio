@@ -1,3 +1,111 @@
+<div class="l-intro-box">
+    <section class="m-search">
+        <h3>Register</h3>
+        <!-- COUNTRY -->
+        <div class="l-dropdown__input-wrapper
+                    l-dropdown-wrapper
+                    is-close" dropdown>
+            <input type="text"
+                    placeholder="Your country..."
+                    class="l-inputs__text-type"/>
+            <button type="button"
+                    class=" l-dropdown__btn"></button>
+            <ul class="l-dropdown__menu">
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+            </ul>
+        </div>
+        <!-- COUNTRY END  -->
+
+        <!-- CITY -->
+        <div class="l-dropdown__input-wrapper
+                    l-dropdown-wrapper
+                    is-close" dropdown>
+            <input type="text"
+                    placeholder="Your city..."
+                    class="l-inputs__text-type"/>
+            <button type="button"
+                    class=" l-dropdown__btn"></button>
+            <ul class="l-dropdown__menu">
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+            </ul>
+        </div>
+        <!-- CITY END  -->
+
+        <!-- SCHOOL -->
+        <div class="l-dropdown__input-wrapper
+                    l-dropdown-wrapper
+                    is-close" dropdown>
+            <input type="text"
+                    placeholder="Your school..."
+                    class="l-inputs__text-type"/>
+            <button type="button"
+                    class=" l-dropdown__btn"></button>
+            <ul class="l-dropdown__menu">
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+            </ul>
+        </div>
+        <!-- SCHOOL END  -->
+
+        <!-- CLASS -->
+        <div class="l-dropdown__input-wrapper
+                    l-dropdown-wrapper
+                    is-close" dropdown>
+            <input type="text"
+                    placeholder="Your class..."
+                    class="l-inputs__text-type"/>
+            <button type="button"
+                    class=" l-dropdown__btn"></button>
+            <ul class="l-dropdown__menu">
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+                <li class="l-dropdown__menu-item">
+                    csdcsc
+                </li>
+            </ul>
+        </div>
+        <!-- CLASS END  -->
+        <div class="l-btn__wrapper">
+            <button class="l-btn__default
+                            l-btn__primary">Sign in</button>
+        </div>
+
+
+        </div>
+    </section>
+</div>
+
+
+
+
+
 <div style="color:white;">
     <form name="searchForm">
         <pre>
@@ -6,14 +114,14 @@
             Warszawa <-- bo tylko tu dodane jakies szkoly
             Konarskiego <-- tylko jedna dodana klasa
         </pre>
-        
+
         <!-- COUNTRY -->
         <datalist id="countries">
             <option ng-repeat="country in $ctrl.countries track by $index" value="{{country}}">
         </datalist>
-    
+
         country <input ng-model="$ctrl.countrySearch"
-                    ng-model-options="{ updateOn: 'default blur', 
+                    ng-model-options="{ updateOn: 'default blur',
                                         debounce: { 'default': 500, 'blur': 0 } }"
                     ng-minlength="2"
                     ng-change="$ctrl.handleCountrySearch(searchForm.country.$valid)"
@@ -31,14 +139,14 @@
         </datalist>
 
         city <input ng-model="$ctrl.citySearch"
-                    ng-model-options="{ updateOn: 'default blur', 
+                    ng-model-options="{ updateOn: 'default blur',
                                         debounce: { 'default': 500, 'blur': 0 } }"
                     ng-minlength="3" ng-disabled="!$ctrl.countryValid"
                     ng-change="$ctrl.handleCitySearch(searchForm.city.$valid)"
                     name="city"
                     type="text" list="cities">
         <!-- CITY END -->
-        
+
 
 
         <br><br><br>
@@ -50,7 +158,7 @@
         </datalist>
 
         school <input ng-model="$ctrl.schoolSearch"
-                    ng-model-options="{ updateOn: 'default blur', 
+                    ng-model-options="{ updateOn: 'default blur',
                                         debounce: { 'default': 500, 'blur': 0 } }"
                     ng-minlength="3" ng-disabled="!$ctrl.cityValid"
                     ng-change="$ctrl.handleSchoolSearch(searchForm.school.$valid)"
@@ -67,7 +175,7 @@
         </datalist>
 
         class <input ng-model="$ctrl.classSearch"
-                    ng-model-options="{ updateOn: 'default blur', 
+                    ng-model-options="{ updateOn: 'default blur',
                                         debounce: { 'default': 500, 'blur': 0 } }"
                     ng-minlength="3" ng-disabled="!$ctrl.cityValid"
                     ng-change="$ctrl.handleClassSearch(searchForm.class.$valid)"
