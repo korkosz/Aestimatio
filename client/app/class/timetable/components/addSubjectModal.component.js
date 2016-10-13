@@ -34,7 +34,7 @@ function controller($scope, $timeout) {
         vm.userClass.$save();
 
         //hide modal 
-        $('#m-modals-mask').click();
+        document.body.click();
     };
 }
 

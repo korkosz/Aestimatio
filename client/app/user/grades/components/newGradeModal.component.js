@@ -61,7 +61,7 @@ function controller($scope, $timeout, userService) {
             });
         });
         //hide modal
-        $('#m-modals-mask').click();
+        document.body.click();
     };
 
     function clearModalData() {

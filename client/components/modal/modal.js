@@ -21,18 +21,18 @@ app.directive('modal', function () {
                 /**
                  * click outside of the modal hides it
                  */
-                 // close dropdown
-                 $(window).click( function (e) {
-                     if ( !modalBody.is(e.target)
-                          && modalBody.has(e.target).length === 0 ) {
+                // close dropdown
+                $(window).click(function (e) {
+                    if (!modalBody.is(e.target)
+                        && modalBody.has(e.target).length === 0) {
                         modalBody.removeClass('is-open')
-                                .addClass('is-close');
+                            .addClass('is-close');
                         mask.removeClass('is-open');
 
                         scope.$emit('modalClosed');
-                     }
+                    }
 
-                 });
+                });
             });
         }
     };

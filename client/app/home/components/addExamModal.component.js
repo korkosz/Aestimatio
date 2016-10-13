@@ -73,7 +73,7 @@ function controller($scope, $timeout) {
         });
 
         //hide modal 
-        $('#m-modals-mask').click();
+        document.body.click();
     };
 }
 
