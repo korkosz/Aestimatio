@@ -38,12 +38,14 @@
     margin-bottom: 0.9rem;
     color: $main-color--darker2;
     font-size: 0.9rem;
+    @include fade(0s);
 }
 
 .m-info__event{
     margin-bottom: 1.6em;
     font-size: 0.8em;
     color: $warning-color;
+    @include fade(0.1s);
 
     span{
         background: $main-color--darker2;
@@ -120,6 +122,26 @@
 }
 
 .m-timetable-home__day--current{
+    &::after{
+        content: "";
+        width: 1.9rem;
+        height: 1.9rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.4);
+        z-index: -1;
+
+        @media only screen and (max-width: 32em) {
+            width: 1.6rem;
+            height: 1.6rem;
+        }
+    }
+}
+
+.m-timetable-home__day--active{
     margin: 0 0.5rem;
     font-size: 1.5rem;
 
@@ -277,7 +299,6 @@
     text-align: center;
     margin-bottom: 1.2em;
     font-size: 1.2rem;
-
     @media only screen and (max-width: 30em) {
         margin-bottom: 0.7em;
     }
@@ -292,6 +313,7 @@
     background: transparentize($main-color, 0.55);
     color: #fff;
     transition: 0.5s;
+    @include fade(0s);
     @media only screen and (max-width: 30em) {
         font-size: 1rem;
     }
@@ -313,6 +335,12 @@
         border-radius: 50%;
         right: 0.2em;
         top: -0.1em;
+        @include fade(0.35s);
+    }
+
+    &--current{
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-sizing: content-box;
     }
 }
 
