@@ -7,6 +7,10 @@
         <div ng-repeat="gradesPerSubject in $ctrl.formattedGrades"
              class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
             <div class="m-grades__box">
+                <button class="l-btn__settings">
+                    <img src="static/assets/images/icon-settings.svg" />
+                </button>
+
                 <!-- subject name -->
                 <h3>{{gradesPerSubject.subject}}</h3>
 
@@ -24,6 +28,88 @@
                 <new-grade-modal grade-types="$ctrl.userClass.gradeTypes"
                                  subject="{{gradesPerSubject.subject}}">
                 </new-grade-modal>
+            </div>
+        </div>
+
+        <!--
+            Po kliknieciu na ikone settings wyswietla sie taki widok
+         -->
+        <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
+            <div class="m-grades__box
+                        m-grades__box--edit">
+                <button class="l-btn__settings">
+                    <img src="static/assets/images/icon-settings.svg" />
+                </button>
+
+                <!-- subject name -->
+                <h3>Gowno</h3>
+
+                <div class="m-grades__variables">
+                    <!-- lista ocen -->
+                    <span class="m-grades__grade
+                                m-grades__grade--edit">
+                        <span class="m-grades__grade-type">
+                            [4] x
+                        </span>
+                        5
+                        <button class="l-btn__close">
+                            <img src="static/assets/images/icon-close.svg" />
+                        </button>
+                    </span>
+
+                    <span class="m-grades__grade
+                                m-grades__grade--edit">
+                        <span class="m-grades__grade-type">
+                            [4] x
+                        </span>
+                        5
+                        <button class="l-btn__close">
+                            <img src="static/assets/images/icon-close.svg" />
+                        </button>
+                    </span>
+                    <span class="m-grades__grade
+                                m-grades__grade--edit">
+                        <span class="m-grades__grade-type">
+                            [4] x
+                        </span>
+                        5
+                        <button class="l-btn__close">
+                            <img src="static/assets/images/icon-close.svg" />
+                        </button>
+                    </span>
+                    <span class="m-grades__grade
+                                m-grades__grade--edit">
+                        <span class="m-grades__grade-type">
+                            [1] x
+                        </span>
+                        4
+                        <button class="l-btn__close">
+                            <img src="static/assets/images/icon-close.svg" />
+                        </button>
+                    </span>
+                    <span class="m-grades__grade
+                                m-grades__grade--edit">
+                        <span class="m-grades__grade-type">
+                            [6] x
+                        </span>
+                        4
+                        <button class="l-btn__close">
+                            <img src="static/assets/images/icon-close.svg" />
+                        </button>
+                    </span>
+                    <span class="m-grades__grade
+                                m-grades__grade--edit">
+                        <span class="m-grades__grade-type">
+                            [3] x
+                        </span>
+                        3
+                        <button class="l-btn__close">
+                            <img src="static/assets/images/icon-close.svg" />
+                        </button>
+                    </span>
+
+
+                </div>
             </div>
         </div>
     </div>

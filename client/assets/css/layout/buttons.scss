@@ -74,10 +74,9 @@
 .l-btn__close{
     line-height: 0;
 
-    svg{
+    img{
         width: 1.1rem;
         padding: 0.25rem;
-        fill: darken($cta-color, 35%);
         background: $cta-color;
         border-radius: 50%;
         cursor: pointer;
@@ -130,5 +129,11 @@
     button{
         width: 0.7em;
         height: 0.7em;
+    }
+}
+
+.l-btn__settings{
+    img{
+        width: 1.1rem;
     }
 }
