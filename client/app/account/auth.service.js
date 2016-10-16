@@ -9,14 +9,16 @@ module.exports = ['$http', '$q', '$timeout', function ($http, $q, $timeout) {
                 defer.resolve();
             }, () => {
                 user = null;
+                defer.reject();
             });
 
             return promise;
         },
-        logIn(username, password) {
+        logIn(username, password, remember) {
             return $http.post('/auth/login', {
                 username: username,
-                password: password
+                password: password,
+                remember: remember
             }).then(() => {
                 this.setUser(); 
             });

@@ -17,12 +17,27 @@ angular
         require('./home').name
     ])
     .config(require('./app.routes'))
-    .run(['$rootScope', '$location', 'auth', ($rootScope, $location, auth) => {
+    .run(['$rootScope', '$location', 'auth', '$timeout', ($rootScope, $location, auth, $timeout) => {
         $rootScope.$on('$routeChangeStart', function (event, next) {
             if (!auth.isLoggedIn()) {
-                $location.path('/login');
+                auth.setUser().then(() => {
+                    //success 
+                    var user = auth.getUser();
+                    if (user) {
+                        $location.path('/home');
+                    } else {
+                        $location.path('/login');
+                    }
+                }, () => {
+                    //fail
+                    $location.path('/login');
+                });
+                if (next.originalPath !== '/login') {
+                    event.preventDefault();
+                    return;
+                }
             }
-        }); 
+        });
     }])
     .controller('globalCtrl', ['auth', function (auth) {
         var vm = this;

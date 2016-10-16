@@ -19,7 +19,8 @@
 
     <div class="l-checkbox-wrapper">
         <div class="l-checkbox__box">
-            <input type="checkbox" value="remember-me" name="remember">
+            <input ng-model="$ctrl.remember" name="remember"
+                   type="checkbox" value="remember-me">
         </div>
         <p class="l-checkbox__label">
             Keep me signed in

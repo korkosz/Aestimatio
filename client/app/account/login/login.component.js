@@ -4,7 +4,7 @@ var component = {
         var vm = this;
 
         vm.logIn = function () {
-            auth.logIn(vm.username, vm.password);
+            auth.logIn(vm.username, vm.password, vm.remember);
             auth.waitForUser().then(()=> {
                 $location.path('/home');
             });            

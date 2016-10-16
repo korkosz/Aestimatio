@@ -12,7 +12,7 @@ module.exports = function (router) {
         } else {
             req.session.cookie.expires = false; // Cookie expires at end of session
         }
-        res.redirect('/user/grades');
+        res.redirect('/');
     });
 
     router.post('/register', function (req, res) {
