@@ -1,5 +1,5 @@
 <div class="l-container">
-    <div class="row">
+    <div class="row main-row">
         <!-- Info************************************* -->
         <div class="col-md-3
                     col-xs-12">
@@ -9,7 +9,7 @@
         <!-- Timetable*********************************************** -->
         <div class="col-md-9
                     col-xs-12">
-            <div class="m-timetable-home">                
+            <div class="m-timetable-home">
                 <horizontal-calendar selected-day="$ctrl.huj">
                 </horizontal-calendar>
 
@@ -53,10 +53,10 @@
                                     </p>
                                 </div>
                                 <div ng-if="!$ctrl.selectedDay.data"
-                                     class="m-calendar__event-info"> 
+                                     class="m-calendar__event-info">
                                     <p class="m-calendar__event-name
                                                 m-calendar__event-name--empty">
-                                        {{$ctrl.isWeekend() ? 'FREE' : 'No Events'}} 
+                                        {{$ctrl.isWeekend() ? 'FREE' : 'No Events'}}
                                     </p>
                                 </div>
                                 <add-exam-modal user-class="$ctrl.userClass"
