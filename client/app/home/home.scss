@@ -74,6 +74,11 @@
     }
 }
 
+horizontal-calendar{
+    width: 100%;
+    display: block;
+}
+
 .m-timetable-home__nav{
     list-style: none;
     padding: 0;
@@ -339,7 +344,7 @@
     }
 
     &--current{
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.75);
         box-sizing: content-box;
     }
 }
