@@ -43,3 +43,14 @@
     transform: translate(0) rotate(0) scaleX(1);
     transform-origin: center;
 }
+
+.l-menu__logo{
+    height: 100%;
+
+    img{
+        height: 100%;
+        padding-top: 1rem;
+        padding-left: 2rem;
+        padding-bottom: 2.5rem;
+    }
+}
