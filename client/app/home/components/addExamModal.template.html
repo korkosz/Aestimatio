@@ -22,7 +22,7 @@
                     $ctrl.data.selectedSubject : 'Pick Subject...'}}
             </div>
             <ul class="l-dropdown__menu">
-                <li ng-repeat="sub in $ctrl.userClass.subjects track by $index"
+                <li ng-repeat="sub in $ctrl.daySubjects track by $index"
                     ng-click="$ctrl.pickSubject(sub);"
                     class="l-dropdown__menu-item">
                     {{::sub}}

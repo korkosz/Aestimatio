@@ -1,4 +1,5 @@
 var moment = require('moment');
+var _ = require('lodash');
 
 var component = {
     templateUrl: '/static/app/home/components/addExamModal.template.html',
@@ -21,6 +22,8 @@ function controller($scope, $timeout) {
 
         vm.displayDate = null;
 
+        setupSubjects();
+
         $scope.$on('modalClosed', () => {
             $timeout(() => {
                 vm.data = {};
@@ -33,6 +36,7 @@ function controller($scope, $timeout) {
             $timeout(() => {
                 vm.displayDate = moment(
                     changeObj.selectedDay.currentValue);
+                setupSubjects();
             }, 0);
         }
     };
@@ -75,6 +79,19 @@ function controller($scope, $timeout) {
         //hide modal 
         document.body.click();
     };
+
+    function setupSubjects() {
+        var dayName = moment(vm.selectedDay).format('dddd');
+        var timetableDay = vm.userClass.timetable.find((_timetableDay) => {
+            return _timetableDay.day === dayName;
+        });
+
+        if (timetableDay) {
+            vm.daySubjects = _.uniq(timetableDay.subjects);
+        } else {
+            vm.daySubjects = [];
+        }
+    }
 }
 
 
