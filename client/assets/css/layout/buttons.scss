@@ -105,10 +105,11 @@
         content: "";
         display: block;
         background: url(../assets/images/arrow-next.svg);
-        background-size: contain;
+        background-size: 50%;
+        background-position: center;
         background-repeat: no-repeat;
-        width: 1em;
-        height: 1em;
+        width: 2em;
+        height: 2em;
     }
 
 }
@@ -127,8 +128,8 @@
 
 .l-btn__arrow--small{
     button{
-        width: 0.7em;
-        height: 0.7em;
+        width: 1.4em;
+        height: 1.4em;
     }
 }
 
