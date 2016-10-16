@@ -1,5 +1,6 @@
 <div class="l-btn__wrapper" modal>
-    <button class="l-btn__add l-btn__add--big">
+    <button ng-hide="$ctrl.hide"
+            class="l-btn__add l-btn__add--big">
         <svg version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -15,7 +16,7 @@
         <!-- <h5>{{$ctrl.displayDate.format('ddd')}}</h5>
         <h5>{{$ctrl.displayDate.format('DD')}}</h5> -->
 
-        <!--subject dropdown-->
+        <!--subject dropdown--> 
         <div class="l-dropdown-wrapper is-close" dropdown>
             <div class="l-inputs__text-type l-dropdown__btn">
                 {{$ctrl.data.selectedSubject ?

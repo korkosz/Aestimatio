@@ -5,7 +5,8 @@ var component = {
     templateUrl: '/static/app/home/components/addExamModal.template.html',
     bindings: {
         userClass: '<',
-        selectedDay: '<'
+        selectedDay: '<',
+        hide: '<'
     },
     controller
 };
