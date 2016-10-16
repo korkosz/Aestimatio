@@ -36,6 +36,15 @@
             transform: translate(-50%, -50%);
         }
     }
+
+    &--light{
+        background: #fff;
+        color: $main-color--darker;
+    }
+
+    &--full-width{
+        width: 100%;
+    }
 }
 
 
@@ -136,5 +145,20 @@
 .l-btn__settings{
     img{
         width: 1.1rem;
+    }
+}
+
+.l-btn__label {
+    display: block;
+    margin: 0;
+    margin-top: 1rem;
+    color: #fff;
+    font-size: 0.8em;
+    text-decoration: none;
+
+    &--primary{
+        font-size: 1rem;
+        margin-bottom: -0.3rem;
+        margin-top: 3rem;
     }
 }

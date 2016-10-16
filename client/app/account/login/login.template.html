@@ -1,20 +1,52 @@
 
-<form class="form-signin col-md-4" action="/auth/login" method="POST">
-    <h2 class="form-signin-heading">Please sign in</h2>
+<form class="l-intro-box" action="/auth/login" method="POST">
+    <h2 class="l-intro-box__header">
+        Sign in
+    </h2>
 
-    <label for="inputName" class="sr-only">User Name</label>
-    <input type="text" id="inputName" name="username" class="form-control" 
-            placeholder="User Name" required autofocus>
+    <input type="text" id="inputName"
+            name="username"
+            placeholder="User Name or Email"
+            class="l-inputs__text-type" required autofocus>
 
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" class="form-control"
-            placeholder="Password" required>
+    <input type="password"
+            id="inputPassword"
+            name="password"
+            placeholder="Password"
+            class="l-inputs__text-type" required>
 
-    <div class="checkbox">
-        <label>
-        <input type="checkbox" value="remember-me" name="remember"> Remember me
-        </label>
+    <div class="l-checkbox-wrapper">
+        <div class="l-checkbox__box">
+            <input type="checkbox" value="remember-me" name="remember">
+        </div>
+        <p class="l-checkbox__label">
+            Keep me signed in
+        </p>
     </div>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+    <div class="l-btn__wrapper">
+        <button type="submit"
+                class="l-btn__primary l-btn__default l-btn__default--full-width">
+                Sign in
+        </button>
+        <a href="#"
+            class="l-btn__label">
+            Forgot your password?
+        </a>
+    </div>
+
+    <div class="l-btn__wrapper">
+        <p href="#"
+            class="l-btn__label
+                    l-btn__label--primary">
+            Dont have an account?
+        </p>
+        <button type="submit"
+                class="l-btn__primary
+                        l-btn__default
+                        l-btn__default--light">
+                Sign up
+        </button>
+    </div>
 </form>
