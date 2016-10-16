@@ -72,11 +72,13 @@
         var windowWidth = window.innerWidth;
         var hamburger = $('.l-menu__hamburger');
         var navItem = $('.l-primary-nav__item a');
+        var body= $('.cls-body');
 
         // open and close primary menu
         hamburger.click(function (){
             $(this).toggleClass('is-open');
             $('.l-primary-nav').toggleClass('is-open');
+            body.toggleClass('is-open');
         });
 
 

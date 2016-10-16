@@ -1,3 +1,14 @@
+.cls-body{
+    padding-right: 0;
+    transition: 0.5s;
+
+    &.is-open{
+        @media (min-width: 1400px) and (max-width: 1700px){
+        padding-right: 300px;
+        }
+    }
+}
+
 .l-primary-nav{
     position: fixed;
     width: 300px;
