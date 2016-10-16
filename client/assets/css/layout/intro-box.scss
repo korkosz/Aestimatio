@@ -4,6 +4,10 @@
     border-radius: 1rem;
     margin: auto;
     padding: 3rem 4rem 4rem 4rem;
+    @include fade(0s);
+    @media only screen and (max-width: 30rem) {
+        margin: 0 1rem;
+    }
     @media only screen and (max-width: 28rem) {
         padding: 3rem 2rem 4rem 2rem;
     }

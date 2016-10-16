@@ -2,12 +2,19 @@
     padding: 0;
     margin-bottom: 5rem;
     @include fade(0s);
-    
+    @media only screen and (max-width: 62em) {
+        margin-bottom: 4rem;
+        margin-top: 3rem;
+    }
+
     h2{
         text-align: center;
         color: #fff;
         letter-spacing: 1px;
-        font-size: 45px;
+        font-size: 3rem;
         margin: 0;
+        @media only screen and (max-width: 62em) {
+            font-size: 2rem;
+        }
     }
 }

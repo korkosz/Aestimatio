@@ -5,6 +5,13 @@
     transform: rotate(0);
     transform-origin: center center;
     transition: 0.3s;
+    @media only screen and (max-width: 62em) {
+        top: -1rem;
+    }
+    @media only screen and (max-width: 43em) {
+        top: -2.5rem;
+        right: 0.5rem;
+    }
 
     &:hover{
         transform: rotate(50deg);

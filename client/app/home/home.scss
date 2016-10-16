@@ -1,3 +1,9 @@
+.main-row{
+    @media only screen and (max-width: 62em) {
+        flex-direction: column-reverse;
+    }
+}
+
 // INFO *************************
 .m-info{
     border-radius: 1rem;
@@ -69,12 +75,14 @@
     margin-left: -1rem;
     text-align: center;
     @include fade(0.1s);
-
     @media only screen and (max-width: 62em) {
         margin-left: 0;
-        margin-top: 1rem;
+        margin-bottom: 1rem;
         height: auto;
         padding: 3rem 1rem;
+    }
+    @media only screen and (max-width: 43em) {
+        padding-top: 4rem;
     }
 }
 

@@ -12,6 +12,9 @@
         margin-bottom: 0.4rem;
         margin-top: 0.5rem;
         color: #fff;
+        @media only screen and (max-width: 62em) {
+            font-size: 1.1em;
+        }
     }
 }
 
@@ -25,5 +28,7 @@
     // text-align: center;
     // box-sizing: content-box;
     font-family: 'Paytone One', sans-serif;
-
+    @media only screen and (max-width: 62em) {
+        font-size: 2.5rem;
+    }
 }

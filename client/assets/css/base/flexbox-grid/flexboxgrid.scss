@@ -900,4 +900,12 @@
         display: none;
     }
 
+ }
+
+ @media only screen and (max-width: 62em) {
+
+     .col-md-hide {
+         display: none;
+     }
+
   }

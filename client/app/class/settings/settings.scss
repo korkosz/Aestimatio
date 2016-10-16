@@ -12,11 +12,14 @@
 
     h3{
         text-align: center;
-        color: #fff; 
+        color: #fff;
         font-size: 1.7rem;
         margin: auto;
         margin-top: 0;
         margin-bottom: 1em;
+        @media only screen and (max-width: 62em) {
+            font-size: 1.4rem;
+        }
     }
 
     .l-btn__add{
@@ -30,7 +33,7 @@
 }
 
 .m-settings__grade-types{
-    @include fade(0.2s);    
+    @include fade(0.2s);
 }
 
 
