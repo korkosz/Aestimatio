@@ -82,10 +82,11 @@
         });
 
 
-        if ( windowWidth < 700 ) {
+        if ( windowWidth < 1400 ) {
             navItem.click(function (){
                 hamburger.toggleClass('is-open');
                 $('.l-primary-nav').toggleClass('is-open');
+                body.toggleClass('is-open');
             });
         }
 
