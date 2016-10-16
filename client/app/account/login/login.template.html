@@ -1,19 +1,21 @@
 
-<form class="l-intro-box" action="/auth/login" method="POST">
+<form class="l-intro-box">
     <h2 class="l-intro-box__header">
         Sign in
     </h2>
 
-    <input type="text" id="inputName"
-            name="username"
-            placeholder="User Name or Email"
-            class="l-inputs__text-type" required autofocus>
+    <input ng-model="$ctrl.username"
+           type="text" id="inputName"
+           name="username"
+           placeholder="User Name or Email"
+           class="l-inputs__text-type" required autofocus>
 
-    <input type="password"
-            id="inputPassword"
-            name="password"
-            placeholder="Password"
-            class="l-inputs__text-type" required>
+    <input ng-model="$ctrl.password"
+           type="password"
+           id="inputPassword"
+           name="password"
+           placeholder="Password"
+           class="l-inputs__text-type" required>
 
     <div class="l-checkbox-wrapper">
         <div class="l-checkbox__box">
@@ -26,7 +28,7 @@
 
 
     <div class="l-btn__wrapper">
-        <button type="submit"
+        <button ng-click="$ctrl.logIn()"
                 class="l-btn__primary l-btn__default l-btn__default--full-width">
                 Sign in
         </button>
@@ -40,10 +42,9 @@
         <p href="#"
             class="l-btn__label
                     l-btn__label--primary">
-            Dont have an account?
+            Don't have an account?
         </p>
-        <button type="submit"
-                class="l-btn__primary
+        <button class="l-btn__primary
                         l-btn__default
                         l-btn__default--light">
                 Sign up

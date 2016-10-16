@@ -16,7 +16,8 @@
     <!-- Google API key - AIzaSyDeuI5kA_XBaacxmTHXFHTf-SFX_hM6Q4s-->
     <div ng-controller="globalCtrl as globalCtrl">
         <section class="l-menu__navbar">
-            <button class="l-menu__hamburger">
+            <button ng-if="globalCtrl.user"
+                    class="l-menu__hamburger">
                 <span class="l-menu__hamburger-icon"></span>
                 <span class="l-menu__hamburger-icon"></span>
                 <span class="l-menu__hamburger-icon"></span>
@@ -45,18 +46,14 @@
                 <a href="/class/search">class - search</a>
             </h3>
 
-            <div ng-switch="!!globalCtrl.user" style="margin-top: 30px;">
-                <div ng-switch-when="true" style="color: white;">
+            <div style="margin-top: 30px;">
+                <div style="color: white;">
                     {{globalCtrl.user.username}}
                 </div>
                 <h3 class="l-primary-nav__item
                             l-primary-nav__item--logout">
-                    <button type="button" name="button">Logout</button>
+                    <a href="/logout">Logout</a>
                 </h3>
-                <div ng-switch-when="false">
-                    <a href="/login">Login</a>
-                    <a href="/register">Register</a>
-                </div>
             </div>
         </nav>
 

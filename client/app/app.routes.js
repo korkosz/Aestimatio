@@ -16,6 +16,14 @@ module.exports = ['$routeProvider', '$locationProvider',
             })
             .when('/register', {
                 template: '<register></register>'
+            })
+            .when('/logout', {
+                template: '',
+                controller($location, auth) {
+                    auth.logout().then(()=> {
+                        $location.path('/login');
+                    });                    
+                }
             });
         $locationProvider.html5Mode(true);
     }];

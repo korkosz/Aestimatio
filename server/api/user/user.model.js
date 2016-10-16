@@ -9,7 +9,8 @@ var gradeSchema = new mongoose.Schema({
 var UserSchema = new mongoose.Schema({
     grades: [gradeSchema],
     class: { type: mongoose.Schema.Types.ObjectId, ref: 'Class' },
-    account: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' }
+    account: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' },
+    moderator: [String]
 });
 
 module.exports = mongoose.model('User', UserSchema);
