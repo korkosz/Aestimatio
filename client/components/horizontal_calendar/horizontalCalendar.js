@@ -40,6 +40,16 @@ module.exports = angular.module('ct.horizontalCalendar', [])
                 setUpDays();
             };
 
+            vm.isToday = function (day) {
+                var dayMomentObj = moment()
+                    .date(day.day)  
+                    .month(day.month)
+                    .year(day.year);
+
+                return moment().isSame(
+                    moment(dayMomentObj), 'd');
+            };
+
             function setUpDays() {
                 vm.selectedDay = vm._selectedDay.valueOf();
                 prependDays();
@@ -52,6 +62,8 @@ module.exports = angular.module('ct.horizontalCalendar', [])
                     let selectedDayCopy = moment(vm._selectedDay).subtract(i, 'd');
                     vm.beforeDays.push({
                         day: selectedDayCopy.format('DD'),
+                        month: selectedDayCopy.month(),
+                        year: selectedDayCopy.year(),
                         weekend: selectedDayCopy.day() === 0 ||
                         selectedDayCopy.day() === 6
                     });
@@ -64,6 +76,8 @@ module.exports = angular.module('ct.horizontalCalendar', [])
                     let selectedDayCopy = moment(vm._selectedDay).add(i, 'd');
                     vm.afterDays.push({
                         day: selectedDayCopy.format('DD'),
+                        month: selectedDayCopy.month(),
+                        year: selectedDayCopy.year(),
                         weekend: selectedDayCopy.day() === 0 ||
                         selectedDayCopy.day() === 6
                     });

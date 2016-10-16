@@ -93,6 +93,12 @@ app.directive('calendar', function () {
             return clone.day() === 6 || clone.day() === 0;
         };
 
+        vm.isToday = function (day) {
+            var clone = moment(vm.activeMonth);
+            clone.date(day);
+            return moment().isSame(clone, 'd');
+        };
+
         vm.getActiveMonthName = function () {
             return vm.activeMonth.format('MMMM');
         };
