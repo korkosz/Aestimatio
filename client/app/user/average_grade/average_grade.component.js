@@ -3,6 +3,7 @@ class ctrl {
         var vm = this;
         
         vm.averageGradesService = averageGradesService;
+        vm.anyGrades = false;
 
         vm.formattedGrades = userService
             .getLoggedUserGrades();
@@ -22,6 +23,7 @@ class ctrl {
         grades.forEach((gradesContainer) => {
             gradesSum = gradesSum.concat(gradesContainer.grades);
         });
+        this.anyGrades = gradesSum.length > 0;
         return this.averageGradesService.averageLabel(gradesSum);
     }
 }

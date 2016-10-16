@@ -1,4 +1,5 @@
-<section class="m-average-grade">
+<section ng-show="$ctrl.anyGrades"
+         class="m-average-grade">
     <h5>My current average grade</h5>
     <div class="m-average-grade__value">
         {{$ctrl.averageLabel($ctrl.formattedGrades)}}
