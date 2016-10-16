@@ -10,7 +10,7 @@ module.exports = angular.module('ct.horizontalCalendar', [])
         controller() {
             var vm = this;
 
-            vm.$onInit = function () {
+            function init() {
                 vm._selectedDay = moment();
                 vm.beforeDays = [];
                 vm.afterDays = [];
@@ -18,7 +18,9 @@ module.exports = angular.module('ct.horizontalCalendar', [])
                 vm.number = vm.number || 4;
 
                 setUpDays();
-            };
+            }
+
+            vm.$onInit = init;
 
             vm.nextDay = function () {
                 vm._selectedDay.add(1, 'd');
@@ -42,12 +44,16 @@ module.exports = angular.module('ct.horizontalCalendar', [])
 
             vm.isToday = function (day) {
                 var dayMomentObj = moment()
-                    .date(day.day)  
+                    .date(day.day)
                     .month(day.month)
                     .year(day.year);
 
                 return moment().isSame(
                     moment(dayMomentObj), 'd');
+            };
+
+            vm.refresh = function () {
+                init();
             };
 
             function setUpDays() {

@@ -17,11 +17,11 @@
 <ul class="m-calendar__body">
     <li ng-repeat="day in calendarCtrl.daysArray track by $index"
         ng-click="calendarCtrl.pickDay(day)"
-        class="m-calendar__day-box"
-        ng-class="{'m-calendar__day--current': calendarCtrl.isToday(day.day)}">
+        class="m-calendar__day-box">
         <span ng-if="day"
               ng-class="{'m-calendar__day--active': calendarCtrl.isDayActive(day.day),
-                         'm-calendar__day--weekend': calendarCtrl.isWeekend(day.day)}"
+                         'm-calendar__day--weekend': calendarCtrl.isWeekend(day.day),
+                         'm-calendar__day--current': calendarCtrl.isToday(day.day)}"
               class="m-calendar__day">
             {{day.day}}
         </span>
