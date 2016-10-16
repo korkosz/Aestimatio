@@ -8,9 +8,10 @@
              class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
 
             <!-- Read View -->
-            <div ng-hide="true"
+            <div ng-hide="gradesPerSubject.edit"
                  class="m-grades__box">
-                <button class="l-btn__settings">
+                <button ng-click="$ctrl.toggleMode(gradesPerSubject)"
+                        class="l-btn__settings">
                     <img src="static/assets/images/icon-settings.svg" />
                 </button>
 
@@ -34,9 +35,11 @@
             </div>
 
             <!-- Edit View -->
-            <div class="m-grades__box
+            <div ng-show="gradesPerSubject.edit"
+                 class="m-grades__box
                         m-grades__box--edit">
-                <button class="l-btn__settings">
+                <button ng-click="$ctrl.toggleMode(gradesPerSubject)" 
+                        class="l-btn__settings">
                     <img src="static/assets/images/icon-settings.svg" />
                 </button>
 
@@ -52,7 +55,9 @@
                             [{{grade.ratio}}] x
                         </span>
                         {{grade.grade}}
-                        <button class="l-btn__close">
+                        <button ng-click="$ctrl.removeGrade(
+                            grade, gradesPerSubject.subject)"
+                                class="l-btn__close">
                             <img src="static/assets/images/icon-close.svg" />
                         </button>
                     </span>

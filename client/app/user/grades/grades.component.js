@@ -26,6 +26,23 @@ function controller($scope, userService, averageGradesService) {
     vm.averageLabel = function (grades) {
         return '(' + averageGradesService.averageLabel(grades) + ')';
     };
+
+    vm.removeGrade = function (grade, subject) {
+        var userCopy = angular.copy(userService.User);
+        var gradeIdx = userCopy.grades.findIndex(_grade => {
+            return _grade.subject === subject &&
+                _grade.gradeType === grade.type &&
+                _grade.value === grade.grade;
+        });
+        userCopy.grades.splice(gradeIdx, 1);
+        userCopy.$update(() => {
+            userService.User.grades.splice(gradeIdx, 1);
+        });
+    };
+
+    vm.toggleMode = function (gradesPerSubjObj) {
+        gradesPerSubjObj.edit = !gradesPerSubjObj.edit;
+    };
 }
 
 module.exports = component;
