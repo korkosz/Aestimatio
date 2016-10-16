@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
     position: relative;
+    -webkit-backface-visibility: hidden;
 }
 
 button {
