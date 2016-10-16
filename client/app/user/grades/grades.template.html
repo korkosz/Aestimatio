@@ -26,7 +26,7 @@
                     <span class="m-grades__average-grade">
                         {{$ctrl.averageLabel(gradesPerSubject.grades)}}
                     </span>
-                </div>  
+                </div>
                 <!-- Add new grade - modal -->
                 <new-grade-modal grade-types="$ctrl.userClass.gradeTypes"
                                  subject="{{gradesPerSubject.subject}}">
@@ -34,33 +34,31 @@
             </div>
 
             <!-- Edit View -->
-            <div class="col-xs-12 col-sm-6 col-md-3 m-grades__box-parent">
-                <div class="m-grades__box
-                            m-grades__box--edit">
-                    <button class="l-btn__settings">
-                        <img src="static/assets/images/icon-settings.svg" />
-                    </button>
+            <div class="m-grades__box
+                        m-grades__box--edit">
+                <button class="l-btn__settings">
+                    <img src="static/assets/images/icon-settings.svg" />
+                </button>
 
-                    <!-- subject name -->
-                    <h3>{{gradesPerSubject.subject}}</h3>
+                <!-- subject name -->
+                <h3>{{gradesPerSubject.subject}}</h3>
 
-                    <div class="m-grades__variables">
-                        <!-- lista ocen -->
-                        <span ng-repeat="grade in gradesPerSubject.grades"
-                              class="m-grades__grade
-                                    m-grades__grade--edit">
-                            <span class="m-grades__grade-type">
-                                [{{grade.ratio}}] x
-                            </span>
-                            {{grade.grade}}
-                            <button class="l-btn__close">
-                                <img src="static/assets/images/icon-close.svg" />
-                            </button>
-                        </span>            
-                    </div>
+                <div class="m-grades__variables">
+                    <!-- lista ocen -->
+                    <span ng-repeat="grade in gradesPerSubject.grades"
+                          class="m-grades__grade
+                                m-grades__grade--edit">
+                        <span class="m-grades__grade-type">
+                            [{{grade.ratio}}] x
+                        </span>
+                        {{grade.grade}}
+                        <button class="l-btn__close">
+                            <img src="static/assets/images/icon-close.svg" />
+                        </button>
+                    </span>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 </section>
 

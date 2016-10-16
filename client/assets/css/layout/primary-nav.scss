@@ -30,9 +30,14 @@
         margin-top: 0;
     }
 
-    a{
+    a,
+    button{
         color: #fff;
         font-size: 1.5rem;
         text-decoration: none;
+    }
+
+    &--logout{
+        margin-top: 0.5rem;
     }
 }

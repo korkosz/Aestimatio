@@ -16,15 +16,6 @@
     <!-- Google API key - AIzaSyDeuI5kA_XBaacxmTHXFHTf-SFX_hM6Q4s-->
     <div ng-controller="globalCtrl as globalCtrl">
         <section class="l-menu__navbar">
-            <div ng-switch="!!globalCtrl.user">
-                <div ng-switch-when="true" style="color: white;">
-                    {{globalCtrl.user.username}}
-                </div>
-                <div ng-switch-when="false">
-                    <a href="/login">Login</a>
-                    <a href="/register">Register</a>
-                </div>
-            </div>
             <button class="l-menu__hamburger">
                 <span class="l-menu__hamburger-icon"></span>
                 <span class="l-menu__hamburger-icon"></span>
@@ -49,6 +40,20 @@
             <h3 class="l-primary-nav__item">
                 <a href="/class/search">class - search</a>
             </h3>
+
+            <div ng-switch="!!globalCtrl.user">
+                <div ng-switch-when="true" style="color: white;">
+                    {{globalCtrl.user.username}}
+                </div>
+                <h3 class="l-primary-nav__item
+                            l-primary-nav__item--logout">
+                    <button type="button" name="button">Logout</button>
+                </h3>
+                <div ng-switch-when="false">
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                </div>
+            </div>
         </nav>
 
         <div ng-view
@@ -65,7 +70,7 @@
         var hamburger = $('.l-menu__hamburger');
         var navItem = $('.l-primary-nav__item a');
 
-        // open and close promary menu
+        // open and close primary menu
         hamburger.click(function (){
             $(this).toggleClass('is-open');
             $('.l-primary-nav').toggleClass('is-open');
