@@ -53,14 +53,15 @@
                                     </p>
                                 </div>
                                 <div ng-if="!$ctrl.selectedDay.data"
-                                     class="m-calendar__event-info">
+                                     class="m-calendar__event-info"> 
                                     <p class="m-calendar__event-name
                                                 m-calendar__event-name--empty">
-                                        No Events
+                                        {{$ctrl.isWeekend() ? 'FREE' : 'No Events'}} 
                                     </p>
                                 </div>
                                 <add-exam-modal user-class="$ctrl.userClass"
-                                                selected-day="$ctrl.selectedDay.valueOf()">
+                                                selected-day="$ctrl.selectedDay.valueOf()"
+                                                hide="$ctrl.addExamsHidden()">
                                 </add-exam-modal>
                             </div>
                         </div>
