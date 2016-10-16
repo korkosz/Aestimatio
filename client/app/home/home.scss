@@ -34,25 +34,28 @@
 
 .m-info__day{
     margin: 0;
-    margin-top: 1.3rem;
-    margin-bottom: 0.9rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.3rem;
     color: $main-color--darker2;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    font-family: 'Ubuntu', sans-serif;
     @include fade(0s);
 }
 
 .m-info__event{
-    margin-bottom: 1.6em;
-    font-size: 0.8em;
-    color: $warning-color;
+    margin: 0;
+    margin-bottom: 0.2em;
+    font-size: 1em;
+    color: $main-color--darker2;
     font-family: 'Paytone One', sans-serif;
+    font-weight: bold;
     @include fade(0.1s);
 
-    span{
-        background: $main-color--darker2;
-        padding: 0.5em 1.5em;
-        border-radius: 3rem;
-    }
+    // span{
+    //     background: $main-color--darker2;
+    //     padding: 0.5em 1.5em;
+    //     border-radius: 3rem;
+    // }
 }
 
 
@@ -410,4 +413,5 @@ horizontal-calendar{
     height: 100%;
     padding: 2rem 1.5rem;
     margin-top: 1rem;
+    background: $main-color;
 }

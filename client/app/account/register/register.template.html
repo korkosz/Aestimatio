@@ -1,17 +1,30 @@
-<form class="form-signin col-md-4" action="/auth/register" method="POST">
-    <h2 class="form-signin-heading">Please sign up</h2>
 
-    <label for="inputName" class="sr-only">User Name</label>
-    <input type="text" id="inputName" name="username" class="form-control" placeholder="User Name" required autofocus>
+<form class="l-intro-box" action="/auth/register" method="POST">
+    <h2 class="l-intro-box__header">
+        Sign up
+    </h2>
 
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+    <input type="text" id="inputName"
+            name="username"
+            placeholder="User Name or Email"
+            class="l-inputs__text-type" required autofocus>
 
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+    <input type="password"
+            id="inputPassword"
+            name="password"
+            placeholder="Password"
+            class="l-inputs__text-type" required>
+
+    <input type="password"
+            id="inputPassword"
+            name="password"
+            placeholder="Repeat password"
+            class="l-inputs__text-type" required>
+
+    <div class="l-btn__wrapper">
+        <button type="submit"
+                class="l-btn__primary l-btn__default l-btn__default--full-width">
+                Sign up
+        </button>
     </div>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 </form>
