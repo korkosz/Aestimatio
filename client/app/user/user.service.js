@@ -5,7 +5,6 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
         var UserRes,
             User,
             getLoggedUserGrades;
-
        /**
         * Resource
         */

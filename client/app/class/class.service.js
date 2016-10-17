@@ -42,6 +42,7 @@ module.exports = ['$resource', 'auth', function ($resource, auth) {
 
     return {
         UserClass,
+        ClassRes,
         getGradeRatio
     };
 }];

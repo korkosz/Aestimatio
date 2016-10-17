@@ -2,17 +2,14 @@
 <html>
 
 <head>
-    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="static/dist/app.css">
-    <!-- Bootstrap -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous"> -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
 </head>
 
-<body class="cls-body">
+<body ng-app="aestimatio"
+      class="cls-body">
     <!-- Google API key - AIzaSyDeuI5kA_XBaacxmTHXFHTf-SFX_hM6Q4s-->
     <div ng-controller="globalCtrl as globalCtrl">
         <section class="l-menu__navbar">
@@ -22,16 +19,17 @@
                 <span class="l-menu__hamburger-icon"></span>
                 <span class="l-menu__hamburger-icon"></span>
             </button>
-            <a  href="/home"
+            <a ui-sref="login"
                 class="l-menu__logo">
                 <img src="static/assets/images/logo.svg" alt="" />
             </a>
         </section>
 
 
-        <nav class="l-primary-nav">
+        <nav ng-show="globalCtrl.user"
+             class="l-primary-nav">
             <h3 class="l-primary-nav__item">
-                <a href="/home">Home</a>
+                <a ui-sref="user.home">Home</a>
             </h3>
             <h3 class="l-primary-nav__item">
                 <a href="/user/grades">My grades</a>
@@ -52,14 +50,12 @@
                 </div>
                 <h3 class="l-primary-nav__item
                             l-primary-nav__item--logout">
-                    <a href="/logout">Logout</a>
+                    <button ng-click="globalCtrl.logout()">Logout</button>
                 </h3>
             </div>
         </nav>
 
-        <div ng-view
-            class="l-main-container
-                    is-open"></div>
+        <ui-view class="l-main-container is-open"></ui-view>
     </div>
 
     <script src="//localhost:35729/livereload.js"></script>

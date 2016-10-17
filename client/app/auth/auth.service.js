@@ -1,4 +1,4 @@
-module.exports = ['$http', '$q', '$timeout', function ($http, $q, $timeout) {
+module.exports = ['$http', '$q', function ($http, $q) {
     var user = null;
     var defer = $q.defer();
     var promise = defer.promise;
@@ -6,7 +6,12 @@ module.exports = ['$http', '$q', '$timeout', function ($http, $q, $timeout) {
         setUser() {
             $http.get('/auth/user').then((res) => {
                 user = res.data;
-                defer.resolve();
+                if (user) {
+                    defer.resolve();
+                } else {
+                    defer.reject();
+                }
+
             }, () => {
                 user = null;
                 defer.reject();
@@ -20,7 +25,7 @@ module.exports = ['$http', '$q', '$timeout', function ($http, $q, $timeout) {
                 password: password,
                 remember: remember
             }).then(() => {
-                this.setUser(); 
+                this.setUser();
             });
         },
         getUser() {
@@ -34,9 +39,7 @@ module.exports = ['$http', '$q', '$timeout', function ($http, $q, $timeout) {
         },
         logout() {
             return $http.get('/auth/logout').then(() => {
-                $timeout(() => {
-                    user = null;
-                }, 0);
+                user = null;
             });
         }
     };

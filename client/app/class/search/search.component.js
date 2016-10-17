@@ -74,7 +74,6 @@ function controller($filter, $http) {
             let school = schools.find((s)=>s.name === vm.schoolSearch);
             $http.get(`http://localhost:3000/api/class?school=${school.id}`).then((res) => {
                 vm.classes = classes = res.data;
-                console.log(vm.classes);
             });
         }
     };

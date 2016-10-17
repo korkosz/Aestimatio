@@ -6,6 +6,13 @@ module.exports = ['$routeProvider', '$locationProvider',
             .when('/home', {
                 template: '<home user-class="$resolve.userClass"></home>',
                 resolve: {
+                    user($q, auth) {
+                        if(auth.isLoggedIn()) {
+                            return $q.when(null);
+                        } else {
+                            return auth.setUser();
+                        }
+                    },
                     userClass(classService) {
                         return classService.UserClass.$promise;
                     },
@@ -14,18 +21,10 @@ module.exports = ['$routeProvider', '$locationProvider',
                     }
                 }
             })
-            .when('/login', {
-                template: '<login></login>'
-            })
-            .when('/register', {
-                template: '<register></register>'
-            })
             .when('/logout', {
                 template: '',
                 controller($location, auth) {
-                    auth.logout().then(() => {
-                        $location.path('/login');
-                    });
+                    
                 }
             });
         $locationProvider.html5Mode(true);
