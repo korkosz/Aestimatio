@@ -12,7 +12,7 @@ module.exports = ['$http', '$q', function ($http, $q) {
                     defer.reject();
                 }
 
-            }, () => {
+            }, () => { 
                 user = null;
                 defer.reject();
             });

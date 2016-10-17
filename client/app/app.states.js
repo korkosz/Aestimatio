@@ -10,7 +10,7 @@ module.exports = function ($stateProvider) {
                 } else {
                     return auth.setUser();
                 }
-            }
+            } 
         }
     });
 

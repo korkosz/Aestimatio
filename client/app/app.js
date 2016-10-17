@@ -18,12 +18,22 @@ angular
         require('./home').name
     ])
     .config(require('./app.states'))
-    .run(['$rootScope', '$location', ($rootScope, $location) => {
+    .run(['$rootScope', '$state', 'auth', '$transitions', ($rootScope, $state, auth, $transitions) => {
 
-        $rootScope.$on('$routeChangeError', function (event, current, previous, eventObj) {
-            if (eventObj.authenticated === false) {
-                $location.path('/login');
-            }
+        $rootScope.$on('$stateChangeStart', function (e, toState) {
+
+            // var isLogin = toState.name === 'login';
+            // if (isLogin) { 
+            //     return; 
+            // }
+
+            // if (!auth.isLoggedIn()) {
+            //     e.preventDefault();
+            //     $state.go('login'); 
+            // }
+        }); 
+        $transitions.onError({},()=> {
+            $state.go('login');
         });
     }])
     .controller('globalCtrl', ['auth', '$state', '$scope', function (auth, $state, $scope) {
@@ -45,7 +55,7 @@ angular
 
         vm.logout = function () {
             auth.logout().then(() => {
-                $state.go('login');
+                window.location.reload(true);
             });
         };
     }]);
