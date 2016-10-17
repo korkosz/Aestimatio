@@ -18,24 +18,12 @@ angular
         require('./home').name
     ])
     .config(require('./app.states'))
-    .run(['$rootScope', '$state', 'auth', '$transitions', ($rootScope, $state, auth, $transitions) => {
-
-        $rootScope.$on('$stateChangeStart', function (e, toState) {
-
-            // var isLogin = toState.name === 'login';
-            // if (isLogin) { 
-            //     return; 
-            // }
-
-            // if (!auth.isLoggedIn()) {
-            //     e.preventDefault();
-            //     $state.go('login'); 
-            // }
-        }); 
-        $transitions.onError({},()=> {
-            $state.go('login');
-        });
-    }])
+    .run(['$rootScope', '$state', 'auth', '$transitions',
+        ($rootScope, $state, auth, $transitions) => {
+            $transitions.onError({}, () => {
+                $state.go('login');
+            });
+        }])
     .controller('globalCtrl', ['auth', '$state', '$scope', function (auth, $state, $scope) {
         var vm = this;
 

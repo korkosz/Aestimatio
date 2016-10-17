@@ -7,4 +7,4 @@ module.exports = angular
     .component('newGradeTypeModal', require('./settings/components/newGradeTypeModal.component.js'))
     .component('classTimetable', require('./timetable/timetable.component.js'))
     .component('addSubjectModal', require('./timetable/components/addSubjectModal.component.js'))
-    .config(require('./class.routes'));
+    .config(require('./class.states'));
