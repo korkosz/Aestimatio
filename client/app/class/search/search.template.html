@@ -7,19 +7,19 @@
         <div class="l-dropdown__input-wrapper
                     l-dropdown-wrapper
                     is-close" dropdown>
-            <input type="text"
+            <input ng-model="$ctrl.countrySearch"
+                    ng-model-options="{ updateOn: 'default blur',
+                                        debounce: { 'default': 500, 'blur': 0 } }"
+                    ng-minlength="2"
+                    ng-change="$ctrl.handleCountrySearch(searchForm.country.$valid)"
+                    type="text"
                     placeholder="Your country..."
                     class="l-inputs__text-type"/>
             <button type="button"
                     class=" l-dropdown__btn"></button>
             <ul class="l-dropdown__menu">
-                <li class="l-dropdown__menu-item">
-                    csdcsc
-                </li>
-                <li class="l-dropdown__menu-item">
-                    csdcsc
-                </li>
-                <li class="l-dropdown__menu-item">
+                <li ng-repeat="country in $ctrl.countries track by $index" 
+                    class="l-dropdown__menu-item"> 
                     csdcsc
                 </li>
             </ul>
@@ -116,23 +116,6 @@
             Warszawa <-- bo tylko tu dodane jakies szkoly
             Konarskiego <-- tylko jedna dodana klasa
         </pre>
-
-        <!-- COUNTRY -->
-        <datalist id="countries">
-            <option ng-repeat="country in $ctrl.countries track by $index" value="{{country}}">
-        </datalist>
-
-        country <input ng-model="$ctrl.countrySearch"
-                    ng-model-options="{ updateOn: 'default blur',
-                                        debounce: { 'default': 500, 'blur': 0 } }"
-                    ng-minlength="2"
-                    ng-change="$ctrl.handleCountrySearch(searchForm.country.$valid)"
-                    name="country"
-                    type="text" list="countries">
-        <!-- COUNTRY END-->
-
-
-        <br><br><br>
 
 
         <!-- CITY -->

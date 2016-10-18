@@ -1,6 +1,6 @@
 module.exports = function ($stateProvider) {
     $stateProvider.state({
-        name: 'auth.class',
+        name: 'auth.authClass.class',
         template: '<ui-view />',
         url: '/class',
         abstract: true
