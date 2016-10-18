@@ -5,7 +5,7 @@ var component = {
 
         vm.logIn = function () {
             auth.logIn(vm.email, vm.password, vm.remember).then(() => {
-                $state.go('user.home');
+                $state.go('auth.home');
             });
         };
     }

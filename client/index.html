@@ -13,7 +13,7 @@
     <!-- Google API key - AIzaSyDeuI5kA_XBaacxmTHXFHTf-SFX_hM6Q4s-->
     <div ng-controller="globalCtrl as globalCtrl">
         <section class="l-menu__navbar">
-            <button ng-show="globalCtrl.user"
+            <button ng-show="globalCtrl.user && globalCtrl.hasClass()"
                     class="l-menu__hamburger">
                 <span class="l-menu__hamburger-icon"></span>
                 <span class="l-menu__hamburger-icon"></span>
@@ -26,27 +26,27 @@
         </section>
 
 
-        <nav ng-show="globalCtrl.user"
+        <nav ng-show="globalCtrl.user && globalCtrl.hasClass()"
              class="l-primary-nav">
             <h3 class="l-primary-nav__item">
-                <a ui-sref="user.home">Home</a>
+                <a ui-sref="auth.authClass.home">Home</a>
             </h3>
             <h3 class="l-primary-nav__item">
-                <a ui-sref="user.user.grades">My grades</a>
+                <a ui-sref="auth.authClass.user.grades">My grades</a>
             </h3>
             <h3 class="l-primary-nav__item">
-                <a ui-sref="user.class.settings">Settings</a>
+                <a ui-sref="auth.authClass.class.settings">Settings</a>
             </h3>
             <h3 class="l-primary-nav__item">
-                <a ui-sref="user.class.timetable">Timetable</a>
+                <a ui-sref="auth.authClass.class.timetable">Timetable</a>
             </h3>
             <h3 class="l-primary-nav__item">
-                <a ui-sref="user.class.search">class - search</a>
+                <a ui-sref="auth.class.search">class - search</a>
             </h3>
 
             <div style="margin-top: 30px;">
                 <div style="color: white;">
-                    {{globalCtrl.user.username}}
+                    {{globalCtrl.user.email}}
                 </div>
                 <h3 class="l-primary-nav__item
                             l-primary-nav__item--logout">

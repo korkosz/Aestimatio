@@ -5,14 +5,13 @@ module.exports = ['$http', '$q', function ($http, $q) {
             var defer = $q.defer();
             var promise = defer.promise;
 
-            $http.get('/auth/user').then((res) => {
+            $http.get('/auth/user/').then((res) => {
                 user = res.data;
                 if (user) {
                     defer.resolve();
                 } else {
                     defer.reject();
                 }
-
             }, () => {
                 user = null;
                 defer.reject();
@@ -20,25 +19,25 @@ module.exports = ['$http', '$q', function ($http, $q) {
 
             return promise;
         },
-        logIn(username, password, remember) {
+        logIn(email, password, remember) {
             return $http.post('/auth/login', {
-                username: username,
+                email: email,
                 password: password,
                 remember: remember
             }).then(() => {
                 return this.setUser();
-                //return promise;
             });
         },
         getUser() {
             return user;
-        },
+        }, 
         isLoggedIn() {
             return !!user;
         },
-        // waitForUser() {
-        //     return promise;
-        // },
+        hasClassAssigned() {
+            if(user && user.class) return true;
+            else return false;
+        },
         logout() {
             return $http.get('/auth/logout').then(() => {
                 user = null;

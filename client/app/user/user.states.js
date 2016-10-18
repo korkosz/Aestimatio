@@ -1,6 +1,6 @@
 module.exports = function ($stateProvider) {
     $stateProvider.state({
-        name: 'user.user',
+        name: 'auth.authClass.user',
         template: '<ui-view />',
         url: '/user',
         abstract: true,
@@ -12,7 +12,7 @@ module.exports = function ($stateProvider) {
     });
 
     $stateProvider.state({
-        name: 'user.user.grades',
+        name: 'auth.authClass.user.grades',
         component: 'userGrades',
         url: '/grades'
     });

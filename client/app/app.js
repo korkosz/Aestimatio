@@ -21,14 +21,18 @@ angular
     .run(['$rootScope', '$state', 'auth', '$transitions',
         ($rootScope, $state, auth, $transitions) => {
             $transitions.onError({}, (trans) => {
-                $state.defaultErrorHandler = function (err) {
+                $state.defaultErrorHandler = function () { 
                     return function (err) {
                         if (err) {
-                            console.error(err);
+                            console.warn(err); //eslint-disable-line
                         }
-                    };
+                    }; 
                 };
-                $state.go('login');
+                if(trans._error === 'classAuth') {
+                    $state.go('auth.class.search');
+                } else {
+                    $state.go('login');
+                }                
             });
         }])
     .controller('globalCtrl', ['auth', '$state', '$scope', function (auth, $state, $scope) {
@@ -52,5 +56,9 @@ angular
             auth.logout().then(() => {
                 window.location.reload(true);
             });
+        };
+
+        vm.hasClass = function() {
+            return auth.hasClassAssigned();
         };
     }]);

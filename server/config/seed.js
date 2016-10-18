@@ -8,7 +8,7 @@ Account.find({}).remove()
         Account.register(new Account({
             email: 'korkosz@wp.pl'
         }), 'korkosz91', function (err, acc) {
-            if (err) {
+            if (err) { 
                 throw new Error('seed error');
             }
 

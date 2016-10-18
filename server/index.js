@@ -32,7 +32,7 @@ app.use('/bower_components', express.static('bower_components'));
 require('./auth').passportConfig(passport);
 app.use(passport.initialize());
 app.use(passport.session());
-
+   
 //configure routes
 require('./routes')(app);
 // All other routes should redirect to the index.html

@@ -3,15 +3,13 @@ var Account = require('./account/account.model');
 var User = require('../api/user/user.model');
 
 module.exports = function (router) {
-    router.post('/login', passport.authenticate('local', {
-        failureRedirect: '/login'
-    }), function (req, res) {
+    router.post('/login', passport.authenticate('local'), function (req, res) {
         if (req.body.remember) {
             req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; // Cookie expires after 30 days
         } else {
             req.session.cookie.expires = false; // Cookie expires at end of session
-        }
-        res.redirect('/');
+        } 
+        res.end();
     });
 
     router.post('/register', function (req, res) {
@@ -35,10 +33,8 @@ module.exports = function (router) {
         req.logout();
         res.redirect('/');
     });
-    router.use(function (err, req, res, next) {
-        debugger
-    })
-    router.get('/user', function (req, res) {
+
+    router.get('/user/', function (req, res) {
         var account = req.user;
         if (account && account._doc)
             User.findOne({ account: account._doc._id }).then(function (_user) {
