@@ -1,9 +1,10 @@
 module.exports = ['$http', '$q', function ($http, $q) {
     var user = null;
-    var defer = $q.defer();
-    var promise = defer.promise;
     return {
         setUser() {
+            var defer = $q.defer();
+            var promise = defer.promise;
+
             $http.get('/auth/user').then((res) => {
                 user = res.data;
                 if (user) {
@@ -12,7 +13,7 @@ module.exports = ['$http', '$q', function ($http, $q) {
                     defer.reject();
                 }
 
-            }, () => { 
+            }, () => {
                 user = null;
                 defer.reject();
             });
@@ -25,7 +26,8 @@ module.exports = ['$http', '$q', function ($http, $q) {
                 password: password,
                 remember: remember
             }).then(() => {
-                this.setUser();
+                return this.setUser();
+                //return promise;
             });
         },
         getUser() {
@@ -34,9 +36,9 @@ module.exports = ['$http', '$q', function ($http, $q) {
         isLoggedIn() {
             return !!user;
         },
-        waitForUser() {
-            return promise;
-        },
+        // waitForUser() {
+        //     return promise;
+        // },
         logout() {
             return $http.get('/auth/logout').then(() => {
                 user = null;

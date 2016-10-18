@@ -20,7 +20,14 @@ angular
     .config(require('./app.states'))
     .run(['$rootScope', '$state', 'auth', '$transitions',
         ($rootScope, $state, auth, $transitions) => {
-            $transitions.onError({}, () => {
+            $transitions.onError({}, (trans) => {
+                $state.defaultErrorHandler = function (err) {
+                    return function (err) {
+                        if (err) {
+                            console.error(err);
+                        }
+                    };
+                };
                 $state.go('login');
             });
         }])
