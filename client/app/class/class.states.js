@@ -7,7 +7,7 @@ module.exports = function ($stateProvider) {
     });
 
     $stateProvider.state({
-        name: 'auth.class.search',
+        name: 'auth.search',
         component: 'classSearch',
         url: '/search',
     });
