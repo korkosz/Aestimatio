@@ -1,5 +1,4 @@
 var passport = require('passport');
-var path = require('path');
 var Account = require('./account/account.model');
 var User = require('../api/user/user.model');
 
@@ -16,13 +15,18 @@ module.exports = function (router) {
     });
 
     router.post('/register', function (req, res) {
-        Account.register(new Account({ username: req.body.username }), req.body.password, function (err, _account) { //eslint-disable-line
+        Account.register(new Account({ email: req.body.email }), req.body.password, function (err, _account) { //eslint-disable-line
             if (err) {
-                return res.sendFile(path.resolve('client/app/Account/register.html'));
+                res.status(400).send();
             }
-
-            passport.authenticate('local')(req, res, function () {
-                res.redirect('/');
+            User.create({
+                account: _account._id,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName
+            }).then(function () {
+                passport.authenticate('local')(req, res, function () {
+                    res.redirect('/#/class/search'); 
+                });
             });
         });
     });
@@ -31,7 +35,9 @@ module.exports = function (router) {
         req.logout();
         res.redirect('/');
     });
-
+    router.use(function (err, req, res, next) {
+        debugger
+    })
     router.get('/user', function (req, res) {
         var account = req.user;
         if (account && account._doc)

@@ -8,8 +8,12 @@ require('./routes')(router);
 
 module.exports.router = router;
 
-module.exports.passportConfig = function(_passport) {
-    _passport.use(new LocalStrategy(Account.authenticate()));
+module.exports.passportConfig = function (_passport) {
+    
+    _passport.use(new LocalStrategy({
+        usernameField: 'email'
+    }, Account.authenticate()));
+
     _passport.serializeUser(Account.serializeUser());
-    _passport.deserializeUser(Account.deserializeUser());  
+    _passport.deserializeUser(Account.deserializeUser());
 };

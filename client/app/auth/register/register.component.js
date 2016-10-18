@@ -1,6 +1,10 @@
-class ctrl{}
-
 module.exports = {
     templateUrl: '/static/app/auth/register/register.template.html',
-    controller: ctrl
+    controller() {
+        var vm = this;
+
+        vm.register = function() {
+            
+        };
+    }
 };

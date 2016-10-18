@@ -4,11 +4,8 @@ var component = {
         var vm = this;
 
         vm.logIn = function () {
-            auth.logIn(vm.username, vm.password, vm.remember).then(() => {
-                console.info('1');
+            auth.logIn(vm.email, vm.password, vm.remember).then(() => {
                 $state.go('user.home');
-            }, () => {
-                console.info('2');
             });
         };
     }

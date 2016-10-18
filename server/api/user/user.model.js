@@ -7,6 +7,8 @@ var gradeSchema = new mongoose.Schema({
 }, { _id: false });
 
 var UserSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String,
     grades: [gradeSchema],
     class: { type: mongoose.Schema.Types.ObjectId, ref: 'Class' },
     account: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' },
