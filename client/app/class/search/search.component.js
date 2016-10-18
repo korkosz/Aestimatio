@@ -13,30 +13,33 @@ function controller($filter, $http) {
         vm.schools = [];
         vm.classes = [];
 
-        vm.countrySearch = '';
-        vm.citySearch = '';
-        vm.schoolSearch = '';
+        vm.country = '';
+        vm.city = '';
+        vm.school = '';
         vm.classSearch = '';
 
-        vm.countryValid = false;
-        vm.city = null;
-        vm.school = null;
         vm.class = null;
 
         vm.countryValid = false;
         vm.cityValid = false;
-        vm.schoolValid = false;
+        vm.schoolValid = false; 
     };
 
     vm.handleCountrySearch = function (valid) {
         vm.countries = [];
-        vm.citySearch = '';
+        vm.city = '';
 
         if (!valid) return;
 
-        vm.countries = $filter('filter')(countriesNames, vm.countrySearch);
+        vm.countries = $filter('filter')(countriesNames, vm.country);
 
-        vm.countryValid = countriesNames.some((c) => c === vm.countrySearch);
+        vm.countryValid = countriesNames.some((c) => c === vm.country);
+    };
+
+    vm.pickCountry = function (country) {
+        vm.country = country;
+        vm.countries = $filter('filter')(countriesNames, vm.country);
+        vm.countryValid = true;
     };
 
     vm.handleCitySearch = function (valid) {
@@ -44,16 +47,16 @@ function controller($filter, $http) {
 
         if (!valid || !vm.countryValid) return;
 
-        let countryCode = countries.getCode(vm.countrySearch);
-        let uri = `http://localhost:3000/api/city/${vm.citySearch}/${countryCode}`;
+        let countryCode = countries.getCode(vm.country);
+        let uri = `http://localhost:3000/api/city/${vm.city}/${countryCode}`;
         $http.get(uri).then((res) => {
             vm.cities = res.data;
             vm.cityValid = vm.cities.some(
-                (c) => c === vm.citySearch
+                (c) => c === vm.city
             );
 
             if (vm.cityValid) {
-                $http.get(`http://localhost:3000/api/school/${vm.citySearch}`).then((res) => {
+                $http.get(`http://localhost:3000/api/school/${vm.city}`).then((res) => {
                     vm.schools = schools = res.data;
                 });
             }
@@ -61,21 +64,41 @@ function controller($filter, $http) {
 
     };
 
+    vm.pickCity = function (city) {
+        vm.city = city;
+        vm.cities = $filter('filter')(vm.cities, vm.city);
+        vm.cityValid = true;
+
+        $http.get(`http://localhost:3000/api/school/${vm.city}`).then((res) => {
+            vm.schools = schools = res.data;
+        });
+    };
+
     vm.handleSchoolSearch = function (valid) {
         vm.schools = [];
 
         if (!valid) return;
 
-        vm.schools = $filter('filter')(schools, vm.schoolSearch);
+        vm.schools = $filter('filter')(schools, vm.school);
 
-        vm.schoolValid = schools.some((s) => s.name === vm.schoolSearch);
+        vm.schoolValid = schools.some((s) => s.name === vm.school);
 
         if (vm.schoolValid) {
-            let school = schools.find((s)=>s.name === vm.schoolSearch);
+            let school = schools.find((s) => s.name === vm.school);
             $http.get(`http://localhost:3000/api/class?school=${school.id}`).then((res) => {
                 vm.classes = classes = res.data;
             });
         }
+    };
+
+    vm.pickSchool = function (school) {
+        vm.school = school;
+        vm.schools = $filter('filter')(schools, vm.school.name);
+        vm.schoolValid = true;
+
+        $http.get(`http://localhost:3000/api/class?school=${school.id}`).then((res) => {
+            vm.classes = classes = res.data;
+        });
     };
 }
 
