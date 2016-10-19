@@ -11,6 +11,23 @@
                   class="l-pill__default">
                 {{subject}}
             </pill>
+
+
+            <!-- To sie wyswietla gdy nie mozna usunac przedmiotu -->
+            <div class="l-pill__default">
+                <span class="l-tooltip__icon">
+                    ?
+                    <div class="l-tooltip__box">
+                        <p class="l-tooltip__box-text">
+                            This subject is used in timetable
+                        </p>
+                    </div>
+                </span>
+                Gowno
+                <button class="l-btn__close l-btn__close--disabled">
+                    <img src="static/assets/images/icon-close.svg" />
+                </button>
+            </div>
         </div>
 
         <!-- Add new subject - modal -->

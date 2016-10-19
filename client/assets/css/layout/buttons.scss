@@ -82,19 +82,26 @@
 
 .l-btn__close{
     line-height: 0;
+    cursor: pointer;
 
     img{
         width: 1.1rem;
         padding: 0.25rem;
         background: $cta-color;
         border-radius: 50%;
-        cursor: pointer;
         transition: 0.2s;
         box-shadow: 0.125em 0.125em 0.6em rgba(0, 0, 0, 0.3);
         &:active{
             transform: translate(1px, 1px);
             box-shadow: none;
         }
+    }
+
+    &--disabled{
+        filter: gray;
+        -webkit-filter: grayscale(100%);
+        opacity: 0.3;
+        cursor: default;
     }
 }
 
