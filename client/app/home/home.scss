@@ -7,7 +7,7 @@
 // INFO *************************
 .m-info{
     border-radius: 1rem;
-    padding: 4rem 1.5rem 6rem 1.5rem;
+    padding: 6rem 1.5rem 8rem 1.5rem;
     text-align: center;
     height: 100%;
 
@@ -71,7 +71,7 @@
     border-radius: 1rem;
     min-height: 400px;
     height: 100%;
-    padding: 4rem 1rem 6rem 1rem;
+    padding: 6rem 1rem 8rem 1rem;
     margin-left: -1rem;
     text-align: center;
     @include fade(0.1s);
@@ -247,9 +247,9 @@ horizontal-calendar{
     height: 0.6rem;
     background: $warning-color;
     position: absolute;
-    right: 100%;
+    left: 100%;
     top: 50%;
-    transform: translate(-0.5rem, -50%);
+    transform: translate(0.5rem, -50%);
     border-radius: 50%;
 }
 
