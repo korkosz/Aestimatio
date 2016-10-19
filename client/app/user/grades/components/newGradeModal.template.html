@@ -15,7 +15,7 @@
     <div class="m-modals__add-modal">
         <h5>New grade</h5>
         <div dropdown
-             class="l-dropdown-wrapper is-close">
+             class="l-inputs__text-type-wrapper l-dropdown-wrapper is-close">
             <div class="l-dropdown__btn l-inputs__text-type">
                 {{!modalVm.grade.type ? 'Grade type':
                     modalVm.gradeTypeLabel(modalVm.grade.type)}}
@@ -34,9 +34,11 @@
 
         <form ng-submit="modalVm.addGrade(
                           modalVm.grade.grade, modalVm.grade.type.name)">
-            <input ng-model="modalVm.grade.grade"
-                   class="l-inputs__text-type"
-                   placeholder="Grade...">
+            <div class="l-inputs__text-type-wrapper">
+                <input ng-model="modalVm.grade.grade"
+                       class="l-inputs__text-type"
+                       placeholder="Grade...">
+            </div>
             <button type="submit" class="l-btn__default l-btn__primary">Add</button>
         </form>
     </div>

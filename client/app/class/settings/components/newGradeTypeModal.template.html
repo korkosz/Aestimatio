@@ -13,12 +13,33 @@
     <div class="m-modals__add-modal">
         <h5>New grade type</h5>
         <form novalidate>
-            <input ng-model="type.name"
-                    class="l-inputs__text-type  error"
-                    placeholder="Grade type...">
-            <input ng-model="type.rate" type="number"
-                    class="l-inputs__text-type success"
-                    placeholder="Grade rate...">
+            <div class="l-inputs__text-type-wrapper">
+                <span class="l-tooltip__icon">
+                    ?
+                    <div class="l-tooltip__box">
+                        <p class="l-tooltip__box-text">
+                            It can be something like exam or test
+                        </p>
+                    </div>
+                </span>
+                <input ng-model="type.name"
+                        class="l-inputs__text-type  error"
+                        placeholder="Grade type...">
+            </div>
+            <div class="l-inputs__text-type-wrapper">
+                <span class="l-tooltip__icon">
+                    ?
+                    <div class="l-tooltip__box">
+                        <p class="l-tooltip__box-text">
+                            It's a factor used in weighted average calculations. Default value is 1
+                        </p>
+                    </div>
+                </span>
+                <input ng-model="type.rate" type="number"
+                        class="l-inputs__text-type success"
+                        placeholder="Grade rate...">
+            </div>
+
         </form novalidate>
         <p class="m-modals__info-desc">
             *default value of grade rate is 1
