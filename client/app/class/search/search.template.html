@@ -5,21 +5,20 @@
                 Pick Class
             </h3>
             <!-- COUNTRY -->
-            <div class="l-inputs__text-type-wrapper
+            <div class="l-dropdown__input-wrapper
                         l-dropdown-wrapper
                         is-close" dropdown>
-                <div class="l-dropdown__btn">
-                    <input ng-model="$ctrl.country"
-                            ng-model-options="{ updateOn: 'default blur',
-                                                debounce: { 'default': 500, 'blur': 0 } }"
-                            ng-minlength="2"
-                            ng-change="$ctrl.handleCountrySearch(searchForm.country.$valid)"
-                            type="text" name="country"
-                            autocomplete="off"
-                            placeholder="Your country..."
-                            class="l-inputs__text-type"/>
-                </div>
-
+                <input ng-model="$ctrl.country"
+                        ng-model-options="{ updateOn: 'default blur',
+                                            debounce: { 'default': 500, 'blur': 0 } }"
+                        ng-minlength="2"
+                        ng-change="$ctrl.handleCountrySearch(searchForm.country.$valid)"
+                        type="text" name="country"
+                        autocomplete="off"
+                        placeholder="Your country..."
+                        class="l-inputs__text-type"/>
+                <button type="button"
+                        class=" l-dropdown__btn"></button>
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="country in $ctrl.countries track by $index"
                         ng-click="$ctrl.pickCountry(country)"
@@ -31,20 +30,19 @@
             <!-- COUNTRY END  -->
 
             <!-- CITY -->
-            <div class="l-inputs__text-type-wrapper
+            <div class="l-dropdown__input-wrapper
                         l-dropdown-wrapper
                         is-close" dropdown>
-                <div class="l-dropdown__btn">
-                    <input  ng-model="$ctrl.city"
-                            ng-model-options="{ updateOn: 'default blur',
-                                                debounce: { 'default': 500, 'blur': 0 } }"
-                            ng-minlength="3" ng-disabled="!$ctrl.countryValid"
-                            ng-change="$ctrl.handleCitySearch(searchForm.city.$valid)"
-                            name="city" type="text" autocomplete="off"
-                            placeholder="Your city..."
-                            class="l-inputs__text-type"/>
-                </div>
-
+                <input  ng-model="$ctrl.city"
+                        ng-model-options="{ updateOn: 'default blur',
+                                            debounce: { 'default': 500, 'blur': 0 } }"
+                        ng-minlength="3" ng-disabled="!$ctrl.countryValid"
+                        ng-change="$ctrl.handleCitySearch(searchForm.city.$valid)"
+                        name="city" type="text" autocomplete="off"
+                        placeholder="Your city..."
+                        class="l-inputs__text-type"/>
+                <button type="button"
+                        class=" l-dropdown__btn"></button>
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="city in $ctrl.cities track by $index"
                         ng-click="$ctrl.pickCity(city)"
@@ -56,20 +54,19 @@
             <!-- CITY END  -->
 
             <!-- SCHOOL -->
-            <div class="l-inputs__text-type-wrapper
+            <div class="l-dropdown__input-wrapper
                         l-dropdown-wrapper
                         is-close" dropdown>
-                <div class="l-dropdown__btn">
-                    <input ng-model="$ctrl.school"
-                            ng-model-options="{ updateOn: 'default blur',
-                                                debounce: { 'default': 500, 'blur': 0 } }"
-                            ng-minlength="3" ng-disabled="!$ctrl.cityValid"
-                            ng-change="$ctrl.handleSchoolSearch(searchForm.school.$valid)"
-                            name="school" type="text"
-                            placeholder="Your school..."
-                            class="l-inputs__text-type"/>
-                </div>
-
+                <input ng-model="$ctrl.school"
+                        ng-model-options="{ updateOn: 'default blur',
+                                            debounce: { 'default': 500, 'blur': 0 } }"
+                        ng-minlength="3" ng-disabled="!$ctrl.cityValid"
+                        ng-change="$ctrl.handleSchoolSearch(searchForm.school.$valid)"
+                        name="school" type="text"
+                        placeholder="Your school..."
+                        class="l-inputs__text-type"/>
+                <button type="button"
+                        class=" l-dropdown__btn"></button>
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="school in $ctrl.schools track by $index"
                         ng-click="$ctrl.pickSchool(school)"
@@ -116,8 +113,9 @@
 
 
 
-<!--
-<div class="l-dropdown__input-wrapper
+
+
+<!-- <div class="l-dropdown__input-wrapper
             l-dropdown-wrapper
             is-close" dropdown>
     <input ng-model="$ctrl.class"
@@ -128,7 +126,8 @@
             name="class" type="text"
             placeholder="Your class..."
             class="l-inputs__text-type"/>
-
+    <button type="button"
+            class=" l-dropdown__btn"></button>
     <ul class="l-dropdown__menu">
         <li ng-repeat="class in $ctrl.classes track by $index"
             ng-click="$ctrl.pickClass(class.id)"
