@@ -84,20 +84,15 @@
             <div class="l-inputs__text-type-wrapper
                         l-dropdown-wrapper
                         is-close" dropdown>
-                <div ng-model="$ctrl.class"
-                        ng-model-options="{ updateOn: 'default blur',
-                                            debounce: { 'default': 500, 'blur': 0 } }"
-                        ng-disabled="!$ctrl.cityValid"
-                        ng-change="$ctrl.handleClassSearch(searchForm.class.$valid)"
-                        class="l-inputs__text-type l-dropdown__btn">
-                        Your class
+                <div class="l-inputs__text-type l-dropdown__btn">
+                        {{$ctrl.class.name ? $ctrl.class.name : 'Your class...'}}
                 </div>
 
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="class in $ctrl.classes track by $index"
-                        ng-click="$ctrl.pickClass(class.id)"
+                        ng-click="$ctrl.pickClass(class)"
                         class="l-dropdown__menu-item">
-                        {{class.name}}
+                        {{class.name}}  
                     </li>
                 </ul>
             </div>
@@ -107,33 +102,6 @@
                         class="l-btn__default
                                 l-btn__primary">Sign in</button>
             </div>
-
-
-            </div>
         </form>
     </section>
 </div>
-
-
-
-<!--
-<div class="l-dropdown__input-wrapper
-            l-dropdown-wrapper
-            is-close" dropdown>
-    <input ng-model="$ctrl.class"
-            ng-model-options="{ updateOn: 'default blur',
-                                debounce: { 'default': 500, 'blur': 0 } }"
-            ng-minlength="3" ng-disabled="!$ctrl.cityValid"
-            ng-change="$ctrl.handleClassSearch(searchForm.class.$valid)"
-            name="class" type="text"
-            placeholder="Your class..."
-            class="l-inputs__text-type"/>
-
-    <ul class="l-dropdown__menu">
-        <li ng-repeat="class in $ctrl.classes track by $index"
-            ng-click="$ctrl.pickClass(class.id)"
-            class="l-dropdown__menu-item">
-            {{class.name}}
-        </li>
-    </ul>
-</div> -->

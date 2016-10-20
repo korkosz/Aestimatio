@@ -13,7 +13,7 @@ router.get('/:query/:language', function (req, res) {
         types: '(cities)',
         language: req.params.language
     };
-    placeAutocomplete(parameters, 'components=country:pl', function (error, response) {
+    placeAutocomplete(parameters, `components=country:${req.params.language}`, function (error, response) {
         if (error) throw error;
         var resp = [];
         if (response.predictions) {

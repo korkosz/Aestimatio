@@ -4,10 +4,11 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
     function ($resource, classService, auth) {
         var UserRes,
             User,
-            getLoggedUserGrades;
-       /**
-        * Resource
-        */
+            getLoggedUserGrades,
+            refreshUserFromDb;
+        /**
+         * Resource
+         */
         UserRes = $resource('/api/user/:id', { id: '@_id' },
             {
                 'update': {
@@ -71,9 +72,14 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
             return formattedGrades;
         };
 
+        refreshUserFromDb = function () {
+            User = UserRes.get({ id: auth.getUser().userId });
+        };
+
         return {
             User,
             UserRes,
-            getLoggedUserGrades
+            getLoggedUserGrades,
+            refreshUserFromDb
         };
     }];

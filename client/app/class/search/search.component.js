@@ -2,7 +2,7 @@ var countries = require('country-list')();
 var countriesNames = countries.getNames();
 
 
-function controller($filter, $http) {
+function controller($filter, $http, userServce) {
     var vm = this;
     var schools = [];
 
@@ -107,18 +107,20 @@ function controller($filter, $http) {
                     name: _class.name
                 };
             });
-        }); 
+        });
     };
 
-    vm.pickClass = function (classId) {
-        vm.class = classId;
+    vm.pickClass = function (_class) {
+        vm.class = _class;
     };
 
-    vm.saveClass = function() {
-        if(vm.class) {
-            $http.patch(`http://localhost:3000/api/user/changeClass/${vm.authUser.userId}/${vm.class}`);
+    vm.saveClass = function () {
+        if (vm.class) {
+            $http.patch(`http://localhost:3000/api/user/changeClass/${vm.authUser.userId}/${vm.class.id}`).then(() => {
+                userServce.refreshUserFromDb();
+            });
         }
-    }; 
+    };
 }
 
 module.exports = {
