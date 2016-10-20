@@ -20,7 +20,7 @@
         <div class="l-inputs__text-type-wrapper l-dropdown-wrapper is-close" dropdown>
             <div class="l-inputs__text-type l-dropdown__btn">
                 {{$ctrl.data.selectedSubject ?
-                    $ctrl.data.selectedSubject : 'Pick Subject...'}}
+                    $ctrl.data.selectedSubject : 'Pick Subject'}}
             </div>
             <ul class="l-dropdown__menu">
                 <li ng-repeat="sub in $ctrl.daySubjects track by $index"
@@ -34,7 +34,7 @@
         <div class="l-inputs__text-type-wrapper l-dropdown-wrapper is-close" dropdown>
             <div class="l-inputs__text-type l-dropdown__btn">
                 {{$ctrl.data.selectedType ?
-                    $ctrl.data.selectedType.name : 'Pick Exam Type...'}}
+                    $ctrl.data.selectedType.name : 'Pick Exam Type'}}
             </div>
             <ul class="l-dropdown__menu">
                 <li ng-repeat="type in $ctrl.userClass.gradeTypes track by $index"

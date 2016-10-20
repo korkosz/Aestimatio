@@ -326,7 +326,7 @@ horizontal-calendar{
     width: 2em;
     height: 2em;
     line-height: 2em;
-    border-radius: 50%;
+    border-radius: 100%;
     background: transparentize($main-color, 0.55);
     color: #fff;
     transition: 0.5s;
@@ -349,7 +349,7 @@ horizontal-calendar{
         width: 0.5em;
         height: 0.5em;
         background: #ffb048;
-        border-radius: 50%;
+        border-radius: 100%;
         right: 0.2em;
         top: -0.1em;
         @include fade(0.35s);

@@ -52,3 +52,67 @@
         </button>
     </div>
 </form>
+
+
+<!-- ***************************
+    ROBOCZY
+******************************-->
+<br><br>
+<form class="l-intro-box">
+    <h2 class="l-intro-box__header">
+        Sign in
+    </h2>
+
+    <div class="l-inputs__text-type-wrapper">
+        <input ng-model="$ctrl.email"
+               type="text" id="inputEmail"
+               name="email"
+               placeholder="Email"
+               class="l-inputs__text-type error" required autofocus><!-- Dochodzi klasa error  -->
+    </div>
+
+    <div class="l-inputs__text-type-wrapper">
+        <input ng-model="$ctrl.password"
+               type="password"
+               id="inputPassword"
+               name="password"
+               placeholder="Password"
+               class="l-inputs__text-type error" required><!-- Dochodzi klasa error  -->
+    </div>
+
+    <div class="l-checkbox-wrapper">
+        <div class="l-checkbox__box">
+            <input ng-model="$ctrl.remember" name="remember"
+                   type="checkbox" value="remember-me">
+        </div>
+        <p class="l-checkbox__label">
+            Keep me signed in
+        </p>
+    </div>
+
+    <div class="l-btn__wrapper">
+        <button ng-click="$ctrl.logIn()"
+                class="l-btn__primary l-btn__default l-btn__default--full-width">
+                Sign in
+        </button>
+    </div>
+
+    <div class="l-inputs__global-error-box"><!-- Dochodzi box na powiadomienia  -->
+        <p class="l-inputs__global-error">
+            * Invalid Email or Password
+        </p>
+    </div>
+
+    <div class="l-btn__wrapper">
+        <p class="l-btn__label
+                  l-btn__label--primary">
+            Don't have an account?
+        </p>
+        <button ui-sref="register"
+                class="l-btn__primary
+                       l-btn__default
+                       l-btn__default--light">
+                Sign up
+        </button>
+    </div>
+</form>
