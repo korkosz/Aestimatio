@@ -4,7 +4,6 @@
     border-radius: 3rem;
     padding: 0.5rem;
     text-align: center;
-    margin-bottom: 0.5rem;
     min-height: 2rem;
     width: 100%;
     color: #fff;
@@ -13,6 +12,10 @@
     &::-webkit-input-placeholder{
         color: rgba(255, 255, 255, 0.65);
     }
+}
+
+.l-inputs__text-type-wrapper{
+    margin-bottom: 0.5rem;
 }
 
 input::-webkit-inner-spin-button {

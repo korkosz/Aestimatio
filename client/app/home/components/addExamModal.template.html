@@ -16,8 +16,8 @@
         <!-- <h5>{{$ctrl.displayDate.format('ddd')}}</h5>
         <h5>{{$ctrl.displayDate.format('DD')}}</h5> -->
 
-        <!--subject dropdown--> 
-        <div class="l-dropdown-wrapper is-close" dropdown>
+        <!--subject dropdown-->
+        <div class="l-inputs__text-type-wrapper l-dropdown-wrapper is-close" dropdown>
             <div class="l-inputs__text-type l-dropdown__btn">
                 {{$ctrl.data.selectedSubject ?
                     $ctrl.data.selectedSubject : 'Pick Subject...'}}
@@ -31,7 +31,7 @@
             </ul>
         </div>
         <!--exam type dropdown-->
-        <div class="l-dropdown-wrapper is-close" dropdown>
+        <div class="l-inputs__text-type-wrapper l-dropdown-wrapper is-close" dropdown>
             <div class="l-inputs__text-type l-dropdown__btn">
                 {{$ctrl.data.selectedType ?
                     $ctrl.data.selectedType.name : 'Pick Exam Type...'}}

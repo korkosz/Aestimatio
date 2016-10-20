@@ -4,18 +4,22 @@
         Sign in
     </h2>
 
-    <input ng-model="$ctrl.email"
-           type="text" id="inputEmail"
-           name="email"
-           placeholder="Email"
-           class="l-inputs__text-type" required autofocus>
+    <div class="l-inputs__text-type-wrapper">
+        <input ng-model="$ctrl.email"
+               type="text" id="inputEmail"
+               name="email"
+               placeholder="Email"
+               class="l-inputs__text-type" required autofocus>
+    </div>
 
-    <input ng-model="$ctrl.password"
-           type="password"
-           id="inputPassword"
-           name="password"
-           placeholder="Password"
-           class="l-inputs__text-type" required>
+    <div class="l-inputs__text-type-wrapper">
+        <input ng-model="$ctrl.password"
+               type="password"
+               id="inputPassword"
+               name="password"
+               placeholder="Password"
+               class="l-inputs__text-type" required>
+    </div>
 
     <div class="l-checkbox-wrapper">
         <div class="l-checkbox__box">
@@ -37,10 +41,10 @@
 
     <div class="l-btn__wrapper">
         <p class="l-btn__label
-                  l-btn__label--primary"> 
+                  l-btn__label--primary">
             Don't have an account?
         </p>
-        <button ui-sref="register" 
+        <button ui-sref="register"
                 class="l-btn__primary
                        l-btn__default
                        l-btn__default--light">

@@ -13,10 +13,12 @@
     <div class="m-modals__add-modal">
         <h5>New subject</h5>
         <form ng-submit="$ctrl.addSubject(newSubject);" novalidate>
-            <input ng-model="newSubject"
-                   placeholder="Subject name..." class="l-inputs__text-type" >
+            <div class="l-inputs__text-type-wrapper">
+                <input ng-model="newSubject"
+                       placeholder="Subject name..." class="l-inputs__text-type" >
+            </div>
             <div class="l-btn__wrapper">
-                <button ng-disabled="!newSubject" type="submit" 
+                <button ng-disabled="!newSubject" type="submit"
                         class="l-btn__default l-btn__primary">
                     Add
                 </button>
