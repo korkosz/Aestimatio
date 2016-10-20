@@ -6,7 +6,7 @@ module.exports = function ($stateProvider) {
         resolve: {
             authUser($q, auth) {
                 if (auth.isLoggedIn()) {
-                    return $q.when(null);
+                    return $q.when(auth.getUser());
                 } else {
                     return auth.setUser();
                 }

@@ -79,48 +79,35 @@
 
             <!-- CLASS -->
             <div class="l-dropdown__input-wrapper
-                        l-dropdown-wrapper
+                        l-dropdown-wrapper 
                         is-close" dropdown>
-                <input type="text"
+                <input ng-model="$ctrl.class"
+                        ng-model-options="{ updateOn: 'default blur',
+                                            debounce: { 'default': 500, 'blur': 0 } }"
+                        ng-minlength="3" ng-disabled="!$ctrl.cityValid"
+                        ng-change="$ctrl.handleClassSearch(searchForm.class.$valid)"
+                        name="class" type="text"
                         placeholder="Your class..."
                         class="l-inputs__text-type"/>
                 <button type="button"
-                        class=" l-dropdown__btn"></button>
+                        class=" l-dropdown__btn"></button>     
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="class in $ctrl.classes track by $index" 
+                        ng-click="$ctrl.pickClass(class.id)"
                         class="l-dropdown__menu-item">
-                        {{class}}
+                        {{class.name}}
                     </li>
                 </ul>
             </div>
             <!-- CLASS END  -->
             <div class="l-btn__wrapper">
-                <button class="l-btn__default
-                                l-btn__primary">
-                    Sign in
-                </button>
+                <button ng-click="$ctrl.saveClass()"
+                        class="l-btn__default
+                                l-btn__primary">Sign in</button>
+            </div>
+
+
             </div>
         </form>
     </section>
-</div>
-
-<div style="color:white;">
-    
-        <pre>
-            Pizdi testuj na takim zestawieniu:
-            Poland
-            Warszawa <-- bo tylko tu dodane jakies szkoly
-            Konarskiego <-- tylko jedna dodana klasa
-        </pre>
-
-
-        class <input ng-model="$ctrl.classSearch"
-                    ng-model-options="{ updateOn: 'default blur',
-                                        debounce: { 'default': 500, 'blur': 0 } }"
-                    ng-minlength="3" ng-disabled="!$ctrl.cityValid"
-                    ng-change="$ctrl.handleClassSearch(searchForm.class.$valid)"
-                    name="class"
-                    type="text" list="classes">
-        <!-- CLASS END -->
-    
 </div>

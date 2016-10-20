@@ -8,7 +8,7 @@ module.exports = ['$http', '$q', function ($http, $q) {
             $http.get('/auth/user/').then((res) => {
                 user = res.data;
                 if (user) {
-                    defer.resolve();
+                    defer.resolve(user);
                 } else {
                     defer.reject();
                 }

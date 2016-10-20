@@ -38,6 +38,15 @@ module.exports.patch = function (req, res) {
     }).catch(errorHandler(res));
 };
 
+module.exports.changeClass = function (req, res) {
+    User.findById(req.params.userId, function (err, user) {
+        user.grades = [];
+        user.class = req.params.classId;
+        user.save();
+        res.end();
+    }).catch(errorHandler(res));
+};
+
 function errorHandler(res) {
     return function(err) {
         res.status(500).send(err);

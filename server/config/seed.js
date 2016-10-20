@@ -8,7 +8,7 @@ Account.find({}).remove()
         Account.register(new Account({
             email: 'korkosz@wp.pl'
         }), 'korkosz91', function (err, acc) {
-            if (err) { 
+            if (err) {
                 throw new Error('seed error');
             }
 
@@ -69,6 +69,40 @@ Account.find({}).remove()
                                             },
                                         ]
                                     });
+                                });
+
+                                Class.create({
+                                    name: 'I C',
+                                    school: school._doc._id,
+                                    subjects: ['History', 'Math', 'Chemistry', 'English', 'WOS', 'WF'],
+                                    tests: [],
+                                    gradeTypes: [
+                                        {
+                                            name: 'Exam',
+                                            rate: 4
+                                        }, {
+                                            name: 'Test',
+                                            rate: 2
+                                        }, {
+                                            name: 'Big test',
+                                            rate: 4
+                                        }],
+                                    timetable: [{
+                                        day: 'Monday',
+                                        subjects: ['WF', 'WOS', 'Chemistry', 'English']
+                                    }, {
+                                        day: 'Tuesday',
+                                        subjects: ['WOS', 'WOS', 'Chemistry', 'Math', 'English']
+                                    }, {
+                                        day: 'Wednesday',
+                                        subjects: ['History', 'History', 'English', 'Math']
+                                    }, {
+                                        day: 'Thursday',
+                                        subjects: ['Math', 'Math', 'WOS']
+                                    }, {
+                                        day: 'Friday',
+                                        subjects: ['WOS', 'WF', 'WF']
+                                    }]
                                 });
                             });
                         });

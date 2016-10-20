@@ -5,7 +5,6 @@ var countriesNames = countries.getNames();
 function controller($filter, $http) {
     var vm = this;
     var schools = [];
-    var classes = [];
 
     vm.$onInit = function () {
         vm.countries = [];
@@ -22,7 +21,7 @@ function controller($filter, $http) {
 
         vm.countryValid = false;
         vm.cityValid = false;
-        vm.schoolValid = false; 
+        vm.schoolValid = false;
     };
 
     vm.handleCountrySearch = function (valid) {
@@ -44,6 +43,11 @@ function controller($filter, $http) {
 
     vm.handleCitySearch = function (valid) {
         vm.cities = [];
+
+        vm.schools = [];
+        schools = [];
+        vm.schoolValid = false;
+        vm.school = '';
 
         if (!valid || !vm.countryValid) return;
 
@@ -86,26 +90,42 @@ function controller($filter, $http) {
         if (vm.schoolValid) {
             let school = schools.find((s) => s.name === vm.school);
             $http.get(`http://localhost:3000/api/class?school=${school.id}`).then((res) => {
-                vm.classes = classes = res.data;
+                vm.classes = res.data;
             });
         }
     };
 
     vm.pickSchool = function (school) {
-        vm.school = school;
-        vm.schools = $filter('filter')(schools, vm.school.name);
+        vm.school = school.name;
+        vm.schools = $filter('filter')(schools, vm.school);
         vm.schoolValid = true;
 
         $http.get(`http://localhost:3000/api/class?school=${school.id}`).then((res) => {
-            vm.classes = classes = res.data;
-        });
+            vm.classes = res.data.map((_class) => {
+                return {
+                    id: _class._id,
+                    name: _class.name
+                };
+            });
+        }); 
     };
+
+    vm.pickClass = function (classId) {
+        vm.class = classId;
+    };
+
+    vm.saveClass = function() {
+        if(vm.class) {
+            $http.patch(`http://localhost:3000/api/user/changeClass/${vm.authUser.userId}/${vm.class}`);
+        }
+    }; 
 }
 
 module.exports = {
     templateUrl: '/static/app/class/search/search.template.html',
     controller,
     bindings: {
-        userClass: '<'
+        userClass: '<',
+        authUser: '<'
     }
 };
