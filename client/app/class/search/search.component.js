@@ -2,7 +2,7 @@ var countries = require('country-list')();
 var countriesNames = countries.getNames();
 
 
-function controller($filter, $http, userServce) {
+function controller($filter, $http, $state, userService, classService) {
     var vm = this;
     var schools = [];
 
@@ -117,7 +117,12 @@ function controller($filter, $http, userServce) {
     vm.saveClass = function () {
         if (vm.class) {
             $http.patch(`http://localhost:3000/api/user/changeClass/${vm.authUser.userId}/${vm.class.id}`).then(() => {
-                userServce.refreshUserFromDb();
+
+                userService.User.reload().then(()=> {
+                    classService.UserClass.reload(vm.class.id).then(()=> {
+                        $state.go('auth.authClass.home');
+                    });
+                });
             });
         }
     };

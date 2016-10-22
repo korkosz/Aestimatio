@@ -4,8 +4,8 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
     function ($resource, classService, auth) {
         var UserRes,
             User,
-            getLoggedUserGrades,
-            refreshUserFromDb;
+            getLoggedUserGrades;
+            
         /**
          * Resource
          */
@@ -72,14 +72,16 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
             return formattedGrades;
         };
 
-        refreshUserFromDb = function () {
-            User = UserRes.get({ id: auth.getUser().userId });
+        UserRes.prototype.reload = function () {
+            var user = this;
+            return user.$get({ id: auth.getUser().userId }, function (new_user) {
+                user = new_user;
+            });
         };
 
         return {
             User,
             UserRes,
-            getLoggedUserGrades,
-            refreshUserFromDb
+            getLoggedUserGrades
         };
     }];

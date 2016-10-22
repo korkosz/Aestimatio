@@ -40,6 +40,15 @@ module.exports = ['$resource', 'auth', function ($resource, auth) {
         return gradeType && gradeType.rate;
     };
 
+    ClassRes.prototype.reload = function (classId) {
+        var _class = this;
+        return _class.$get({
+            classId: classId || auth.getUser().class
+        }, function (new_class) {
+            _class = new_class;
+        });
+    };
+
     return {
         UserClass,
         ClassRes,
