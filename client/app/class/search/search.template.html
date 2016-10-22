@@ -5,10 +5,9 @@
                 Pick Class
             </h3>
             <!-- COUNTRY -->
-            <div class="l-inputs__text-type-wrapper
+            <div class="l-dropdown__input-wrapper
                         l-dropdown-wrapper
                         is-close" dropdown>
-                <div class="l-dropdown__btn">
                     <input ng-model="$ctrl.country"
                             ng-model-options="{ updateOn: 'default blur',
                                                 debounce: { 'default': 500, 'blur': 0 } }"
@@ -18,8 +17,8 @@
                             autocomplete="off"
                             placeholder="Your country..."
                             class="l-inputs__text-type"/>
-                </div>
-
+                <button type="button"
+                        class=" l-dropdown__btn"></button>
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="country in $ctrl.countries track by $index"
                         ng-click="$ctrl.pickCountry(country)"
@@ -31,10 +30,9 @@
             <!-- COUNTRY END  -->
 
             <!-- CITY -->
-            <div class="l-inputs__text-type-wrapper
+            <div class="l-dropdown__input-wrapper
                         l-dropdown-wrapper
                         is-close" dropdown>
-                <div class="l-dropdown__btn">
                     <input  ng-model="$ctrl.city"
                             ng-model-options="{ updateOn: 'default blur',
                                                 debounce: { 'default': 500, 'blur': 0 } }"
@@ -43,8 +41,8 @@
                             name="city" type="text" autocomplete="off"
                             placeholder="Your city..."
                             class="l-inputs__text-type"/>
-                </div>
-
+                <button type="button"
+                        class=" l-dropdown__btn"></button>
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="city in $ctrl.cities track by $index"
                         ng-click="$ctrl.pickCity(city)"
@@ -56,10 +54,9 @@
             <!-- CITY END  -->
 
             <!-- SCHOOL -->
-            <div class="l-inputs__text-type-wrapper
+            <div class="l-dropdown__input-wrapper
                         l-dropdown-wrapper
                         is-close" dropdown>
-                <div class="l-dropdown__btn">
                     <input ng-model="$ctrl.school"
                             ng-model-options="{ updateOn: 'default blur',
                                                 debounce: { 'default': 500, 'blur': 0 } }"
@@ -68,8 +65,8 @@
                             name="school" type="text"
                             placeholder="Your school..."
                             class="l-inputs__text-type"/>
-                </div>
-
+                <button type="button"
+                        class=" l-dropdown__btn"></button>
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="school in $ctrl.schools track by $index"
                         ng-click="$ctrl.pickSchool(school)"
