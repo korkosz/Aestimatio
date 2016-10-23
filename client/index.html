@@ -12,18 +12,6 @@
       class="cls-body">
     <!-- Google API key - AIzaSyDeuI5kA_XBaacxmTHXFHTf-SFX_hM6Q4s-->
     <div ng-controller="globalCtrl as globalCtrl">
-        <section class="l-menu__navbar">
-            <button ng-show="globalCtrl.user && globalCtrl.hasClass()"
-                    class="l-menu__hamburger">
-                <span class="l-menu__hamburger-icon"></span>
-                <span class="l-menu__hamburger-icon"></span>
-                <span class="l-menu__hamburger-icon"></span>
-            </button>
-            <a ui-sref="auth.authClass.home"
-                class="l-menu__logo">
-                <img src="static/assets/images/logo.svg" alt="" />
-            </a>
-        </section>
 
         <!--Navigation Menu-->
         <nav-menu ng-show="globalCtrl.user && globalCtrl.hasClass()"
