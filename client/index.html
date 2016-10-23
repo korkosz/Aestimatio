@@ -15,6 +15,7 @@
 
         <!--Navigation Menu-->
         <nav-menu ng-show="globalCtrl.user && globalCtrl.hasClass()"
+                  logout="globalCtrl.logout()"
                   user-name="{{globalCtrl.user.email}}">
         </nav-menu>
 
