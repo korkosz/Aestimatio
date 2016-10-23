@@ -1,5 +1,7 @@
 .l-checkbox-wrapper{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .l-checkbox__box{
@@ -9,5 +11,27 @@
 .l-checkbox__label{
     display: inline-block;
     margin: 0.5rem;
+    margin-left: 0.7rem;
     color: #fff;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label {
+    display:block;
+    width:1.1rem;
+    height:1.1rem;
+    border-radius: 100%;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label{
+    @include fade(0s);
+    background-image: url(../assets/images/icon-check.svg);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
