@@ -35,6 +35,11 @@ input[type=number] {
     background: transparentize($error-color, 0.9);
 }
 
+form.ng-submitted .l-inputs__text-type.ng-invalid {
+    border-color: $error-color;
+    background: transparentize($error-color, 0.9);
+}
+
 .l-inputs__text-type.success{
     border-color: $success-color;
     background: transparentize($success-color, 0.9);

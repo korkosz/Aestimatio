@@ -5,7 +5,8 @@ app.directive('pill', function () {
         transclude: true,
         templateUrl: '/static/components/pill/pill.html',
         scope: {
-            delete: '&'
+            delete: '&',
+            readOnly: '<'
         }
     };
 });

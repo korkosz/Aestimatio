@@ -11,96 +11,18 @@
       class="cls-body">
     <!-- Google API key - AIzaSyDeuI5kA_XBaacxmTHXFHTf-SFX_hM6Q4s-->
     <div ng-controller="globalCtrl as globalCtrl">
-        <section class="l-menu__navbar">
-            <button ng-show="globalCtrl.user && globalCtrl.hasClass()"
-                    class="l-menu__hamburger">
-                <span class="l-menu__hamburger-icon"></span>
-                <span class="l-menu__hamburger-icon"></span>
-                <span class="l-menu__hamburger-icon"></span>
-            </button>
-            <a ui-sref="login"
-                class="l-menu__logo">
-                <img src="static/assets/images/logo.svg" alt="" />
-            </a>
-        </section>
 
-
-        <nav ng-show="globalCtrl.user && globalCtrl.hasClass()"
-             class="l-primary-nav">
-            <h3 class="l-primary-nav__item">
-                <a ui-sref="auth.authClass.home">Home</a>
-            </h3>
-            <h3 class="l-primary-nav__item">
-                <a ui-sref="auth.authClass.user.grades">My grades</a>
-            </h3>
-            <h3 class="l-primary-nav__item">
-                <a ui-sref="auth.authClass.class.settings">Settings</a>
-            </h3>
-            <h3 class="l-primary-nav__item">
-                <a ui-sref="auth.authClass.class.timetable">Timetable</a>
-            </h3>
-            <h3 class="l-primary-nav__item">
-                <a ui-sref="auth.search">class - search</a>
-            </h3>
-
-            <div style="margin-top: 30px;">
-                <div style="color: white;">
-                    {{globalCtrl.user.email}}
-                </div>
-                <h3 class="l-primary-nav__item
-                            l-primary-nav__item--logout">
-                    <button ng-click="globalCtrl.logout()">Logout</button>
-                </h3>
-            </div>
-        </nav>
+        <!--Navigation Menu-->
+        <nav-menu ng-show="globalCtrl.user && globalCtrl.hasClass()"
+                  logout="globalCtrl.logout()"
+                  user-name="{{globalCtrl.user.email}}">
+        </nav-menu>
 
         <ui-view class="l-main-container is-open"></ui-view>
     </div>
 
     <script src="//localhost:35729/livereload.js"></script>
     <script src="static/dist/bundle.js"></script>
-
-    <script type="text/javascript">
-
-        var windowWidth = window.innerWidth;
-        var hamburger = $('.l-menu__hamburger');
-        var navItem = $('.l-primary-nav__item a');
-        var nav = $('.l-primary-nav');
-        var body= $('.cls-body');
-
-        // open and close primary menu
-        hamburger.click(function (e){
-            event.stopPropagation(e);
-            toggle();
-        });
-
-        if ( windowWidth < 1400 ) {
-            navItem.click(function (){
-                toggle();
-            });
-
-            // close menu when click outside itself
-            $(window).click(function (e) {
-                if (!nav.is(e.target)
-                    && nav.has(e.target).length === 0) {
-                    remove();
-                }
-            });
-        }
-
-        function toggle(){
-            hamburger.toggleClass('is-open');
-            nav.toggleClass('is-open');
-            body.toggleClass('is-open');
-        }
-
-        function remove() {
-            hamburger.removeClass('is-open');
-            nav.removeClass('is-open');
-            body.removeClass('is-open');
-        }
-
-    </script>
 </body>
 
 </html>

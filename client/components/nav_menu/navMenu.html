@@ -1,0 +1,39 @@
+<section class="l-menu__navbar">
+    <button class="l-menu__hamburger">
+        <span class="l-menu__hamburger-icon"></span>
+        <span class="l-menu__hamburger-icon"></span>
+        <span class="l-menu__hamburger-icon"></span>
+    </button>
+    <a ui-sref="auth.authClass.home"
+        class="l-menu__logo">
+        <img src="static/assets/images/logo.svg" alt="" />
+    </a>
+</section>
+
+<nav class="l-primary-nav">
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.authClass.home">Home</a>
+    </h3>
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.authClass.user.grades">My grades</a>
+    </h3>
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.authClass.class.settings">Settings</a>
+    </h3>
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.authClass.class.timetable">Timetable</a>
+    </h3>
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.search">class - search</a>
+    </h3>
+
+    <div style="margin-top: 30px;">
+        <div style="color: white;">
+            {{userName}}
+        </div>
+        <h3 class="l-primary-nav__item
+                    l-primary-nav__item--logout">
+            <button ng-click="logout()">Logout</button>
+        </h3>
+    </div>
+</nav>
