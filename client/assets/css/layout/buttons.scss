@@ -21,20 +21,24 @@
     }
     &:disabled{
         color: rgba(96, 11, 37, 0.35);
+        filter: gray;
+        -webkit-filter: grayscale(100%);
+        opacity: 0.3;
+        cursor: default;
 
-        &::after{
-            content: "";
-            background: url(../assets/images/icon-disabled.svg);
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 5em;
-            height: 1em;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+        // &::after{
+        //     content: "";
+        //     background: url(../assets/images/icon-disabled.svg);
+        //     background-size: contain;
+        //     background-position: center;
+        //     background-repeat: no-repeat;
+        //     width: 5em;
+        //     height: 1em;
+        //     position: absolute;
+        //     top: 50%;
+        //     left: 50%;
+        //     transform: translate(-50%, -50%);
+        // }
     }
 
     &--light{
@@ -100,7 +104,7 @@
     &--disabled{
         filter: gray;
         -webkit-filter: grayscale(100%);
-        opacity: 0.3;
+        opacity: 0.15;
         cursor: default;
     }
 }
