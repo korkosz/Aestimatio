@@ -11,6 +11,7 @@ angular
         require('../../components/modal/modal').name,
         require('../../components/pill/pill').name,
         require('../../components/calendar/calendar').name,
+        require('../../components/nav_menu/navMenu').name,
         require('../../components/horizontal_calendar/horizontalCalendar').name,
         require('./auth').name,
         require('./user').name,

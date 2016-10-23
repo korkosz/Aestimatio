@@ -1,0 +1,27 @@
+<nav class="l-primary-nav">
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.authClass.home">Home</a>
+    </h3>
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.authClass.user.grades">My grades</a>
+    </h3>
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.authClass.class.settings">Settings</a>
+    </h3>
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.authClass.class.timetable">Timetable</a>
+    </h3>
+    <h3 class="l-primary-nav__item">
+        <a ui-sref="auth.search">class - search</a>
+    </h3>
+
+    <div style="margin-top: 30px;">
+        <div style="color: white;">
+            {{userName}}
+        </div>
+        <h3 class="l-primary-nav__item
+                    l-primary-nav__item--logout">
+            <button ng-click="globalCtrl.logout()">Logout</button>
+        </h3>
+    </div>
+</nav>
