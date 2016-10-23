@@ -6,28 +6,30 @@
     <section class="m-settings__subjects m-modals__mask row">
         <h3>Subjects</h3>
         <div class="l-pill__wrapper">
-            <pill ng-repeat="subject in $ctrl.userClass.subjects"
-                  delete="$ctrl.removeSubject(subject)"
-                  class="l-pill__default">
-                {{subject}}
-            </pill>
+            <div ng-repeat="subject in $ctrl.userClass.subjects">
+                <pill ng-if="!$ctrl.subjectUsedInTimetable(subject)"
+                      delete="$ctrl.removeSubject(subject)"
+                      class="l-pill__default">
+                    {{subject}}
+                </pill>
 
-
-            <!-- To sie wyswietla gdy nie mozna usunac przedmiotu -->
-            <div class="l-pill__default">
-                <span class="l-tooltip__icon">
-                    ?
-                    <div class="l-tooltip__box">
-                        <p class="l-tooltip__box-text">
-                            This subject is used in timetable
-                        </p>
-                    </div>
-                </span>
-                Gowno
-                <button class="l-btn__close l-btn__close--disabled">
-                    <img src="static/assets/images/icon-close.svg" />
-                </button>
-            </div>
+                <!-- To sie wyswietla gdy nie mozna usunac przedmiotu -->
+                <div ng-if="$ctrl.subjectUsedInTimetable(subject)"
+                     class="l-pill__default">
+                    <span class="l-tooltip__icon">
+                        ?
+                        <div class="l-tooltip__box">
+                            <p class="l-tooltip__box-text">
+                                This subject is used in timetable
+                            </p>
+                        </div>
+                    </span>
+                    {{subject}}
+                    <button class="l-btn__close l-btn__close--disabled">
+                        <img src="static/assets/images/icon-close.svg" />
+                    </button>
+                </div>
+            </div>            
         </div>
 
         <!-- Add new subject - modal -->
@@ -39,8 +41,7 @@
         <h3>Grade types</h3>
         <div class="l-pill__wrapper">
             <pill ng-repeat="type in $ctrl.userClass.gradeTypes"
-                  delete="$ctrl.removeGradeType(type)"
-                  class="l-pill__default">
+                  read-only="true" class="l-pill__default">
                 {{type.name}}
                 <span class="m-settings__grade-rate">
                     [ rate: {{type.rate}} ]
