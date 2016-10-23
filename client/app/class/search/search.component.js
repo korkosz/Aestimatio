@@ -28,17 +28,30 @@ function controller($filter, $http, $state, userService, classService) {
         vm.countries = [];
         vm.city = '';
 
-        if (!valid) return;
+        if (!valid) {
+            document.body.click(); //close dropdown                                                
+            return;
+        }
 
         vm.countries = $filter('filter')(countriesNames, vm.country);
 
         vm.countryValid = countriesNames.some((c) => c === vm.country);
+
+        if (vm.countries.length > 0) {
+            setTimeout(() => {
+                document.querySelector('#countryBtn.l-dropdown__btn').click();
+            }, 0);
+        } else {
+            document.body.click(); //close dropdown
+        }
     };
 
     vm.pickCountry = function (country) {
         vm.country = country;
         vm.countries = $filter('filter')(countriesNames, vm.country);
         vm.countryValid = true;
+
+        document.body.click(); //close dropdown
     };
 
     vm.handleCitySearch = function (valid) {
@@ -49,7 +62,10 @@ function controller($filter, $http, $state, userService, classService) {
         vm.schoolValid = false;
         vm.school = '';
 
-        if (!valid || !vm.countryValid) return;
+        if (!valid || !vm.countryValid) {
+            document.body.click(); //close dropdown                                                
+            return;
+        }
 
         let countryCode = countries.getCode(vm.country);
         let uri = `http://localhost:3000/api/city/${vm.city}/${countryCode}`;
@@ -59,10 +75,12 @@ function controller($filter, $http, $state, userService, classService) {
                 (c) => c === vm.city
             );
 
-            if (vm.cityValid) {
-                $http.get(`http://localhost:3000/api/school/${vm.city}`).then((res) => {
-                    vm.schools = schools = res.data;
-                });
+            if (vm.cities.length > 0) {
+                setTimeout(() => {
+                    document.querySelector('#cityBtn.l-dropdown__btn').click();
+                }, 0);
+            } else {
+                document.body.click(); //close dropdown
             }
         });
 
@@ -76,22 +94,28 @@ function controller($filter, $http, $state, userService, classService) {
         $http.get(`http://localhost:3000/api/school/${vm.city}`).then((res) => {
             vm.schools = schools = res.data;
         });
+
+        document.body.click(); //close dropdown
     };
 
     vm.handleSchoolSearch = function (valid) {
         vm.schools = [];
 
-        if (!valid) return;
+        if (!valid) {
+            document.body.click(); //close dropdown                                                
+            return;
+        }
 
         vm.schools = $filter('filter')(schools, vm.school);
 
         vm.schoolValid = schools.some((s) => s.name === vm.school);
 
-        if (vm.schoolValid) {
-            let school = schools.find((s) => s.name === vm.school);
-            $http.get(`http://localhost:3000/api/class?school=${school.id}`).then((res) => {
-                vm.classes = res.data;
-            });
+        if (vm.schools.length > 0) {
+            setTimeout(() => {
+                document.querySelector('#schoolBtn.l-dropdown__btn').click();
+            }, 0);
+        } else {
+            document.body.click(); //close dropdown
         }
     };
 
@@ -108,18 +132,21 @@ function controller($filter, $http, $state, userService, classService) {
                 };
             });
         });
+
+        document.body.click(); //close dropdown
     };
 
     vm.pickClass = function (_class) {
         vm.class = _class;
+        document.body.click(); //close dropdown
     };
 
     vm.saveClass = function () {
         if (vm.class) {
             $http.patch(`http://localhost:3000/api/user/changeClass/${vm.authUser.userId}/${vm.class.id}`).then(() => {
 
-                userService.User.reload().then(()=> {
-                    classService.UserClass.reload(vm.class.id).then(()=> {
+                userService.User.reload().then(() => {
+                    classService.UserClass.reload(vm.class.id).then(() => {
                         $state.go('auth.authClass.home');
                     });
                 });

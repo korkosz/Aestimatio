@@ -22,11 +22,10 @@ app.directive('dropdown', function () {
                     .addClass('is-open'); // open dropdown menu
 
                 // close dropdown
-                $(window).click( function (e) {
-                    if ( !menu.is(e.target)
-                         && menu.has(e.target).length === 0 ) {
-                            wrapper.removeClass('is-open').addClass('is-close');
-
+                $(window).click(function (e) {
+                    if (!menu.is(e.target)
+                        && menu.has(e.target).length === 0) {
+                        wrapper.removeClass('is-open').addClass('is-close');
                     }
                 });
             });
