@@ -15,5 +15,8 @@ button {
 body{
     font-size: 16px;
     padding-bottom: 5rem;
-    background: $main-color--darker2;
+    background-image: url('../assets/images/background-intro.jpg');
+    background-color: $main-color--darker2;
+    background-size: cover;
+    background-attachment: fixed;
 }
