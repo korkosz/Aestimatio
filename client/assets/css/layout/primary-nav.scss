@@ -2,7 +2,7 @@
     transition: 0.5s;
 
     &.is-open{
-        @media (min-width: 1400px) and (max-width: 1700px){
+        @media (min-width: 1400px){
         padding-right: 300px;
         }
 
@@ -28,7 +28,7 @@
     height: 100%;
     right: 0;
     top: 0;
-    background: $main-color--darker2;
+    background: $main-color;
     z-index: 9998;
     padding-right: 3rem;
     padding-top: 6rem;
@@ -37,9 +37,6 @@
     transition: 0.5s;
     @media (max-width: 1400px){
         box-shadow: -12px 0 52px rgba(0, 0, 0, 0.26);
-    }
-    @media (max-width: 1700px){
-        background: $main-color;
     }
     @media only screen and (max-width: 62em) {
         padding-right: 1.5rem;

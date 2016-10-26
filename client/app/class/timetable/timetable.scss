@@ -32,10 +32,8 @@
     .l-btn__close{
         left: 0.6rem;
         top: 50%;
-        transform: translateY(-50%) scale(0);
-        transition: 0.3s;
-        transition-delay: 0.2s;
         z-index: 3;
+        display: none;
 
         img{
             width: 1.5rem;
@@ -74,21 +72,18 @@
     }
 }
 
-.l-dropdown-wrapper:not(.is-drag) .m-timetable__subject:hover{
-    cursor: -webkit-grab;
-
-    .l-btn__close{
-        opacity: 1;
-        transform: translateY(-50%) scale(1);
-        transition-delay: 0.6s;
-    }
+.l-dropdown-wrapper:not(.is-drag):hover  .l-btn__close{
+    display: block;
+    @include btn-close__show(0.3s);
 }
+
 
 .m-timetable__subject{
     text-align: center;
     margin: 0 0 0.4rem auto;
     padding-left: 10px;
     padding-right: 10px;
+    cursor: -webkit-grab;
 
     &:after{
         top: 1.2em;

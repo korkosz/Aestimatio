@@ -26,3 +26,8 @@ $error-color: red; //red
 @mixin fade($delay){
     animation: fade 0.4s $delay both;
 }
+
+// Shows
+@mixin btn-close__show($delay){
+    animation: btn-close__show 0.3s $delay both;
+}
