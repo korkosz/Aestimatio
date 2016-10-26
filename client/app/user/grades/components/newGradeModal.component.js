@@ -51,15 +51,14 @@ function controller($scope, $timeout, userService) {
             gradeType: gradeType
         });
 
-        userService.UserRes.update({
-            id: vm.userData._id
-        }, userDataCopy, () => {/*success*/
+        userDataCopy.$update(() => {
             vm.userData.grades.push({
                 subject: vm.subject,
                 value: grade,
                 gradeType: gradeType
-            });
+            }); 
         });
+
         //hide modal
         document.body.click();
     };

@@ -19,22 +19,36 @@ angular
         require('./home').name
     ])
     .config(require('./app.states'))
-    .run(['$rootScope', '$state', 'auth', '$transitions',
-        ($rootScope, $state, auth, $transitions) => {
+    .run(['$q', '$state', 'auth', '$transitions',
+        ($q, $state, auth, $transitions) => {
             $transitions.onError({}, (trans) => {
-                $state.defaultErrorHandler = function () { 
+                $state.defaultErrorHandler = function () {
                     return function (err) {
                         if (err) {
                             console.warn(err); //eslint-disable-line
                         }
-                    }; 
+                    };
                 };
-                if(trans._error === 'classAuth') {
-                    $state.go('auth.class.search');
+                if (trans._error === 'classAuth') {
+                    $state.go('auth.search');
+                } else if (trans._error === 'notAnAdmin') {
+                    $state.go('auth.authClass.home');
                 } else {
                     $state.go('login');
-                }                
+                }
             });
+
+            $transitions.onEnter({ entering: matchAdminStates }, function (transition) {
+                var user = transition.getResolveValue('authUser');
+
+                if (!user.admin) {
+                    return $q.reject('notAnAdmin');
+                }
+            });
+
+            function matchAdminStates(state) {
+                return state.data && state.data.adminOnly;
+            }
         }])
     .controller('globalCtrl', ['auth', '$state', '$scope', function (auth, $state, $scope) {
         var vm = this;
@@ -59,7 +73,7 @@ angular
             });
         };
 
-        vm.hasClass = function() {
+        vm.hasClass = function () {
             return auth.hasClassAssigned();
         };
     }]);

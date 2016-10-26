@@ -23,7 +23,7 @@ module.exports = function (router) {
                 lastName: req.body.lastName
             }).then(function () {
                 passport.authenticate('local')(req, res, function () {
-                    res.redirect('/#/class/search'); 
+                    res.redirect('/#/search'); 
                 });
             });
         });

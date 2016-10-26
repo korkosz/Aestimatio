@@ -4,7 +4,7 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
     function ($resource, classService, auth) {
         var UserRes,
             User,
-            getLoggedUserGrades;
+            getLoggedUserGrades;            
             
         /**
          * Resource
@@ -70,6 +70,10 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
             }
 
             return formattedGrades;
+        };
+
+        UserRes.prototype.isAdmin = function() {
+            return this.moderator;
         };
 
         UserRes.prototype.reload = function () {

@@ -31,6 +31,9 @@ module.exports = function ($stateProvider) {
             userClass(classService) {
                 return classService.UserClass.$promise;
             }
+        },
+        data: {
+            adminOnly: true
         }
     });
 };

@@ -67,7 +67,8 @@ Account.find({}).remove()
                                                 value: 2,
                                                 gradeType: 'Exam'
                                             },
-                                        ]
+                                        ],
+                                        admin: true
                                     });
                                 });
 

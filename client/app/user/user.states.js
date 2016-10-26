@@ -7,6 +7,9 @@ module.exports = function ($stateProvider) {
         resolve: {
             userClass(classService) {
                 return classService.UserClass.$promise;
+            },
+            userResource: function (userService) {
+                return userService.User.$promise;
             }
         }
     });
@@ -16,5 +19,4 @@ module.exports = function ($stateProvider) {
         component: 'userGrades',
         url: '/grades'
     });
-
 };

@@ -27,9 +27,9 @@ module.exports = function ($stateProvider) {
                 var userAssignedToClass
                     = auth.hasClassAssigned();
 
-                userAssignedToClass ? 
+                userAssignedToClass ?
                     defer.resolve() : defer.reject('classAuth');
- 
+
                 return promise;
             }
         }

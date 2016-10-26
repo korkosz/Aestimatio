@@ -12,7 +12,7 @@ var UserSchema = new mongoose.Schema({
     grades: [gradeSchema],
     class: { type: mongoose.Schema.Types.ObjectId, ref: 'Class' },
     account: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' },
-    moderator: [String]
+    admin: Boolean
 });
 
 module.exports = mongoose.model('User', UserSchema);
