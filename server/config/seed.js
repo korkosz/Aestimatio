@@ -52,6 +52,8 @@ Account.find({}).remove()
                                 User.find({}).remove().then(function () {
                                     User.create({
                                         class: _class._doc._id,
+                                        firstName: 'Mateusz',
+                                        lastName: 'Korkosz',
                                         account: acc._doc._id,
                                         grades: [
                                             {
@@ -67,8 +69,10 @@ Account.find({}).remove()
                                                 value: 2,
                                                 gradeType: 'Exam'
                                             },
-                                        ],
-                                        admin: true
+                                        ]
+                                    }).then((_usr) => {
+                                        _class.moderators = [_usr._id];
+                                        _class.save();
                                     });
                                 });
 

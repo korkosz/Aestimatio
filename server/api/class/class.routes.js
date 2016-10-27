@@ -18,7 +18,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-    return Class.findById(req.params.id).exec()
+    return Class.findById(req.params.id)
+        .populate('moderators', 'firstName lastName')
+        .exec()
         .then(function (entity) {
             res.json(entity);
         })

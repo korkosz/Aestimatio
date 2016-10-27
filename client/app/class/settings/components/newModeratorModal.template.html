@@ -1,0 +1,49 @@
+<div modal
+    class="l-btn__wrapper">
+    <button class="l-btn__add l-btn__add--big">
+        <svg version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        	    viewBox="0 0 20 20"
+              xml:space="preserve">
+              <rect id="XMLID_1_" y="8" width="20" height="4"/>
+              <rect id="XMLID_3_" x="8" y="0" width="4" height="20"/>
+        </svg>
+    </button>
+    <div class="m-modals__add-modal">
+        <h5>New Moderator</h5>
+        <form ng-submit="$ctrl.addModerator($ctrl.student);" 
+              name="searchForm" novalidate>
+            <div class="l-dropdown__input-wrapper
+                        l-dropdown-wrapper
+                        is-close" dropdown>
+                    <input ng-model="$ctrl.search"
+                            ng-model-options="{ updateOn: 'default blur',
+                                                debounce: { 'default': 500, 'blur': 0 } }"
+                            ng-minlength="1" required
+                            ng-change="$ctrl.handleStudentSearch(searchForm.student.$valid)"
+                            type="text" name="student"
+                            autocomplete="off"
+                            placeholder="Student name..."
+                            class="l-inputs__text-type"/>
+                <button ng-disabled="$ctrl.dropdownDisabled()"
+                        type="button" id="studentBtn"
+                        class=" l-dropdown__btn"></button>
+                <ul ng-hide="$ctrl.students.length === 0"
+                    class="l-dropdown__menu">
+                    <li ng-repeat="student in $ctrl.studentsInClass | filter: $ctrl.search track by $index"
+                        ng-click="$ctrl.pickStudent(student, $event)"
+                        class="l-dropdown__menu-item">
+                        {{student.name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="l-btn__wrapper">
+                <button ng-disabled="!$ctrl.student" type="submit"
+                        class="l-btn__default l-btn__primary">
+                    Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

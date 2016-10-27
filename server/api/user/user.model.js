@@ -11,8 +11,7 @@ var UserSchema = new mongoose.Schema({
     lastName: String,
     grades: [gradeSchema],
     class: { type: mongoose.Schema.Types.ObjectId, ref: 'Class' },
-    account: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' },
-    admin: Boolean
+    account: { type: mongoose.Schema.Types.ObjectId, ref: 'Account' }
 });
 
 module.exports = mongoose.model('User', UserSchema);

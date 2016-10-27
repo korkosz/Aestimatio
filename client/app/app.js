@@ -31,23 +31,23 @@ angular
                 };
                 if (trans._error === 'classAuth') {
                     $state.go('auth.search');
-                } else if (trans._error === 'notAnAdmin') {
+                } else if (trans._error === 'notAModerator') {
                     $state.go('auth.authClass.home');
                 } else {
                     $state.go('login');
                 }
             });
 
-            $transitions.onEnter({ entering: matchAdminStates }, function (transition) {
+            $transitions.onEnter({ entering: matchModeratorStates }, function (transition) {
                 var user = transition.getResolveValue('authUser');
 
-                if (!user.admin) {
-                    return $q.reject('notAnAdmin');
+                if (!user.moderator) {
+                    return $q.reject('notAModerator');
                 }
             });
 
-            function matchAdminStates(state) {
-                return state.data && state.data.adminOnly;
+            function matchModeratorStates(state) {
+                return state.data && state.data.moderatorOnly;
             }
         }])
     .controller('globalCtrl', ['auth', '$state', '$scope', function (auth, $state, $scope) {

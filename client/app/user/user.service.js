@@ -72,10 +72,6 @@ module.exports = ['$resource', 'classService', 'auth', '$rootScope',
             return formattedGrades;
         };
 
-        UserRes.prototype.isAdmin = function() {
-            return this.moderator;
-        };
-
         UserRes.prototype.reload = function () {
             var user = this;
             return user.$get({ id: auth.getUser().userId }, function (new_user) {

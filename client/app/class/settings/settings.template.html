@@ -52,4 +52,18 @@
         <!-- Add new grade type - modal -->
         <new-grade-type-modal user-class="$ctrl.userClass"></new-grade-type-modal>
     </section>
+
+    <!-- Class Moderators -->
+    <section class="m-settings__grade-types m-modals__mask row">
+        <h3>Moderators</h3>
+        <div class="l-pill__wrapper">
+            <pill ng-repeat="moderator in $ctrl.userClass.moderators" 
+                  class="l-pill__default">
+                {{moderator.firstName}} {{moderator.lastName}}
+            </pill>
+        </div>
+
+        <!-- Add new moderator - modal -->
+        <new-moderator-modal user-class="$ctrl.userClass"></new-moderator-modal> 
+    </section>
 </div>

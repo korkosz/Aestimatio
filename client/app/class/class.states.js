@@ -33,7 +33,7 @@ module.exports = function ($stateProvider) {
             }
         },
         data: {
-            adminOnly: true
+            moderatorOnly: true
         }
     });
 };

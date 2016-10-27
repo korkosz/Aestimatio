@@ -31,7 +31,7 @@ module.exports = ['$resource', 'auth', function ($resource, auth) {
 
                     var comp = jsonpatch.compare(UserClassCopy, updatedClass);
                     return angular.toJson(comp);
-                }
+                },
             }
         });
 

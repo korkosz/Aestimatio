@@ -4,6 +4,7 @@ module.exports = angular
     .component('classSearch', require('./search/search.component.js'))    
     .component('classSettings', require('./settings/settings.component.js'))
     .component('newSubjectModal', require('./settings/components/newSubjectModal.component.js'))
+    .component('newModeratorModal', require('./settings/components/newModeratorModal.component.js'))
     .component('newGradeTypeModal', require('./settings/components/newGradeTypeModal.component.js'))
     .component('classTimetable', require('./timetable/timetable.component.js'))
     .component('addSubjectModal', require('./timetable/components/addSubjectModal.component.js'))

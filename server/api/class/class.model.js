@@ -23,6 +23,7 @@ var ClassSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'School'
     },
+    moderators: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     subjects: [String],
     timetable: [day],
     gradeTypes: [gradeTypeSchema],

@@ -1,6 +1,7 @@
 var passport = require('passport');
 var Account = require('./account/account.model');
 var User = require('../api/user/user.model');
+var _Class = require('../api/class/class.model');
 
 module.exports = function (router) {
     router.post('/login', passport.authenticate('local'), function (req, res) {
@@ -8,7 +9,7 @@ module.exports = function (router) {
             req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; // Cookie expires after 30 days
         } else {
             req.session.cookie.expires = false; // Cookie expires at end of session
-        } 
+        }
         res.end();
     });
 
@@ -23,7 +24,7 @@ module.exports = function (router) {
                 lastName: req.body.lastName
             }).then(function () {
                 passport.authenticate('local')(req, res, function () {
-                    res.redirect('/#/search'); 
+                    res.redirect('/#/search');
                 });
             });
         });
@@ -43,7 +44,21 @@ module.exports = function (router) {
                 var mutual = Object.assign({}, _user._doc, account._doc);
 
                 delete mutual._id;
-                res.json(mutual);
+
+                /**
+                 * If user has assigned class, check if he's a moderator
+                 */
+                if (mutual.class) {
+                    _Class.findById(mutual.class, 'moderators', { lean: true }).then(function (_class) {
+                        mutual.moderator = _class.moderators.findIndex(function (_userId) {
+                            return _userId.equals(_user._doc.userId);
+                        }) !== -1;
+
+                        res.json(mutual);
+                    });
+                } else {
+                    res.json(mutual);
+                }
             });
         else
             res.json(null);
