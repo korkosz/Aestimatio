@@ -14,8 +14,9 @@
                 <!-- Single Subject -->
                 <li ng-repeat="subject in day.subjects track by $index" dropdown
                     ng-init="subjIdx = $index" data-subject-index="{{$index}}"
-                    draggable="true" data-day-index="{{dayIdx}}"
-                    class="l-dropdown-wrapper is-close">
+                    data-day-index="{{dayIdx}}"
+                    class="l-dropdown-wrapper is-close" drag-drop
+                    drop-handler="$ctrl.dropHandler(e)">
                     <span class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
                         {{subject}}
                         <button ng-click="$ctrl.removeSubject($event, dayIdx, subjIdx)"

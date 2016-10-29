@@ -11,12 +11,13 @@ angular
         require('../../components/modal/modal').name,
         require('../../components/pill/pill').name,
         require('../../components/calendar/calendar').name,
+        require('../../components/drag_drop/dragDrop').name,
         require('../../components/nav_menu/navMenu').name,
         require('../../components/horizontal_calendar/horizontalCalendar').name,
-        require('./auth').name,
+        require('./auth').name, 
         require('./user').name,
-        require('./class').name,
-        require('./home').name
+        require('./class').name, 
+        require('./home').name 
     ])
     .config(require('./app.states'))
     .run(['$q', '$state', 'auth', '$transitions',
@@ -24,11 +25,11 @@ angular
             $transitions.onError({}, (trans) => {
                 $state.defaultErrorHandler = function () {
                     return function (err) {
-                        if (err) {
-                            console.warn(err); //eslint-disable-line
+                        if (err) { 
+                            console.warn(err); //eslint-disable-line 
                         }
-                    };
-                };
+                    }; 
+                }; 
                 if (trans._error === 'classAuth') {
                     $state.go('auth.search');
                 } else if (trans._error === 'notAModerator') {
