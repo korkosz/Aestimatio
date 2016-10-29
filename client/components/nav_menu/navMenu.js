@@ -4,7 +4,8 @@ module.exports = angular.module('navigation', [])
             templateUrl: '/static/components/nav_menu/navMenu.html',
             scope: {
                 userName: '@',
-                logout: '&'
+                logout: '&',
+                admin: '<'
             },
             link() {
                 var windowWidth = window.innerWidth;

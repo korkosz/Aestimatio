@@ -14,7 +14,7 @@
 
         <!--Navigation Menu-->
         <nav-menu ng-show="globalCtrl.user && globalCtrl.hasClass()"
-                  logout="globalCtrl.logout()"
+                  logout="globalCtrl.logout()" admin="globalCtrl.user.moderator"
                   user-name="{{globalCtrl.user.email}}">
         </nav-menu>
 

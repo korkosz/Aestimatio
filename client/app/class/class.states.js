@@ -20,6 +20,9 @@ module.exports = function ($stateProvider) {
             userClass(classService) {
                 return classService.UserClass.$promise;
             }
+        },
+        data: {
+            moderatorOnly: true
         }
     });
 
@@ -31,9 +34,6 @@ module.exports = function ($stateProvider) {
             userClass(classService) {
                 return classService.UserClass.$promise;
             }
-        },
-        data: {
-            moderatorOnly: true
         }
     });
 };

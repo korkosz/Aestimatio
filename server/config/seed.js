@@ -131,7 +131,7 @@ Account.find({}).remove()
                                                             },
                                                         ]
                                                     }).then((_usr) => {
-                                                        _class.moderators.push(_usr1._id, _usr._id, _usr2._id);
+                                                        _class.moderators.push(_usr._id, _usr2._id);
                                                         _class.students = [{
                                                             _id: _usr._id,
                                                             name: _usr.firstName + ' ' + _usr.lastName

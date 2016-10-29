@@ -23,17 +23,19 @@ app.directive('modal', function () {
                 /**
                  * click outside of the modal hides it
                  */
-                // close dropdown
                 $(window).click(function (e) {
-                    if (!modalBody.is(e.target)
-                        && modalBody.has(e.target).length === 0) {
+                    if (
+                        !modalBody.is(e.target) &&
+                        modalBody.has(e.target).length === 0 &&
+                        modalBody.hasClass('is-open') &&
+                        mask.hasClass('is-open')
+                    ) {
                         modalBody.removeClass('is-open')
                             .addClass('is-close');
                         mask.removeClass('is-open');
 
                         scope.$emit('modalClosed');
                     }
-
                 });
             });
         }
