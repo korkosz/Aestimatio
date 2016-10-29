@@ -50,10 +50,8 @@ module.exports = function (router) {
                  */
                 if (mutual.class) {
                     _Class.findById(mutual.class, 'moderators', { lean: true }).then(function (_class) {
-                        mutual.moderator = _class.moderators.findIndex(function (_userId) {
-                            return _userId.equals(_user._doc.userId);
-                        }) !== -1;
-
+                        mutual.moderator = _class.moderators.indexOf(
+                            _user._doc.userId.toString()) !== -1;
                         res.json(mutual);
                     });
                 } else {

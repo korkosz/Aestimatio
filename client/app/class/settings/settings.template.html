@@ -58,8 +58,9 @@
         <h3>Moderators</h3>
         <div class="l-pill__wrapper">
             <pill ng-repeat="moderator in $ctrl.userClass.moderators" 
+                  delete="$ctrl.removeModerator(moderator)"
                   class="l-pill__default">
-                {{moderator.firstName}} {{moderator.lastName}}
+                {{$ctrl.getModeratorName(moderator)}}  
             </pill>
         </div>
 

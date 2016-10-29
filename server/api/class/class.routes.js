@@ -18,9 +18,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-    return Class.findById(req.params.id)
-        .populate('moderators', 'firstName lastName')
-        .exec()
+    return Class.findById(req.params.id).exec()
         .then(function (entity) {
             res.json(entity);
         })
@@ -51,3 +49,14 @@ router.patch('/:id', function (req, res) {
     });
 });
 module.exports = router;
+
+// function serializeModerators(req, res, next) {
+//     var _class = req.body;
+
+//     if (_class && _class.moderators) {
+//         _class.moderators = _class.moderators.map((mod) => {
+//             return mod._id;
+//         });
+//     }
+//     return next();
+// }

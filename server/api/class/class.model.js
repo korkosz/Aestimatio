@@ -17,13 +17,18 @@ var testSchema = new mongoose.Schema({
     description: String
 });
 
+var userSchema = new mongoose.Schema({
+    name: String
+});
+
 var ClassSchema = new mongoose.Schema({
     name: String,
     school: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'School'
     },
-    moderators: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    students: [userSchema],
+    moderators: [String],
     subjects: [String],
     timetable: [day],
     gradeTypes: [gradeTypeSchema],

@@ -10,6 +10,10 @@ function controller($scope, $timeout, $filter) {
     var vm = this;
 
     vm.$onInit = function () {
+        vm.studentsInClass = [];
+        vm.student = null;
+        vm.search = '';
+
         $scope.$on('modalClosed', () => {
             $timeout(() => {
                 vm.student = null;
@@ -18,22 +22,25 @@ function controller($scope, $timeout, $filter) {
             }, 0);
         });
 
-        vm.studentsInClass = [{
-            _id: '1',
-            name: 'Mateusz Korkosz'
-        },
-        {
-            _id: '2',
-            name: 'Maciej Chmiel'
-        },
-        {
-            _id: '3',
-            name: 'Marcin Trybulec'
-        }];
+        $scope.$on('modalOpened', () => {
+            $timeout(() => {
+                vm.studentsInClass = vm.userClass.students
+                    .filter((_student) => {
+                        return !vm.userClass.moderators.some((mod) => {
+                            return _student._id === mod;
+                        });
+                    });
+            }, 0);
+        });
     };
 
     vm.addModerator = function (_student) {
+        var userClassCopy = angular.copy(this.userClass);
 
+        userClassCopy.moderators.push(_student._id);
+        userClassCopy.$update(() => {
+            this.userClass.moderators.push(_student._id);
+        });
 
         //hide modal 
         document.body.click();
@@ -48,7 +55,7 @@ function controller($scope, $timeout, $filter) {
         $('.l-dropdown__input-wrapper.is-open').click();
     };
 
-    vm.dropdownDisabled = function() {
+    vm.dropdownDisabled = function () {
         return $filter('filter')(
             vm.studentsInClass, vm.search).length === 0;
     };

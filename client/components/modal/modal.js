@@ -11,6 +11,8 @@ app.directive('modal', function () {
             openModalBtn.on('click', (event) => {
                 event.stopPropagation();
 
+                scope.$emit('modalOpened');
+
                 //show modal body
                 modalBody.removeClass('is-close')
                     .addClass('is-open');

@@ -47,9 +47,12 @@ Account.find({}).remove()
                                 }, {
                                     day: 'Friday',
                                     subjects: ['Physics', 'Biology', 'Biology', 'Physics']
-                                }]
+                                }],
+                                moderators: []
                             }).then(function (_class) {
                                 User.find({}).remove().then(function () {
+
+
                                     User.create({
                                         class: _class._doc._id,
                                         firstName: 'Mateusz',
@@ -70,9 +73,80 @@ Account.find({}).remove()
                                                 gradeType: 'Exam'
                                             },
                                         ]
-                                    }).then((_usr) => {
-                                        _class.moderators = [_usr._id];
-                                        _class.save();
+                                    }).then((_usr1) => {
+                                        Account.register(new Account({
+                                            email: 'chmieltrybulec@gmail.com'
+                                        }), 'korkosz91', function (err, acc3) {
+                                            if (err) {
+                                                throw new Error('seed error');
+                                            }
+
+                                            User.create({
+                                                class: _class._doc._id,
+                                                firstName: 'Maciej',
+                                                lastName: 'Chmiel',
+                                                account: acc3._doc._id,
+                                                grades: [
+                                                    {
+                                                        subject: 'Math',
+                                                        value: 4,
+                                                        gradeType: 'Big test'
+                                                    }, {
+                                                        subject: 'Math',
+                                                        value: 2,
+                                                        gradeType: 'Test'
+                                                    }, {
+                                                        subject: 'Biology',
+                                                        value: 2,
+                                                        gradeType: 'Exam'
+                                                    },
+                                                ]
+                                            }).then((_usr2) => {
+
+                                                Account.register(new Account({
+                                                    email: 'matrybulec@gmail.com'
+                                                }), 'korkosz91', function (err, acc2) {
+                                                    if (err) {
+                                                        throw new Error('seed error');
+                                                    }
+
+                                                    User.create({
+                                                        class: _class._doc._id,
+                                                        firstName: 'Marcin',
+                                                        lastName: 'Trybulec',
+                                                        account: acc2._doc._id,
+                                                        grades: [
+                                                            {
+                                                                subject: 'Math',
+                                                                value: 4,
+                                                                gradeType: 'Big test'
+                                                            }, {
+                                                                subject: 'Math',
+                                                                value: 2,
+                                                                gradeType: 'Test'
+                                                            }, {
+                                                                subject: 'Biology',
+                                                                value: 2,
+                                                                gradeType: 'Exam'
+                                                            },
+                                                        ]
+                                                    }).then((_usr) => {
+                                                        _class.moderators.push(_usr1._id, _usr._id, _usr2._id);
+                                                        _class.students = [{
+                                                            _id: _usr._id,
+                                                            name: _usr.firstName + ' ' + _usr.lastName
+                                                        }, {
+                                                            _id: _usr1._id,
+                                                            name: _usr1.firstName + ' ' + _usr1.lastName
+                                                        }, {
+                                                            _id: _usr2._id,
+                                                            name: _usr2.firstName + ' ' + _usr2.lastName
+                                                        }];
+                                                        _class.save();
+                                                    }); 
+                                                });
+                                            });
+                                        });
                                     });
                                 });
 
