@@ -3,15 +3,22 @@ var app = angular.module('ct.dropdown', []);
 app.directive('dropdown', function () {
     return {
         restrict: 'A',
-        link(scope, el) {
+        link(scope, el, attrs) {            
             var btn = el.find('.l-dropdown__btn');
 
-            btn.click(function (event) {
+            if (scope.$eval(attrs.dropDownDisabled)) {
+                btn.removeClass('l-dropdown__btn');
+                return;
+            }
+
+            btn.click(clickHandler);
+
+            function clickHandler(event) {
                 var btnClick = $(this);
                 var wrapper = btnClick.parent('.l-dropdown-wrapper');
                 var menu = btnClick.siblings('.l-dropdown__menu');
 
-                // open dropdown
+                // open dropdown 
                 event.stopPropagation(); // trigger only btn
 
                 wrapper.siblings()
@@ -28,7 +35,7 @@ app.directive('dropdown', function () {
                         wrapper.removeClass('is-open').addClass('is-close');
                     }
                 });
-            });
+            }
         }
     };
 });

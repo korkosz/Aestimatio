@@ -14,15 +14,16 @@
                 <!-- Single Subject -->
                 <li ng-repeat="subject in day.subjects track by $index" dropdown
                     ng-init="subjIdx = $index" data-subject-index="{{$index}}"
-                    data-day-index="{{dayIdx}}"
+                    data-day-index="{{dayIdx}}" dd-read-only="$ctrl.readOnly"
                     class="l-dropdown-wrapper is-close" drag-drop
-                    drop-handler="$ctrl.dropHandler(e)">
+                    drop-handler="$ctrl.dropHandler(e)" drop-down-disabled="$ctrl.readOnly">
                     <span class="m-timetable__subject l-pill__default l-pill--block l-dropdown__btn">
                         {{subject}}
-                        <button ng-click="$ctrl.removeSubject($event, dayIdx, subjIdx)"
+                        <button ng-if="!$ctrl.readOnly"
+                                ng-click="$ctrl.removeSubject($event, dayIdx, subjIdx)"
                                 class="l-btn__close">
                                 <img src="static/assets/images/icon-close.svg" />
-                        </button>
+                        </button> 
                     </span>
                     <ul class="l-dropdown__menu">
                         <li ng-repeat="sub in $ctrl.userClass.subjects track by $index"
@@ -33,7 +34,8 @@
                     </ul>
                 </li>
             </ol>
-            <add-subject-modal user-class="$ctrl.userClass"
+            <add-subject-modal ng-if="!$ctrl.readOnly"
+                               user-class="$ctrl.userClass"
                                day-index="dayIdx">
             </add-subject-modal>
         </div>
