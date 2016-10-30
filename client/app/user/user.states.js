@@ -19,4 +19,10 @@ module.exports = function ($stateProvider) {
         component: 'userGrades',
         url: '/grades'
     });
+
+    $stateProvider.state({
+        name: 'auth.authClass.user.profile',
+        component: 'profile',
+        url: '/profile' 
+    });
 };
