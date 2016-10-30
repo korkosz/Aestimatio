@@ -18,12 +18,12 @@
                     ?
                     <div class="l-tooltip__box">
                         <p class="l-tooltip__box-text">
-                            It can be something like exam or test
+                            It can be something like "exam" or "test"
                         </p>
                     </div>
                 </span>
                 <input ng-model="type.name"
-                        class="l-inputs__text-type  error"
+                        class="l-inputs__text-type"
                         placeholder="Grade type...">
             </div>
             <div class="l-inputs__text-type-wrapper">
@@ -31,33 +31,21 @@
                     ?
                     <div class="l-tooltip__box">
                         <p class="l-tooltip__box-text">
-                            It's a factor used in weighted average calculations. Default value is 1
+                            It's a factor used in weighted average calculations. 
+                            Must be a number between 1 and 6
                         </p>
                     </div>
                 </span>
-                <input ng-model="type.rate" type="number"
-                        class="l-inputs__text-type success"
+                <input ng-model="type.rate" type="text"
+                        class="l-inputs__text-type" grade-validator
                         placeholder="Grade rate...">
             </div>
 
         </form novalidate>
-        <p class="m-modals__info-desc">
-            *default value of grade rate is 1
-        </p>
         <div class="l-btn__wrapper">
             <button ng-click="$ctrl.addGradeType(type);"
                     ng-disabled="!type.name || !type.rate"
                     class="l-btn__default l-btn__primary">Add</button>
-        </div>
-        <!-- To bedzie takie pudelko na powiadomienia dla usera.
-        Moze byc ich nawet 10 i nic sie nie rozejdzie jak pizda tirowki -->
-        <div class="l-inputs__global-error-box">
-            <p class="l-inputs__global-error">
-                *It must be a text
-            </p>
-            <p class="l-inputs__global-error">
-                *It must be a text
-            </p>
         </div>
     </div>
 </div>

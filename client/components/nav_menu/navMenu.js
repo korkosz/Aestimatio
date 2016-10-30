@@ -5,7 +5,8 @@ module.exports = angular.module('navigation', [])
             scope: {
                 userName: '@',
                 logout: '&',
-                admin: '<'
+                admin: '<',
+                show: '<'
             },
             link() {
                 var windowWidth = window.innerWidth;

@@ -15,8 +15,8 @@ angular
         require('../../components/nav_menu/navMenu').name,
         require('../../components/gradeValidator/gradeValidator').name,
         require('../../components/horizontal_calendar/horizontalCalendar').name,
-        require('./auth').name, 
-        require('./user').name, 
+        require('./auth').name,  
+        require('./user').name,  
         require('./class').name, 
         require('./home').name  
     ])

@@ -1,5 +1,5 @@
 <section class="l-menu__navbar">
-    <button class="l-menu__hamburger">
+    <button ng-show="show" class="l-menu__hamburger">
         <span class="l-menu__hamburger-icon"></span>
         <span class="l-menu__hamburger-icon"></span>
         <span class="l-menu__hamburger-icon"></span>
@@ -10,7 +10,7 @@
     </a>
 </section>
 
-<nav class="l-primary-nav">
+<nav ng-show="show" class="l-primary-nav">
     <h3 class="l-primary-nav__item">
         <a ui-sref="auth.authClass.home">Home</a>
     </h3>

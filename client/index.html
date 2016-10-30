@@ -13,7 +13,7 @@
     <div ng-controller="globalCtrl as globalCtrl">
 
         <!--Navigation Menu-->
-        <nav-menu ng-show="globalCtrl.user && globalCtrl.hasClass()"
+        <nav-menu show="globalCtrl.user && globalCtrl.hasClass()"
                   logout="globalCtrl.logout()" admin="globalCtrl.user.moderator"
                   user-name="{{globalCtrl.user.email}}">
         </nav-menu>

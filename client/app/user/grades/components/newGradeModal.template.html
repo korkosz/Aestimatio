@@ -37,6 +37,14 @@
             </div>
             
             <div class="l-inputs__text-type-wrapper">
+                <span class="l-tooltip__icon">
+                    ?
+                    <div class="l-tooltip__box">
+                        <p class="l-tooltip__box-text">
+                            It must be number between 1 and 6
+                        </p>
+                    </div>
+                </span>
                 <input ng-model="modalVm.grade.grade" type="text"
                         class="l-inputs__text-type"
                         placeholder="Grade..." grade-validator>

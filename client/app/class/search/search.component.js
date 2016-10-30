@@ -102,7 +102,8 @@ function controller($filter, $http, $state, userService, classService, auth) {
         vm.schools = [];
 
         if (!valid) {
-            document.body.click(); //close dropdown                                                
+            document.body.click(); //close dropdown    
+            vm.schools = schools;
             return;
         }
 

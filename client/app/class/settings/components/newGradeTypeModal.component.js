@@ -9,7 +9,7 @@ var component = {
 function controller($scope, $timeout) {
     var vm = this;
 
-    vm.$onInit = function () {
+    vm.$onInit = function () { 
         $scope.$on('modalClosed', () => {
             $timeout(() => {
                 $scope.type = null;

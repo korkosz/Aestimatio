@@ -15,9 +15,9 @@ module.exports = angular.module('ct.gradeValidator', [])
                     var isValid = viewValue > 0 && viewValue < 7;
 
                     if (!isValid) {
-                        ctrl.$setViewValue(3);
+                        ctrl.$setViewValue(undefined);
                         ctrl.$render();
-                        return 3;
+                        return undefined;
                     }
 
                     return viewValue;
