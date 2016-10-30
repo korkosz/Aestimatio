@@ -6,8 +6,9 @@
 
     <div class="l-inputs__text-type-wrapper">
         <input ng-model="$ctrl.email"
-               type="text" id="inputEmail"
-               name="email"
+               ng-change="$ctrl.handleChange()"
+               type="email" id="inputEmail"
+               name="email" 
                placeholder="Email"
                autocomplete="off"
                class="l-inputs__text-type" required autofocus>
@@ -15,6 +16,7 @@
 
     <div class="l-inputs__text-type-wrapper">
         <input ng-model="$ctrl.password"
+               ng-change="$ctrl.handleChange()"
                type="password"
                id="inputPassword"
                name="password"
@@ -43,7 +45,7 @@
         </button>
     </div>
 
-    <div ng-show="$ctrl.invalidCredentials"
+    <div ng-show="$ctrl.invalidCredentials()"
          class="l-inputs__global-error-box">
         <p class="l-inputs__global-error">
             * Invalid Email or Password

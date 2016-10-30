@@ -1,5 +1,6 @@
-
-<form class="l-intro-box" action="/auth/register" method="POST">
+<form ng-submit="$ctrl.register(registerForm.$invalid)" 
+      name="registerForm" novalidate 
+      class="l-intro-box">
     <h2 class="l-intro-box__header">
         Sign up
     </h2>
@@ -9,58 +10,6 @@
                name="email"
                placeholder="Email"
                class="l-inputs__text-type" required autofocus>
-    </div>
-    <br><br>
-    <div class="l-inputs__text-type-wrapper">
-        <input type="text" id="inputFirstName"
-               name="firstName"
-               placeholder="First Name"
-               class="l-inputs__text-type" required>
-    </div>
-    <div class="l-inputs__text-type-wrapper">
-        <input type="text" id="inputLastName"
-               name="lastName"
-               placeholder="Last Name"
-               class="l-inputs__text-type" required>
-    </div>
-    <br><br>
-    <div class="l-inputs__text-type-wrapper">
-        <input type="password"
-               id="inputPassword"
-               name="password"
-               placeholder="Password"
-               class="l-inputs__text-type" required>
-    </div>
-    <div class="l-inputs__text-type-wrapper">
-        <input type="password"
-               id="inputPassword2"
-               name="password2"
-               placeholder="Repeat password"
-               class="l-inputs__text-type" required>
-    </div>
-
-    <div class="l-btn__wrapper">
-        <button type="submit"
-                class="l-btn__primary l-btn__default l-btn__default--full-width">
-                Sign up
-        </button>
-    </div>
-</form>
-
-<!-- ***************************
-    ROBOCZY
-******************************-->
-<br><br>
-<form class="l-intro-box" action="/auth/register" method="POST">
-    <h2 class="l-intro-box__header">
-        Sign up
-    </h2>
-
-    <div class="l-inputs__text-type-wrapper">
-        <input type="email" id="inputEmail"
-               name="email"
-               placeholder="Email"
-               class="l-inputs__text-type error" required autofocus><!-- Dochodzi klasa error  -->
     </div>
     <br><br>
     <div class="l-inputs__text-type-wrapper">

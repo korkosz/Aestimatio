@@ -3,8 +3,8 @@ module.exports = {
     controller() {
         var vm = this;
 
-        vm.register = function() {
-            
+        vm.register = function (invalid) {
+            if (invalid) return;
         };
     }
 };

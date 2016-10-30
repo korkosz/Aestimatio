@@ -13,14 +13,15 @@ angular
         require('../../components/calendar/calendar').name,
         require('../../components/drag_drop/dragDrop').name,
         require('../../components/nav_menu/navMenu').name,
+        require('../../components/gradeValidator/gradeValidator').name,
         require('../../components/horizontal_calendar/horizontalCalendar').name,
         require('./auth').name, 
-        require('./user').name,
+        require('./user').name, 
         require('./class').name, 
-        require('./home').name 
+        require('./home').name  
     ])
     .config(require('./app.states'))
-    .run(['$q', '$state', 'auth', '$transitions',
+    .run(['$q', '$state', 'auth', '$transitions', 
         ($q, $state, auth, $transitions) => {
             $transitions.onError({}, (trans) => {
                 $state.defaultErrorHandler = function () {
