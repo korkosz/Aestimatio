@@ -8,6 +8,10 @@
         z-index: 999;
     }
 
+    &.is-open{
+        z-index: 3;
+    }
+
     &.is-open::after{
         content: "";
         width: 100%;

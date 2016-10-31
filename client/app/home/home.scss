@@ -221,7 +221,7 @@ horizontal-calendar{
 .m-timetable-home__subject-name{
     display: inline-block;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     background: $main-color--darker;
     padding: 0.4em 1.5em 0.4em 2em;
     border-radius: 3rem;
@@ -336,7 +336,8 @@ horizontal-calendar{
     }
 
     &--weekend{
-        background: $main-color;
+        color: $main-color--darker2;
+        background: $success-color;
     }
 
     &--active{

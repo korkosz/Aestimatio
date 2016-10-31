@@ -7,7 +7,7 @@
 }
 
 .l-menu__hamburger{
-    width: 50px;
+    width: 45px;
     position: fixed;
     right: 3rem;
     top: 16px;
@@ -22,10 +22,10 @@
 
         .l-menu__hamburger-icon{
         &:first-child{
-            transform: translate(25%, 0.5rem) rotate(33deg) scaleX(0.5);
+            transform: translate(25%, 0.46rem) rotate(33deg) scaleX(0.5);
         }
         &:last-child{
-            transform: translate(25%, -0.5rem) rotate(-33deg) scaleX(0.5);
+            transform: translate(25%, -0.44rem) rotate(-33deg) scaleX(0.5);
         }
         }
 
@@ -33,7 +33,7 @@
 }
 
 .l-menu__hamburger-icon {
-    height: 6px;
+    height: 5px;
     width: 100%;
     background: white;
     display: block;
