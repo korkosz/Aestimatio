@@ -7,37 +7,37 @@
 
     <div class="l-inputs__text-type-wrapper">
         <input type="email" id="inputEmail"
-               name="email"
+               name="email" ng-model="email"
                placeholder="Email"
                class="l-inputs__text-type" required autofocus>
     </div>
     <br><br>
     <div class="l-inputs__text-type-wrapper">
         <input type="text" id="inputFirstName"
-               name="firstName"
+               name="firstName" ng-model="firstName"
                placeholder="First Name"
                class="l-inputs__text-type" required>
     </div>
     <div class="l-inputs__text-type-wrapper">
         <input type="text" id="inputLastName"
-               name="lastName"
+               name="lastName" ng-model="lastName"
                placeholder="Last Name"
                class="l-inputs__text-type" required>
     </div>
     <br><br>
     <div class="l-inputs__text-type-wrapper">
-        <input type="password"
-               id="inputPassword"
+        <input type="password" ng-model="password"
+               id="inputPassword" ng-minlength="5"
                name="password"
                placeholder="Password"
                class="l-inputs__text-type" required>
     </div>
     <div class="l-inputs__text-type-wrapper">
-        <input type="password"
-               id="inputPassword2"
+        <input type="password" ng-model="password2"
+               id="inputPassword2" ng-pattern="password"
                name="password2"
                placeholder="Repeat password"
-               class="l-inputs__text-type error" required><!-- Dochodzi klasa error  -->
+               class="l-inputs__text-type" required>
     </div>
 
     <div class="l-btn__wrapper">
@@ -47,15 +47,27 @@
         </button>
     </div>
 
-    <div class="l-inputs__global-error-box"><!-- Dochodzi box na powiadomienia  -->
-        <p class="l-inputs__global-error">
-            * Invalid Email ( example: user@aestimatio.com )
-        </p>
-        <p class="l-inputs__global-error">
-            * Repeat you password again carefully
-        </p>
-        <p class="l-inputs__global-error">
-            * The minimum number of characters is 5
-        </p>
-    </div>
+    <!--Error Box-->
+    <ng-messages ng-show="registerForm.$submitted" for="registerForm.$error" multiple role="alert">
+        <ng-message when="email">* Invalid Email ( example: user@aestimatio.com )</ng-message>
+        <ng-message when="required">* Not all required fields are filled</ng-message>
+        <ng-message when="pattern">* Password doesn't match</ng-message>
+        <ng-message when="minlength">* Password should have at least 5 characters</ng-message>
+    </ng-messages>
 </form>
+
+<style>
+    ng-messages { /*.l-inputs__global-error-box*/
+        padding-top: 0.5rem;
+        text-align: center;
+        margin: 0.3rem 0;
+    }
+
+    ng-message { /*.l-inputs__global-error*/
+        display: block;
+        color: red;
+        margin: 0.7em 0;
+        font-size: 0.86rem;
+        font-weight: bold;
+    }
+</style>

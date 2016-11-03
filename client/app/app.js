@@ -7,6 +7,7 @@ angular
         require('angular-route'),
         require('angular-resource'),
         require('angular-ui-router').default,
+        require('angular-messages'),
         require('../../components/dropdown/dropdown').name,
         require('../../components/modal/modal').name,
         require('../../components/pill/pill').name,
