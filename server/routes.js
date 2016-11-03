@@ -6,15 +6,13 @@ var city = require('./api/city/city.routes.js');
 var school = require('./api/school/school.routes.js');
 
 module.exports = function (app) {
-    // app.get('/static', function (req, res) {
-    //     res.sendFile(path.resolve('client/index.html'));
-    // });
-
     app.use('/auth', auth);
     app.use('/api/user', user);
     app.use('/api/class', _class);
     app.use('/api/city', city);
     app.use('/api/school', school);
+
+    // All other routes should redirect to the index.html
     app.get('/*', (req, res) => {
         res.sendFile(path.resolve('client/index.html'));
     });

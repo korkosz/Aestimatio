@@ -1,4 +1,4 @@
-module.exports = function ($stateProvider) {
+module.exports = function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'auth',
         template: '<ui-view />',
@@ -48,4 +48,6 @@ module.exports = function ($stateProvider) {
             }
         }
     });
+
+    $urlRouterProvider.otherwise('/home');
 };   
