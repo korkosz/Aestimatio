@@ -52,11 +52,10 @@
                 class="m-timetable-home__schedule">
                 <li ng-repeat="subject in $ctrl.nextDayTT.subjects track by $index"
                     class="m-timetable-home__subject">
-                    <span class="m-timetable-home__subject-name">
+                    <span ng-class="{'m-timetable-home__subject-name--event': 
+                                      $ctrl.anyExamsForSubject($ctrl.nextDay, subject)}"
+                          class="m-timetable-home__subject-name">
                         {{subject}}
-                        <span ng-if="$ctrl.anyExamsForSubject($ctrl.nextDay, subject)"
-                                class="m-timetable-home__subject-name--event">
-                        </span>
                     </span>
                 </li>
             </ol>
