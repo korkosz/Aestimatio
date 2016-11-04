@@ -6,57 +6,54 @@ var router = express.Router();
 var Class = require('./class.model');
 
 router.get('/', function (req, res, next) {
-    var query = req.query.school ? { school: req.query.school } : {};
-
-    return Class.find(query).exec()
+    return Class.find(req.query.school || {})
         .then(function (entities) {
             res.json(entities);
         })
         .catch(function (err) {
-            next(err.message);
+            next(err);
         });
 });
 
 router.get('/:id', function (req, res, next) {
-    return Class.findById(req.params.id).exec()
+    return Class.findById(req.params.id)
         .then(function (entity) {
             res.json(entity);
         })
         .catch(function (err) {
-            next(err.message);
+            next(err);
         });
 });
+
 /**
  * Te metode zamienic na patch 
  */
 router.post('/:id', function (req, res, next) {
-    Class.findByIdAndUpdate(req.params.id, req.body,
-        function (err) {
-            if (err) {
-                return next(err);
-            }
+    Class.findByIdAndUpdate(req.params.id, req.body)
+        .then(function () {
             return res.status(200).end();
+        })
+        .catch(function (err) {
+            next(err);
         });
 });
-router.patch('/:id', function (req, res) {
-    Class.findById(req.params.id, function (err, _class) {
-        var patches = req.body;
-        jsonpatch.apply(_class, patches);
-        _class.save();
-        res.end();
-    }).catch(function (err) {
-        return res.status(500).send(err);
-    });
+
+router.patch('/:id', function (req, res, next) {
+    Class.findById(req.params.id)
+        .then(function (_class) {
+            var patches = req.body;
+            jsonpatch.apply(_class, patches);
+            _class.save();
+            res.end();
+        })
+        .catch(function (err) {
+            next(err);
+        });
 });
+
+router.use(function (err, req, res, next) {//eslint-disable-line
+    console.error(err.message || err); //eslint-disable-line
+    res.status(500).send(err.message || err);
+});
+
 module.exports = router;
-
-// function serializeModerators(req, res, next) {
-//     var _class = req.body;
-
-//     if (_class && _class.moderators) {
-//         _class.moderators = _class.moderators.map((mod) => {
-//             return mod._id;
-//         });
-//     }
-//     return next();
-// }

@@ -1,6 +1,8 @@
 var express = require('express');
 var mongoose = require('mongoose');
 
+mongoose.Promise = global.Promise;
+
 // Connection URL
 var url = 'mongodb://localhost:27017/test';
 mongoose.connect(url);
