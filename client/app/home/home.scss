@@ -67,7 +67,7 @@
 
 // TIMETABLE ********************************
 .m-timetable-home{
-    background: rgba(12, 4, 55, 0.69);
+    background: rgba(12, 4, 55, 0.79);
     border-radius: 1rem;
     min-height: 400px;
     height: 100%;
@@ -242,15 +242,8 @@ horizontal-calendar{
 }
 
 .m-timetable-home__subject-name--event{
-    content: "";
-    width: 0.6rem;
-    height: 0.6rem;
     background: $warning-color;
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translate(0.5rem, -50%);
-    border-radius: 50%;
+    color: #100937;
 }
 
 .m-timetable-home__schedule-wrapper{
