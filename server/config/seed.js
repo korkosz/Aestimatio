@@ -1,6 +1,6 @@
-var Account = require('../auth/account/account.model');
+var Account = require('../auth/model');
 var Class = require('../api/class/class.model');
-var School = require('../api/school/school.model');
+var School = require('../api/school/school.model'); 
 var User = require('../api/user/user.model');
 
 Account.find({}).remove()
