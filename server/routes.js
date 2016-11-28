@@ -1,12 +1,14 @@
 var path = require('path');
-var auth = require('./auth').router;
+
+var auth = require('./auth');
 var user = require('./api/user');
 var _class = require('./api/class/class.routes.js');
 var city = require('./api/city/city.routes.js');
 var school = require('./api/school/school.routes.js');
 
 module.exports = function (app) {
-    app.use('/auth', auth);
+    app.use('/auth', auth.router);
+    app.use('/api', auth.isLoggedIn);
     app.use('/api/user', user);
     app.use('/api/class', _class);
     app.use('/api/city', city);

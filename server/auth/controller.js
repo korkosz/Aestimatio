@@ -67,4 +67,4 @@ module.exports = {
     logout,
     getUser,
     register
-}
+};
