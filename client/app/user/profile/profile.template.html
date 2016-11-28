@@ -1,1 +1,33 @@
-<a ui-sref="auth.search" style="color: white;font-size: 20px;">Change Class</a>
+<div style="width: 30%;margin: auto;"
+    class="m-modals__mask">   
+    <div class="l-inputs__text-type-wrapper">
+        email
+        <input ng-model="$ctrl.userMail"
+               type="email" id="inputEmail"
+               name="email" readonly
+               class="l-inputs__text-type">
+    </div>
+
+    <div class="l-inputs__text-type-wrapper">
+        password
+        <input ng-model="$ctrl.password"
+               type="password" readonly
+               id="inputPassword"
+               name="password"
+               class="l-inputs__text-type">
+    </div>
+    <new-password-modal></new-password-modal>
+    <div class="l-inputs__text-type-wrapper">
+        class
+        <input ng-model="$ctrl.userClass"
+               type="text" readonly
+               id="inputClass"
+               name="class"
+               class="l-inputs__text-type">
+    </div>
+    <div class="l-btn__wrapper">
+        <button ui-sref="auth.search" 
+                class="l-btn__default
+                        l-btn__primary">Change</button>
+    </div>
+</div>

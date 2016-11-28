@@ -4,6 +4,7 @@ module.exports = angular.module('aestimatio.user', [])
     .component('profile', require('./profile/profile.component'))
     .component('userGrades', require('./grades/grades.component'))
     .component('newGradeModal', require('./grades/components/newGradeModal.component'))
+    .component('newPasswordModal', require('./profile/components/newPasswordModal.component'))
     .component('userAverageGrade', require('./average_grade/average_grade.component'))
     .config(require('./user.states'));
 
