@@ -62,9 +62,22 @@ var getUser = function (req, res) {
         res.json(null);
 };
 
+var changePassword = function (req, res, next) {
+    req.user.setPassword(req.body.password, (err, user) => {
+        if (err) return next(err);
+
+        user.save(function(err) {
+            if (err) return next(err);
+
+            res.status(200).send();
+        });        
+    });
+};
+
 module.exports = {
     login,
     logout,
     getUser,
-    register
+    register,
+    changePassword
 };

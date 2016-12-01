@@ -30,18 +30,21 @@ module.exports = ['$http', '$q', function ($http, $q) {
         },
         getUser() {
             return user;
-        }, 
+        },
         isLoggedIn() {
             return !!user;
         },
         hasClassAssigned() {
-            if(user && user.class) return true;
+            if (user && user.class) return true;
             else return false;
         },
         logout() {
             return $http.get('/auth/logout').then(() => {
                 user = null;
             });
+        },
+        changePassword(password) {
+            return $http.patch('/auth/changepassword', { password });
         }
     };
 }];

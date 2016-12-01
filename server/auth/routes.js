@@ -7,7 +7,7 @@ module.exports = function (router) {
     router.post('/login', passport.authenticate('local'), ctrl.login);
     router.post('/register', ctrl.register);
     router.get('/logout', ctrl.logout);
-    router.get('/user/', api.isLoggedIn, ctrl.getUser);
-
+    router.get('/user', api.isLoggedIn, ctrl.getUser);
+    router.patch('/changepassword', api.isLoggedIn, ctrl.changePassword);
     return router;
 };

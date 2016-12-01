@@ -5,7 +5,7 @@ var component = {
     controller
 };
 
-function controller($scope, $timeout) {
+function controller($scope, $timeout, auth) {
     var vm = this;
 
     vm.$onInit = function () {
@@ -17,13 +17,14 @@ function controller($scope, $timeout) {
         });
     };
 
-    vm.addGrade = function () {
+    vm.changePassword = function (newPass) {
+        auth.changePassword(newPass);
+
         //hide modal
         document.body.click();
     };
 
     function clearModalData() {
-        vm.password = '';
         vm.newPassword = '';
         vm.newPassword2 = '';
     }
