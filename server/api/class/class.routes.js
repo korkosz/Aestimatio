@@ -38,6 +38,17 @@ router.post('/:id', function (req, res, next) {
         });
 });
 
+router.post('/', function (req, res, next) {
+    Class.create(req.body).then(function (result) {
+        res.status(201).send({
+            id: result._id,
+            name: result.name
+        });
+    }).catch(function (err) {
+        return next(err);
+    });
+});
+
 router.patch('/:id', function (req, res, next) {
     Class.findById(req.params.id)
         .then(function (_class) {

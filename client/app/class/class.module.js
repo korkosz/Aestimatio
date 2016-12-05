@@ -2,6 +2,7 @@ module.exports = angular
     .module('aestimatio.class', [])
     .factory('classService', require('./class.service.js'))
     .component('classSearch', require('./search/search.component.js'))    
+    .component('newSchoolClassModal', require('./search/components/newSchoolClassModal.component.js'))    
     .component('classSettings', require('./settings/settings.component.js'))
     .component('newSubjectModal', require('./settings/components/newSubjectModal.component.js'))
     .component('newModeratorModal', require('./settings/components/newModeratorModal.component.js'))

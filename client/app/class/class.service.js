@@ -3,7 +3,7 @@ var jsonpatch = require('fast-json-patch');
 module.exports = ['$resource', 'auth', function ($resource, auth) {
     var factory = {
         UserClass: null,
-
+        getNewClassInstance,
         getGradeRatio,
         loadClass
     };
@@ -62,5 +62,10 @@ module.exports = ['$resource', 'auth', function ($resource, auth) {
         return ClassRes.get({ classId }, (data) => {
             factory.UserClass = data;
         }).$promise;
+    }
+
+    function getNewClassInstance(_class) {
+        var _class = new ClassRes(_class);
+        return _class.$save();
     }
 }];

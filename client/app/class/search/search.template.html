@@ -1,6 +1,6 @@
-<div class="l-intro-box">
+<div class="l-intro-box m-modals__mask">
     <section class="m-search">
-        <form name="searchForm">
+        <form name="searchForm" novalidate>
             <h3 class="l-intro-box__header">
                 Pick Class
             </h3>
@@ -19,17 +19,17 @@
                             class="l-inputs__text-type"/>
                 <button ng-disabled="$ctrl.countries.length === 0"
                         type="button" id="countryBtn"
-                        class=" l-dropdown__btn"></button>
+                        class="l-dropdown__btn"></button>
                 <ul ng-hide="$ctrl.countries.length === 0"
                     class="l-dropdown__menu">
                     <li ng-repeat="country in $ctrl.countries track by $index"
                         ng-click="$ctrl.pickCountry(country)"
                         class="l-dropdown__menu-item">
                         {{country}}
-                    </li>
+                    </li>                    
                 </ul>
             </div>
-            <!-- COUNTRY END  -->
+            <!-- COUNTRY END -->
 
             <!-- CITY -->
             <div class="l-dropdown__input-wrapper
@@ -45,7 +45,7 @@
                             class="l-inputs__text-type"/>
                 <button ng-disabled="$ctrl.cities.length === 0"
                         type="button" id="cityBtn"
-                        class=" l-dropdown__btn"></button>
+                        class="l-dropdown__btn"></button>
                 <ul class="l-dropdown__menu">
                     <li ng-repeat="city in $ctrl.cities track by $index"
                         ng-click="$ctrl.pickCity(city)"
@@ -70,13 +70,15 @@
                             class="l-inputs__text-type"/>
                 <button ng-disabled="$ctrl.schools.length === 0"
                         type="button" id="schoolBtn"
-                        class=" l-dropdown__btn"></button>
-                <ul class="l-dropdown__menu">
+                        class="l-dropdown__btn"></button>
+                <ul class="l-dropdown__menu m-modals__mask">
                     <li ng-repeat="school in $ctrl.schools track by $index"
                         ng-click="$ctrl.pickSchool(school)"
                         class="l-dropdown__menu-item">
                         {{school.name}}
                     </li>
+                    <new-school-class-modal entity="School"
+                            add-entity="$ctrl.addSchool(name)"></new-school-class-modal>
                 </ul>
             </div>
             <!-- SCHOOL END  -->
@@ -90,12 +92,14 @@
                         {{$ctrl.class.name ? $ctrl.class.name : 'Your class...'}}
                 </div>
 
-                <ul class="l-dropdown__menu">
+                <ul class="l-dropdown__menu m-modals__mask">
                     <li ng-repeat="class in $ctrl.classes track by $index"
-                        ng-click="$ctrl.pickClass(class)"
+                        ng-click="$ctrl.pickClass(class)" 
                         class="l-dropdown__menu-item">
                         {{class.name}}
                     </li>
+                    <new-school-class-modal entity="Class"
+                            add-entity="$ctrl.addClass(name)"></new-school-class-modal>                   
                 </ul>
             </div>
             <!-- CLASS END  -->

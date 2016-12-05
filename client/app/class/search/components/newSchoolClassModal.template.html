@@ -1,0 +1,21 @@
+<div class="l-btn__wrapper" modal>
+    <div class="l-btn__add" style="margin: auto; line-height: 1em;">
+        <button ng-click="$ctrl.saveClass()" type="button"
+                class="l-btn__default
+                        l-btn__primary">Add new {{modalVm.entity.toLowerCase()}}</button>
+    </div>
+
+    <div class="m-modals__add-modal">
+        <h5>Add new {{modalVm.entity.toLowerCase()}}</h5>
+
+        <div class="l-inputs__text-type-wrapper">
+            <input ng-model="modalVm.name" type="text"
+                    class="l-inputs__text-type"
+                    placeholder="{{modalVm.entity}} name...">
+        </div>
+
+        <button ng-disabled="!modalVm.name" 
+                ng-click="modalVm.add(modalVm.name)"
+                type="button" class="l-btn__default l-btn__primary">Add</button>
+    </div>
+</div>

@@ -30,7 +30,32 @@ var ClassSchema = new mongoose.Schema({
     students: [userSchema],
     moderators: [String],
     subjects: [String],
-    timetable: [day],
+    timetable: {
+        type: [day],
+        default() {
+            return [
+                {
+                    day: 'Monday',
+                    subjects: []
+                },
+                {
+                    day: 'Tuesday',
+                    subjects: []
+                },
+                {
+                    day: 'Wednesday',
+                    subjects: []
+                },
+                {
+                    day: 'Thursday',
+                    subjects: []
+                },
+                {
+                    day: 'Friday',
+                    subjects: []
+                }];
+        }
+    },
     gradeTypes: [gradeTypeSchema],
     tests: [testSchema]
 });

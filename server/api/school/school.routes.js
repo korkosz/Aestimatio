@@ -18,4 +18,15 @@ router.get('/:city', function (req, res) {
     });
 });
 
+router.post('/', function (req, res, next) {
+    School.create({
+        city: req.body.city,
+        name: req.body.name
+    }).then(function () {
+        res.status(200).send('School created');
+    }).catch(function (err) {
+        return next(err);
+    });
+});
+
 module.exports = router;

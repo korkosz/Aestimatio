@@ -6,7 +6,7 @@ function controller($filter, $http, $state, userService, classService, auth) {
     var vm = this;
     var schools = [];
 
-    vm.$onInit = function () {
+    vm.$onInit = function() {
         vm.countries = [];
         vm.cities = [];
         vm.schools = [];
@@ -24,7 +24,7 @@ function controller($filter, $http, $state, userService, classService, auth) {
         vm.schoolValid = false;
     };
 
-    vm.handleCountrySearch = function (valid) {
+    vm.handleCountrySearch = function(valid) {
         vm.countries = [];
         vm.city = '';
 
@@ -46,7 +46,7 @@ function controller($filter, $http, $state, userService, classService, auth) {
         }
     };
 
-    vm.pickCountry = function (country) {
+    vm.pickCountry = function(country) {
         vm.country = country;
         vm.countries = $filter('filter')(countriesNames, vm.country);
         vm.countryValid = true;
@@ -54,7 +54,7 @@ function controller($filter, $http, $state, userService, classService, auth) {
         document.body.click(); //close dropdown
     };
 
-    vm.handleCitySearch = function (valid) {
+    vm.handleCitySearch = function(valid) {
         vm.cities = [];
 
         vm.schools = [];
@@ -86,7 +86,7 @@ function controller($filter, $http, $state, userService, classService, auth) {
 
     };
 
-    vm.pickCity = function (city) {
+    vm.pickCity = function(city) {
         vm.city = city;
         vm.cities = $filter('filter')(vm.cities, vm.city);
         vm.cityValid = true;
@@ -98,7 +98,7 @@ function controller($filter, $http, $state, userService, classService, auth) {
         document.body.click(); //close dropdown
     };
 
-    vm.handleSchoolSearch = function (valid) {
+    vm.handleSchoolSearch = function(valid) {
         vm.schools = [];
 
         if (!valid) {
@@ -120,8 +120,9 @@ function controller($filter, $http, $state, userService, classService, auth) {
         }
     };
 
-    vm.pickSchool = function (school) {
+    vm.pickSchool = function(school) {
         vm.school = school.name;
+        vm.schoolId = school.id;
         vm.schools = $filter('filter')(schools, vm.school);
         vm.schoolValid = true;
 
@@ -137,23 +138,55 @@ function controller($filter, $http, $state, userService, classService, auth) {
         document.body.click(); //close dropdown
     };
 
-    vm.pickClass = function (_class) {
+    vm.pickClass = function(_class) {
         vm.class = _class;
         document.body.click(); //close dropdown
     };
 
-    vm.saveClass = function () {
+    vm.saveClass = function(callback) {
         if (vm.class) {
             $http.patch(`http://localhost:3000/api/user/changeClass/${vm.authUser.userId}/${vm.class.id}`).then(() => {
                 auth.setUser().then(() => {
                     userService.User.reload().then(() => {
                         classService.loadClass(vm.class.id).then(() => {
-                            $state.go('auth.authClass.home');
+                            if (angular.isFunction(callback)) {
+                                callback();
+                            } else {
+                                $state.go('auth.authClass.home');
+                            }
                         });
                     });
                 });
             });
         }
+    };
+
+    vm.addSchool = function(name) {
+        $http.post('http://localhost:3000/api/school', {
+            city: vm.city,
+            name
+        });
+    };
+
+    vm.addClass = function(name) {
+        var user = auth.getUser();
+        classService.getNewClassInstance({
+            name,
+            school: vm.schoolId,
+            students: [{
+                name: `${user.firstName} ${user.lastName}`,
+                _id: user.userId
+            }],
+            moderators: [user.userId]
+        }).then((result) => {
+            vm.class = {
+                id: result.id,
+                name: result.name
+            };
+            vm.saveClass(() => {
+                $state.go('auth.authClass.class.settings', {}, { reload: true });
+            });
+        });
     };
 }
 

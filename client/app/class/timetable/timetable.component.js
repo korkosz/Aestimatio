@@ -65,5 +65,3 @@ function controller() {
 }
 
 module.exports = component;
-
-//dsadad
